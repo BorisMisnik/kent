@@ -16,7 +16,6 @@ $(function(){
 	buttonScroll.on('click',clickScrollButon);
 
 	container.on('mousewheel', function(event, delta, deltaX, deltaY) {
-
 		if(!container.is(':animated')){
 	    	if(deltaY === -1){
 	    		container.animate({'scrollTop' : '+=' + container.height()},1000,'easeInOutExpo',stopScroll);
@@ -26,6 +25,19 @@ $(function(){
 	    	}
 		}
 	});
+
+	$(document).on('keydown',function(e){
+		var up = 38,
+		down = 40;
+		if(!container.is(':animated')){
+			if (e.keyCode == up) {
+	        	container.animate({'scrollTop' : '-=' + container.height()},1000,'easeInOutExpo',stopScroll);
+	   		}
+		    if (e.keyCode == down) {
+		        container.animate({'scrollTop' : '+=' + container.height()},1000,'easeInOutExpo',stopScroll);
+		    }
+		}
+	})
 
 	function sizeSection(){
 		$('article').css('height',container.height());
