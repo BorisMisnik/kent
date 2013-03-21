@@ -1,0 +1,117 @@
+@import 'main.less';
+@bordeColor:#e1e1e1;
+.container-fluid{
+	overflow:hidden;
+	height: 77%;
+}
+.nav-site{
+	position:fixed;
+	top:32px;
+	z-index:2;
+	font-size:12px;
+	font-family:'DINPro-Medium';
+	li{
+		-webkit-box-sizing:border-box;
+		-moz-box-sizing:border-box;
+		box-sizing:border-box;
+		border-bottom:1px solid @bordeColor;
+		&.active{
+			border-right:3px solid #656e75;
+			a{
+				background-color:#656e75;
+			}
+		}
+	}
+	a{
+		display:inline-block;
+		width:42px;
+		height:44px;
+		border-right:1px solid @bordeColor;
+		background-color:#7d888f;
+		color:#fff;
+		text-align:center;
+		text-decoration:none;
+		line-height:44px;
+	}
+	span{
+		display:inline-block;
+		width:166px;
+		height:44px;
+		border-right:1px solid @bordeColor;
+		background-color:#fff;
+		color:#5d6870;
+		text-indent:12px;
+		text-transform:uppercase;
+		line-height:44px;
+	}
+
+}
+.nav-scategory{
+	position:fixed;
+	top:111px;
+	right:0;
+	display:none;
+	z-index:2;
+}
+.nav-scategory li{
+	width:79px;
+	height:44px;
+	background-color:#7d888f;
+	margin-bottom:1px;
+	text-align:center;
+	line-height:44px;
+	color:#fff;
+	position: relative;
+	left: 70px;
+	&.active{
+		left:0;
+	}
+	&:hover{
+		left:0;
+	}
+}
+.slide .span12{
+	height:100%;
+}
+section{
+	width:100%;
+	height:100%;
+}
+section article{
+	width:100%;
+	height:100%;
+	margin:0;
+	display:table;
+	&.copy{
+		display:none;
+	}
+}
+
+section article > div{
+	width:100%;
+	height:100%;
+	vertical-align:middle;
+	display:table-cell;
+}
+section h1{
+	display:block;
+	position:relative;
+
+	text-align:center;
+	font-size:50px;
+}
+.scrollButton{
+	position:fixed;
+	width:28px;
+	height:57px;
+	bottom:350px;
+	right:0;
+	z-index:2;
+}
+.scrollButton a{
+	display:inline-block;
+	width:100%;
+	height:29px;
+	background-color:#7d888f;
+	border-bottom:1px solid #fff;
+}

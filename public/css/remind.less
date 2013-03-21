@@ -1,0 +1,50 @@
+@import "main.less";
+#remind .wrapper-form{
+	width:314px;
+}
+.text{
+	margin:12px 0 27px;
+	color:#7d888f;
+	text-align:center;
+	font-size:14px;
+	line-height:20px;
+	& span{
+		font-family:'DINPro-Regular';
+	}
+}
+.wrapper-form{
+	& > .text{
+		margin-top: 7px;
+		margin-bottom: 21px;
+	}
+	.error{
+		margin-top: 7px;
+		margin-bottom: 21px;	
+	}
+}
+#remind .submit{
+	float:none;
+	margin-top:15px;
+}
+.compleat{
+	.text,
+	.error,
+	.form,
+	input.submit{
+		display:none !important;
+	}
+	.comp{
+		display:block !important;
+		margin:42px 0 52px;
+	}
+	a.submit{
+		display:inline-block;
+	}
+}
+#remind .compleat .submit{
+	margin:0 0 15px;
+}
+.comp,
+a.submit{
+	display:none;
+}
