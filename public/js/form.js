@@ -51,6 +51,7 @@ $(function(){
 			input.attr('checked',true);
 		}
 	});
+	$('label.checkbox a').click(function(){window.location = $(this).attr('href')})
 
 	$('.btn').on('click',function(e){
 		e.preventDefault();
@@ -74,7 +75,7 @@ $(function(){
 				'width' : $(document).width(),
 				'heght' : $(document).height()
 			})
-			$('.webCamera').fadeIn('slow')
+			$('.webCamera').fadeIn('slow');
 		}
 	});
 

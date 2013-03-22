@@ -17,7 +17,7 @@ $(function(){
 
 	container.on('mousewheel', function(event, delta, deltaX, deltaY) {
 		if(!container.is(':animated')){
-	    	if(deltaY === -1){
+	    	if(deltaY === -1 && !$('.now').is('.last')){
 	    		container.animate({'scrollTop' : '+=' + container.height()},1000,'easeInOutExpo',stopScroll);
 	    	}
 	    	else if(delta === 1){
@@ -33,11 +33,12 @@ $(function(){
 			if (e.keyCode == up) {
 	        	container.animate({'scrollTop' : '-=' + container.height()},1000,'easeInOutExpo',stopScroll);
 	   		}
-		    if (e.keyCode == down) {
+		    if (e.keyCode == down && !$('.now').is('.last')) {
 		        container.animate({'scrollTop' : '+=' + container.height()},1000,'easeInOutExpo',stopScroll);
 		    }
 		}
 	})
+
 
 	function sizeSection(){
 		$('article').css('height',container.height());
@@ -79,7 +80,9 @@ $(function(){
 		if($this.is('.prev')){
 			container.stop(true,true).animate({'scrollTop' : '-=' + container.height()},500,'easeInOutExpo',stopScroll);
 		}	
-		else container.stop(true,true).animate({'scrollTop' : '+=' + container.height()},500,'easeInOutExpo',stopScroll);
+		else if(!$('.now').is('.last')){
+			container.stop(true,true).animate({'scrollTop' : '+=' + container.height()},500,'easeInOutExpo',stopScroll);
+		}
 	}
 
 	function stopScroll(){
