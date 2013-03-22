@@ -8,4 +8,4 @@ npm install
 node app.js
 ```
 
-browse `localhost:3000`
+browse `localhost:8080`
