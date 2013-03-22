@@ -131,6 +131,6 @@ $(function(){
 		 ang += angleoffdelta;
 		 if(angleoffdelta <= 0) return;
 		 
-		 setTimeout(function(){animate(angleoffdelta)},50);
+		 setTimeout(function(){animate(angleoffdelta)},60);
 	}
 });

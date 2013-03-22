@@ -64,8 +64,7 @@ $(function(){
 					for (var i = 0; i < cratePath.length; i++) {
 						cratePath[i].animate({
 							'stroke-opacity' : 0
-						},5000,'backOut',function(){
-						})
+						},5000,'backOut')
 					};
 				},5000)
 			}
@@ -129,6 +128,6 @@ $(function(){
 		 ang += angleoffdelta;
 		 if(angleoffdelta <= 0) return;
 		 
-		 setTimeout(function(){animate(angleoffdelta)},50);
+		 setTimeout(function(){animate(angleoffdelta)},60);
 	}
 });
