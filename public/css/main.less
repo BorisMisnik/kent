@@ -20,6 +20,10 @@ a{
 		color:@colorOne;
 	}
 }
+.clear{
+	float:none;
+	clear:both;
+}
 .container-fluid{
 	position:relative;
 	padding:0;
@@ -48,6 +52,7 @@ a{
 	}
 }
 .row-fluid h1{
+	position:relative;
 	margin:6px 0 0;
 	color:@colorOne;
 	text-align:center;
@@ -55,6 +60,24 @@ a{
 	font-weight:100;
 	font-size:20px;
 	font-family:@DinR;
+	a{
+		position:absolute;
+		top:50%;
+		right:0;
+		display:block;
+		margin-top:-10px;
+		width:20px;
+		height:20px;
+		background:url("../img/icons.png") no-repeat 0 -72px;
+	}	
+}
+.row-fluid h2{
+	margin:0;
+	color:#656e75;
+	font-weight:100;
+	font-size:25px;
+	font-family: @DinR;
+	line-height:1;
 }
 .row-fluid.footer{
 	position: absolute;
@@ -146,6 +169,7 @@ form .pass,
 	padding:0 9px;
 	width:278px;
 	height:28px;
+	outline:none;
 	border:none;
 	border-radius:0;
 	background-color:#e0e0e0;
@@ -184,6 +208,9 @@ form .inputError{
 	border:1px solid @errorColor;
 	color:@errorColor;
 }
+form .chekboxError{
+	border:1px solid @errorColor;
+}
 .error{
 	display:block;
 	margin:10px 0 12px;
@@ -205,6 +232,9 @@ span.checkbox{
 	background-position: -15px 0;
 	background-repeat: no-repeat;
 	vertical-align: middle;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 	&.check{
 		background-position:0 0;
 	}
@@ -218,17 +248,18 @@ span.checkbox{
 	height:100%;
 }
 textarea{
+	overflow:auto;
 	width:353px;
 	height:149px;
-	resize:none;
 	outline:none;
-	background-color:#e0e0e0;
-	box-shadow:none;
 	border:none;
 	border-radius:0;
+	background-color:#e0e0e0;
+	box-shadow:none;
+	color:#7d888f;
 	font-size:14px;
 	font-family:'DINPro-Regular';
-	color:#7d888f;
+	resize:none;
 	&:focus{
 		box-shadow:none;
 	}

@@ -1,0 +1,89 @@
+@import 'main.less';
+.container-fluid{
+	min-height:645px;
+}
+.wrapper-form{
+	width:529px;
+	padding-bottom: 20px;
+}
+#rulles{
+	height:373px;
+	overflow-y:scroll;
+	text-align:left;
+	margin-right:5px;
+	p{
+		font-size:14px;
+		color:#656e75;
+		line-height:1.5;
+		margin-bottom:0;
+	}
+	h2{
+		font-size: 14px;
+		margin-top: 33px;	
+	}
+	li{
+		color:#656e75;
+	}
+}
+.jScrollPaneContainer {
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+	outline:none;
+	*{
+		outline:none;
+	}
+}
+
+.jScrollPaneTrack {
+	position: absolute;
+	cursor: pointer;
+	right: 0;
+	top: 0;
+	height: 100%;
+	background-color:#e0e0e0;
+}
+.jScrollPaneDrag {
+	position: absolute;
+	cursor: pointer;
+	overflow: hidden;
+	background-color:#7d888f;
+}
+.jScrollPaneDragTop {
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	height:3px;
+}
+.jScrollPaneDragBottom {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+	height:3px;
+}
+* html .jScrollPaneDragBottom {
+	bottom: -1px;
+}
+a.jScrollArrowUp {
+	display: block;
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	right: 0;
+	text-indent: -2000px;
+	overflow: hidden;
+	height: 18px;
+}
+
+a.jScrollArrowDown {
+	display: block;
+	position: absolute;
+	z-index: 1;
+	bottom: 0;
+	right: 0;
+	text-indent: -2000px;
+	overflow: hidden;
+	height: 18px;
+}
