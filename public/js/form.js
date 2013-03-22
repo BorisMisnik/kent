@@ -1,5 +1,7 @@
 $(function(){
 
+	$('#massege').jScrollPane();
+
 	$('input').focus(function(){
 		if($(this).is('.inputError')){
 			$(this).removeClass('inputError')
@@ -34,7 +36,7 @@ $(function(){
 
 	});
 
-	
+		
 	$('label.checkbox').on('click',function(e){
 		e.preventDefault();
 
