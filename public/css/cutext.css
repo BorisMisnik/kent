@@ -1,0 +1,94 @@
+.cuTextWrap{
+	width:353px;
+	height:149px;
+	resize:none;
+	outline:none;
+	background-color:#e0e0e0;
+	box-shadow:none;
+	border:none;
+	overflow:auto;
+	font-size:14px;
+	font-family:'DINPro-Regular';
+	color:#7d888f;
+	position: relative; /* нужно обязательно для позиционирования границ, за которые будет тянуть пользователь */
+	padding:9px 10px;
+}
+
+.cuTextWrap .scroll-pane {
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+}
+
+.cuTextWrap textarea{
+	width: 100%;
+	height: 149px; /* начальная высота textarea */
+	display: block;
+	overflow:hidden;
+	border:none;
+	background:none;
+	padding:0;
+}
+.cuTextWrap textarea:focus {
+	outline: 0;
+}
+
+/* --- оформление стильной прокрутки  ---*/
+.cuTextWrap .jScrollPaneContainer {
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+}
+
+.cuTextWrap .jScrollPaneTrack {
+	position: absolute;
+	cursor: pointer;
+	right: 0;
+	top: 0;
+	height: 100%;
+	background-color:#fff;
+}
+.cuTextWrap .jScrollPaneDrag {
+	position: absolute;
+	cursor: pointer;
+	overflow: hidden;
+	background-color:#7d888f;
+}
+.cuTextWrap .jScrollPaneDragTop {
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	height:3px;
+}
+.cuTextWrap .jScrollPaneDragBottom {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+	height:3px;
+}
+* html .cuTextWrap .jScrollPaneDragBottom {
+	bottom: -1px;
+}
+.cuTextWrap a.jScrollArrowUp {
+	display: block;
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	right: 0;
+	text-indent: -2000px;
+	overflow: hidden;
+	height: 18px;
+}
+
+.cuTextWrap a.jScrollArrowDown {
+	display: block;
+	position: absolute;
+	z-index: 1;
+	bottom: 0;
+	right: 0;
+	text-indent: -2000px;
+	overflow: hidden;
+	height: 18px;
+}

@@ -42,7 +42,7 @@ $(function(){
 
 	for (var i = 0; i < lines.length; i++) {
 		cratePath.push(p.path(lines[i]).attr({
-			'stroke':'#000',
+			'stroke':'#c6c7c7',
 			'stroke-opacity':0.5,
 			'stroke-width':0.5
 		}));

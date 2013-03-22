@@ -42,9 +42,9 @@ $(function(){
 
 	for (var i = 0; i < lines.length; i++) {
 		cratePath.push(p.path(lines[i]).attr({
-			'stroke':'#fff',
+			'stroke':'#c6c7c7',
 			'stroke-opacity':0.5,
-			'stroke-width':3
+			'stroke-width':1
 		}));
 		animateLine(cratePath[i])
 	};

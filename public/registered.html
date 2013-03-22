@@ -17,7 +17,7 @@
 	<![endif]-->
 </head>
 <body>
-	<div class="container-fluid registered">
+	<div class="container-fluid">
 		<div class="row-fluid main">
 			<div class="span12">
 				<section id="registered">
@@ -28,66 +28,70 @@
 							<label class="control-label" for="name">П. I. Б.</label>
    						 	<div class="controls">
      							<input type="text" name="name" value="П. I. Б." class="text inputError" id="name">
+     							<span class="error">Неправильно вказано дані (П. І. Б.)</span>
     						</div>
 
 							<label class="control-label" for="date">Дата народження</label>
 							<div class="controls">
 								<div class="dateBirthday">
-									<input type="text" name="date" value="День" class="text" id="date">
-									<input type="text" name="month" value="Місяць" class="text">
-									<input type="text" name="year" value="Рік" class="text">
-
+									<input type="text" name="date" value="День" class="text inputError" id="date">
+									<input type="text" name="month" value="Місяць" class="text inputError">
+									<input type="text" name="year" value="Рік" class="text inputError">
 								</div>
+								<span class="error">Тобі ще не виповнилося 18 років.</span>
 							</div>	
 
     						<label class="control-label" for="mobilePhone">Мобiльний телефон</label>
 							<div class="controls">
-     							<input type="text" name="mobilePhone" value="Мобiльний телефон" class="text" id="mobilePhone">
+     							<input type="text" name="mobilePhone" value="0 (96) 938-15-17" class="text inputError" id="mobilePhone">
+     							<span class="error">Неправильний формат номера</span>
     						</div>
 
     						<label class="control-label" for="email">E-mail</label>
 							<div class="controls">
-     							<input type="text" name="email" value="E-mail" class="text" id="email">
+     							<input type="text" name="email" value="E-mail" class="text inputError" id="email">
+     							<span class="error">Неправильний формат e-mail</span>
     						</div>
 
 							<label class="control-label" for="password">Пароль</label>
 							<div class="controls">
-     							<input type="text" name="password" value="Пароль" class="text" id="password">
+     							<input type="text" name="password" value="Пароль" class="text inputError" id="password">
+     							<span class="error">Пароль не відповідає вимогам</span>
     						</div>
 
 							<label class="control-label" for="passwordTwo">Пiдтвердження пароля</label>
 							<div class="controls">
-     							<input type="text" name="passwordTwo" value="Пiдтвердження пароля" class="text" id="passwordTwo">
+     							<input type="text" name="passwordTwo" value="Пiдтвердження пароля" class="text inputError" id="passwordTwo">
+     							<span class="error">Паролі не збігаються</span>
     						</div>
 
-							<span class="error">Неправильно вказано дані. Обери щонайменше 5 неоднакових символів</span>
 							<p class="massege">Для отримання доступу на сайт, будь ласка, завантаж копію документа, <br/> що посвідчує вік:</p>
 
 							<div class="button-photo">
 								<a href="#" class="submit fileButton">завантажити</a>
 								<a href="#" class="submit" id="web">завантажити з веб-камери </a>
 							</div>
-				
+							<span class="error">Ти не завантажив копію документа</span>
 							<label class="checkbox">
 							  <input type="checkbox" value="ok18" style="display:none">
-							  <span class="checkbox"></span>
+							  <span class="checkbox chekboxError"></span>
 							  Я підтверджую, що я курю та мені виповнилось 18 років
 							</label>
 							
 							<label class="checkbox">
 							  <input type="checkbox" value="okRules" style="display:none">
-							  <span class="checkbox"></span>
+							  <span class="checkbox chekboxError"></span>
 							  Я погоджуюсь з <a href="#"><strong>умовами користування</strong></a> цим веб-сайтом
 							</label>
 
 							<label class="checkbox">
 							  <input type="checkbox" value="okSite" style="display:none">
-							  <span class="checkbox"></span>
+							  <span class="checkbox chekboxError"></span>
 							 Я погоджуюсь з тим, щоб інформація про тютюнові вироби,<br/>
 							 які випускаються під <strong>ТМ «KENT»</strong>, надавалася мені<br/>
 							 за допомогою <a href="#"><strong>kent.com.ua</strong></a>
 							</label>
-
+							<span class="error">Ти не погодився з усіма пунктами</span>	
 							<input type="submit" value="ok" class="submit">
 						</form>
 					</div>
