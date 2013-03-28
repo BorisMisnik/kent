@@ -13,10 +13,10 @@ $(function(){
 
 			$this.removeClass('inputError');
 			$this.parent().find('input').removeClass('inputError')
-			$this.parents('.controls').find('span').hide();
+			$this.parents('.controls').find('.error').hide();
 
 			if($this.parents('#login')){
-				$this.parent().find('span').hide();
+				$this.parent().find('.error').hide();
 			}
 
 			if($('#registered').length){

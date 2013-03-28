@@ -13,7 +13,8 @@
 		jQuery(document).ready(function($) {
 			$('#rulles').jScrollPane({
 				scrollbarWidth:7, 
-				showArrows:false
+				showArrows:false,
+				resizeble : true
 			});
 		});
 	</script>
@@ -29,6 +30,7 @@
 </head>
 <body>
 	<div class="container-fluid">
+		<div id="svg"></div>
 		<div class="row-fluid main">
 			<div class="span12">
 				<section id="rules">
@@ -85,9 +87,7 @@
 						</div>
 					</div>
 				</section>
-
 			</div>
-			<div id="svg"></div>
 		</div>
 		<div class="row-fluid footer">
 			<div class="span12">
