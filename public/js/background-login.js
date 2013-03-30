@@ -8,7 +8,7 @@ $(function(){
 		raphael.w = $('.container-fluid').width();
 		raphael.h = $('.main').height() + 30;
 
-		raphael.p.setSize(raphael.w,raphael.h); 
+		raphael.p.setSize(raphael.w,raphael.h);
 	});
 	function background(){
 		var that = {};
