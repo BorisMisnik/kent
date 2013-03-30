@@ -3,10 +3,17 @@ $(function(){
 	raphael.crateCanvas()
 		   .firstBackground();
 
+    $('input').focus(function(){
+    	raphael.w = $('.container-fluid').width();
+		raphael.h = $('.container-fluid').height()-$('.xv').height()-$('.footer').height();
+
+		raphael.p.setSize(raphael.w,raphael.h); 
+    });
+    
 	$(window).resize(function(){
 
 		raphael.w = $('.container-fluid').width();
-		raphael.h = $('.main').height() + 30;
+		raphael.h = $('.container-fluid').height()-$('.xv').height()-$('.footer').height();
 
 		raphael.p.setSize(raphael.w,raphael.h); 
 	});
@@ -14,7 +21,7 @@ $(function(){
 		var that = {};
 
 		that.w = $('.container-fluid').width();
-		that.h = $('.main').height() + 30;
+		that.h = $('.container-fluid').height()-$('.xv').height()-$('.footer').height();
 
 		that.sin = 0.01;
 		that.cos = 0.005;
