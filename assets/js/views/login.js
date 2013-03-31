@@ -1,9 +1,10 @@
 define(
     [
         // 'js!/js/form.js!order'
+        'views/forms/init'
     ],
-    function() {
-        console.log( 'app2.js' );
+    function( form ) {
+        console.log( 'app.login' );
 
         return Backbone.Layout.extend(
         {
@@ -16,7 +17,8 @@ define(
             beforeRender: function() {
             },
             afterRender: function() {
-                //this.$el.contents().appendTo( 'body' );
+                // custom form fields
+                form.init();
             }
         });
 

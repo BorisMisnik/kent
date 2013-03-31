@@ -31,6 +31,10 @@ body {
   font-size: 12px;
   font-family: Verdana, Geneva, sans-serif;
 }
+body > div {
+  width: 100%;
+  height: 100%;
+}
 label,
 input,
 button,
@@ -58,7 +62,6 @@ a:hover {
   height: 100%;
 }
 .row-fluid {
-  overflow: hidden;
   height: 77%;
 }
 .row-fluid.main {
@@ -67,7 +70,6 @@ a:hover {
 }
 .row-fluid.main .span12 {
   position: relative;
-  z-index: 1;
   display: table-cell;
   float: none;
   height: 100%;
@@ -108,9 +110,8 @@ a:hover {
 }
 .row-fluid.footer {
   position: fixed;
-  bottom: 15%;
+  bottom: 15.1%;
   height: 72px;
-  z-index: 100;
 }
 .row-fluid.footer p {
   margin-bottom: 10px;
@@ -126,10 +127,13 @@ a:hover {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 11px 0  13px;
+  padding: 0;
   height: 15%;
   background-color: white;
   z-index: 100;
+}
+.row-fluid.xv .span12 {
+  min-height: 100%;
 }
 .row-fluid footer {
   overflow: hidden;
@@ -166,12 +170,12 @@ a:hover {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 0 11px;
   width: 100%;
   height: 100%;
   background-color: #fff;
 }
 #xv img {
+  display: block;
   width: 100%;
   height: 100%;
 }
@@ -184,6 +188,8 @@ a:hover {
   background-color: white;
   box-shadow: 0 0 10px #6C6C6C;
   box-shadow: 0 0 10px rgba(108, 108, 108, 0.5);
+  position: relative;
+  z-index: 1;
 }
 form .text,
 form .pass,
@@ -350,6 +356,9 @@ textarea:focus {
   background-repeat: no-repeat;
   color: #6B747A;
   font-size: 12px;
+}
+.row-fluid.footer.no-text {
+  height: 42px;
 }
 #remind .wrapper-form {
   width: 360px;

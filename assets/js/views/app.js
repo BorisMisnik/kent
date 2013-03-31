@@ -37,7 +37,6 @@ function( Stripes, Login ) {
             this.insertView( '#contents', new Login() );
         },
         afterRender: function() {
-            //this.$el.contents().appendTo( 'body' );
             this.stripes.set( 'login' );
         }
     });
