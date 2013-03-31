@@ -4,26 +4,48 @@ define(
     // layout
     'views/stripes',
     // windows
-    'views/login'
+    'views/login',
+    'views/register'
 ],
-function( Stripes, Login ) {
+function( Stripes, Login, Register ) {
     console.log( 'app', arguments );
 
-    var App;
+    var App,
+        app,
+        Router,
+        router,
+        States,
+        states;
 
     /**
      * Initialize Application
      */
     function init() {
         // Startup
-        var app = new App();
-        app.render()
-            .view.$el.appendTo( 'body' );
+
+        // Application
+        app = new App();
+        app.$el.appendTo( 'body' );
+
+        // Routes
+        router = new Router();
+
+        console.log( 'url hash:', location.hash );
+        console.log( 'history.fragment:', Backbone.history.fragment );
+
+        Backbone.history.fragment = null;
+        Backbone.history.start(); // { pushState: true });
+        //router.navigate( location.hash, true );
+
+        window.r = router;
+
+        // States
+        states = new States();
     }
+
 
     /**
      * Application
-     * @type {*}
      */
     App = Backbone.Layout.extend(
     {
@@ -33,32 +55,52 @@ function( Stripes, Login ) {
         initialize: function() {
         },
         beforeRender: function() {
-            // login window
-            this.insertView( '#contents', new Login() );
+            console.log( 'render..' );
+            //this.insertView( '#contents', new Login() );
+            //this.insertView( '#contents', new Register() );
         },
         afterRender: function() {
-            this.stripes.set( 'login' );
+            this.stripes.set( 'register' );
         }
     });
+
+
+    /**
+     * Routes url
+     */
+    Router = Backbone.Router.extend(
+    {
+        routes: {
+            '': 'login',
+            '!/login': 'login',
+            '!/register': 'register'
+        },
+
+        // handlers
+
+        // login form
+        login: function() {
+            app.insertView( '#contents', new Login() );
+            app.render();
+        },
+        // registration form
+        register: function() {
+            app.insertView( '#contents', new Register() );
+            app.render();
+        }
+    });
+
+    /**
+     * States
+     */
+    States = Backbone.Model.extend({
+        defaults: {
+            state: 'login'
+        }
+    });
+
 
     // init on ready
     $( document )
         .ready( init );
-
-
-//        // stripes test
-//        t = 2500;
-//        setTimeout( function() {
-//            layout.change( 'upload' );
-//            setTimeout( function() {
-//                layout.change( 'register' );
-//                setTimeout( function() {
-//                    layout.change( 'remind' );
-//                    setTimeout( function() {
-//                        layout.change( 'upload' );
-//                    }, t );
-//                }, t );
-//            }, t );
-//        }, t );
-
 });

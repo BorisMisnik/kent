@@ -8,7 +8,7 @@ define(
 
         return Backbone.Layout.extend(
         {
-            template: 'login',
+            template: 'register',
             serialize: function() {
                 return { name: 'a123' };
             },
@@ -18,8 +18,7 @@ define(
             },
             afterRender: function() {
                 // custom form fields
-                console.log( 'app.login after' );
-                //form.init();
+                form.init();
             }
         });
 

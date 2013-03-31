@@ -23,6 +23,8 @@ html,
 body {
   width: 100%;
   height: 100%;
+  overflow-x: hidden;
+  -ms-overflow-x: hidden;
 }
 body {
   background: url("../img/background.png") no-repeat center center #dfdfdf;
@@ -363,15 +365,15 @@ textarea:focus {
 .registered {
   min-height: 800px;
 }
-.wrapper-form {
-  width: 532px;
-}
 form {
   text-align: left;
 }
 #registered label {
   color: #656e75;
   font-size: 12px;
+}
+#registered .wrapper-form {
+  width: 532px;
 }
 .form-horizontal .control-label {
   float: right;

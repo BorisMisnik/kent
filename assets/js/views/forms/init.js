@@ -92,6 +92,17 @@ define(
             var phone = $( '#mobilePhone' );
             if ( phone.length )
                 phone.mask( '0 (99) 999-99-99' );
+            // field: date number
+            var date = $( '#date' );
+            if ( date.length ) {
+                $.mask.definitions[ '3' ] = '[0-3]';
+                date.mask( '39' );
+            }
+            // field: date number
+            var date = $( '#year' );
+            if ( date.length ) {
+                date.mask( '9999' );
+            }
         }
 
 

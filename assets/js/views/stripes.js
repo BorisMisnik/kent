@@ -27,9 +27,13 @@ define(
              * @return {*}
              */
             set: function( name ) {
-                console.log( 'Change stripes from:', this._current, 'to:', name );
                 // change stripes animation
                 var anim;
+                console.log( 'Change stripes from:', this._current, 'to:', name );
+
+                // params
+//                if ( this._current == name )
+//                    return this;
 
                 // old
                 if ( this._current )

@@ -1,0 +1,76 @@
+<section id="registered">
+    <div class="wrapper-form">
+        <h1>Реєcтрацiя користувача</h1>
+        <form class="form-horizontal text-left" action=" " method=" ">
+
+            <label class="control-label" for="name">П. I. Б.</label>
+            <div class="controls">
+                <input type="text" name="name" value="П. I. Б." class="text" id="name">
+                <span class="error hide">Неправильно вказано дані (П. І. Б.)</span>
+            </div>
+
+            <label class="control-label" for="date">Дата народження</label>
+            <div class="controls">
+                <div class="dateBirthday">
+                    <input type="text" name="date" value="День" placeholder="День" class="text" id="date">
+                    <input type="text" name="month" value="Місяць" placeholder="Місяць" class="text" id="month">
+                    <input type="text" name="year" value="Рік" placeholder="Рік" class="text" id="year">
+                </div>
+                <span class="error hide">Тобі ще не виповнилося 18 років.</span>
+            </div>
+
+            <label class="control-label" for="mobilePhone">Мобiльний телефон</label>
+            <div class="controls">
+                <input type="text" name="mobilePhone" value="0 (00) 000-00-00" class="text" id="mobilePhone">
+                <span class="error hide">Неправильний формат номера</span>
+            </div>
+
+            <label class="control-label" for="email">E-mail</label>
+            <div class="controls">
+                <input type="text" name="email" value="E-mail" class="text" id="email">
+                <span class="error hide">Неправильний формат e-mail</span>
+            </div>
+
+            <label class="control-label" for="password">Пароль</label>
+            <div class="controls">
+                <input type="text" name="password" value="Пароль" class="text" id="password">
+                <span class="error hide">Пароль не відповідає вимогам</span>
+            </div>
+
+            <label class="control-label" for="passwordTwo">Пiдтвердження пароля</label>
+            <div class="controls">
+                <input type="text" name="passwordTwo" value="Пiдтвердження пароля" class="text" id="passwordTwo">
+                <span class="error hide">Паролі не збігаються</span>
+            </div>
+
+            <p class="massege">Для отримання доступу на сайт, будь ласка, завантаж копію документа, <br/> що посвідчує вік:</p>
+
+            <div class="button-photo">
+                <a href="#" class="submit fileButton">завантажити</a>
+                <a href="#" class="submit" id="web">завантажити з веб-камери </a>
+            </div>
+            <span class="error hide">Ти не завантажив копію документа</span>
+            <label class="checkbox">
+                <input type="checkbox" value="ok18" style="display:none">
+                <span class="checkbox"></span>
+                Я підтверджую, що я курю та мені виповнилось 18 років
+            </label>
+
+            <label class="checkbox">
+                <input type="checkbox" value="okRules" style="display:none">
+                <span class="checkbox"></span>
+                Я погоджуюсь з <a href="#"><strong>умовами користування</strong></a> цим веб-сайтом
+            </label>
+
+            <label class="checkbox">
+                <input type="checkbox" value="okSite" style="display:none">
+                <span class="checkbox"><!-- chekboxError --></span>
+                Я погоджуюсь з тим, щоб інформація про тютюнові вироби,<br/>
+                які випускаються під <strong>ТМ «KENT»</strong>, надавалася мені<br/>
+                за допомогою <a href="#"><strong>kent.com.ua</strong></a>
+            </label>
+            <span class="error hide">Ти не погодився з усіма пунктами</span>
+            <input type="submit" value="ok" class="submit">
+        </form>
+    </div>
+</section>
