@@ -8,8 +8,7 @@ $(function(){
 		raphael.w = $('.container-fluid').width();
 		raphael.h = $('.container-fluid').height()-$('.xv').height()-$('.footer').height();
 
-		raphael.p.setSize(raphael.w,raphael.h); 
-		
+		raphael.p.setSize(raphael.w,raphael.h);
 	});
 	function background(){
 		var that = {};
