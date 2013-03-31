@@ -1,0 +1,31 @@
+[
+    {
+        "method": "get",
+        "url": "/test",
+        "script": "./libs/",
+        "handler": "index"
+    },
+    {
+        "method": "get",
+        "url": "/auth/login",
+        "script": "./libs/login",
+        "handler": "index"
+    },
+    {
+        "method": "post",
+        "url": "/auth/login",
+        "script": "./libs/login",
+        "handler": "login",
+        "auth": {
+            "logged": true,
+            "success": "/",
+            "fail": "/login"
+        }
+    },
+    {
+        "method": "get",
+        "url": "/js/boot.js-",
+        "script": "./libs/permit",
+        "handler": "restrict"
+    }
+]

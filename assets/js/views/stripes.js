@@ -15,7 +15,10 @@ define(
             _stripes: {
                 login: login,
                 register: register,
+                thanks: register,
                 remind: remind,
+                feedback: remind,
+                rules: register,
                 upload: upload
             },
             // current animation name
@@ -30,7 +33,7 @@ define(
                 // change stripes animation
 
                 // LOCK!
-                return;
+                // return;
 
                 var anim;
                 console.log( 'Change stripes from:', this._current, 'to:', name );

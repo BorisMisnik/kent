@@ -22,7 +22,7 @@ define(
     'views/feedback'
 ],
 function( Stripes, Login, Register, Upload, Remind, Rules, Thanks, Feedback ) {
-    Backbone.log( 'app', arguments );
+    Backbone.log( 'App', arguments );
 
     var App,
         app,
@@ -30,6 +30,7 @@ function( Stripes, Login, Register, Upload, Remind, Rules, Thanks, Feedback ) {
         router,
         Registry,
         registry,
+
         // views of application stages
         defaultView = 'login',
         views = {
@@ -87,9 +88,12 @@ function( Stripes, Login, Register, Upload, Remind, Rules, Thanks, Feedback ) {
             var view = views[ this.model.get( 'state' ) || defaultView ];
             if ( !view ) throw new Error( 'Unknown state!' );
             this.insertView( '#contents', new view() );
+            // fade elder
+            // $( '.main' ).fadeOut();
         },
         afterRender: function() {
-            this.stripes.set( 'register' );
+            this.stripes.set( this.model.get( 'state' ));
+            // $( '.main' ).fadeIn( 'slow' );
         }
     });
 
@@ -159,4 +163,28 @@ function( Stripes, Login, Register, Upload, Remind, Rules, Thanks, Feedback ) {
     // init on ready
     $( document )
         .ready( init );
+
+    // API
+    return {
+        addAppView: function( name, view ) {
+            if (!( view instanceof Function ))
+                return Backbone.log( 'Bad view constructor!', name );
+            if ( views[ name ])
+                return Backbone.log( 'View name already used!', name );
+            // add view
+            views[ name ] = view;
+
+            // todo: Add route (!)
+        },
+        removeAppView: function( name ) {
+            var store = views[ name ];
+            if ( !store )
+                return Backbone.log( 'Application view not found!', name );
+            // remove view
+            delete views[ name ];
+            return store;
+
+            // todo: Remove route (!)
+        }
+    }
 });
