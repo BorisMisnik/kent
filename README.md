@@ -27,3 +27,26 @@ http://localhost:8080/#!/feedback
 ```
 
 Also try to use Forward/Back browser buttons
+
+Build assets
+------------
+
+If any .less file was changed, use `grunt` to generate `assets/css` files.
+How-to:
+
+Uninstall old grunt if exists
+`npm uninstall -g grunt`
+Then install CLI version
+`npm install -g grunt-cli`
+Then go to current project folder, and update dependencies
+`npm install` (in the project folder!)
+
+
+TODO
+----
+
+* Link forms with routes (frontend <> backend)
+* Request cluster services for data/actions
+* Internal deploying support
+* Complete authorization logic
+* Beer and sleep ; )
