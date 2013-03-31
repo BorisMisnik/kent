@@ -33,7 +33,7 @@ define(
                 // change stripes animation
 
                 // LOCK!
-                // return;
+                return;
 
                 var anim;
                 console.log( 'Change stripes from:', this._current, 'to:', name );

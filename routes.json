@@ -1,21 +1,17 @@
 [
     {
-        "method": "get",
-        "url": "/test",
-        "script": "./libs/",
-        "handler": "index"
-    },
-    {
-        "method": "get",
-        "url": "/auth/login",
-        "script": "./libs/login",
-        "handler": "index"
-    },
-    {
         "method": "post",
         "url": "/auth/login",
         "script": "./libs/login",
-        "handler": "login",
+        "handler": "login"
+    },
+
+
+    {
+        "method": "get",
+        "url": "/auth/logout",
+        "script": "./libs/login",
+        "handler": "logout",
         "auth": {
             "logged": true,
             "success": "/",

@@ -152,10 +152,7 @@ function( Stripes, Login, Register, Upload, Remind, Rules, Thanks, Feedback ) {
      */
     Registry = Backbone.Model.extend({
         defaults: {
-            state: 'login',
-            session: '',
-            user: '',
-            role: 'visitor'     // user, admin
+            state: 'login'
         }
     });
 

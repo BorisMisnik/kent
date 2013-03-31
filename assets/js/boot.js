@@ -97,7 +97,14 @@ define(
 
             function log() {
                 var args = [].slice.call( arguments ),
-                    message = args.join( ' ' );
+                    message;
+
+                if ( JSON )
+                    for ( var id in args )
+                        if ( args.hasOwnProperty( id ))
+                            args[ id ] = JSON.stringify( args[ id ]);
+
+                message = args.join( ' ' );
 
                 // console
                 if ( config.log.local )
