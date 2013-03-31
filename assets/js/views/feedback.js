@@ -8,7 +8,7 @@ define(
     function( form ) {
         Backbone.log( 'app.feedback' );
 
-        return Backbone.Layout.extend(
+        var Feedback = Backbone.Layout.extend(
         {
             template: 'feedback',
             afterRender: function() {
@@ -26,6 +26,7 @@ define(
                             });
                     });
             }
-        });
-
+        }),
+        feedback = new Feedback();
+        return feedback;
     });

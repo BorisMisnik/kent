@@ -6,7 +6,7 @@ define(
     function( form ) {
         Backbone.log( 'app.rules' );
 
-        return Backbone.Layout.extend(
+        var Rules = Backbone.Layout.extend(
         {
             template: 'rules',
             afterRender: function() {
@@ -23,6 +23,7 @@ define(
 //                        });
                     });
             }
-        });
-
+        }),
+        rules = Rules;
+        return rules;
     });

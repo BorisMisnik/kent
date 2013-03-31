@@ -5,7 +5,7 @@ define(
     function( form ) {
         Backbone.log( 'app.register' );
 
-        return Backbone.Layout.extend(
+        var Register = Backbone.Layout.extend(
         {
             template: 'register',
             serialize: function() {
@@ -19,6 +19,7 @@ define(
                 // custom form fields
                 form.init();
             }
-        });
-
+        }),
+        register = Register;
+        return register;
     });

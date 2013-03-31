@@ -5,13 +5,14 @@ define(
     function( form ) {
         Backbone.log( 'app.thanks' );
 
-        return Backbone.Layout.extend(
+        var Thanks = Backbone.Layout.extend(
         {
             template: 'thanks',
             afterRender: function() {
                 // custom form fields
                 form.init();
             }
-        });
-
+        }),
+        thanks = Thanks;
+        return thanks;
     });

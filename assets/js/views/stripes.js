@@ -9,7 +9,7 @@ define(
     function( login, register, remind, upload ) {
         Backbone.log( 'app.stripes', arguments );
 
-        return Backbone.Layout.extend(
+        var Stripes = Backbone.Layout.extend(
         {
             // avail stripes animations
             _stripes: {
@@ -57,6 +57,8 @@ define(
 
                 return this;
             }
-        });
+        }),
+        stripes = new Stripes();
 
+        return stripes;
     });

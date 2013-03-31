@@ -87,7 +87,7 @@ function( Stripes, Login, Register, Upload, Remind, Rules, Thanks, Feedback ) {
             this.log( 'render..' );
             var view = views[ this.model.get( 'state' ) || defaultView ];
             if ( !view ) throw new Error( 'Unknown state!' );
-            this.insertView( '#contents', new view() );
+            this.insertView( '#contents', view );
             // fade elder
             // $( '.main' ).fadeOut();
         },

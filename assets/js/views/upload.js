@@ -5,13 +5,14 @@ define(
     function( form ) {
         Backbone.log( 'app.upload' );
 
-        return Backbone.Layout.extend(
+        var Upload = Backbone.Layout.extend(
         {
             template: 'upload',
             afterRender: function() {
                 // custom form fields
                 form.init();
             }
-        });
-
+        }),
+        upload = Upload;
+        return upload;
     });
