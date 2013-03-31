@@ -5,9 +5,14 @@ define(
     'views/stripes',
     // windows
     'views/login',
-    'views/register'
+    'views/register',
+    'views/upload',
+    'views/remind',
+    'views/rules',
+    'views/thanks',
+    'views/feedback'
 ],
-function( Stripes, Login, Register ) {
+function( Stripes, Login, Register, Upload, Remind, Rules, Thanks, Feedback ) {
     console.log( 'app', arguments );
 
     var App,
@@ -73,7 +78,12 @@ function( Stripes, Login, Register ) {
         routes: {
             '': 'login',
             '!/login': 'login',
-            '!/register': 'register'
+            '!/register': 'register',
+            '!/upload': 'upload',
+            '!/thanks': 'thanks',
+            '!/remind': 'remind',
+            '!/rules': 'rules',
+            '!/feedback': 'feedback'
         },
 
         // handlers
@@ -86,6 +96,31 @@ function( Stripes, Login, Register ) {
         // registration form
         register: function() {
             app.insertView( '#contents', new Register() );
+            app.render();
+        },
+        // upload image form
+        upload: function() {
+            app.insertView( '#contents', new Upload() );
+            app.render();
+        },
+        // remind password
+        remind: function() {
+            app.insertView( '#contents', new Remind() );
+            app.render();
+        },
+        // thanks
+        thanks: function() {
+            app.insertView( '#contents', new Thanks() );
+            app.render();
+        },
+        // rules
+        rules: function() {
+            app.insertView( '#contents', new Rules() );
+            app.render();
+        },
+        // feedback form
+        feedback: function() {
+            app.insertView( '#contents', new Feedback() );
             app.render();
         }
     });

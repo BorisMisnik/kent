@@ -19,8 +19,7 @@
                 backbone: 'http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone.js',    // -min.js',
                 layoutmanager: 'http://cdnjs.cloudflare.com/ajax/libs/backbone.layoutmanager/0.8.5/backbone.layoutmanager.js',
                 modelbinder: 'http://cdnjs.cloudflare.com/ajax/libs/backbone.modelbinder/0.1.6/Backbone.ModelBinder.min.js',
-                hogan: 'http://cdnjs.cloudflare.com/ajax/libs/hogan.js/2.0.0/hogan.js',
-                // less: 'http://cdnjs.cloudflare.com/ajax/libs/less.js/1.3.3/less.min.js'
+                hogan: 'http://cdnjs.cloudflare.com/ajax/libs/hogan.js/2.0.0/hogan.js'
             }
         })
         .next([
@@ -33,6 +32,7 @@
             'js!hogan',
 
             // frontend
+            // todo: create `ie!` prefix plugin for `curl.js`
 //            // shims
 //            //'ie!/js/html5shiv.js',
 //            //'ie6!ie7!ie8!/js/PIE_IE678.js',
@@ -41,8 +41,13 @@
             // css
             //'js!less',
             'css!/css/bootstrap.min.css',
+            'css!/css/font.css',
+            'css!/css/main.css',
+            'css!/css/registered.css',
             'css!/css/login.css',
-            'css!/css/registered.css'
+            'css!/css/remind.css',
+            'css!/css/rules.css',
+            'css!/css/feedback.css'
         ])
         .next([
             // configure and

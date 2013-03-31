@@ -28,6 +28,10 @@ define(
              */
             set: function( name ) {
                 // change stripes animation
+
+                // LOCK!
+                return;
+
                 var anim;
                 console.log( 'Change stripes from:', this._current, 'to:', name );
 

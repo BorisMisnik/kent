@@ -1,6 +1,5 @@
 define(
     [
-        // 'js!/js/form.js!order'
         'views/forms/init'
     ],
     function( form ) {

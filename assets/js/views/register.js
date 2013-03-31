@@ -1,10 +1,9 @@
 define(
     [
-        // 'js!/js/form.js!order'
         'views/forms/init'
     ],
     function( form ) {
-        console.log( 'app.login' );
+        console.log( 'app.register' );
 
         return Backbone.Layout.extend(
         {
