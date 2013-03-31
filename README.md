@@ -24,6 +24,7 @@ http://localhost:8080/#!/remind
 http://localhost:8080/#!/thanks
 http://localhost:8080/#!/rules
 http://localhost:8080/#!/feedback
+http://localhost:8080/#!/register
 ```
 
 Also try to use Forward/Back browser buttons
