@@ -3,9 +3,7 @@ define(
         'views/forms/init'
     ],
     function( form ) {
-        console.log( 'app.upload' );
-
-        $( document ).ready( function() { });
+        Backbone.log( 'app.upload' );
 
         return Backbone.Layout.extend(
         {

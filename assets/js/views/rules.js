@@ -4,9 +4,7 @@ define(
         'jquery.mousewheel'
     ],
     function( form ) {
-        console.log( 'app.rules' );
-
-        $( document ).ready( function() { });
+        Backbone.log( 'app.rules' );
 
         return Backbone.Layout.extend(
         {

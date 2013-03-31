@@ -6,9 +6,7 @@ define(
         'js!autoresize.jquery.js'
     ],
     function( form ) {
-        console.log( 'app.feedback' );
-
-        $( document ).ready( function() { });
+        Backbone.log( 'app.feedback' );
 
         return Backbone.Layout.extend(
         {

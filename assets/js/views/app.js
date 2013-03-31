@@ -1,3 +1,12 @@
+/*!
+ * Application Bootstrap and Configurator
+ *
+ * @author Andjey Guzhovskiy, <me.the.ascii@gmail.com>
+ * @copyright (c) 2013 Andjey Guzhovskiy
+ * @licence CLOSED
+ * @version 0.0.1
+ */
+
 define(
 'views/app',
 [
@@ -13,14 +22,27 @@ define(
     'views/feedback'
 ],
 function( Stripes, Login, Register, Upload, Remind, Rules, Thanks, Feedback ) {
-    console.log( 'app', arguments );
+    Backbone.log( 'app', arguments );
 
     var App,
         app,
         Router,
         router,
-        States,
-        states;
+        Registry,
+        registry,
+        // views of application stages
+        defaultView = 'login',
+        views = {
+            // todo: make some views invisible for unauthorized visitors
+            login: Login,
+            register: Register,
+            upload: Upload,
+            remind: Remind,
+            rules: Rules,
+            thanks: Thanks,
+            feedback: Feedback
+        };
+
 
     /**
      * Initialize Application
@@ -28,24 +50,22 @@ function( Stripes, Login, Register, Upload, Remind, Rules, Thanks, Feedback ) {
     function init() {
         // Startup
 
+        // States
+        registry = new Registry();
+
         // Application
-        app = new App();
+        app = new App({ model: registry });
         app.$el.appendTo( 'body' );
 
         // Routes
         router = new Router();
 
-        console.log( 'url hash:', location.hash );
-        console.log( 'history.fragment:', Backbone.history.fragment );
-
         Backbone.history.fragment = null;
         Backbone.history.start(); // { pushState: true });
         //router.navigate( location.hash, true );
 
-        window.r = router;
-
-        // States
-        states = new States();
+        // initial state
+        registry.trigger( 'change:state' );
     }
 
 
@@ -58,11 +78,15 @@ function( Stripes, Login, Register, Upload, Remind, Rules, Thanks, Feedback ) {
         stripes: new Stripes(),
 
         initialize: function() {
+            // listen app-state changes
+            this.model.on( 'change:state',
+                this.render, this );
         },
         beforeRender: function() {
-            console.log( 'render..' );
-            //this.insertView( '#contents', new Login() );
-            //this.insertView( '#contents', new Register() );
+            this.log( 'render..' );
+            var view = views[ this.model.get( 'state' ) || defaultView ];
+            if ( !view ) throw new Error( 'Unknown state!' );
+            this.insertView( '#contents', new view() );
         },
         afterRender: function() {
             this.stripes.set( 'register' );
@@ -90,47 +114,44 @@ function( Stripes, Login, Register, Upload, Remind, Rules, Thanks, Feedback ) {
 
         // login form
         login: function() {
-            app.insertView( '#contents', new Login() );
-            app.render();
+            registry.set({ state: 'login' });
         },
         // registration form
         register: function() {
-            app.insertView( '#contents', new Register() );
-            app.render();
+            registry.set({ state: 'register' });
         },
         // upload image form
         upload: function() {
-            app.insertView( '#contents', new Upload() );
-            app.render();
+            registry.set({ state: 'upload' });
         },
         // remind password
         remind: function() {
-            app.insertView( '#contents', new Remind() );
-            app.render();
+            registry.set({ state: 'remind' });
         },
         // thanks
         thanks: function() {
-            app.insertView( '#contents', new Thanks() );
-            app.render();
+            registry.set({ state: 'thanks' });
         },
         // rules
         rules: function() {
-            app.insertView( '#contents', new Rules() );
-            app.render();
+            registry.set({ state: 'rules' });
         },
         // feedback form
         feedback: function() {
-            app.insertView( '#contents', new Feedback() );
-            app.render();
+            registry.set({ state: 'feedback' });
         }
     });
 
+
     /**
-     * States
+     * Application Main Registry
      */
-    States = Backbone.Model.extend({
+    Registry = Backbone.Model.extend({
         defaults: {
-            state: 'login'
+            state: 'login',
+            session: '',
+            user: '',
+            role: 'visitor'     // user, admin
         }
     });
 

@@ -3,7 +3,7 @@ define(
         'views/forms/init'
     ],
     function( form ) {
-        console.log( 'app.remind' );
+        Backbone.log( 'app.remind' );
 
         return Backbone.Layout.extend(
         {

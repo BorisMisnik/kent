@@ -7,7 +7,7 @@ define(
         'views/stripes/upload'
     ],
     function( login, register, remind, upload ) {
-        // console.log( 'app.stripes', arguments );
+        Backbone.log( 'app.stripes', arguments );
 
         return Backbone.Layout.extend(
         {

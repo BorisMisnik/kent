@@ -3,7 +3,7 @@ define(
         'views/forms/init'
     ],
     function( form ) {
-        console.log( 'app.register' );
+        Backbone.log( 'app.register' );
 
         return Backbone.Layout.extend(
         {

@@ -3,7 +3,7 @@ define(
         'views/forms/init'
     ],
     function( form ) {
-        console.log( 'app.login' );
+        Backbone.log( 'app.login' );
 
         return Backbone.Layout.extend(
         {
@@ -17,8 +17,7 @@ define(
             },
             afterRender: function() {
                 // custom form fields
-                console.log( 'app.login after' );
-                //form.init();
+                form.init();
             }
         });
 

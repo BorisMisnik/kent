@@ -3,9 +3,7 @@ define(
         'views/forms/init'
     ],
     function( form ) {
-        console.log( 'app.thanks' );
-
-        $( document ).ready( function() { });
+        Backbone.log( 'app.thanks' );
 
         return Backbone.Layout.extend(
         {
