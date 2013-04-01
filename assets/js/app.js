@@ -18,13 +18,14 @@ define(
     'views/login',
     'views/register',
     'views/upload',
+    'views/webcam',
     'views/remind',
     'views/rules',
     'views/thanks',
     'views/feedback'
 ],
 function( registry, router,
-          Stripes, Login, Register, Upload, Remind, Rules, Thanks, Feedback ) {
+          Stripes, Login, Register, Upload, Webcam, Remind, Rules, Thanks, Feedback ) {
 
     Backbone.log( 'App', arguments );
 
@@ -38,6 +39,7 @@ function( registry, router,
             login: Login,
             register: Register,
             upload: Upload,
+            webcam: Webcam,
             remind: Remind,
             rules: Rules,
             thanks: Thanks,

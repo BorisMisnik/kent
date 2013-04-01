@@ -1,14 +1,16 @@
 define(
     [
+        // libs
         'router',
         'models/user',
         'models/person',
         'views/forms/init',
+        // resources
         'js!jquery.selectbox-0.2.min.js',
         'js!swfobject!order',
         'js!libs/filereader/jquery.FileReader.min.js!order'
     ],
-    function( router, user, Person, form, filereader ) {
+    function( router, user, Person, form ) {
         Backbone.log( 'app.register', arguments );
 
         var
@@ -28,14 +30,24 @@ define(
                     })( file, this );
                     // base64
                     reader.readAsDataURL(file);
+                },
+
+                setFile: function( name, base64 ) {
+                    // todo: validate args
+                    this.set({
+                        filename: name,
+                        data: base64
+                    })
                 }
             }),
+
+            nop = function() { return false },
 
             Register = Backbone.Layout.extend(
             {
                 template: 'register',
                 events: {
-                    'click .fileButton': 'upload',
+                    // 'click .fileButton': nop,
                     'click .webcamButton': 'webcam',
                     'click .ok': 'submit'
                 },
@@ -62,16 +74,17 @@ define(
                     form.init();
 
                     // setup FileReader
-                    this.$( '#photofile' )
-                        .fileReader({
-                            filereader: '/js/libs/filereader/filereader.swf',
-                            expressInstall: '/js/libs/filereader/expressInstall.swf',
-                            debugMode: false
-//                            callback: function() {
-//                                Backbone.log( 'FileReader shim is ready (ie)' );
-//                            }
-                            // extensions: '*.jpg;*.png'
-                        });
+                    if ( this.$().fileReader )
+                        this.$( '#photofile' )
+                            .fileReader({
+                                filereader: '/js/libs/filereader/filereader.swf',
+                                expressInstall: '/js/libs/flash/expressInstall.swf',
+                                debugMode: false,
+                                callback: function() {
+                                    Backbone.log( 'FileReader shim is ready (ie)' );
+                                },
+                                extensions: '*.jpg;*.png'
+                            });
 
                     var self = this;
                     this.$( '#photofile' )
@@ -140,9 +153,13 @@ define(
                     this.model.clear({ silent: true });
                     // show login
                     router.navigate( '#!/login', true );
+                },
+
+                webcam: function( e ) {
+                    router.navigate( '#!/webcam', true );
                 }
 
             }),
-        register = new Register();
+            register = new Register();
         return register;
     });

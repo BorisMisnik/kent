@@ -1,7 +1,3 @@
-//define( [ 'js!jquery!order' ], function() {
-
-
-
 (function( $ ){
 	var readyCallbacks = $.Callbacks('once unique memory'),
 	inputsCount = 0,
@@ -340,5 +336,3 @@
 	};
 	
 })( jQuery );
-
-//});
