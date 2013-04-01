@@ -2,7 +2,6 @@ body {
   overflow: hidden;
 }
 .container-fluid {
-  z-index: 10;
   overflow: hidden;
   height: 77%;
 }
@@ -286,6 +285,8 @@ section h1 {
 .profile {
   margin: auto;
   width: 70.72916666666667%;
+  position: relative;
+  z-index: 13;
 }
 .form-horizontal {
   overflow: hidden;
