@@ -26,7 +26,7 @@ define(
                 swfobject.embedSWF(
                     '/js/libs/webcam/webcamShot.swf',
                     'flashContent',
-                    '492', '342', '10.1.0',
+                    '600', '425', '10.1.0',
                     '/swf/playerProductInstall.swf',
                     flashvars, params, attributes
                 );
