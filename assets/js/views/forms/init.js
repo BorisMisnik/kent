@@ -123,10 +123,14 @@ define(
 
         function clickUploadFile( e ) {
             e.preventDefault();
-            $( this )
-                .next( 'input:file' )
-                .click();
-            // return false;
+
+            // remove any events from file
+            // HACK!!
+            $( '#photofile').off().click();
+
+//            $( this )
+//                .next( 'input:file' )
+//                .click();
         }
 
         function inputFocus() {

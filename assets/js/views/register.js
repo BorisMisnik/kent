@@ -66,10 +66,10 @@ define(
                         .fileReader({
                             filereader: '/js/libs/filereader/filereader.swf',
                             expressInstall: '/js/libs/filereader/expressInstall.swf',
-                            debugMode: false,
-                            callback: function() {
-                                Backbone.log( 'FileReader shim is ready (ie)' );
-                            }
+                            debugMode: false
+//                            callback: function() {
+//                                Backbone.log( 'FileReader shim is ready (ie)' );
+//                            }
                             // extensions: '*.jpg;*.png'
                         });
 
