@@ -64,7 +64,7 @@ define(
                     e.preventDefault();
                     // reset form
                     this.model.clear({ silent: true });
-                    // leave it
+                    // show login
                     router.navigate( '#!/login', true );
                 }
 

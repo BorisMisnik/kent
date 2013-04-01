@@ -5,72 +5,91 @@
 
             <label class="control-label" for="name">П. I. Б.</label>
             <div class="controls">
-                <input type="text" name="name" value="П. I. Б." class="text" id="name">
-                <span class="error hide">Неправильно вказано дані (П. І. Б.)</span>
+                <input type="text" name="name" placeholder="П. I. Б." class="text" id="name" value="{{values.name}}">
+                {{#errors.name}}
+                <span class="error">Неправильно вказано дані (П. І. Б.)</span>
+                {{/errors.name}}
             </div>
 
             <label class="control-label" for="date">Дата народження</label>
             <div class="controls">
                 <div class="dateBirthday">
-                    <input type="text" name="date" value="День" placeholder="День" class="text" id="date">
-                    <input type="text" name="month" value="Місяць" placeholder="Місяць" class="text" id="month">
-                    <input type="text" name="year" value="Рік" placeholder="Рік" class="text" id="year">
+                    <input type="text" name="date" placeholder="День" placeholder="День" class="text" id="date" value="{{values.day}}" />
+                    <input type="text" name="month" placeholder="Місяць" placeholder="Місяць" class="text" id="month" value="{{values.month}}" />
+                    <input type="text" name="year" placeholder="Рік" placeholder="Рік" class="text" id="year" value="{{values.year}}" />
                 </div>
-                <span class="error hide">Тобі ще не виповнилося 18 років.</span>
+                {{#errors.age}}
+                <span class="error">Тобі ще не виповнилося 18 років.</span>
+                {{/errors.age}}
             </div>
 
             <label class="control-label" for="mobilePhone">Мобiльний телефон</label>
             <div class="controls">
-                <input type="text" name="mobilePhone" value="0 (00) 000-00-00" class="text" id="mobilePhone">
-                <span class="error hide">Неправильний формат номера</span>
+                <input type="text" name="mobilePhone" placeholder="0 (00) 000-00-00" class="text" id="mobilePhone" value="{{values.phone}}" />
+                {{#errors.phone}}
+                <span class="error">Неправильний формат номера</span>
+                {{/errors.phone}}
             </div>
 
             <label class="control-label" for="email">E-mail</label>
             <div class="controls">
-                <input type="text" name="email" value="E-mail" class="text" id="email">
-                <span class="error hide">Неправильний формат e-mail</span>
+                <input type="text" name="email" placeholder="E-mail" class="text" id="email" value="{{values.email}}" />
+                {{#errors.email}}
+                <span class="error">Неправильний формат e-mail</span>
+                {{/errors.email}}
             </div>
 
             <label class="control-label" for="password">Пароль</label>
             <div class="controls">
-                <input type="text" name="password" value="Пароль" class="text" id="password">
-                <span class="error hide">Пароль не відповідає вимогам</span>
+                <input type="password" name="password" placeholder="Пароль" class="text" id="password" value="{{values.password}}" />
+                {{#errors.password}}
+                <span class="error">Пароль не відповідає вимогам</span>
+                {{/errors.password}}
             </div>
 
             <label class="control-label" for="passwordTwo">Пiдтвердження пароля</label>
             <div class="controls">
-                <input type="text" name="passwordTwo" value="Пiдтвердження пароля" class="text" id="passwordTwo">
-                <span class="error hide">Паролі не збігаються</span>
+                <input type="password" name="passwordTwo" placeholder="Пiдтвердження пароля" class="text" id="passwordTwo" value="{{values.password2}}" />
+                {{#errors.not_same_passwords}}
+                <span class="error">Паролі не збігаються</span>
+                {{/errors.not_same_passwords}}
             </div>
 
             <p class="massege">Для отримання доступу на сайт, будь ласка, завантаж копію документа, <br/> що посвідчує вік:</p>
 
             <div class="button-photo">
-                <a href="#" class="submit fileButton">завантажити</a>
-                <a href="#" class="submit" id="web">завантажити з веб-камери </a>
+                <a href="#!/upload" class="submit fileButton">завантажити</a>
+                <input type="file" class="hide" id="photofile" name="photofile" value="">
+                <a href="#!/webcam" class="submit webcamButton" id="web">завантажити з веб-камери </a>
             </div>
-            <span class="error hide">Ти не завантажив копію документа</span>
+            {{#errors.photo}}
+            <span class="error">Ти не завантажив копію документа</span>
+            {{/errors.photo}}
+
             <label class="checkbox">
-                <input type="checkbox" value="ok18" style="display:none">
-                <span class="checkbox"></span>
+                <input type="checkbox" name="agree_age" id="agree_age" placeholder="ok18" class="hide" {{#values.agree_age}}checked{{/values.agree_age}} />
+                <span class="checkbox {{#values.agree_age}}check{{/values.agree_age}}"></span>
                 Я підтверджую, що я курю та мені виповнилось 18 років
             </label>
 
             <label class="checkbox">
-                <input type="checkbox" value="okRules" style="display:none">
-                <span class="checkbox"></span>
-                Я погоджуюсь з <a href="#"><strong>умовами користування</strong></a> цим веб-сайтом
+                <input type="checkbox" name="agree_rules" id="agree_rules" placeholder="okRules" class="hide" {{#values.agree_rules}}checked{{/values.agree_rules}} />
+                <span class="checkbox {{#values.agree_rules}}check{{/values.agree_rules}}"></span>
+                Я погоджуюсь з <a href="#!/rules"><strong>умовами користування</strong></a> цим веб-сайтом
             </label>
 
             <label class="checkbox">
-                <input type="checkbox" value="okSite" style="display:none">
-                <span class="checkbox"><!-- chekboxError --></span>
+                <input type="checkbox" name="agree_info" id="agree_info" placeholder="okSite" class="hide" {{#values.agree_info}}checked{{/values.agree_info}} />
+                <span class="checkbox {{#values.agree_info}}check{{/values.agree_info}}"><!-- chekboxError --></span>
                 Я погоджуюсь з тим, щоб інформація про тютюнові вироби,<br/>
                 які випускаються під <strong>ТМ «KENT»</strong>, надавалася мені<br/>
-                за допомогою <a href="#"><strong>kent.com.ua</strong></a>
+                за допомогою <strong>kent.com.ua</strong>
             </label>
-            <span class="error hide">Ти не погодився з усіма пунктами</span>
-            <input type="submit" value="ok" class="submit">
+            {{#errors.not_agree}}
+            <span class="error">Ти не погодився з усіма пунктами</span>
+            {{/errors.not_agree}}
+
+            <input type="submit" value="ok" class="submit ok">
         </form>
     </div>
 </section>

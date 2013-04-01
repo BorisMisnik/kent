@@ -57,11 +57,25 @@ define(
                             email: email
                         })
                         .fail( function( def, type, status ) {
-                            Backbone.log( 'login: ajax fail', status );
+                            Backbone.log( 'remind password: ajax fail', status );
                             callback( new Error( status ));
                         })
                         .done( function( res ) {
                             Backbone.log( 'remind password: ajax done', res );
+                            callback( null, res );
+                        });
+                },
+
+                signup: function( form, callback ) {
+                    $.post(
+                        '/auth/signup',
+                        Object( form ))
+                        .fail( function( def, type, status ) {
+                            Backbone.log( 'signup: ajax fail', status );
+                            callback( new Error( status ));
+                        })
+                        .done( function( res ) {
+                            Backbone.log( 'signup: ajax done', res );
                             callback( null, res );
                         });
                 }

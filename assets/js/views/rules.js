@@ -1,13 +1,13 @@
 define(
     [
         'views/forms/init',
-        'js!jquery142',
+        //'js!jquery142',
         'jquery.mousewheel'
     ],
     function( form ) {
         Backbone.log( 'app.rules' );
 
-        var $142 = jQuery.noConflict();
+        //var $142 = jQuery.noConflict();
 
         var Rules = Backbone.Layout.extend(
         {
@@ -16,15 +16,15 @@ define(
                 // custom form fields
                 form.init();
                 // init scroll
-                require(
-                    'js!jScrollPane.js!order',
-                    function() {
-                        $142( '#rulles' ).jScrollPane({
-                            scrollbarWidth: 7,
-                            showArrows: false,
-                            resizeble : true
-                        });
-                    });
+//                require(
+//                    'js!jScrollPane.js!order',
+//                    function() {
+//                        $142( '#rulles' ).jScrollPane({
+//                            scrollbarWidth: 7,
+//                            showArrows: false,
+//                            resizeble : true
+//                        });
+//                    });
             }
         }),
         rules = new Rules();

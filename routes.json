@@ -11,6 +11,12 @@
         "script": "./libs/login",
         "handler": "remind"
     },
+    {
+        "method": "post",
+        "url": "/auth/signup",
+        "script": "./libs/login",
+        "handler": "signup"
+    },
 
 
     {

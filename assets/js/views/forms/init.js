@@ -92,21 +92,42 @@ define(
             var phone = $( '#mobilePhone' );
             if ( phone.length )
                 phone.mask( '0 (99) 999-99-99' );
-            // field: date number
+
+            // field: day number
             var date = $( '#date' );
             if ( date.length ) {
                 $.mask.definitions[ '3' ] = '[0-3]';
                 date.mask( '39' );
             }
-            // field: date number
-            var date = $( '#year' );
+            // field: month number
+            var date = $( '#month' );
             if ( date.length ) {
-                date.mask( '9999' );
+                $.mask.definitions[ '1' ] = '[0-1]';
+                date.mask( '19' );
             }
+            // field: date number
+            var year = $( '#year' );
+            if ( year.length ) {
+                $.mask.definitions[ '2' ] = '[0-2]';
+                year.mask( '2999' );
+            }
+
+            // file button
+            $( '.fileButton' )
+                .off( 'click', clickUploadFile )
+                .click( clickUploadFile );
         }
 
 
         // Event Handlers
+
+        function clickUploadFile( e ) {
+            e.preventDefault();
+            $( this )
+                .next( 'input:file' )
+                .click();
+            // return false;
+        }
 
         function inputFocus() {
 
