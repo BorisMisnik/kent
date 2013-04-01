@@ -37,7 +37,8 @@ define(
                         // store
                         self.bitmap = data;
                         // store in signup form image
-                        signup.setFile( 'webcam.jpg', data );
+                        signup.photo.setFile( 'webcam.jpg', data );
+                        history.back();
                     };
             }
         }),
