@@ -348,3 +348,18 @@ textarea:focus {
 .hide {
   display: none;
 }
+.dateBirthday .ik_select_link {
+  position: relative;
+  display: inline-block;
+  width: 86px;
+  height: 28px;
+  background-color: #E0E0E0;
+  text-align: left;
+  font-size: 12px;
+  font-family: Verdana, Geneva, sans-serif;
+  border: 0;
+}
+.dateBirthday .ik_select_link_text {
+  padding-top: 7px;
+  color: #6B747A;
+}

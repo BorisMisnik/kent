@@ -300,8 +300,8 @@ define(
                     $('#rulles').mCustomScrollbar();
                 }
 
-                $('#month').selectbox();
                 $('input[placeholder], textarea[placeholder]').placeholder();
+                $('#month').selectbox();
            }
 
             // todo: setup only needed events
