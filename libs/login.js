@@ -8,7 +8,8 @@
  */
 
 var check = require( 'validator' ).validators,
-    filters = require( 'validator' ).sanitize;
+    filters = require( 'validator' ).sanitize,
+    fs = require('fs');
 
 /**
  * Errors:
@@ -183,6 +184,12 @@ exports.signup = function( req, res ) {
     // todo: photo upload check ( fs )
     if ( !form.photo )
         errors.photo = true;
+
+    // (!)
+    // temporary storage of registrations
+    var id = Math.randrom().toString( 16 ).substr( 2 );
+
+
 
     // results
 

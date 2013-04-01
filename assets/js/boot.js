@@ -126,8 +126,9 @@ define(
 
                 // show in console
                 if ( config.log.local )
-                    if ( console && console.log )
-                        console.log( message );
+                    if ( window.console
+                        && window.console.log )
+                        window.console.log( message );
 
                 // todo: debug-server usage
                 // todo: aggregate messages

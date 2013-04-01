@@ -44,7 +44,7 @@ define(
                     user.remind(
                         email,
                         function( err, res, fail ) {
-                            console.log( 'remind results:', arguments );
+                            self.log( 'remind results:', arguments );
                             if ( err ) return;
                             if ( res.error ) {
                                 // show error
