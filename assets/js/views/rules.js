@@ -2,7 +2,7 @@ define(
     [
         'views/forms/init',
         //'js!jquery142',
-        'jquery.mousewheel',
+        'js!jquery.mousewheel.js',
         'js!jquery.mCustomScrollbar.min.js'
     ],
     function( form ) {
