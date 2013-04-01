@@ -8,7 +8,7 @@ define(
         'css!css/ikSelect.css',
         'js!autoresize.jquery.js',
         'js!jScrollPane.js',
-        'jquery.mousewheel',
+        'js!jquery.mousewheel.js',
         'js!cutext.js',
         'js!jquery.maskedinput.min.js',
         'js!jquery.easing.compatibility.js',

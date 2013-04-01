@@ -4,6 +4,11 @@
     <title></title>
 
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.layoutmanager/0.8.5/backbone.layoutmanager.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.modelbinder/0.1.6/Backbone.ModelBinder.min.js"></script>
+
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/PIE_IE678.js"></script>
@@ -24,10 +29,10 @@
             paths: {
                 jquery: 'http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js',
                 // jquery142: 'http://cdnjs.cloudflare.com/ajax/libs/jquery/1.4.2/jquery.min.js',
-                underscore: 'http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js',
-                backbone: 'http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js',
-                layoutmanager: 'http://cdnjs.cloudflare.com/ajax/libs/backbone.layoutmanager/0.8.5/backbone.layoutmanager.js',
-                modelbinder: 'http://cdnjs.cloudflare.com/ajax/libs/backbone.modelbinder/0.1.6/Backbone.ModelBinder.min.js',
+                //underscore: 'http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js',
+                //backbone: 'http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js',
+                //layoutmanager: 'http://cdnjs.cloudflare.com/ajax/libs/backbone.layoutmanager/0.8.5/backbone.layoutmanager.js',
+                //modelbinder: 'http://cdnjs.cloudflare.com/ajax/libs/backbone.modelbinder/0.1.6/Backbone.ModelBinder.min.js',
                 hogan: 'http://cdnjs.cloudflare.com/ajax/libs/hogan.js/2.0.0/hogan.js',
                 raphael: 'libs/raphael-min.js',
                 swfobject: 'http://cdnjs.cloudflare.com/ajax/libs/swfobject/2.2/swfobject.js'
@@ -35,11 +40,11 @@
         })
         .next([
             // engine
-            'js!jquery!order',
-            'js!underscore!order',
-            'js!backbone!order',
-            'js!layoutmanager!order',
-            'js!modelbinder!order',
+//            'js!jquery!order',
+//            'js!underscore!order',
+//            'js!backbone!order',
+//            'js!layoutmanager!order',
+//            'js!modelbinder!order',
             'js!hogan',
 
             // shims
