@@ -15,7 +15,21 @@
             <div class="controls">
                 <div class="dateBirthday">
                     <input type="text" name="date" placeholder="День" placeholder="День" class="text" id="date" value="{{values.day}}" />
-                    <input type="text" name="month" placeholder="Місяць" placeholder="Місяць" class="text" id="month" value="{{values.month}}" />
+                    <select name="month" id="month">
+                        <option value="Січень">Січень</option>
+                        <option value="Лютий">Лютий</option>
+                        <option value="Березень">Березень</option>
+                        <option value="Січень">Січень</option>
+                        <option value="Лютий">Лютий</option>
+                        <option value="Березень">Березень</option>
+                        <option value="Січень">Січень</option>
+                        <option value="Лютий">Лютий</option>
+                        <option value="Березень">Березень</option>
+                        <option value="Січень">Січень</option>
+                        <option value="Лютий">Лютий</option>
+                        <option value="Березень">Березень</option>
+                    </select>
+                    <!-- <input type="text" name="month" placeholder="Місяць" placeholder="Місяць" class="text" id="month" value="{{values.month}}" /> -->
                     <input type="text" name="year" placeholder="Рік" placeholder="Рік" class="text" id="year" value="{{values.year}}" />
                 </div>
                 {{#errors.age}}

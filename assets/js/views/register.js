@@ -1,13 +1,16 @@
 define(
     [
+        // libs
         'router',
         'models/user',
         'models/person',
         'views/forms/init',
+        // resources
+        'js!jquery.selectbox-0.2.min.js',
         'js!swfobject!order',
         'js!libs/filereader/jquery.FileReader.min.js!order'
     ],
-    function( router, user, Person, form, swf, filereader ) {
+    function( router, user, Person, form ) {
         Backbone.log( 'app.register', arguments );
 
         var

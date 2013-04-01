@@ -124,7 +124,7 @@ a:hover {
   background-color: white;
   color: #5d6870;
   text-transform: uppercase;
-  font: 10px 'DINPro-Medium';
+  font: 9px Verdana, Geneva, sans-serif;
 }
 .infoLine {
   display: inline-block;
@@ -329,6 +329,9 @@ textarea:focus {
   vertical-align: top;
   line-height: normal;
 }
+.dateBirthday {
+  overflow: visible;
+}
 .succes {
   display: block;
   margin-top: 8px;
@@ -344,4 +347,19 @@ textarea:focus {
 }
 .hide {
   display: none;
+}
+.dateBirthday .ik_select_link {
+  position: relative;
+  display: inline-block;
+  width: 86px;
+  height: 28px;
+  background-color: #E0E0E0;
+  text-align: left;
+  font-size: 12px;
+  font-family: Verdana, Geneva, sans-serif;
+  border: 0;
+}
+.dateBirthday .ik_select_link_text {
+  padding-top: 7px;
+  color: #6B747A;
 }

@@ -8,7 +8,7 @@
 	border:none;
 	overflow:auto;
 	font-size:14px;
-	font-family:'DINPro-Regular';
+	font-family: Verdana, Geneva, sans-serif;;
 	color:#7d888f;
 	position: relative; /* нужно обязательно для позиционирования границ, за которые будет тянуть пользователь */
 	padding:9px 10px;
