@@ -2,7 +2,8 @@ define(
     [
         'views/forms/init',
         //'js!jquery142',
-        'jquery.mousewheel'
+        'jquery.mousewheel',
+        'js!jquery.mCustomScrollbar.min.js'
     ],
     function( form ) {
         Backbone.log( 'app.rules' );

@@ -285,12 +285,16 @@ define(
             })
         }
 
-
+        // init scroll rulles
+        
         // API
 
         return {
             init: function() {
                 $( init );
+                if($('#rules').length){
+                    $('#rulles').mCustomScrollbar();
+                }
             }
 
             // todo: setup only needed events
