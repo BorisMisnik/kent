@@ -11,6 +11,9 @@ form {
 #registered .wrapper-form {
   width: 532px;
 }
+#registered .webcam {
+  width: 638px;
+}
 .form-horizontal .control-label {
   float: right;
   width: 195px;
