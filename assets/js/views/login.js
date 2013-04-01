@@ -1,9 +1,10 @@
 define(
     [
+        'router',
         'models/user',
         'views/forms/init'
     ],
-    function( user, form ) {
+    function( router, user, form ) {
         Backbone.log( 'app.login' );
 
         var errors = {
@@ -74,8 +75,9 @@ define(
                                 self.render();
                             }
                             else {
-                                // router.navigate( '#!/main' );
-                                self.log( 'goto: #!/main' );
+                                window.location.href = '/main.html';
+                                //router.navigate( '/main.html' );
+                                //self.log( 'goto: #!/main' );
                             }
                         });
                 }
