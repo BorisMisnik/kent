@@ -22,6 +22,7 @@ define(
                     '!/login': 'login',
                     '!/register': 'register',
                     '!/upload': 'upload',
+                    '!/webcam': 'webcam',
                     '!/thanks': 'thanks',
                     '!/remind': 'remind',
                     '!/rules': 'rules',
@@ -41,6 +42,10 @@ define(
                 // upload image form
                 upload: function() {
                     registry.set({ state: 'upload' });
+                },
+                // webcam shot
+                webcam: function() {
+                    registry.set({ state: 'webcam' });
                 },
                 // remind password
                 remind: function() {
