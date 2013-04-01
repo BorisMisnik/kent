@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <!--<script src="http://cdnjs.cloudflare.com/ajax/libs/curl/0.7.3/curl-kitchen-sink/curl.js"></script>-->
+    <!-- Engine -->
+    <script src="/js/libs/curl.js"></script>
+    <script>
+
+        // bootstrap
+        window.require = curl;
+        curl({
+            baseUrl: '/js',
+            pluginPath: '/js/libs/curl/plugin',
+            paths: {
+                jquery: 'http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.js',     // .min.js',
+                // jquery142: 'http://cdnjs.cloudflare.com/ajax/libs/jquery/1.4.2/jquery.min.js',
+                underscore: 'http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js',
+                backbone: 'http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone.js',    // -min.js',
+                layoutmanager: 'http://cdnjs.cloudflare.com/ajax/libs/backbone.layoutmanager/0.8.5/backbone.layoutmanager.js',
+                modelbinder: 'http://cdnjs.cloudflare.com/ajax/libs/backbone.modelbinder/0.1.6/Backbone.ModelBinder.min.js',
+                hogan: 'http://cdnjs.cloudflare.com/ajax/libs/hogan.js/2.0.0/hogan.js'
+            }
+        })
+        .next([
+            // engine
+            'js!jquery!order',
+            'js!underscore!order',
+            'js!backbone!order',
+            'js!layoutmanager!order',
+            'js!modelbinder!order',
+            'js!hogan',
+
+            // shims
+            // todo: create `ie!` prefix plugin for `curl.js`
+//            'js!/js/html5shiv.js',          // ie
+//            'js!/js/PIE_IE678.js',          // ie678
+//            'js!/js/ie8.js!order',          // ie8
+//            'js!libs/jquery.placeholder.min.js!order',
+
+            // frontend
+            'js!jquery.maskedinput.min.js!order',
+            // css
+            'css!/css/bootstrap.min.css',
+            'css!/css/font.css',
+            'css!/css/main.css',
+            'css!/css/registered.css',
+            'css!/css/login.css',
+            'css!/css/remind.css',
+            'css!/css/rules.css',
+            'css!/css/feedback.css'
+        ])
+        .next([
+            // configure and
+            // run application
+            // assets/js/boot.js
+            'boot'
+        ],
+//        function(){
+//            console.log( 'SUCCESS:', arguments );
+//            console.log( Backbone );
+//            // setTimeout( function() { window.location.reload() }, 500 );
+//        },
+        // main onload
+        null,
+        // main error handler
+        function( err ) {
+            //console.log( 'ERR:', arguments );
+//            console && console.log &&
+//            console.log( 'ERROR:', err, err.stack );
+            // alert( 'ERR', err.toString() );
+            throw err;
+        });
+
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/PIE_IE678.js"></script>
+    <script src="js/ie8.js"></script>
+    </style>
+    <![endif]-->
+
+</head>
+<body>
+
+
+</body>
+</html>

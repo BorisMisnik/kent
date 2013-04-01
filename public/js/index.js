@@ -57,13 +57,18 @@ $(function(){
 	});
 
 	function showFirstPage(){
-		tl.staggerFrom([$('.packOne'),$('.packTwo')],0.8,{top:($('.no-text').offset().top-200)+'px',ease:Sine.easeInOut},0.3);
+		$('.packOne, .packTwo').stop(true,true).animate({
+			'top' : 0
+		},1500);
 
-		var ltTwo = new TimelineLite();
-		var tlThree = new TimelineLite();
+		$('.title').stop(true,true).animate({
+			opacity : 1,
+			left : 0
+		},1000);
 
-		ltTwo.from($('.title'),1,{opacity:0,left:'400px',ease:Sine.easeInOut});
-		tlThree.staggerFrom([$('.about-pack,.description')],1,{opacity:0,ease:Back.easeInOut},0.3);
+		$('.about-pack, .description').stop(true,true).animate({
+			opacity : 1
+		},1500)
 
 	}
 	showFirstPage();
@@ -166,6 +171,10 @@ $(function(){
 
 		articles.each(function(){  
 			var $this = $(this);
+
+			if(!$this.is('.profile-article') && container.scrollTop() != 0){
+				$this.find("*").removeAttr('style');
+			}
 
 			if($this.offset().top === 0 && $this.is(':visible')){
 

@@ -1,4 +1,4 @@
-@import 'main.less';
+//@import 'main.less';
 @bordeColor:#e1e1e1;
 body{
 	overflow:hidden;
@@ -380,13 +380,14 @@ section h1{
 	}
 	.title{
 		position: relative;
-		left: 0;
+		left: 400px;
+		opacity:0;
+		filter:alpha(opacity=0);
 	}
 }
 
 .title{
 	margin:0;
-	color:#6b747a;
 	font-weight:100;
 	font-size:25px;
 	line-height:1.2;
@@ -396,13 +397,17 @@ section h1{
 	margin-bottom:22px;
 	color:#6b747a;
 	font-size:14px;
+	opacity:0;
+	filter:alpha(opacity=0);
 }
 .description{
 	color:#7d888f;
 	font-size:12px;
+	opacity:0;
+	filter:alpha(opacity=0);
 }
 .packOne{
-	top: 0;
+	top: 400px;
 	left: 0;
 	z-index: 1;
 	width: 174px;
@@ -410,7 +415,7 @@ section h1{
 	background-position: 0 -151px;
 }
 .packTwo{
-	top: 0;
+	top: 400px;
 	left: 189px;
 	z-index: 2;
 	width: 147px;

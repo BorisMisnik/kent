@@ -53,7 +53,7 @@ $(function(){
 	}).blur(function(){
 
 		var $this = $(this);
-		console.log($this.val())
+		//console.log($this.val())
 		if($this.val().length < 1 || $this.val() === ' ' || $this.val() === '0 (__) ___-__-__'){
 			$this.val($this.data('value'));
 		}

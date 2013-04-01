@@ -1,0 +1,35 @@
+<section id="remind">
+
+    {{! Добавить класс `compleat` если новый пароль был отправлен }}
+    <div class="wrapper-form {{#success}}compleat{{/success}}">
+
+        <h1>відновлення пароля <a href="#" class="leave"></a></h1>
+
+        <p class="text hide" style="display:block;">Для відновлення пароля введи свій e-mail,<br/>
+            який ти вказав під час реєстрації.</p>
+
+        {{#errors}}
+            {{#not_valid}}
+            <span class="error">Необхідно вказати e-mail адресу.</span>
+            {{/not_valid}}
+            {{#unknown_email}}
+            <span class="error">Такий e-mail не було зареестровано.</span>
+            {{/unknown_email}}
+        {{/errors}}
+
+        {{#success}}
+            {{! Добавить класс `comp` если новый пароль был отправлен }}
+            <p class="text comp">На твій e-mail було надіслано дані для відновлення пароля.</p>
+        {{/success}}
+
+        {{#messages}}
+        {{/messages}}
+
+        <form action="" method="" class="text-center">
+            <input type="text" id="email" name="email" value="{{email}}" placeholder="E-mail:" class="text">
+            <input type="submit" value="надіслати" class="submit send">
+        </form>
+
+        <a href="#" class="submit ok">ok</a>
+    </div>
+</section>
