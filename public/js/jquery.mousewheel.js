@@ -10,18 +10,18 @@
  * Requires: 1.2.2+
  */
 
-(function (factory) {
-    if ( typeof define === 'function' && define.amd ) {
-        // AMD. Register as an anonymous module.
-        define(['jquery'], factory);
-    } else if (typeof exports === 'object') {
-        // Node/CommonJS style for Browserify
-        module.exports = factory;
-    } else {
-        // Browser globals
-        factory(jQuery);
-    }
-}(function ($) {
+//(function (factory) {
+//    if ( typeof define === 'function' && define.amd ) {
+//        // AMD. Register as an anonymous module.
+//        define(['jquery'], factory);
+//    } else if (typeof exports === 'object') {
+//        // Node/CommonJS style for Browserify
+//        module.exports = factory;
+//    } else {
+//        // Browser globals
+//        factory(jQuery);
+//    }
+//}(function ($) {
 
     var toFix = ['wheel', 'mousewheel', 'DOMMouseScroll', 'MozMousePixelScroll'];
     var toBind = 'onwheel' in document || document.documentMode >= 9 ? ['wheel'] : ['mousewheel', 'DomMouseScroll', 'MozMousePixelScroll'];
@@ -114,4 +114,4 @@
         return ($.event.dispatch || $.event.handle).apply(this, args);
     }
 
-}));
+//}));

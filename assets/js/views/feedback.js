@@ -1,7 +1,7 @@
 define(
     [
         'views/forms/init',
-        'jquery.mousewheel',
+        'js!jquery.mousewheel.js',
         'js!cutext.js',
         'js!autoresize.jquery.js'
     ],

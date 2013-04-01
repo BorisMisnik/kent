@@ -8,10 +8,10 @@
  */
 
 define(
-    'boot',
-    [
-        'js!backbone'
-    ],
+//    'boot',
+//    [
+//        'js!backbone'
+//    ],
     function() {
 
         /**
@@ -21,12 +21,12 @@ define(
         var config = {
                 log: {
                     types: {
-//                        log: true,
-//                        info: true,
-//                        error: true,
-//                        warn: true
+                        log: true,
+                        info: true,
+                        error: true,
+                        warn: true
                     },
-                    local: true,
+                    local: false,
                     remote: {
                         // todo: debug-server
                         url: 'http://localhost:8080/logs/message'
