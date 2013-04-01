@@ -11,6 +11,7 @@ body {
   font-weight: 100;
   font-size: 12px;
   font-family: Verdana, Geneva, sans-serif;
+  position: relative;
 }
 body > div {
   width: 100%;
