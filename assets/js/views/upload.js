@@ -13,6 +13,6 @@ define(
                 form.init();
             }
         }),
-        upload = Upload;
+        upload = new Upload();
         return upload;
     });

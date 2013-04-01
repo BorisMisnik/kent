@@ -13,6 +13,6 @@ define(
                 form.init();
             }
         }),
-        remind = Remind;
+        remind = new Remind();
         return remind;
     });

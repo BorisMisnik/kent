@@ -36,7 +36,7 @@ define(
                 return;
 
                 var anim;
-                console.log( 'Change stripes from:', this._current, 'to:', name );
+                this.log( 'Change stripes from:', this._current, 'to:', name );
 
                 // params
 //                if ( this._current == name )

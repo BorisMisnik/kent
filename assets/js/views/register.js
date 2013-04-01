@@ -20,6 +20,6 @@ define(
                 form.init();
             }
         }),
-        register = Register;
+        register = new Register();
         return register;
     });

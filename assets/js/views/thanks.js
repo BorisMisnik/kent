@@ -13,6 +13,6 @@ define(
                 form.init();
             }
         }),
-        thanks = Thanks;
+        thanks = new Thanks();
         return thanks;
     });

@@ -41,13 +41,13 @@ define(
                 curl(
                     // todo: config.json
                     // application
-                    [ 'views/app' ],
+                    [ 'app' ],
                     // load handler
                     null,
                     // error handler
                     function( err ) {
                         // error
-                        console.log( err.stack );
+                        Backbone.log( err.stack );
                         throw err;
                     });
 
@@ -89,6 +89,7 @@ define(
              */
 
             // Logging
+
             Backbone.log = log;
             Backbone.Model.prototype.log = log;
             Backbone.Collection.prototype.log = log;
@@ -102,7 +103,9 @@ define(
                 if ( JSON )
                     for ( var id in args )
                         if ( args.hasOwnProperty( id ))
-                            args[ id ] = JSON.stringify( args[ id ]);
+                            try {
+                                args[ id ] = JSON.stringify( args[ id ]);
+                            } catch( err ) {}
 
                 message = args.join( ' ' );
 

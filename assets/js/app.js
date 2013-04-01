@@ -1,5 +1,5 @@
 /*!
- * Application Bootstrap and Configurator
+ * Application Core
  *
  * @author Andjey Guzhovskiy, <me.the.ascii@gmail.com>
  * @copyright (c) 2013 Andjey Guzhovskiy
@@ -8,8 +8,10 @@
  */
 
 define(
-'views/app',
 [
+    // core
+    'models/registry',
+    'router',
     // layout
     'views/stripes',
     // windows
@@ -21,15 +23,13 @@ define(
     'views/thanks',
     'views/feedback'
 ],
-function( Stripes, Login, Register, Upload, Remind, Rules, Thanks, Feedback ) {
+function( registry, router,
+          Stripes, Login, Register, Upload, Remind, Rules, Thanks, Feedback ) {
+
     Backbone.log( 'App', arguments );
 
     var App,
         app,
-        Router,
-        router,
-        Registry,
-        registry,
 
         // views of application stages
         defaultView = 'login',
@@ -51,19 +51,9 @@ function( Stripes, Login, Register, Upload, Remind, Rules, Thanks, Feedback ) {
     function init() {
         // Startup
 
-        // States
-        registry = new Registry();
-
         // Application
         app = new App({ model: registry });
         app.$el.appendTo( 'body' );
-
-        // Routes
-        router = new Router();
-
-        Backbone.history.fragment = null;
-        Backbone.history.start(); // { pushState: true });
-        //router.navigate( location.hash, true );
 
         // initial state
         registry.trigger( 'change:state' );
@@ -76,83 +66,24 @@ function( Stripes, Login, Register, Upload, Remind, Rules, Thanks, Feedback ) {
     App = Backbone.Layout.extend(
     {
         template: 'layout',
-        stripes: new Stripes(),
+        stripes: Stripes,
 
         initialize: function() {
             // listen app-state changes
             this.model.on( 'change:state',
                 this.render, this );
+            // todo: optimize renders
         },
         beforeRender: function() {
-            this.log( 'render..' );
+            this.log( 'render..', this.model.get( 'state' ));
             var view = views[ this.model.get( 'state' ) || defaultView ];
             if ( !view ) throw new Error( 'Unknown state!' );
             this.insertView( '#contents', view );
-            // fade elder
-            // $( '.main' ).fadeOut();
+            // todo: fade elder
         },
         afterRender: function() {
             this.stripes.set( this.model.get( 'state' ));
-            // $( '.main' ).fadeIn( 'slow' );
-        }
-    });
-
-
-    /**
-     * Routes url
-     */
-    Router = Backbone.Router.extend(
-    {
-        routes: {
-            '': 'login',
-            '!/login': 'login',
-            '!/register': 'register',
-            '!/upload': 'upload',
-            '!/thanks': 'thanks',
-            '!/remind': 'remind',
-            '!/rules': 'rules',
-            '!/feedback': 'feedback'
-        },
-
-        // handlers
-
-        // login form
-        login: function() {
-            registry.set({ state: 'login' });
-        },
-        // registration form
-        register: function() {
-            registry.set({ state: 'register' });
-        },
-        // upload image form
-        upload: function() {
-            registry.set({ state: 'upload' });
-        },
-        // remind password
-        remind: function() {
-            registry.set({ state: 'remind' });
-        },
-        // thanks
-        thanks: function() {
-            registry.set({ state: 'thanks' });
-        },
-        // rules
-        rules: function() {
-            registry.set({ state: 'rules' });
-        },
-        // feedback form
-        feedback: function() {
-            registry.set({ state: 'feedback' });
-        }
-    });
-
-
-    /**
-     * Application Main Registry
-     */
-    Registry = Backbone.Model.extend({
-        defaults: {
-            state: 'login'
+            // todo: fade in
         }
     });
 
