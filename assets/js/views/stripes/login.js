@@ -1,5 +1,5 @@
 define(
-    [ 'js!libs/raphael.js!order' ],
+    [ 'js!raphael!order' ],
     function() {
 
         var that = {},
