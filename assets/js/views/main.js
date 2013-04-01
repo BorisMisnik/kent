@@ -14,7 +14,7 @@ define(
         'js!jquery.easing.compatibility.js',
         'js!jquery.mCustomScrollbar.min.js',
         'js!TweenMax.min.js',
-
+        'js!jquery.selectbox-0.2.min.js'
 
     ],
     function( form ) {
@@ -52,7 +52,6 @@ define(
                 $( '.text h3' )
                     .off( 'click', onClickH )
                     .click( onClickH );
-
             }
         }),
         rules = new Rules();

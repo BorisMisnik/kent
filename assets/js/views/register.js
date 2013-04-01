@@ -4,8 +4,9 @@ define(
         'models/user',
         'models/person',
         'views/forms/init',
-        'js!libs/filereader/jquery.FileReader.min.js!order',
-        'js!swfobject!order'
+        'js!jquery.selectbox-0.2.min.js',
+        'js!swfobject!order',
+        'js!libs/filereader/jquery.FileReader.min.js!order'
     ],
     function( router, user, Person, form, filereader ) {
         Backbone.log( 'app.register', arguments );
