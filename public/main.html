@@ -2,7 +2,8 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Login</title>
+	<title>Kent HDi</title>
+    <script src="js/jquery-1.9.1.min.js"></script>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/jquery.mCustomScrollbar.css"/>
 	<link rel="stylesheet" href="css/cutext.css"/>
@@ -10,28 +11,27 @@
     <link rel="stylesheet/less" type="text/css" href="css/font.less">
     <link rel="stylesheet/less" type="text/css" href="css/main.less">
 	<link rel="stylesheet/less" type="text/css" href="css/index.less">
-	<script src="js/jquery-1.4.2.min.js"></script>
+	<!--<script src="js/jquery-1.4.2.min.js"></script>-->
 	<script src="js/autoresize.jquery.js"></script>
 	<script src="js/jScrollPane.js"></script>
 	<script src="js/jquery.mousewheel.js"></script>
 	<script src="js/cutext.js"></script>
-	<script src="js/jquery.ikSelect.min.js"></script>
+	<script src="js/jquery.ikSelect.js"></script>
 	<script type="text/javascript">
-		jQuery(document).ready(function($) {
-			$('.massege').cuText({
-	  			scrollbarWidth : 7,
-	  			showArrows : false,
-	  			resizeble : false
-			});
-			$('.smoke select').ikSelect({
-				ddFullWidth : false,
-				autoWidth : false,
-				ddMaxHeight  :114,
-				onShow : scrollBar
-			})
-		});
+
+		jQuery(document).ready(
+            function($) {
+
+                $('.massege').cuText({
+                    scrollbarWidth : 7,
+                    showArrows : false,
+                    resizeble : false
+                });
+
+            });
+
 	</script>
-	<script src="js/jquery-1.9.1.min.js"></script>
+	<!--<script src="js/jquery-1.9.1.min.js"></script>-->
 	<script src="js/jquery.maskedinput.min.js"></script>
 	<script src="js/form.js"></script>
 	<script src="js/jquery.easing.compatibility.js"></script>
@@ -120,60 +120,28 @@
 
 	    						<div class="controls">
 	    							<div class="smoke">
-	    								<select name=" ">
-	    									<option value="KENT">KENT</option>
-	    									<option value="KENT">KENT</option>
-	    									<option value="KENT">KENT</option>
-	    									<option value="KENT">KENT</option>
-	    									<option value="KENT">KENT</option>
-	    									<option value="KENT">KENT</option>
-	    									<option value="HDi">HDi</option>
-	    									<option value="HDi">HDi</option>
-	    									<option value="HDi">HDi</option>
-	    									<option value="HDi">HDi</option>
-	    								</select>	
-	    								<select name=" ">
-	    									<option value="HDi">HDi</option>
-	    									<option value="HDi">HDi</option>
-	    									<option value="HDi">HDi</option>
-	    									<option value="HDi">HDi</option>
-	    									<option value="KENT">KENT</option>
-	    									<option value="KENT">KENT</option>
-	    									<option value="KENT">KENT</option>
-	    								</select>	
+	    								<select name=" " class="sku skuA1 skuA" linked=".skuB1">
+	    								</select>
+	    								<select name=" " class="sku skuB1 skuB">
+	    								</select>
 	    							</div>
 	    						</div>
 	    						<label class="control-label" for="sigaretsOne">Марка сигарет, які ти куриш постійно</label>
 
 	    						<div class="controls">
 	    							<div class="smoke">
-	    								<select name=" ">
-	    									<option value="KENT">KENT</option>
-	    									<option value="KENT">KENT</option>
-	    									<option value="KENT">KENT</option>
-	    									<option value="KENT">KENT</option>
-	    									<option value="KENT">KENT</option>
-	    									<option value="KENT">KENT</option>
-	    									<option value="HDi">HDi</option>
-	    									<option value="HDi">HDi</option>
-	    									<option value="HDi">HDi</option>
-	    									<option value="HDi">HDi</option>
-	    								</select>	
-	    								<select name=" ">
-	    									<option value="HDi">HDi</option>
-	    									<option value="HDi">HDi</option>
-	    									<option value="HDi">HDi</option>
-	    									<option value="HDi">HDi</option>
-	    									<option value="KENT">KENT</option>
-	    									<option value="KENT">KENT</option>
-	    									<option value="KENT">KENT</option>
-	    								</select>	
+	    								<select name=" " class="sku skuA2 skuA" linked=".skuB2">
+	    								</select>
+	    								<select name=" " class="sku skuB2 skuB">
+	    								</select>
 	    							</div>
 	    						</div>
 	    						<label class="control-label" for="sigaretsOne">Марка сигарет, які ти куриш час від часу</label>
 								<div class="clear"></div>
-	    						<span class="succes">Відкореговані дані успішно збережено.</span>
-	    						<input type="submit" class="submit" value="Редагувати">
+	    						<span class="succes hide zzz">Відкореговані дані успішно збережено.</span>
+	    						<input type="submit" class="submit" value="Редагувати" onclick="
+	    						    $( '.zzz' ).hide().removeClass( 'hide' ).fadeIn( 'slow' ); return false;
+	    						">
 							</form>
 						</div>
 					</div>
@@ -186,9 +154,9 @@
 				<footer>
 					<span class="infoLine">Інформаційна лінія: 0 800 50 14 85 </span>
 					<nav class="footerNav">
-						<a href="#">Зворотний зв’язок</a>|
-						<a href="#">Правила користування сайтом</a>|
-						<a href="#">Выйти</a>
+						<a href="/#!/feedback">Зворотний зв’язок</a>|
+						<a href="/#!/rules">Правила користування сайтом</a>|
+						<a href="/">Вийти</a>
 					</nav>
 				</footer>
 			</div>
@@ -201,35 +169,31 @@
 		</div>
 	</div>
 	<script>
-		$(".text-wrapper .text").mCustomScrollbar({
-			advanced:{
-       			updateOnContentResize: true
-   			},
-   			mouseWheel : true
-   		});
-		$('.text h3').click(function(){
-			var $this = $(this);
-			if(!$this.is('.open')){
-				$this.addClass('open');
-				$this.next().slideDown();
-			}
-			else{
-				$this.removeClass('open');
-				$this.next().slideUp();
-			}
-		});
-		var marker = true;
-		function scrollBar(){
-			if(marker){
-				$(".ik_select_list_inner").mCustomScrollbar({
-					advanced:{
-				       	updateOnContentResize: true
-				   	},
-				   	mouseWheel : true
-	   			});
-	   			marker = false;
-			}
-		}
-	</script>	
+
+        $( document ).ready( function() {
+
+            $(".text-wrapper .text").mCustomScrollbar({
+                advanced:{
+                    updateOnContentResize: true
+                },
+                mouseWheel : true
+            });
+            $('.text h3').click(function(){
+                var $this = $(this);
+                if(!$this.is('.open')){
+                    $this.addClass('open');
+                    $this.next().slideDown();
+                }
+                else{
+                    $this.removeClass('open');
+                    $this.next().slideUp();
+                }
+            });
+
+
+        });
+
+	</script>
+    <script src="/js/libs/cigarettes_manage.js"></script>
 </body>
 </html>
