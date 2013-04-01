@@ -4,8 +4,8 @@ define(
         'models/user',
         'models/person',
         'views/forms/init',
-        'js!swfobject!order',
-        'js!libs/filereader/jquery.FileReader.min.js!order'
+        'js!libs/filereader/jquery.FileReader.min.js!order',
+        'js!swfobject!order'
     ],
     function( router, user, Person, form, filereader ) {
         Backbone.log( 'app.register', arguments );
@@ -65,10 +65,10 @@ define(
                         .fileReader({
                             filereader: '/js/libs/filereader/filereader.swf',
                             expressInstall: '/js/libs/filereader/expressInstall.swf',
-                            debugMode: false,
-                            callback: function() {
-                                Backbone.log( 'FileReader shim is ready (ie)' );
-                            }
+                            debugMode: false
+//                            callback: function() {
+//                                Backbone.log( 'FileReader shim is ready (ie)' );
+//                            }
                             // extensions: '*.jpg;*.png'
                         });
 
