@@ -263,8 +263,36 @@ define(
                 }
 
                 $('input[placeholder], textarea[placeholder]').placeholder();
-                $('#month').selectbox();
-           }
+                var marker = true;
+                function scrollBar(){
+                     if ( marker ) {
+                            $(".ik_select_list_inner")
+                                .mCustomScrollbar({
+                                    advanced:{ updateOnContentResize: true },
+                                    mouseWheel : true
+                                });
+                            marker = false;
+                     }
+
+                }   
+                $('#month').ikSelect({
+                        ddFullWidth : false,
+                        autoWidth : false,
+                        ddMaxHeight  :114,
+                        ddCustomClass : 'regis',
+                        onShow : scrollBar,
+                    });
+                if($('#registered').length){
+                    $('.ik_select_link_text').text('Місяць')
+                        $('.ik_select_option').click(function(){
+                            var $this = $(this);
+                            setTimeout(function(){
+                                 $('.ik_select_link_text').text($this.text())
+                                 $('#month').val($this.text())
+                             },10)
+                         })
+                }
+            }
 
             // todo: setup only needed events
 //            setup: function( name ) {

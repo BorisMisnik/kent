@@ -15,7 +15,6 @@ define(
         'js!jquery.mCustomScrollbar.min.js',
         'js!TweenMax.min.js',
         'js!jquery.selectbox-0.2.min.js'
-
     ],
     function( form ) {
         Backbone.log( 'app.rules' );

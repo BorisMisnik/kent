@@ -120,82 +120,295 @@ input[type="submit"]{
 .error{
 	margin-top:0;
 }
-.sbHolder{
-	position: relative;
-	display:inline-block;
-	width: 104px;
-	height: 28px;
-	background-color: #e0e0e0;
-	text-align: left;
-	font-size: 12px;
-	font-family: Verdana, Geneva, sans-serif;
+#registered .ik_select{
+	vertical-align:top;
 }
-.sbSelector{
-	position: absolute;
-	top: 0;
-	left: 0;
-	display: block;
-	overflow: hidden;
-	width: 104px;
-	height: 30px;
-	outline: none;
-	text-indent: 10px;
-	line-height: 30px;
+.ik_select_list{
+	padding:5px;
+	border-color:#fff;
+	background-color:#e0e0e0;
+	.mCSB_container{margin-right:0;}
+	.mCSB_scrollTools .mCSB_draggerRail{background:#fff;}
+	.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{background:#7d888f;}
+	ul{width: 97%;}
 }
-.sbSelector:link, .sbSelector:visited, .sbSelector:hover{
-	outline: none;
-	text-decoration: none;
+/* basic scrollbar styling */
+/* vertical scrollbar */
+.mCSB_container{
+	width:auto;
+	margin-right:135px;
+	overflow:hidden;
 }
-.sbToggle{
-	position: absolute;
-	top: 0;
-	right: 0;
-	display: block;
-	width: 30px;
-	height: 30px;
-	outline: none;
+.mCSB_container.mCS_no_scrollbar{
+	margin-right:0;
 }
-.sbSelector.sbFocus,
-.sbSelector.sbFocus:hover{
-	color:#7D888F;
+.mCS_disabled>.mCustomScrollBox>.mCSB_container.mCS_no_scrollbar,
+.mCS_destroyed>.mCustomScrollBox>.mCSB_container.mCS_no_scrollbar{
+	margin-right:30px;
 }
-.sbSelector,
-.sbSelector:hover{
-	color:#7D888F;
+.mCustomScrollBox>.mCSB_scrollTools{
+	width:16px;
+	height:100%;
+	top:0;
+	right:0;
 }
-.sbOptions{
-	position: absolute;
-	top: 30px;
-	left: -1px;
-	z-index: 1;
-	overflow-y: auto;
-	margin: 0;
-	padding: 0;
-	width: 104px;
-	background-color: #e0e0e0;
-	list-style: none;
-	max-height: 182px;
+.mCSB_scrollTools .mCSB_draggerContainer{
+	position:absolute;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0; 
+	height:auto;
 }
-.sbOptions a{
-	display: block;
-	padding:4px 0 4px 11px;
-	outline: none;
+.mCSB_scrollTools a+.mCSB_draggerContainer{
+	margin:20px 0;
+}
+.mCSB_scrollTools .mCSB_draggerRail{
+	width:8px;
+	height:100%;
+	margin:0 auto;
+}
+.mCSB_scrollTools .mCSB_dragger{
+	cursor:pointer;
+	width:100%;
+	height:30px;
+}
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+	width:8px;
+	height:100%;
+	margin:0 auto;
+}
+.mCSB_scrollTools .mCSB_buttonDown{
+	top:100%;
+	margin-top:-40px;
+}
+/* horizontal scrollbar */
+.mCustomScrollBox{
+	-ms-touch-action:none; /*MSPointer events - direct all pointer events to js*/
+}
+
+/* default scrollbar colors and backgrounds (default theme) */
+
+.mCSB_scrollTools .mCSB_draggerRail{
+	background:#7d888f; /* rgba fallback */
+}
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+	background:#fff; /* rgba fallback */
+	background:rgba(255,255,255,0.75);
+}
+
+
+/*scrollbar themes*/
+/*dark (dark colored scrollbar)*/
+.mCS-dark>.mCSB_scrollTools .mCSB_draggerRail{
+	background:#000; /* rgba fallback */
+	background:rgba(0,0,0,0.15);
+}
+.mCS-dark>.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+	background:#000; /* rgba fallback */
+	background:rgba(0,0,0,0.75);
+}
+/*light-2*/
+.mCS-light-2>.mCSB_scrollTools .mCSB_draggerRail{
+	width:4px;
+	background:#fff; /* rgba fallback */
+	background:rgba(255,255,255,0.1);
+	-webkit-border-radius:1px;
+	-moz-border-radius:1px;
+	border-radius:1px;
+}
+.mCS-light-2>.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+	width:4px;
+	background:#fff; /* rgba fallback */
+	background:rgba(255,255,255,0.75);
+	-webkit-border-radius:1px;
+	-moz-border-radius:1px;
+	border-radius:1px;
+}
+/*dark-2*/
+.mCS-dark-2>.mCSB_scrollTools .mCSB_draggerRail{
+	width:4px;
+	background:#000; /* rgba fallback */
+	background:rgba(0,0,0,0.1);
+	-webkit-border-radius:1px;
+	-moz-border-radius:1px;
+	border-radius:1px;
+}
+.mCS-dark-2>.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+	width:4px;
+	background:#000; /* rgba fallback */
+	background:rgba(0,0,0,0.75);
+	-webkit-border-radius:1px;
+	-moz-border-radius:1px;
+	border-radius:1px;
+}
+/*light-thick*/
+.mCS-light-thick>.mCSB_scrollTools .mCSB_draggerRail{
+	width:4px;
+	background:#e0e0e0;
+}
+.mCS-light-thick>.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+	width:6px;
+	background:#fff; /* rgba fallback */
+	background:rgba(255,255,255,0.75);
+}
+/*dark-thick*/
+.mCS-dark-thick>.mCSB_scrollTools .mCSB_draggerRail{
+	width:4px;
+	background:#000; /* rgba fallback */
+	background:rgba(0,0,0,0.1);
+}
+.mCS-dark-thick>.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+	width:6px;
+	background:#000; /* rgba fallback */
+	background:rgba(0,0,0,0.75);
+}
+/*light-thin*/
+.mCS-light-thin>.mCSB_scrollTools .mCSB_draggerRail{
+	background:#fff; /* rgba fallback */
+	background:rgba(255,255,255,0.1);
+}
+.mCS-light-thin>.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+	width:2px;
+}
+/*dark-thin*/
+.mCS-dark-thin>.mCSB_scrollTools .mCSB_draggerRail{
+	background:#000; /* rgba fallback */
+	background:rgba(0,0,0,0.15);
+}
+.mCS-dark-thin>.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+	width:2px;
+	background:#000; /* rgba fallback */
+	background:rgba(0,0,0,0.75);
+}
+/* custom styling */
+/* content_1 scrollbar */
+.content_1>.mCustomScrollBox>.mCSB_scrollTools{
+	height:96%;
+	top:2%;
+}
+/* content_2 scrollbar */
+.content_2 .mCSB_scrollTools .mCSB_draggerRail{
+	width:6px;
+	box-shadow:1px 1px 1px rgba(255,255,255,0.1);
+}
+.content_2 .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+	background:rgba(255,255,255,0.4);
+}
+/* content_3 scrollbar */
+.content_3>.mCustomScrollBox>.mCSB_scrollTools{
+	height:94%;
+	top:3%;
+}
+.content_3 .mCSB_scrollTools .mCSB_draggerRail{
+	width:0;
+	border-right:1px dashed #09C;
+}
+.content_3 .mCSB_scrollTools .mCSB_dragger{
+	height:11px;
+}
+.content_3 .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+	width:11px;
+	-webkit-border-radius:11px;
+	-moz-border-radius:11px;
+	border-radius:11px;
+	background:#09C;
+}
+/* content_4 scrollbar */
+.content_4>.mCustomScrollBox>.mCSB_scrollTools{
+	height:94%;
+	top:3%;
+}
+.content_4 .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+	width:8px;
+	-webkit-border-radius:2px;
+	-moz-border-radius:2px;
+	border-radius:2px;
+	background:#d0b9a0;
+	-webkit-box-shadow:1px 1px 5px rgba(0,0,0,0.5);
+	-moz-box-shadow:1px 1px 5px rgba(0,0,0,0.5);
+	box-shadow:1px 1px 5px rgba(0,0,0,0.5);
+}
+/* content_5 scrollbar */
+.content_5>.mCustomScrollBox>.mCSB_scrollTools{
+	width: 98%;
+	margin: 0 1%;
+}
+/* content_6 scrollbar */
+.content_6>.mCustomScrollBox>.mCSB_scrollTools{
+	width:88%;
+	margin: 0 6%;
+}
+/* content_8 scrollbar */
+.content_8 .mCSB_scrollTools .mCSB_draggerRail{
+	width:0px;
+	border-left:1px solid rgba(0,0,0,0.8);
+	border-right:1px solid rgba(255,255,255,0.2);
+}
+.ik_select{
+	display:inline-block; *display:inline;
+	vertical-align:middle;
+	position:relative;
+	*zoom:1;
+}
+
+.ik_select_link{
+	height:16px;
+	padding:0 22px 0 7px;
+	overflow:hidden;
+	border:1px solid #999;
+	cursor:default;
+	white-space:nowrap;
+	*zoom:1;
+}
+.ik_select_link_text{
+	display:block;
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+
+.ik_select_block{
+	display:none;
+	position:absolute; z-index:9999;
+	width:100%;
+	height:auto;
+	left:0; top:0;
+	cursor:default;
+}
+.ik_select_list{
+	position:relative;
+	*zoom:1;
+}
+.ik_select_option{
+	color:#656e75;
 	font-size:12px;
-	color:#7D888F !important;
 }
-.sbOptions a:hover,
-.sbOptions a:focus,
-.sbOptions a.sbFocus{
-	color: #7D888F;
-	text-decoration:none;
+.ik_select_list ul{
+	margin:0; padding:0;
+	list-style:none;
 }
-.sbOptions .sbGroup{
-	display: block;
-	padding: 7px 0 7px 3px;
-	border-bottom: dotted 1px #515151;
-	color: #EBB52D;
-	font-weight: bold;
+.ik_select_list li{
+	position:relative;
+	padding:0 7px;
+	overflow:hidden;
 }
-.sbOptions .sbSub{
-	padding-left: 17px;
+.ik_select_list li.ik_select_optgroup{
+	padding-left:0;
+}
+.ik_select_optgroup_label{
+	padding:0 7px;
+	color:#7f8080;
+}
+.ik_select_optgroup li{
+	padding-left:14px;
+}
+.ik_select_hover{
+	background: #EEE;
+}
+.ik_select_optgroup_disabled .ik_select_optgroup_label,
+.ik_select_option_disabled{
+	color:#999;
+}
+.ik_select_link_disabled{
+	opacity:0.5; filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
 }

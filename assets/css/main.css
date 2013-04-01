@@ -11,7 +11,6 @@ body {
   font-weight: 100;
   font-size: 12px;
   font-family: Verdana, Geneva, sans-serif;
-  position: relative;
 }
 body > div {
   width: 100%;
@@ -329,9 +328,6 @@ textarea:focus {
   vertical-align: top;
   line-height: normal;
 }
-.dateBirthday {
-  overflow: visible;
-}
 .succes {
   display: block;
   margin-top: 8px;
@@ -348,6 +344,9 @@ textarea:focus {
 .hide {
   display: none;
 }
+.dateBirthday .ik_select {
+  display: inline-block;
+}
 .dateBirthday .ik_select_link {
   position: relative;
   display: inline-block;
@@ -361,5 +360,8 @@ textarea:focus {
 }
 .dateBirthday .ik_select_link_text {
   padding-top: 7px;
-  color: #6B747A;
+  color: #7D888F;
+}
+.ik_select_block {
+  height: auto;
 }
