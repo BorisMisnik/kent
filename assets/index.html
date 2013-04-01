@@ -3,8 +3,16 @@
 <head>
     <title></title>
 
-    <!--<script src="http://cdnjs.cloudflare.com/ajax/libs/curl/0.7.3/curl-kitchen-sink/curl.js"></script>-->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/PIE_IE678.js"></script>
+    <script src="js/ie8.js"></script>
+    </style>
+    <![endif]-->
+
     <!-- Engine -->
+    <!--<script src="http://cdnjs.cloudflare.com/ajax/libs/curl/0.7.3/curl-kitchen-sink/curl.js"></script>-->
     <script src="/js/libs/curl.js"></script>
     <script>
 
@@ -14,13 +22,15 @@
             baseUrl: '/js',
             pluginPath: '/js/libs/curl/plugin',
             paths: {
-                jquery: 'http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.js',     // .min.js',
+                jquery: 'http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js',
                 // jquery142: 'http://cdnjs.cloudflare.com/ajax/libs/jquery/1.4.2/jquery.min.js',
                 underscore: 'http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js',
-                backbone: 'http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone.js',    // -min.js',
+                backbone: 'http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js',
                 layoutmanager: 'http://cdnjs.cloudflare.com/ajax/libs/backbone.layoutmanager/0.8.5/backbone.layoutmanager.js',
                 modelbinder: 'http://cdnjs.cloudflare.com/ajax/libs/backbone.modelbinder/0.1.6/Backbone.ModelBinder.min.js',
-                hogan: 'http://cdnjs.cloudflare.com/ajax/libs/hogan.js/2.0.0/hogan.js'
+                hogan: 'http://cdnjs.cloudflare.com/ajax/libs/hogan.js/2.0.0/hogan.js',
+                raphael: 'libs/raphael-min.js',
+                swfobject: 'http://cdnjs.cloudflare.com/ajax/libs/swfobject/2.2/swfobject.js'
             }
         })
         .next([
@@ -34,9 +44,9 @@
 
             // shims
             // todo: create `ie!` prefix plugin for `curl.js`
-//            'js!/js/html5shiv.js',          // ie
-//            'js!/js/PIE_IE678.js',          // ie678
-//            'js!/js/ie8.js!order',          // ie8
+//            'js!/js/html5shiv.js!order',          // ie
+//            'js!/js/PIE_IE678.js!order',          // ie678
+//            'js!/js/ie8.js!order!order',          // ie8
 //            'js!libs/jquery.placeholder.min.js!order',
 
             // frontend
@@ -45,6 +55,7 @@
             'css!/css/bootstrap.min.css',
             'css!/css/font.css',
             'css!/css/main.css',
+            // todo: move to the modules definition
             'css!/css/registered.css',
             'css!/css/login.css',
             'css!/css/remind.css',
@@ -74,13 +85,6 @@
         });
 
     </script>
-
-    <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/PIE_IE678.js"></script>
-    <script src="js/ie8.js"></script>
-    </style>
-    <![endif]-->
 
 </head>
 <body>
