@@ -295,7 +295,10 @@ define(
                 if($('#rules').length){
                     $('#rulles').mCustomScrollbar();
                 }
-            }
+
+                $('#month').selectbox();
+                $('input[placeholder], textarea[placeholder]').placeholder();
+           }
 
             // todo: setup only needed events
 //            setup: function( name ) {

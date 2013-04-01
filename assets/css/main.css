@@ -124,7 +124,7 @@ a:hover {
   background-color: white;
   color: #5d6870;
   text-transform: uppercase;
-  font: 10px 'DINPro-Medium';
+  font: 9px Verdana, Geneva, sans-serif;
 }
 .infoLine {
   display: inline-block;
@@ -328,6 +328,9 @@ textarea:focus {
 .smoke * {
   vertical-align: top;
   line-height: normal;
+}
+.dateBirthday {
+  overflow: visible;
 }
 .succes {
   display: block;
