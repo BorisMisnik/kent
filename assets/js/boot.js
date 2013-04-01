@@ -21,10 +21,10 @@ define(
         var config = {
                 log: {
                     types: {
-                        log: true,
-                        info: true,
-                        error: true,
-                        warn: true
+//                        log: true,
+//                        info: true,
+//                        error: true,
+//                        warn: true
                     },
                     local: true,
                     remote: {
