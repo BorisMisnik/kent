@@ -32,15 +32,16 @@
             'js!modelbinder!order',
             'js!hogan',
 
-            // frontend
+            // shims
             // todo: create `ie!` prefix plugin for `curl.js`
-//            // shims
-//            //'ie!/js/html5shiv.js',
-//            //'ie6!ie7!ie8!/js/PIE_IE678.js',
-//            //'ie8!/js/ie8.js',
+            'ie!/js/html5shiv.js',
+            'ie6!ie7!ie8!/js/PIE_IE678.js',
+            'ie8!/js/ie8.js',
+            'js!libs/jquery.placeholder.min.js!order',
+
+            // frontend
             'js!jquery.maskedinput.min.js!order',
             // css
-            //'js!less',
             'css!/css/bootstrap.min.css',
             'css!/css/font.css',
             'css!/css/main.css',
@@ -66,8 +67,8 @@
         // main error handler
         function( err ) {
             //console.log( 'ERR:', arguments );
-            console && console.log &&
-            console.log( 'ERROR:', err, err.stack );
+//            console && console.log &&
+//            console.log( 'ERROR:', err, err.stack );
             // alert( 'ERR', err.toString() );
             throw err;
         });
