@@ -5,6 +5,12 @@
         "script": "./libs/login",
         "handler": "login"
     },
+    {
+        "method": "post",
+        "url": "/auth/remind",
+        "script": "./libs/login",
+        "handler": "remind"
+    },
 
 
     {

@@ -23,6 +23,10 @@ define(
 
                 // extend
 
+                isAutorized: function() {
+                    return this.authorized
+                },
+
                 login: function( username, password, callback ) {
                     // query
                     this.log(
@@ -34,18 +38,34 @@ define(
                             password: password
                         })
                         .fail( function( def, type, status ) {
-                            Backbone.log( 'login ajax fail', status );
-                            callback( true );
+                            Backbone.log( 'login: ajax fail', status );
+                            callback( new Error( status ));
                         })
                         .done( function( res ) {
-                            Backbone.log( 'login ajax done', res );
+                            Backbone.log( 'login: ajax done', res );
                             if ( res.error ) {
                                 callback( null, null, res );
                             } else {
                                 callback( null, res );
                             }
                         });
+                },
+
+                remind: function( email, callback ) {
+                    $.post(
+                        '/auth/remind', {
+                            email: email
+                        })
+                        .fail( function( def, type, status ) {
+                            Backbone.log( 'login: ajax fail', status );
+                            callback( new Error( status ));
+                        })
+                        .done( function( res ) {
+                            Backbone.log( 'remind password: ajax done', res );
+                            callback( null, res );
+                        });
                 }
+
             }),
             user = new User();
 

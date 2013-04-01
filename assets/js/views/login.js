@@ -6,7 +6,7 @@ define(
     function( user, form ) {
         Backbone.log( 'app.login' );
 
-        var errorMessages = {
+        var errors = {
                 wrong_credentials: 'Неправильно введено логін або пароль. Спробуй ще раз.'
             },
 
@@ -35,15 +35,12 @@ define(
                     var data = { errors: [] };
                     _.each( this._errors,
                         function( val, key ) {
-                            data.errors.push(
-                                errorMessages[ key ]);
+                            data.errors.push( errors[ key ]);
                         });
                     // form values
                     data.form = this.model.toJSON();
-                    this.log( 'data:', data );
+                    this.log( 'login form data:', data );
                     return data;
-                },
-                beforeRender: function() {
                 },
                 afterRender: function() {
                     // custom form fields
