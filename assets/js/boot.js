@@ -20,6 +20,12 @@ define(
         // todo: move to config.json and make curl.js json loader (!)
         var config = {
                 log: {
+                    types: {
+                        log: true,
+                        info: true,
+                        error: true,
+                        warn: true
+                    },
                     local: true,
                     remote: {
                         // todo: debug-server
@@ -96,10 +102,19 @@ define(
             Backbone.View.prototype.log = log;
             Backbone.Router.prototype.log = log;
 
-            function log() {
+            function log( type ) {
                 var args = [].slice.call( arguments ),
                     message;
 
+                // type of message
+                if ( type in [ 'error', 'warn', 'info', 'log' ])
+                    args.shift();
+                else var type = 'log';
+                // exclude some logs
+                if ( type && !config.log.types[ type ])
+                    return;
+
+                // serialize objects
                 if ( JSON )
                     for ( var id in args )
                         if ( args.hasOwnProperty( id ))
@@ -109,7 +124,7 @@ define(
 
                 message = args.join( ' ' );
 
-                // console
+                // show in console
                 if ( config.log.local )
                     if ( console && console.log )
                         console.log( message );

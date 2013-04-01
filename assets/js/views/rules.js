@@ -7,12 +7,7 @@ define(
     function( form ) {
         Backbone.log( 'app.rules' );
 
-        debugger;
         var $142 = jQuery.noConflict();
-//        require( 'js!jquery142', function() {
-//            jQuery.noConflict();
-//        });
-
 
         var Rules = Backbone.Layout.extend(
         {
