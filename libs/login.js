@@ -11,6 +11,15 @@ var check = require( 'validator' ).validators,
     filters = require( 'validator' ).sanitize,
     fs = require('fs');
 
+var users;
+try {
+    users = require( process.cwd() + '/store/users.json' );
+} catch( e ){
+    users = {};
+}
+console.log( 'Users:', users );
+
+
 /**
  * Errors:
  *
@@ -35,6 +44,13 @@ exports.login = function( req, res ) {
         result =
             username == 'test-user' &&
             password == '9LiGd';
+
+    // hack
+    if ( users[ username ]
+        && users[ username ] == password )
+            result = true;
+
+    console.log( 'Login:', username, '/', password, 'Result:', result );
 
     // error
     if ( !result )
@@ -195,6 +211,13 @@ exports.signup = function( req, res ) {
     } else {
         res.json({ success: true });
         // todo: return filtered form values
+
+        users[ form.email ] =
+            form.password;
+        fs.writeFile(
+            './store/users.json',
+            JSON.stringify( users ),
+            function(){} );
 
         // (!)
         // temporary storage of registrations

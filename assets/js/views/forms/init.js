@@ -35,12 +35,6 @@ define(
                 .off( 'focus', textareaFocus )
                 .focus( textareaFocus );
 
-//            $(':text')
-//                .off( 'focus', textFocus )
-//                .focus( textFocus )
-//                .off( 'blur', textBlur )
-//                .blur( textBlur );
-
             textarea.each(
                 function(){
                     $(this).data( 'text',
@@ -124,13 +118,9 @@ define(
         function clickUploadFile( e ) {
             e.preventDefault();
 
-            // remove any events from file
-            // HACK!!
-            $( '#photofile').off().click();
-
-//            $( this )
-//                .next( 'input:file' )
-//                .click();
+            $( this )
+                .next( 'input:file' )
+                .click();
         }
 
         function inputFocus() {
@@ -179,34 +169,6 @@ define(
             if ($this.val() === '')
                 $this.text($this.data('text'))
         }
-
-//        function textFocus() {
-//            var $this = $(this);
-//            var value = $this.val();
-//
-//            if ( value === $this.data( 'value' )) {
-//                $this.val('');
-//            }
-//            if ( $this.data('value') === 'Пароль'
-//                || $this.data('value') === 'Пiдтвердження пароля' ) {
-//                $this.attr( 'type', 'password' );
-//            }
-//        }
-
-//        function textBlur() {
-//            var $this = $(this);
-//
-//            // placeholder
-//            if ( $this.val().length < 1
-//                || $this.val() === ' '
-//                || $this.val() === '0 (__) ___-__-__' )
-//                $this.val( $this.data( 'value' ));
-//
-//            if ( $this.is(':password')
-//                && $this.val() == 'Пароль'
-//                || $this.val() == 'Пiдтвердження пароля' )
-//                $this.attr( 'type', 'text' );
-//        }
 
         function checkboxClick( e ) {
             e.preventDefault();
