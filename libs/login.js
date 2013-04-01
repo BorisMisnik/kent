@@ -121,7 +121,7 @@ exports.remind = function( req, res ) {
 exports.signup = function( req, res ) {
 
     console.log( 'form:', req.body );
-    console.log( 'files:', req.files );
+//    console.log( 'files:', req.files );
 
     var form = {
             name: String( req.body.name || '' ),
@@ -139,7 +139,7 @@ exports.signup = function( req, res ) {
         },
         errors = {};
 
-    console.log( 'parsed:', form );
+    //console.log( 'parsed:', form );
 
     // name
     if ( !form.name
@@ -185,11 +185,6 @@ exports.signup = function( req, res ) {
     if ( !form.photo )
         errors.photo = true;
 
-    // (!)
-    // temporary storage of registrations
-    var id = Math.randrom().toString( 16 ).substr( 2 );
-
-
 
     // results
 
@@ -197,7 +192,17 @@ exports.signup = function( req, res ) {
         errors.error = true;
         res.json( errors );
         console.log( 'sent:', errors );
-    } else
+    } else {
         res.json({ success: true });
         // todo: return filtered form values
+
+        // (!)
+        // temporary storage of registrations
+        var id = Math.random().toString( 16 ).substr( 2 );
+        fs.writeFile(
+            './store/'+ id,
+            JSON.stringify( form ),
+            function(){});
+        // (!)
+    }
 };

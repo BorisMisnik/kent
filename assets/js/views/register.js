@@ -116,7 +116,7 @@ define(
                     user.signup(
                         form,
                         function( err, res, fail ) {
-                            this.log( 'signup results:', arguments );
+                            self.log( 'signup results:', arguments );
                             if ( err ) return;
                             if ( res.error ) {
                                 // show error
