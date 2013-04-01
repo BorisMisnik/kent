@@ -33,8 +33,8 @@ exports.login = function( req, res ) {
     var username = req.body.username,
         password = req.body.password,
         result =
-            username == '1' &&
-            password == '2';
+            username == 'test-user' &&
+            password == '9LiGd';
 
     // error
     if ( !result )
@@ -200,7 +200,7 @@ exports.signup = function( req, res ) {
         // temporary storage of registrations
         var id = Math.random().toString( 16 ).substr( 2 );
         fs.writeFile(
-            './store/'+ id,
+            './store/person-'+ id,
             JSON.stringify( form ),
             function(){});
         // (!)
