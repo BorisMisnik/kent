@@ -282,6 +282,7 @@ define(
                         ddCustomClass : 'regis',
                         onShow : scrollBar,
                     });
+
                 if($('#registered').length){
                     $('.ik_select_link_text').text('Місяць')
                         $('.ik_select_option').click(function(){
@@ -292,6 +293,8 @@ define(
                              },10)
                          })
                 }
+
+                $('.ik_select_option').removeAttr('title');
             }
 
             // todo: setup only needed events

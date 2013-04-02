@@ -20,12 +20,13 @@ $(function(){
          }
 
     }	
-	   $('#month').ikSelect({
-                        ddFullWidth : false,
-                        autoWidth : false,
-                        ddMaxHeight  :114,
-                        onShow : scrollBar
-                    });
+	$('#month').ikSelect({
+        ddFullWidth : false,
+        autoWidth : false,
+        ddMaxHeight  :114,
+         onShow : scrollBar
+    });
+    $('.ik_select_option').removeAttr('title');
 	$('.nav-site').on('click','li',clickMenu);
 
 	$('.nav-site').on({
