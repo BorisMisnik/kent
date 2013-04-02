@@ -60,7 +60,6 @@ define(
                 photo: null,
 
                 initialize: function() {
-                    console.log( 'reg init' );
                     var self = this;
 
                     this.model = new Backbone.Model();
