@@ -90,11 +90,15 @@
 						<div class="profile">
 							<form  class="form-horizontal text-left" action=" " method=" ">
 
+                                <span id="formError" class="error hide">Виникла помилка</span>
+
    						 		<div class="controls">
 	     							<input type="text" name="name" placeholder="П. I. Б." class="text" id="name" value="" />
     							</div>
+
     							<label class="control-label" for="name">П. I. Б.</label>
-									
+                                <span class="error err_name">Неправильно вказано дані (П. І. Б.)</span>
+
 								<div class="controls">
 									<div class="dateBirthday">
 										<input type="text" name="date" placeholder="День" class="text" id="date"value="" />
@@ -113,50 +117,59 @@
 					                        <option value="10">Листопад</option>
 					                        <option value="11">Грудень</option>
                                 		</select>
-										<input type="text" name="year" placeholder="Рік" class="text" value="" />
+										<input type="text" id="year" name="year" placeholder="Рік" class="text" value="" />
 									</div>
 								</div>
 								<label class="control-label" for="date">Дата народження</label>
+                                <span class="error err_day">Невірні дані</span>
+                                <span class="error err_age">Тобі ще не виповнилося 18 років</span>
 
 								<div class="controls">
 	     							<input type="text" name="mobilePhone" placeholder="0 (96) 938-15-17" class="text" id="mobilePhone" value="" />
 	    						</div>
 	    						<label class="control-label" for="mobilePhone">Мобiльний телефон</label>
+                                <span class="error err_phone">Неправильний формат номера</span>
 
 								<div class="controls">
 	     							<input type="text" name="email" placeholder="E-mail" class="text" id="email" value="" />
 	    						</div>
 	    						<label class="control-label" for="email">E-mail</label>
+                                <span class="error err_email">Неправильний формат e-mail</span>
+                                <span class="error err_already_used_email" >Такий e-mail вже зареестровано</span>
 
 								<div class="controls">
-	     							<input type="text" name="password" placeholder="Пароль" class="text" id="password" value="" />
+	     							<input type="password" name="password" placeholder="Пароль" class="text" id="password" value="" />
 	    						</div>
 	    						<label class="control-label" for="password">Пароль</label>
+                                <span class="error err_password">Пароль не відповідає вимогам</span>
 
 	    						<div class="controls">
 	    							<div class="smoke">
-	    								<select name=" " class="sku skuA1 skuA" linked=".skuB1">
+	    								<select name="brand1" class="sku skuA1 skuA" linked=".skuB1">
 	    								</select>
-	    								<select name=" " class="sku skuB1 skuB">
+	    								<select name="sku1" class="sku skuB1 skuB">
 	    								</select>
 	    							</div>
 	    						</div>
 	    						<label class="control-label" for="sigaretsOne">Марка сигарет, які ти куриш постійно</label>
+                                <span class="error err_password">Треба вказати</span>
 
 	    						<div class="controls">
 	    							<div class="smoke">
-	    								<select name=" " class="sku skuA2 skuA" linked=".skuB2">
+	    								<select name="brand2" class="sku skuA2 skuA" linked=".skuB2">
 	    								</select>
-	    								<select name=" " class="sku skuB2 skuB">
+	    								<select name="sku2" class="sku skuB2 skuB">
 	    								</select>
 	    							</div>
 	    						</div>
 	    						<label class="control-label" for="sigaretsOne">Марка сигарет, які ти куриш час від часу</label>
+                                <span class="error err_password">Треба вказати</span>
+                                <span class="error err_password">Пoвинно відрізнятись</span>
+
 								<div class="clear"></div>
-	    						<span class="succes hide zzz">Відкореговані дані успішно збережено.</span>
-	    						<input type="submit" class="submit" value="Редагувати" onclick="
-	    						    $( '.zzz' ).hide().removeClass( 'hide' ).fadeIn( 'slow' ); return false;
-	    						">
+                                <span id="profileSuccess" class="succes hide">Відкореговані дані успішно збережено.</span>
+
+	    						<input id="submitProfile" type="submit" class="submit" value="Редагувати" />
 							</form>
 						</div>
 					</div>
@@ -206,20 +219,79 @@
             });
 
 
+            // init profile editor
+            initProfile();
         });
 
+
+        // Profile Editor
+
+        /**
+         * Initialize Main page
+         */
+        function initProfile() {
+            getProfile();
+            // handle submit
+            $( '#submitProfile' )
+                .click( function( e ) {
+                    e.preventDefault();
+                    updateProfile();
+                });
+        }
+
+        function populateProfile( profile )
+        {
+            // hide old errors
+            $( '.error' ).addClass( 'hide' );
+
+            // populate data
+            $( '#name' ).val( profile.name );
+            $( '#date' ).val( profile.day );
+            //$( '#month' ).val( profile.month );
+            $( '#month' ).ikSelect( 'select', profile.month );
+            $( '#year' ).val( profile.year );
+            $( '#mobilePhone' ).val( profile.phone );
+            $( '#email' ).val( profile.email );
+            $( '#password' ).val( profile.password );
+            $( '#agree_age' ).prop( 'checked',  profile.agree_age );
+            $( '#agree_rules' ).prop( 'checked', profile.agree_rules );
+            $( '#agree_info' ).prop( 'checked', profile.agree_info );
+        }
+
+        function errorsProfile( errors ) {
+            var name,
+                error;
+            for ( name in errors ) {
+                error = errors[ name ];
+                if ( !error ) continue;
+                $( '.err_' + name ).removeClass( 'hide' );
+                // console.log( 'shown error:', name );
+            }
+        }
 
         /**
          * Profile code
          */
         function getProfile() {
+
+            // hide system error
+            $( '#formError').addClass( 'hide' );
+
             $.get( '/user/profile' )
-                .done( function() {
+                .done( function( res ) {
                     //console.log( 'profile done', arguments );
+
+                    // action
+                    if ( res.errors )
+                        errorsProfile( res.errors );
+                    else
+                        populateProfile( res.profile );
                 })
                 .fail( function() {
-                    //console.log( 'profile fail', arguments );
-                })
+                    //console.log( 'profile fails', arguments );
+                    // show system error
+                    $( '#formError' ).removeClass( 'hide').hide().fadeIn( 'slow' );
+                });
         }
         function updateProfile() {
             var form = {
@@ -230,21 +302,38 @@
                 phone: $( '#mobilePhone' ).val(),
                 email: $( '#email' ).val(),
                 password: $( '#password' ).val(),
-                password2: $( '#passwordTwo' ).val(),
-                agree_age: $( '#agree_age' ).prop( 'checked' ),
-                agree_rules: $( '#agree_rules' ).prop( 'checked' ),
-                agree_info: $( '#agree_info' ).prop( 'checked' )
+                brand1: $( '#brand1' ).val(),
+                sku1: $( '#sku1' ).val(),
+                brand2: $( '#brand2' ).val(),
+                sku2: $( '#sku2' ).val()
             };
             //console.log( 'form:', form );
-        }
 
-        /**
-         * Initialize Main page
-         */
-        function init() {
-            getProfile();
+            // hide system error
+            $( '#formError').addClass( 'hide' );
+            // hide old success
+            $( '#profileSuccess' ).addClass( 'hide' );
+
+            $.post( '/user/profile', form )
+                .done( function( res ) {
+                    //console.log( 'save done', arguments );
+                    if ( res.error ) {
+                        // errors
+                        //$( '#formError' ).hide().removeClass( 'hide' ).fadeIn( 'slow' );
+                        errorsProfile( res );
+                    }
+                    else {
+                        // success message
+                        $( '#profileSuccess' ).hide().removeClass( 'hide' ).fadeIn( 'slow' );
+                        populateProfile( res.profile );
+                    }
+                })
+                .fail( function() {
+                    //console.log( 'save fails', arguments );
+                    // show system error
+                    $( '#formError' ).removeClass( 'hide').hide().fadeIn( 'slow' );
+                })
         }
-        init();
 
 
 	</script>

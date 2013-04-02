@@ -173,7 +173,26 @@ exports.remind = function( req, res ) {
 
 // Profile
 
-function profileData( fields,  callback )
+/**
+ * Errors:
+ *
+ *  * {Boolean} name
+ *  * {Boolean} age
+ *  * {Boolean} phone
+ *  * {Boolean} email
+ *  * {Boolean} password
+ *  * {Boolean} not_same_passwords
+ *  * {Boolean} photo
+ *  * {Boolean} not_agree
+ *
+ *  Success:
+ *
+ *  * {Object} form
+ *
+ * @param fields
+ * @param callback
+ */
+function signupData( fields, callback )
 {
     if ( !callback ) return;
 
@@ -201,8 +220,6 @@ function profileData( fields,  callback )
         errors.name = true;
 
     // age
-    /* debug (!) */ if (parseInt( fields.month )) form.month = 0;
-
     var age = new Date( form.year, form.month-1, form.day ),
         date = new Date();
     date.setMonth( date.getMonth() - 12 * 18 );
@@ -261,15 +278,6 @@ function profileData( fields,  callback )
  *  * {String} error
  *  * {Boolean} already_used_email
  *
- *  * {Boolean} name
- *  * {Boolean} age
- *  * {Boolean} phone
- *  * {Boolean} email
- *  * {Boolean} password
- *  * {Boolean} not_same_passwords
- *  * {Boolean} photo
- *  * {Boolean} not_agree
- *
  * Success:
  *
  *  * {String} success
@@ -279,18 +287,21 @@ function profileData( fields,  callback )
  */
 exports.signup = function( req, res ) {
 
-    //console.log( 'form:', req.body );
+    console.log( 'form:', req.body );
 
-    profileData( req.body, function( err, profile ) {
+    signupData( req.body, function( err, profile ) {
+
+        console.log( 'signup results:', err, profile );
 
         // errors
         if ( err ) {
+            console.log( 'fatal error' );
             err.error = true;
             res.json( err );
             return;
         }
         if ( users[ profile.email ]) {
-            err.error = true;
+            console.log( 'error' );
             res.json({
                 error: 'Already used email address',
                 already_used_email: true
@@ -298,8 +309,10 @@ exports.signup = function( req, res ) {
             return;
         }
 
+        console.log( 'success' );
+
         // update user
-        users[ profile.email ] = profile;
+        users[ profile.email ] = copy( profile );
 
         // results
         profile.success = true;
@@ -338,17 +351,20 @@ exports.signup = function( req, res ) {
  * @param res
  */
 exports.getProfile = function( req, res ) {
-    var id = req.session.uid,
-        user = users[ id ];
+    var uid = req.session.uid,
+        user = users[ uid ];
     if ( !user ) {
         res.json({
             error: 'Not logged in',
             not_logged: true
         });
     } else {
+        var profile = copy( user );
+        delete profile.photo;
+        delete profile.password2;
         res.json({
             success: true,
-            profile: user
+            profile: profile
         });
     }
 };
@@ -373,8 +389,8 @@ exports.getProfile = function( req, res ) {
  * @param res
  */
 exports.setProfile = function( req, res ) {
-    var id = req.session.uid,
-        user = users[ id ],
+    var uid = req.session.uid,
+        user = users[ uid ],
         values = req.body;
     if ( !user ) {
         res.json({
@@ -384,28 +400,167 @@ exports.setProfile = function( req, res ) {
     } else {
         // not email!
         // because email is key
-        values.email = user.email;
+        //values.email = user.email;
         // normalize
+
+        console.log( 'values:', values, req.body );
+
         profileData( values,
             function( err, profile ) {
 
-                // error
+                console.log( 'setProfile results:', err, profile );
+
+//                // errors
+//                if ( err ) {
+//                    res.send( 500 );
+//                    return;
+//                }
                 if ( err ) {
                     err.error = true;
                     res.json( err );
                     return;
                 }
+
                 // results
                 profile.success = true;
+
+
+                // update user
+                users[ values.email ] =
+                    merge( user, profile );
+
+                console.log(
+                    new Array( 100 ).join('~'),
+                    '\n', uid, values.email, user.email, values.email != uid
+                );
+
+                if ( values.email != uid ) {
+                    console.log( 'CHANGE USER !!!!!!!!!!!!!!' );
+                    // session_id
+                    req.session.uid = values.email;
+                    // remove old user
+                    delete users[ uid ];
+                }
+
                 // results
                 res.json({
                     success: true,
                     profile: profile
                 });
 
-                // update user
-                users[ id ] = profile;
                 syncRegistry();
             });
     }
 };
+
+/**
+ * Errors:
+ *
+ *  * {Boolean} name
+ *  * {Boolean} day
+ *  * {Boolean} age
+ *  * {Boolean} phone
+ *  * {Boolean} email
+ *  * {Boolean} password
+ *  * {Boolean} cigarettes1
+ *  * {Boolean} cigarettes2
+ *  * {Boolean} same_cigarettes
+ *
+ *  Success:
+ *
+ *  * {Object} form
+ *
+ * @param fields
+ * @param callback
+ */
+function profileData( fields, callback )
+{
+    if ( !callback ) return;
+
+    var form = {
+            name: String( fields.name || '' ),
+            day: parseInt( fields.day ) || 1,
+            month: parseInt( fields.month ) || 11,
+            year: parseInt( fields.year ) || 2013,
+            phone: String( fields.phone || '' ),
+            email: String( fields.email || '' ),
+            password: String( fields.password || '' ),
+            brand1: String( fields.brand1 || '' ),
+            sku1: String( fields.sku1 || '' ),
+            brand2: String( fields.brand2 || '' ),
+            sku2: String( fields.sku2 || '' )
+        },
+        errors = {};
+
+    //console.log( 'parsed:', form );
+
+    // name
+    if ( !form.name
+        || form.name.length >254 )
+        errors.name = true;
+
+    // age
+    var age = new Date( form.year, form.month, form.day ),
+        date = new Date();
+    date.setMonth( date.getMonth() - 12 * 18 );
+    if ( age.getDate() != form.day )
+        errors.day = true;
+    if ( age.getTime() > date.getTime() )
+        errors.age = true;
+
+    // phone
+    if ( !form.phone
+        || !form.phone.match( /\d{1}\s{1}\(\d{2}\)\s{1}\d{3}\-\d{2}\-\d{2}/ ))  // d (dd) ddd-dd-dd
+        errors.phone = true;
+
+    // email
+    if ( !form.email
+        || form.email.length > 254
+        || !check.notEmpty( form.email )
+        || !check.isEmail( form.email ))
+        errors.email = true;
+
+    // password
+    if ( !form.password
+        || form.password.length > 50 )
+        errors.password = true;
+
+//    // brand, sku 1
+//    if ( !form.brand1 || !form.sku1 )
+//        errors.cigarettes1 = true;
+//    // brand, sku 2
+//    if ( !form.brand2 || !form.sku2 )
+//        errors.cigarettes2 = true;
+//    // same cigarettes
+//    if ( !errors.cigarettes1
+//        && !errors.cigarettes2
+//        && form.sku1 == form.sku2 )
+//        errors.same_cigarettes = true;
+
+    // todo: check is sku apply to brand?
+
+    // todo: xss filters and other stuff
+
+    // results
+    if ( Object.keys( errors ).length )
+        callback( errors );
+    else
+        callback( null, form );
+}
+
+function copy( obj ) {
+    var res = {};
+    for ( var key in obj )
+        if ( obj.hasOwnProperty( key ))
+            res[ key ] = obj[ key ];
+    return res;
+}
+
+
+function merge( res, obj ) {
+    if ( !res ) res = {};
+    for ( var key in obj )
+        if ( obj.hasOwnProperty( key ))
+            res[ key ] = obj[ key ];
+    return res;
+}
