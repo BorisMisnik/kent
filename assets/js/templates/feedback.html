@@ -1,27 +1,33 @@
 <section id="feedback">
     <div class="wrapper-form">
-        <h1>Зворотний зв’язок<a href="#"></a></h1>
+        <h1>Зворотний зв’язок<a href="#" onclick="history.back(); return false;"></a></h1>
         <p class="text">Щоб твоє звернення надійшло за призначенням, обов'язково вкажи своє ім'я, електронну адресу та виклади детально суть твого звернення. </p>
         <form class="form-horizontal" action=" " method=" ">
 
             <label class="control-label" for="email">E-mail</label>
             <div class="controls">
-                <input type="text" name="email" placeholder="E-mail" class="text" id="email">
-                <span class="error hide">Неправильний формат e-mail.</span>
+                <input type="text" name="email" placeholder="E-mail" class="text" id="email" value="{{email}}" />
+                {{#errors.email}}
+                <span class="error">Неправильний формат e-mail.</span>
+                {{/errors.email}}
             </div>
 
             <label class="control-label" for="name">Iм’я</label>
             <div class="controls">
-                <input type="text" name="name" placeholder="Iм’я" class="text" id="name">
-                <span class="error hide">Введи своє ім'я.</span>
+                <input type="text" name="name" placeholder="Iм’я" class="text" id="name" value="{{name}}" />
+                {{#errors.name}}
+                <span class="error">Введи своє ім'я.</span>
+                {{/errors.name}}
             </div>
 
             <label class="control-label input-label" for="massege">Повідомлення</label>
             <div class="controls">
                 <div class="wrapperTextarea">
-                    <textarea name="massege" id="massege" placeholder="Повідомлення" class="">Повідомлення</textarea>
+                    <textarea name="massege" id="massege" placeholder="Повідомлення" class="">{{message}}</textarea>
                 </div>
-                <span class="error hide">Введи своє повідомлення.</span>
+                {{#errors.message}}
+                <span class="error">Введи своє повідомлення.</span>
+                {{/errors.message}}
             </div>
             <p>
                 Щоб твоє звернення надійшло за призначенням, обов'язково вкажи своє ім'я, електронну адресу та виклади детально суть твого звернення.
