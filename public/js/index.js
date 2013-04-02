@@ -29,6 +29,9 @@ $(function(){
         onShow : scrollBar
     });
 
+
+	$('input[placeholder], textarea[placeholder]').placeholder();
+	
     $('.month .ik_select_option').click(function(){
         var $this = $(this);
         $this.attr('title',$this.data('title'))

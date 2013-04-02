@@ -24,8 +24,10 @@ define(
                     var reader = new FileReader();
                     // closure to capture the file information.
                     reader.onload = (function(theFile,that) {
+
                         return function(e) {
                             //set model
+
                             that.set({
                                 filename: theFile.name,
                                 data: e.target.result
@@ -79,16 +81,30 @@ define(
 
                     // setup FileReader
                     if ( this.$().fileReader )
-                        this.$( '#photofile' )
+                        this.$( '.fileButton' )
                             .fileReader({
+   
                                 filereader: '/js/libs/filereader/filereader.swf',
                                 expressInstall: '/js/libs/flash/expressInstall.swf',
                                 debugMode: false,
-                                callback: function() {
+                                callback: function(evt) {
                                     Backbone.log( 'FileReader shim is ready (ie)' );
+
+                                     $('.fileButton').on('change', loadImages); // вешаем событие на загрузку файла
+                                   
                                 },
                                 extensions: '*.jpg;*.png'
                             });
+
+                            function loadImages(evt){ 
+                                var file = evt.target.files[0];
+
+                                if ( !file.type.match( 'image.*' )) return;
+                                if ( !file ) return;
+                                
+                                self.photo.readFile( file );
+                            };
+
 
                     var self = this;
                     this.$( '#photofile' )
@@ -100,8 +116,10 @@ define(
                             var file = e.target.files[ 0 ];
                             // checks
                             if ( !file ) return;
+
                             if ( !file.type.match( 'image.*' )) return;
                             self.photo.readFile( file );
+
                         });
                 },
 

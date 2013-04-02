@@ -117,10 +117,13 @@ define(
 
         function clickUploadFile( e ) {
             e.preventDefault();
-
-            $( this )
-                .next( 'input:file' )
-                .click();
+            if(!$('html').is('.ie')){
+                $( this )
+                    .next( 'input:file' )
+                    .click();
+            }
+                
+    
         }
 
         function inputFocus() {
@@ -258,6 +261,8 @@ define(
         return {
             init: function() {
                 $( init );
+                if($.browser.msie) alert('asd')
+
                 if($('#rules').length){
                     $('#rulles').mCustomScrollbar();
                 }
@@ -281,7 +286,7 @@ define(
                         ddMaxHeight  :114,
                         ddCustomClass : 'regis',
                         onShow : scrollBar,
-                    });
+                });
 
                 if($('#registered').length){
                     $('.ik_select_link_text').text('Місяць')
