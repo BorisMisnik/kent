@@ -42,6 +42,7 @@ exports.feedback = function( req, res ) {
             name: name,
             message: message
         });
+    console.log( 'errors', errors );
 
 
     if ( Object.keys( errors ).length ) {
@@ -49,6 +50,7 @@ exports.feedback = function( req, res ) {
         res.json( errors );
     }
     else {
+        debugger;
         res.json({ success: true });
 
         // (!)
@@ -61,7 +63,7 @@ exports.feedback = function( req, res ) {
                 name: name,
                 message: message
             }),
-            function(){ 'fs:', arguments } );
+            function(){ console.log( 'fs:', arguments ); } );
         // (!)
     }
 
