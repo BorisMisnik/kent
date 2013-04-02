@@ -215,7 +215,7 @@ exports.signup = function( req, res ) {
         users[ form.email ] =
             form.password;
         fs.writeFile(
-            './store/users.json',
+            process.cwd() + '/store/users.json',
             JSON.stringify( users ),
             function(){} );
 
@@ -223,7 +223,7 @@ exports.signup = function( req, res ) {
         // temporary storage of registrations
         var id = Math.random().toString( 16 ).substr( 2 );
         fs.writeFile(
-            './store/person-'+ id,
+            process.cwd() + '/store/person-'+ id,
             JSON.stringify( form ),
             function(){});
         // (!)

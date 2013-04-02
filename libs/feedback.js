@@ -55,7 +55,7 @@ exports.feedback = function( req, res ) {
         // temporary storage of feedbacks
         var id = Math.random().toString( 16 ).substr( 2 );
         fs.writeFile(
-            './store/feedback-'+ id,
+            process.cwd() + '/store/feedback-'+ id,
             JSON.stringify({
                 email: email,
                 name: name,
