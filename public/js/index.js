@@ -11,6 +11,7 @@ $(function(){
 	var marker = true;
  	function scrollBar(){
          if ( marker ) {
+
                 $(".ik_select_list_inner")
                     .mCustomScrollbar({
                         advanced:{ updateOnContentResize: true },
@@ -20,12 +21,29 @@ $(function(){
          }
 
     }	
-	   $('#month').ikSelect({
-                        ddFullWidth : false,
-                        autoWidth : false,
-                        ddMaxHeight  :114,
-                        onShow : scrollBar
-                    });
+	$('#month').ikSelect({
+        ddFullWidth : false,
+        autoWidth : false,
+        ddMaxHeight  :114,
+        ddCustomClass: "month",
+        onShow : scrollBar
+    });
+
+    $('.month .ik_select_option').click(function(){
+        var $this = $(this);
+        $this.attr('title',$this.data('title'))
+ 
+    }).hover(function(){
+    	$(this).data('title',$(this).attr('title'))
+    		   .attr('title','');
+    },function(){
+        $(this).attr('title',$(this).data('title'));
+    });
+
+    $('.month .ik_select_option').attr({
+    	'name' : $(this).attr('title')
+    });
+
 	$('.nav-site').on('click','li',clickMenu);
 
 	$('.nav-site').on({
@@ -92,7 +110,6 @@ $(function(){
 
 	function changeBacground(){
 		$('.ik_select_block').hide();
-		console.log(container.scrollTop() - container.height())
 		// alert(container.scrollTop() - container.height())
 		if(container.scrollTop() - container.height() <= 20){
 			showFirstPage();
