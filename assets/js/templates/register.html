@@ -34,7 +34,7 @@
                     <input type="text" name="year" placeholder="Рік" placeholder="Рік" class="text" id="year" value="{{values.year}}" />
                 </div>
                 {{#errors.age}}
-                <span class="error">Тобі ще не виповнилося 18 років.</span>
+                <span class="error">Тобі ще не виповнилося 18 років</span>
                 {{/errors.age}}
             </div>
 
@@ -52,6 +52,9 @@
                 {{#errors.email}}
                 <span class="error">Неправильний формат e-mail</span>
                 {{/errors.email}}
+                {{#errors.already_used_email}}
+                <span class="error">Такий e-mail вже зареестровано</span>
+                {{/errors.already_used_email}}
             </div>
 
             <label class="control-label" for="password">Пароль</label>

@@ -105,13 +105,16 @@ define(
                         });
                 },
 
+                get: function() {
+                    return this.person.toJSON();
+                },
                 save: function() {
                     this.model
                         .clear({ silent: true });
                     this.person
                         .clear({ silent: true })
                         .set({
-                            name: this.$( '#email' ).val(),
+                            name: this.$( '#name' ).val(),
                             day: this.$( '#date' ).val(),
                             month: this.$( '#month' ).val(),
                             year: this.$( '#year' ).val(),
@@ -129,11 +132,15 @@ define(
                 submit: function( e ) {
                     e.preventDefault();
 
-                    // values
-                    var self = this;
-                    self.save();
+                    var self = this,
+                        form;
+
+                    // values;
+                    this.save();
+                    form = self.get();
                     self.log( 'signup form:', form );
 
+                    // request
                     user.signup(
                         form,
                         function( err, res, fail ) {
