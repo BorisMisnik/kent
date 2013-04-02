@@ -60,6 +60,7 @@ define(
                 photo: null,
 
                 initialize: function() {
+                    console.log( 'reg init' );
                     var self = this;
 
                     this.model = new Backbone.Model();
@@ -105,31 +106,33 @@ define(
                         });
                 },
 
+                save: function() {
+                    this.model
+                        .clear({ silent: true });
+                    this.person
+                        .clear({ silent: true })
+                        .set({
+                            name: this.$( '#email' ).val(),
+                            day: this.$( '#date' ).val(),
+                            month: this.$( '#month' ).val(),
+                            year: this.$( '#year' ).val(),
+                            phone: this.$( '#mobilePhone' ).val(),
+                            email: this.$( '#email' ).val(),
+                            password: this.$( '#password' ).val(),
+                            password2: this.$( '#passwordTwo' ).val(),
+                            agree_age: this.$( '#agree_age' ).prop( 'checked' ),
+                            agree_rules: this.$( '#agree_rules' ).prop( 'checked' ),
+                            agree_info: this.$( '#agree_info' ).prop( 'checked' ),
+                            photo: this.photo.get( 'data' ) || ''
+                        });
+                },
+
                 submit: function( e ) {
                     e.preventDefault();
 
                     // values
-                    var self = this,
-                        form = {
-                            name: self.$( '#email' ).val(),
-                            day: self.$( '#date' ).val(),
-                            month: self.$( '#month' ).val(),
-                            year: self.$( '#year' ).val(),
-                            phone: self.$( '#mobilePhone' ).val(),
-                            email: self.$( '#email' ).val(),
-                            password: self.$( '#password' ).val(),
-                            password2: self.$( '#passwordTwo' ).val(),
-                            agree_age: self.$( '#agree_age' ).prop( 'checked' ),
-                            agree_rules: self.$( '#agree_rules' ).prop( 'checked' ),
-                            agree_info: self.$( '#agree_info' ).prop( 'checked' ),
-                            photo: self.photo.get( 'data' ) || ''
-                        };
-                    self.model
-                        .clear({ silent: true });
-                    self.person
-                        .clear({ silent: true })
-                        .set( form );
-
+                    var self = this;
+                    self.save();
                     self.log( 'signup form:', form );
 
                     user.signup(
@@ -160,6 +163,7 @@ define(
                 },
 
                 webcam: function( e ) {
+                    this.save();
                     router.navigate( '#!/webcam', true );
                 }
 
