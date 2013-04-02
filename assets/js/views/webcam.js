@@ -26,7 +26,7 @@ define(
                 swfobject.embedSWF(
                     '/js/libs/webcam/webcamShot.swf',
                     'flashContent',
-                    '492', '342', '10.1.0',
+                    '600', '425', '10.1.0',
                     '/swf/playerProductInstall.swf',
                     flashvars, params, attributes
                 );
@@ -37,7 +37,8 @@ define(
                         // store
                         self.bitmap = data;
                         // store in signup form image
-                        signup.setFile( 'webcam.jpg', data );
+                        signup.photo.setFile( 'webcam.jpg', data );
+                        history.back();
                     };
             }
         }),

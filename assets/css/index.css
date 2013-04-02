@@ -442,3 +442,6 @@ section h1 {
 .title-block span {
   color: #fff;
 }
+.form-horizontal .submit {
+  margin-top: 27px;
+}

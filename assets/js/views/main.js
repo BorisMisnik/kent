@@ -15,7 +15,6 @@ define(
         'js!jquery.mCustomScrollbar.min.js',
         'js!TweenMax.min.js',
         'js!jquery.selectbox-0.2.min.js'
-
     ],
     function( form ) {
         Backbone.log( 'app.rules' );
@@ -75,6 +74,7 @@ define(
         // Helpers
 
         function scrollBar(){
+        
             if ( marker ) {
                 $(".ik_select_list_inner")
                     .mCustomScrollbar({
