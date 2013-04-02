@@ -80,7 +80,8 @@
 					</div>
 				</div>
 			</article>
-		</section>	
+		</section>
+
 		<section id="profile">
 			<article class="last profile-article">
 				<div>
@@ -90,13 +91,13 @@
 							<form  class="form-horizontal text-left" action=" " method=" ">
 
    						 		<div class="controls">
-	     							<input type="text" name="name" value="П. I. Б." class="text" id="name">
+	     							<input type="text" name="name" placeholder="П. I. Б." class="text" id="name" value="" />
     							</div>
     							<label class="control-label" for="name">П. I. Б.</label>
 									
 								<div class="controls">
 									<div class="dateBirthday">
-										<input type="text" name="date" value="День" class="text" id="date">
+										<input type="text" name="date" placeholder="День" class="text" id="date"value="" />
 										<select name="month" id="month">
 											<option value="Місяць">Місяць</option>
 		                                    <option value="Січень">Січень</option>
@@ -112,23 +113,23 @@
 					                        <option value="Листопад">Листопад</option>
 					                        <option value="Грудень">Грудень</option>
                                 		</select>
-										<input type="text" name="year" value="Рік" class="text">
+										<input type="text" name="year" placeholder="Рік" class="text" value="" />
 									</div>
 								</div>
 								<label class="control-label" for="date">Дата народження</label>
 
 								<div class="controls">
-	     							<input type="text" name="mobilePhone" value="0 (96) 938-15-17" class="text" id="mobilePhone">
+	     							<input type="text" name="mobilePhone" placeholder="0 (96) 938-15-17" class="text" id="mobilePhone" value="" />
 	    						</div>
 	    						<label class="control-label" for="mobilePhone">Мобiльний телефон</label>
 
 								<div class="controls">
-	     							<input type="text" name="email" value="E-mail" class="text" id="email">
+	     							<input type="text" name="email" placeholder="E-mail" class="text" id="email" value="" />
 	    						</div>
 	    						<label class="control-label" for="email">E-mail</label>
 
 								<div class="controls">
-	     							<input type="text" name="password" value="Пароль" class="text" id="password">
+	     							<input type="text" name="password" placeholder="Пароль" class="text" id="password" value="" />
 	    						</div>
 	    						<label class="control-label" for="password">Пароль</label>
 
@@ -170,7 +171,7 @@
 					<nav class="footerNav">
 						<a href="/#!/feedback">Зворотний зв’язок</a>|
 						<a href="/#!/rules">Правила користування сайтом</a>|
-						<a href="/">Вийти</a>
+						<a href="/auth/logout">Вийти</a>
 					</nav>
 				</footer>
 			</div>
@@ -206,6 +207,45 @@
 
 
         });
+
+
+        /**
+         * Profile code
+         */
+        function getProfile() {
+            $.get( '/user/profile' )
+                .done( function() {
+                    console.log( 'profile done', arguments );
+                })
+                .fail( function() {
+                    console.log( 'profile fail', arguments );
+                })
+        }
+        function updateProfile() {
+            var form = {
+                name: $( '#name' ).val(),
+                day: $( '#date' ).val(),
+                month: $( '#month' ).val(),
+                year: $( '#year' ).val(),
+                phone: $( '#mobilePhone' ).val(),
+                email: $( '#email' ).val(),
+                password: $( '#password' ).val(),
+                password2: $( '#passwordTwo' ).val(),
+                agree_age: $( '#agree_age' ).prop( 'checked' ),
+                agree_rules: $( '#agree_rules' ).prop( 'checked' ),
+                agree_info: $( '#agree_info' ).prop( 'checked' )
+            };
+            console.log( 'form:', form );
+        }
+
+        /**
+         * Initialize Main page
+         */
+        function init() {
+            getProfile();
+        }
+        init();
+
 
 	</script>
     <script src="/js/libs/cigarettes_manage.js"></script>
