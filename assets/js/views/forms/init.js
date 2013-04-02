@@ -285,17 +285,30 @@ define(
 
                 if($('#registered').length){
                     $('.ik_select_link_text').text('Місяць')
-                        $('.ik_select_option').click(function(){
-                            var $this = $(this);
-                            setTimeout(function(){
-                                 $('.ik_select_link_text').text($this.text())
-                                 $('#month').val($this.text())
-                             },10)
-                         })
-                }
 
-                $('.ik_select_option').removeAttr('title');
-            }
+                    $('.ik_select_option').click(function(){
+                        var $this = $(this);
+                      
+
+                            setTimeout(function(){
+                                $this.attr('title',$this.data('title'))
+
+                                $('.ik_select_link_text').text($this.text())
+                                $('select#month').val($this.attr('title'));
+
+                            },10)
+
+                        }).hover(function(){
+                            $(this).data('title',$(this).attr('title'))
+                                   .attr('title','');
+
+                        },function(){
+
+                             $(this).attr('title',$(this).data('title'));
+
+                        });
+                    }
+                }
 
             // todo: setup only needed events
 //            setup: function( name ) {

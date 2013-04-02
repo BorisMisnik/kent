@@ -11,6 +11,7 @@ $(function(){
 	var marker = true;
  	function scrollBar(){
          if ( marker ) {
+
                 $(".ik_select_list_inner")
                     .mCustomScrollbar({
                         advanced:{ updateOnContentResize: true },
@@ -24,9 +25,25 @@ $(function(){
         ddFullWidth : false,
         autoWidth : false,
         ddMaxHeight  :114,
-         onShow : scrollBar
+        ddCustomClass: "month",
+        onShow : scrollBar
     });
-    $('.ik_select_option').removeAttr('title');
+
+    $('.month .ik_select_option').click(function(){
+        var $this = $(this);
+        $this.attr('title',$this.data('title'))
+ 
+    }).hover(function(){
+    	$(this).data('title',$(this).attr('title'))
+    		   .attr('title','');
+    },function(){
+        $(this).attr('title',$(this).data('title'));
+    });
+
+    $('.month .ik_select_option').attr({
+    	'name' : $(this).attr('title')
+    });
+
 	$('.nav-site').on('click','li',clickMenu);
 
 	$('.nav-site').on({
@@ -93,7 +110,6 @@ $(function(){
 
 	function changeBacground(){
 		$('.ik_select_block').hide();
-		console.log(container.scrollTop() - container.height())
 		// alert(container.scrollTop() - container.height())
 		if(container.scrollTop() - container.height() <= 20){
 			showFirstPage();
