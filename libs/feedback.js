@@ -21,19 +21,19 @@ exports.feedback = function( req, res ) {
     // checks
     // name
     if ( !name
-        || name >254 )
+        || name.length >254 )
         errors.name = true;
 
     // email
     if ( !email
-        || email > 254
+        || email.length > 254
         || !check.notEmpty( email )
         || !check.isEmail( email ))
         errors.email = true;
 
     // message
     if ( !message
-        || message > 4069 )
+        || message.length > 4069 )
         errors.message = true;
 
     console.log(
@@ -61,7 +61,7 @@ exports.feedback = function( req, res ) {
                 name: name,
                 message: message
             }),
-            function(){} );
+            function(){ 'fs:', arguments } );
         // (!)
     }
 
