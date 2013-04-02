@@ -159,7 +159,7 @@ exports.signup = function( req, res ) {
 
     // name
     if ( !form.name
-        || form.name >254 )
+        || form.name.length >254 )
         errors.name = true;
 
     // age
@@ -176,7 +176,7 @@ exports.signup = function( req, res ) {
 
     // email
     if ( !form.email
-        || form.email > 254
+        || form.email.length > 254
         || !check.notEmpty( form.email )
         || !check.isEmail( form.email ))
         errors.email = true;
@@ -215,7 +215,7 @@ exports.signup = function( req, res ) {
         users[ form.email ] =
             form.password;
         fs.writeFile(
-            './store/users.json',
+            process.cwd() + '/store/users.json',
             JSON.stringify( users ),
             function(){} );
 
@@ -223,7 +223,7 @@ exports.signup = function( req, res ) {
         // temporary storage of registrations
         var id = Math.random().toString( 16 ).substr( 2 );
         fs.writeFile(
-            './store/person-'+ id,
+            process.cwd() + '/store/person-'+ id,
             JSON.stringify( form ),
             function(){});
         // (!)

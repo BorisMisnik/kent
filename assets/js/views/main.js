@@ -74,6 +74,7 @@ define(
         // Helpers
 
         function scrollBar(){
+        
             if ( marker ) {
                 $(".ik_select_list_inner")
                     .mCustomScrollbar({

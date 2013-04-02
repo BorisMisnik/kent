@@ -143,9 +143,9 @@ function() {
             if ( marker ){
                 $(".ik_select_list_inner").mCustomScrollbar({
                     advanced:{ updateOnContentResize: true },
-                    mouseWheel : true
+                    mouseWheel : true,
+                    set_height : 114
                 });
-                marker = false;
             }
         }
     }

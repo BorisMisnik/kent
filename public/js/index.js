@@ -94,7 +94,7 @@ $(function(){
 		$('.ik_select_block').hide();
 		console.log(container.scrollTop() - container.height())
 		// alert(container.scrollTop() - container.height())
-		if(container.scrollTop() - container.height() === 0){
+		if(container.scrollTop() - container.height() <= 20){
 			showFirstPage();
 		}
 	};
@@ -190,7 +190,7 @@ $(function(){
 		articles.each(function(){  
 			var $this = $(this);
 
-			if(!$this.is('.profile-article') && container.scrollTop() != 0){
+			if(!$this.is('.profile-article') && container.scrollTop() >= 20){
 				$this.find("*").removeAttr('style');
 			}
 

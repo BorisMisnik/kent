@@ -31,6 +31,7 @@ app.configure( 'development', function() {
 });
 
 console.log( '\nStarting server'.magenta.bold );
+console.log( 'Server path:', process.cwd() );
 
 // Assign routes
 for ( var id in routes ) {
