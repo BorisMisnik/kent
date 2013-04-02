@@ -215,10 +215,10 @@
         function getProfile() {
             $.get( '/user/profile' )
                 .done( function() {
-                    console.log( 'profile done', arguments );
+                    //console.log( 'profile done', arguments );
                 })
                 .fail( function() {
-                    console.log( 'profile fail', arguments );
+                    //console.log( 'profile fail', arguments );
                 })
         }
         function updateProfile() {
@@ -235,7 +235,7 @@
                 agree_rules: $( '#agree_rules' ).prop( 'checked' ),
                 agree_info: $( '#agree_info' ).prop( 'checked' )
             };
-            console.log( 'form:', form );
+            //console.log( 'form:', form );
         }
 
         /**
