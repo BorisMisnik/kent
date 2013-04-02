@@ -18,6 +18,15 @@
         "handler": "signup"
     },
 
+    {
+        "method": "post",
+        "url": "/feedback",
+        "script": "./libs/feedback",
+        "handler": "feedback"
+    },
+
+
+
 
     {
         "method": "get",
