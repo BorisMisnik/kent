@@ -1,4 +1,4 @@
-/*!
+    /*!
  * Module: Module
  *
  * @author Andjey Guzhovskiy, <me.the.ascii@gmail.com>
@@ -85,7 +85,8 @@ exports.login = function( req, res ) {
     // hack
     if ( user
         && user.password
-        && user.password == password )
+        && user.password == password
+        && user.activated )
         result = true;
 
     console.log( 'Login:', username, '/', password, 'Result:', result );
