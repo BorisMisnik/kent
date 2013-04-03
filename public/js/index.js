@@ -8,16 +8,16 @@ $(function(){
 	var raphael = background();
 
 	var tl = new TimelineLite();
-	var marker = true;
+	var markerMonth = true;
  	function scrollBar(){
-         if ( marker ) {
+         if ( markerMonth ) {
 
                 $(".ik_select_list_inner")
                     .mCustomScrollbar({
                         advanced:{ updateOnContentResize: true },
                         mouseWheel : true
                     });
-                marker = false;
+             markerMonth = false;
          }
 
     }	
