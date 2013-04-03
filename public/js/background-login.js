@@ -1,4 +1,5 @@
 $(function(){
+	
 	var raphael = background();
 	raphael.crateCanvas()
 		   .firstBackground();
