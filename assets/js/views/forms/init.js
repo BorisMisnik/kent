@@ -24,7 +24,7 @@ define(
                 containerFluid.css({
                     'height':wrapperForm.height() + 230,
                     'min-height': wrapperForm.height() + 230
-                }
+                })
             }
 
             $('input')
