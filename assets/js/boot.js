@@ -114,8 +114,6 @@ define(
                 if ( type && !config.log.types[ type ])
                     return;
 
-
-                /*
                 // serialize objects
                 if ( JSON )
                     for ( var id in args )
@@ -123,7 +121,6 @@ define(
                             try {
                                 args[ id ] = JSON.stringify( args[ id ]);
                             } catch( err ) {}
-                */
 
                 message = args.join( ' ' );
 
