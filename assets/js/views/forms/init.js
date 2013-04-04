@@ -21,8 +21,10 @@ define(
             }
 
             if ($('#feedback').length){
-                containerFluid.css(
-                    'height', wrapperForm.height() + 230);
+                containerFluid.css({
+                    'height':wrapperForm.height() + 230,
+                    'min-height': wrapperForm.height() + 230
+                }
             }
 
             $('input')
