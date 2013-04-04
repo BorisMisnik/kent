@@ -14,13 +14,15 @@ define(
                 background = $('.background');
 
             if ($('#registered').length){
-                containerFluid.css(
-                    'min-height', wrapperForm.height() + 230);
+                containerFluid.css({
+                    'height':wrapperForm.height() + 230,
+                    'min-height': wrapperForm.height() + 230
+                })
             }
 
             if ($('#feedback').length){
                 containerFluid.css(
-                    'min-height', wrapperForm.height() + 230);
+                    'height', wrapperForm.height() + 230);
             }
 
             $('input')
