@@ -13,6 +13,7 @@ define(
                 textarea = $('textarea'),
                 background = $('.background');
 
+
             if ($('#registered').length){
                 containerFluid.css({
                     'height':wrapperForm.height() + 230,
@@ -265,7 +266,7 @@ define(
         return {
             init: function() {
                 $( init );
-                if($.browser.msie) alert('asd')
+            
 
                 if($('#rules').length){
                     $('#rulles').mCustomScrollbar();

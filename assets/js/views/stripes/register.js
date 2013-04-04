@@ -32,14 +32,16 @@ define(
         }
 
         function onresize() {
+ 
             that.w =
-                $( window ).width();
+                $( window ).width() - 30;
+       
             that.h =
-                $( window ).height() -
-                $( '.xv' ).outerHeight( true ) +
-                $( 'footer' ).outerHeight( true );
+                $('#svg').height() + 110;
+        
             that.p &&
             that.p.setSize( that.w, that.h );
+
         }
 
 
@@ -47,6 +49,7 @@ define(
         // original >
 
         function crateCanvas() {
+
             that.p = new Raphael(
                 $( '#svg' ).empty().get( 0 ),
                 that.w, that.h);
@@ -100,7 +103,7 @@ define(
                 },1100,'cubic-bezier(.39,.58,.56,1)');
 
                 if(i===cratesPath.length-1){
-                    animate(0.11);
+                    animate(0.07);
                 }
             };
 
@@ -137,8 +140,6 @@ define(
 
         // < original
 
-
-
         // control
         function start() {
             // stop previousely
@@ -148,6 +149,7 @@ define(
             init();
             // listen window resize
             $( window ).resize( onresize );
+
         }
         function stop() {
             // stop animation
@@ -163,5 +165,6 @@ define(
             start: start,
             stop: stop
         };
+
     }
 );
