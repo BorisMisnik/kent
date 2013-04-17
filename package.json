@@ -8,7 +8,8 @@
     "dependencies": {
         "express": "3.0.6",
         "colors": "*",
-        "validator": "*"
+        "validator": "*",
+        "request": "~2.16"
     },
     "devDependencies": {
         "grunt": "~0.4.1",

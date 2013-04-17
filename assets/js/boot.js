@@ -26,7 +26,7 @@ define(
                         error: true,
                         warn: true
                     },
-                    local: false,
+                    local: true,
                     remote: {
                         // todo: debug-server
                         url: 'http://localhost:8080/logs/message'

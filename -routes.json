@@ -2,7 +2,7 @@
     {
         "method": "post",
         "url": "/auth/login",
-        "script": "./libs/login",
+        "script": "./libs/-login",
         "handler": "login"
     },
     {
@@ -12,41 +12,44 @@
         "handler": "logout",
         "auth": {
             "logged": true,
-            "fail": "/"
+            "success": "/",
+            "fail": "/login"
         }
     },
     {
         "method": "post",
         "url": "/auth/remind",
-        "script": "./libs/login",
+        "script": "./libs/-login",
         "handler": "remind"
     },
     {
         "method": "post",
         "url": "/auth/signup",
-        "script": "./libs/account",
+        "script": "./libs/-account",
         "handler": "signup"
     },
     {
         "method": "get",
         "url": "/user/profile",
-        "script": "./libs/account",
+        "script": "./libs/-account",
         "handler": "getProfile"
     },
     {
         "method": "post",
         "url": "/user/profile",
-        "script": "./libs/account",
+        "script": "./libs/-account",
         "handler": "setProfile"
     },
+
+
+
+
     {
         "method": "post",
         "url": "/feedback",
-        "script": "./libs/feedback",
+        "script": "./libs/-feedback",
         "handler": "feedback"
     },
-
-
 
     {
         "_method": "get",
@@ -54,5 +57,11 @@
         "script": "./libs/main",
         "handler": "main"
     }
+
+
+
+
+
+
 
 ]

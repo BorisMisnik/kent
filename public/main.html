@@ -132,7 +132,7 @@
                                 <span class="error err_phone">Неправильний формат номера</span>
 
 								<div class="controls">
-	     							<input type="text" name="email" placeholder="E-mail" class="text" id="email" value="" />
+	     							<input disabled type="text" name="email" placeholder="E-mail" class="text" id="email" value="" />
 	    						</div>
 	    						<label class="control-label" for="email">E-mail</label>
                                 <span class="error err_email">Неправильний формат e-mail</span>
@@ -240,6 +240,15 @@
                 });
         }
 
+        function hideErrors() {
+            // hide system error
+            $( '#formError').addClass( 'hide' );
+            // hide old success
+            $( '#profileSuccess' ).addClass( 'hide' );
+            // hide all
+            $( '.err_*' ).removeClass( 'hide' );
+        }
+
         function populateProfile( profile )
         {
             // hide old errors
@@ -291,6 +300,7 @@
                 .fail( function() {
                     //console.log( 'profile fails', arguments );
                     // show system error
+                        debugger;
                     $( '#formError' ).removeClass( 'hide').hide().fadeIn( 'slow' );
                 });
         }

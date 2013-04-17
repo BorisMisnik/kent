@@ -69,7 +69,7 @@ define(
                             if ( err ) return;
                             if ( fail
                                 || !res
-                                || !res.authorized ) {
+                                || !res.success ) {
                                 // show error
                                 self._errors = fail;
                                 self.render();

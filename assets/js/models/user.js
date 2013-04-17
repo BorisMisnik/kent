@@ -39,17 +39,42 @@ define(
                         })
                         .fail( function( def, type, status ) {
                             Backbone.log( 'login: ajax fail', status );
+                            // unauthorized
+                            if ( status == 'Unauthorized' )
+                                return callback( null, null, {
+                                    errors: true,
+                                    wrong_credentials: true
+                                });
+                            // other errors
                             callback( new Error( status ));
                         })
                         .done( function( res ) {
                             Backbone.log( 'login: ajax done', res );
-                            if ( res.error ) {
-                                callback( null, null, res );
-                            } else {
-                                callback( null, res );
-                            }
+                            if ( res.error )
+                                return callback( null, null, res );
+                            callback( null, res );
                         });
                 },
+
+                logout: function( callback ) {
+                    $.get( '/auth/logout' )
+                        .fail( function( def, type, status ) {
+                            Backbone.log( 'logout: ajax fail', status );
+                            if ( status == 'Unauthorized' )
+                                return callback( null, null, {
+                                    errors: true,
+                                    unauthorized: true
+                                });
+                        })
+                        .done( function( res ) {
+                            Backbone.log( 'logout: ajax success', res );
+                            if ( res.error )
+                                return callback( null, null, res );
+                            callback( null, res );
+                        });
+                },
+
+
 
                 remind: function( email, callback ) {
                     $.post(

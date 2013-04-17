@@ -285,11 +285,11 @@ define(
                         autoWidth : false,
                         ddMaxHeight  :114,
                         ddCustomClass : 'regis',
-                        onShow : scrollBar,
+                        onShow : scrollBar
                 });
 
                 if($('#registered').length){
-                    $('.ik_select_link_text').text('Місяць')
+                    $('.ik_select_link_text').text('Місяць');
 
                     $('.ik_select_option').click(function(){
                         var $this = $(this);

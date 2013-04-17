@@ -7,7 +7,7 @@
  * @version 0.0.1
  */
 
-var auth = require( './login' );
+//var auth = require( './login' );
 
 /**
  * `main.html` available only for logged users
@@ -17,6 +17,11 @@ var auth = require( './login' );
  * @param next
  */
 exports.main = function( req, res, next ) {
+
+    // todo: (!) pip auth
+    next(); return;
+
+
     var id = req.session.uid,
         user = auth.users[ id ];
     console.log( 'main:', id, user );

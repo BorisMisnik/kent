@@ -19,15 +19,15 @@ var app = express(),
 app.configure( function() {
     app.set( 'port', port );
     app.use( express.favicon() );
-    app.use( express.logger( 'default' ));
+    //app.use( express.logger( 'default' ));
     app.use( express.bodyParser() );
     app.use( express.methodOverride() );
-    app.use( express.cookieParser() );
-    app.use( express.session({
-        store: new MemoryStore(),
-        secret: 'LAo2QP3y1oQ5wdV',
-        key: 'sid'
-    }));
+//    app.use( express.cookieParser() );
+//    app.use( express.session({
+//        store: new MemoryStore(),
+//        secret: 'LAo2QP3y1oQ5wdV',
+//        key: 'sid'
+//    }));
     app.use( app.router );
     app.use( express.static( path.join( __dirname, 'assets' )));
     app.use( express.static( path.join( __dirname, 'public' )));

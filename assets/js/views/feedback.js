@@ -65,7 +65,7 @@ define(
                             self.model.set( 'errors', res );
                             self.render();
                         } else {
-                            self.model.clear({ silent: true })
+                            self.model.clear({ silent: true });
                             // go back
                             history.back();
                         }
