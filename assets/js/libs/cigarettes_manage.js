@@ -19,17 +19,17 @@ function() {
         .success( function( data ) {
             // console.log( 'brands', data );
             brands = data;
-            if ( !--count ) init();
+            if ( !--count ) initCigarettes();
         });
     $
         .ajax({ url: '/js/data/sku.json' })
         .success( function( data ) {
             // console.log( 'sku', data );
             sku = data;
-            if ( !--count ) init();
+            if ( !--count ) initCigarettes();
         });
 
-    function init() {
+    function initCigarettes() {
         fillBrands();
         fillSku();
         // init fields caption
@@ -63,6 +63,28 @@ function() {
 
     function fillSku() {
     }
+
+    function fillSKUList( el ) {
+        var
+            val = el && el.val(),
+            linked = el && el.attr( 'linked' ),
+            link = $( linked );
+
+        console.log( 'CHANGE', el, linked, val );
+
+        if ( !el || !el.length ) return;
+        if ( !val ) return;
+        if ( !link || !link.length ) return;
+
+        selectCaption( el, val );
+        fillSelect( link, sku[ val ]);
+
+        setTimeout( function() {
+            $('.smoke select').ikSelect( 'reset' );
+        }, 0 );
+    }
+    // hack (!) api
+    window.fillSKUList = fillSKUList;
 
     // Helpers
 

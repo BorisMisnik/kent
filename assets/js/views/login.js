@@ -8,7 +8,8 @@ define(
         Backbone.log( 'app.login' );
 
         var errors = {
-                wrong_credentials: 'Неправильно введено логін або пароль. Спробуй ще раз.'
+                wrong_credentials: 'Неправильно введено логін або пароль. Спробуй ще раз.',
+                not_activated: 'Ваш аккаунт не активовано. Спробуй пізніше.'
             },
 
             Model = Backbone.Model.extend({

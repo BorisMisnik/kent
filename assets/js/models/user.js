@@ -39,6 +39,7 @@ define(
                         })
                         .fail( function( def, type, status ) {
                             Backbone.log( 'login: ajax fail', status );
+
                             // unauthorized
                             if ( status == 'Unauthorized' )
                                 return callback( null, null, {
@@ -50,8 +51,10 @@ define(
                         })
                         .done( function( res ) {
                             Backbone.log( 'login: ajax done', res );
+
                             if ( res.error )
                                 return callback( null, null, res );
+
                             callback( null, res );
                         });
                 },

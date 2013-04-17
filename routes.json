@@ -9,11 +9,7 @@
         "method": "get",
         "url": "/auth/logout",
         "script": "./libs/login",
-        "handler": "logout",
-        "auth": {
-            "logged": true,
-            "fail": "/"
-        }
+        "handler": "logout"
     },
     {
         "method": "post",

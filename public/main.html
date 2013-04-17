@@ -146,9 +146,9 @@
 
 	    						<div class="controls">
 	    							<div class="smoke">
-	    								<select name="brand1" class="sku skuA1 skuA" linked=".skuB1">
+	    								<select id="brand1" name="brand1" class="sku skuA1 skuA" linked=".skuB1">
 	    								</select>
-	    								<select name="sku1" class="sku skuB1 skuB">
+	    								<select id="sku1" name="sku1" class="sku skuB1 skuB">
 	    								</select>
 	    							</div>
 	    						</div>
@@ -157,9 +157,9 @@
 
 	    						<div class="controls">
 	    							<div class="smoke">
-	    								<select name="brand2" class="sku skuA2 skuA" linked=".skuB2">
+	    								<select id="brand2" name="brand2" class="sku skuA2 skuA" linked=".skuB2">
 	    								</select>
-	    								<select name="sku2" class="sku skuB2 skuB">
+	    								<select id="sku2" name="sku2" class="sku skuB2 skuB">
 	    								</select>
 	    							</div>
 	    						</div>
@@ -257,7 +257,6 @@
             // populate data
             $( '#name' ).val( profile.name );
             $( '#date' ).val( profile.day );
-            //$( '#month' ).val( profile.month );
             $( '#month' ).ikSelect( 'select', profile.month );
             $( '#year' ).val( profile.year );
             $( '#mobilePhone' ).val( profile.phone );
@@ -266,6 +265,14 @@
             $( '#agree_age' ).prop( 'checked',  profile.agree_age );
             $( '#agree_rules' ).prop( 'checked', profile.agree_rules );
             $( '#agree_info' ).prop( 'checked', profile.agree_info );
+
+            // cigarettes
+            $( '#brand1' ).ikSelect( 'select', profile.brand1 );
+            $( '#brand2' ).ikSelect( 'select', profile.brand2 );
+            $( '#sku1' ).ikSelect( 'select', profile.sku1 );
+            $( '#sku2' ).ikSelect( 'select', profile.sku2 );
+            fillSKUList( $( '#brand1' ));
+            fillSKUList( $( '#brand2' ));
         }
 
         function errorsProfile( errors ) {
@@ -313,12 +320,12 @@
                 phone: $( '#mobilePhone' ).val(),
                 email: $( '#email' ).val(),
                 password: $( '#password' ).val(),
-                brand1: $( '#brand1' ).val(),
-                sku1: $( '#sku1' ).val(),
-                brand2: $( '#brand2' ).val(),
-                sku2: $( '#sku2' ).val()
+                brand1: $( 'select[name=brand1]' ).val(),
+                sku1: $( 'select[name=sku1]' ).val(),
+                brand2: $( 'select[name=brand2]' ).val(),
+                sku2: $( 'select[name=sku2]' ).val()
             };
-            //console.log( 'form:', form );
+            console.log( 'form:', form );
 
             // hide system error
             $( '#formError').addClass( 'hide' );
