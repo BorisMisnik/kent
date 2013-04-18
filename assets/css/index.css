@@ -392,8 +392,7 @@ section h1 {
 .hdiBlock .title {
   position: relative;
   left: 400px;
-  opacity: 0;
-  filter: alpha(opacity=0);
+  color: #6b747a;
 }
 .title {
   margin: 0;
