@@ -70,7 +70,7 @@ function() {
             linked = el && el.attr( 'linked' ),
             link = $( linked );
 
-        console.log( 'CHANGE', el, linked, val );
+        //console.log( 'CHANGE', el, linked, val );
 
         if ( !el || !el.length ) return;
         if ( !val ) return;
