@@ -100,7 +100,6 @@ $(function(){
 		},850);
 
 		$('.title').stop(true,true).animate({
-			opacity : 1,
 			left : 0
 		},1000);
 

@@ -13,14 +13,19 @@ define(
                 textarea = $('textarea'),
                 background = $('.background');
 
+
             if ($('#registered').length){
-                containerFluid.css(
-                    'min-height', wrapperForm.height() + 230);
+                containerFluid.css({
+                    'height':wrapperForm.height() + 230,
+                    'min-height': wrapperForm.height() + 230
+                })
             }
 
             if ($('#feedback').length){
-                containerFluid.css(
-                    'min-height', wrapperForm.height() + 230);
+                containerFluid.css({
+                    'height':wrapperForm.height() + 230,
+                    'min-height': wrapperForm.height() + 230
+                })
             }
 
             $('input')
@@ -261,7 +266,7 @@ define(
         return {
             init: function() {
                 $( init );
-                if($.browser.msie) alert('asd')
+            
 
                 if($('#rules').length){
                     $('#rulles').mCustomScrollbar();
