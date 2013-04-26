@@ -1,0 +1,9 @@
+.imageSwitch{
+	background-image:url("../img/switchbox.png") no-repeat;
+}
+#switch2012 .img div{
+	background-image:url("../img/switch2012.png");
+}
+#hds2012 .img div{
+	background-image:url("../img/hds2012.png");
+}

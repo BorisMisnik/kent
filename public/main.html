@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Kent HDi</title>
-    <script src="js/jquery-1.9.1.min.js"></script>
+    
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/jquery.mCustomScrollbar.css"/>
 	<link rel="stylesheet" href="css/cutext.css"/>
@@ -11,94 +11,677 @@
     <link rel="stylesheet/less" type="text/css" href="css/font.less">
     <link rel="stylesheet/less" type="text/css" href="css/main.less">
 	<link rel="stylesheet/less" type="text/css" href="css/index.less">
-	<!--<script src="js/jquery-1.4.2.min.js"></script>-->
+	
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/less-1.3.3.min.js"></script>
+	<script src="js/TweenMax.min.js"></script>
+	<script src="js/scrollTo-plugin.js"></script>
 	<script src="js/autoresize.jquery.js"></script>
 	<script src="js/jScrollPane.js"></script>
 	<script src="js/jquery.mousewheel.js"></script>
 	<script src="js/cutext.js"></script>
 	<script src="js/jquery.ikSelect.js"></script>
-	<script type="text/javascript">
-
-		jQuery(document).ready(
-            function($) {
-
-                $('.massege').cuText({
-                    scrollbarWidth : 7,
-                    showArrows : false,
-                    resizeble : false
-                });
-
-            });
-
-	</script>
-	<!--<script src="js/jquery-1.9.1.min.js"></script>-->
+	<script src="js/animation.js"></script>
 	<script src="js/jquery.maskedinput.min.js"></script>
 	<script src="js/form.js"></script>
 	<script src="js/jquery.easing.compatibility.js"></script>
 	<script src="js/jquery.mCustomScrollbar.min.js"></script>
-	<script src="js/TweenMax.min.js"></script>
-	<script src="js/less-1.3.3.min.js"></script>
 	<script src="js/raphael-min.js"></script>
 	<script src="js/jquery.placeholder.min.js"></script>
+	<script src="js/jquery.hoverIntent.minified.js"></script>
+	<script src="js/jquery.carouselBoxes.js"></script>
 	<script src="js/index.js"></script>
 	<!--[if lt IE 9]>
+		<link rel="stylesheet" href="css/ie8.css">
 		<script src="js/html5shiv.js"></script>
 	<![endif]-->
 </head>
 <body>
+
 	<ul class="nav-site unstyled">
-		<li data-slide="#main" class="active"><a href="#">00.1</a><span>KENT HDI</span></li>
-		<li data-slide="#profile"><a href="#">00.2</a><span>Профайл</span></li>
+		<li class="active"><a href="#" data-slide="sigarets">00.1</a><span>Сигареты КЕНТ</span></li>
+		<li><a href="#" data-slide="history">00.2</a><span>История КЕНТ </span></li>
+		<li><a href="#" data-slide="question">00.3</a><span>Вопросы-ответы</span></li>
+		<li><a href="#" data-slide="profile">00.4</a><span>Профайл</span></li>
 	</ul>
+
 	<div class="scrollButton">
 		<a href="#" class="prev"></a>
 		<a href="#" class="next"></a>
 	</div>
+
+	<ul class="nav-scategory unstyled">
+		<li name="hdi">hdi</li>
+		<li name="switch">SWITCH</li>
+		<li name="nanotek">Nanotek</li>
+		<li name="hd">HD</li>
+		<li name="hds">HDS</li>
+	</ul>
+
+	<h2 class="title-block">Сигарети KENT <span>/ 00.1</span></h2>
+
 	<div id="svg"></div>
 	<div class="container-fluid">
-		<section id="main">
-			<article class="hdi now" data-name="hdi" data-animate="hdi2003">
+
+
+		<!-- Hello -->
+		<section id="main" class="now" data-animation="first">
+			<article>
 				<div>
-					<h2 class="title-block">KENT HDi &nbsp;&nbsp;</h2>
-					<div class="hdiBlock">
-						<div class="block-image">
-							<div class="packOne"></div>
-							<div class="packTwo"></div>
+					<p class="hello">Вітаємо у просторі <strong>KENT</strong>.<br/>
+					   ти можеш дізнатися більше про сигарети <strong>KENT</strong>,<br/>
+					   прогрес бренда та останні досягнення.</p>
+					<p class="hello">Для початку використовуй скрол</p>
+					<div class="arrow-start"></div>
+				</div>
+			</article>
+		</section>
+		<!-- carousel boxes -->
+		<section id="carousel" data-animation="second" data-slide="sigarets">
+			<article>
+				<div>
+					<div class="carousel">
+						<div class="wrapeer" data-name="nanotek">
+							<div class="nanotek" id="zero"></div>
+							<p>nanotek</p>
 						</div>
-						<div class="block-text">
-							<h3 class="title">KENT HDi – це нові сигарети KENT у форматі demislims.</h3>
-
-							<p class="about-pack">Технологія вугільної фільтрації забезпечує м’який смак.</p>
-							
-							<p class="about-pack">Технологія надтонкого волокна Precision Thread відповідає за рівномірну передачу смаку протягом усього процесу куріння.</p>
-
-							<p class="about-pack">Турбокамера нового покоління забезпечує миттєву передачу смаку KENT HDi.</p>
-
-							<p class="description">
-								Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину):
-							</p>
+						<div class="wrapeer" data-name="hd">
+							<div class="hd" id="first"></div>
+							<p>nanotek</p>
+						</div>
+						<div class="wrapeer" data-name="hdi">
+							<div class="hdi" id="second"></div>
+							<p>nanotek</p>
+						</div>
+						<div class="wrapeer" data-name="switch">
+							<div class="switch" id="third"></div>
+							<p>nanotek</p>
+						</div>
+						<div class="wrapeer" data-name="hds">
+							<div class="hds" id="fourth"></div>
+							<p>nanotek</p>
 						</div>
 					</div>
 				</div>
 			</article>
 		</section>
+		<!-- hdi-info -->
+		<section id="site-hdi" data-name="hdi" data-animation="third" data-slide="sigarets">
+			<article class="hdi">
+				<div>
+					<!-- hdi short info -->
+					<div class="hdiShort">
+						<div class="hdiBlock">
+							<div class="block-image">
+								<div class="packOne"></div>
+								<div class="packTwo"></div>
+							</div>
+							<div class="block-text">
+								<h3 class="title">KENT HDi – це нові сигарети KENT у форматі demislims.</h3>
 
-		<section id="profile">
+								<p class="about-pack">Технологія вугільної фільтрації забезпечує м’який смак.</p>
+								
+								<p class="about-pack">Технологія надтонкого волокна <strong>Precision Thread</strong> відповідає за рівномірну передачу смаку протягом усього процесу куріння.</p>
+
+								<p class="about-pack">Турбокамера нового покоління забезпечує миттєву передачу смаку KENT HDi.</p>
+
+								<p class="precision about-pack">
+									<span></span>
+									Precision Thread Technology
+								</p> 
+								<button class="submit moreDetail">Дізнатись більше</button>
+								<p class="description about-pack">
+									Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину):
+								</p>
+							</div>
+						</div>
+					</div>
+					<!-- hdi detail -->
+					<div class="aboutFilter">
+						<div class="sigaret-wrapper">
+							<div class="sigaret"></div>
+						</div>
+						<div class="aboutFilterInfo">
+							<div>
+								<h3 class="titleTechnology">Precision Thread Technology</h3>
+								<p class='about-technology'>
+									Надтонке волокно (яке називається 
+									Precision Thread Пресіжн Тред) – це технологія спеціального волокна у фільтрі, що робить смак сигарети рівномірним протягом усього процесу куріння.
+								</p>
+								<button class="submit shortDetail">повернутись назад</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</article>
+		</section>
+		<!-- filter -->
+		<section id="filter" data-animation="fourth" data-name="filter" data-slide="sigarets">
+			<article>
+				<div>
+					<div class="filter">
+						<h3 class="titleFilter">унікальний трисекційний фільтр</h3>
+					</div>
+				</div>
+			</article>
+		</section>
+		<!-- siteHD -->
+		<section id="site-hd" data-animation="fiveth" data-name="hd" data-slide="sigarets">
+			<article>
+				<div>
+
+					<div class="boxesHD">
+						<div class="wrapper-box">
+							<div name="one"></div>
+							<div name="two"></div>
+							<div name="three"></div>
+							<div name="four"></div>
+						</div>
+						<h3 class="hdTitle">KENT HD має унікальну систему фільтрації, яка містить 
+						2 вугільні мембрани та потрійний фільтр. </h3>
+						<p>Все це робить смак KENT HD чітким та виразним. Кожний елемент оновленого дизайну пачки KENT HD підкреслює стиль: дзеркальна поверхня, колір хрому та рельєфна структура. </p>
+						<p class="description">Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину):</p>
+					</div>
+				</div>
+			</article>
+		</section>
+		<!-- siteSwitch -->
+		<section id="site-hd" data-animation="sixeth" data-name="switch" data-slide="sigarets">
+			<article>
+				<div>
+					<div class="infoSwitch">
+						<div class="imageSwitch">
+							<div></div>
+						</div>
+						<div class="textSwitch">
+							<h3>KENT iSWITCH – це перші в Україні сигарети, що дозволяють самостійно керувати смаком.</h3>
+							<p>Смак сигарети можна змінити у будь-який момент куріння. У фільтрі кожної сигарети - капсули свіжого смаку. Для її активації необхідно стиснути фільтр 
+							в місці, позначеному Click-символом. Лише одне стискання дозволить трансформувати унікальний смак KENT в абсолютно новий та свіжий. </p>
+							<p>Обирати тобі - звичний чіткий смак або принципово новий та освіжаючий. </p>
+							<p class="description">Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину):</p>
+						</div>
+					</div>
+				</div>
+			</article>
+		</section>
+		<!-- sitenanotek -->
+		<section id="site-nanotek" data-animation="seventh" data-name="nanotek" data-slide="sigarets">
+			<article>
+				<div>
+					<div class="infoNanotek">
+						<h3 class="nanotekTitle">KENT Nanotek має принципово новий формат <br/> сигарет – Compact King Size.</h3>
+						<div class="infoImageNanotek">
+							<div class="textNanotek">
+								<p>
+									Це перші в Україні компактні сигарети, які дають всю насиченість смаку 
+								    з активованим вигульним фільтром. 
+								</p>
+								<p>
+									<strong>KENT Nanotek 2.0</strong> на додачу має надтонке волокно всередині фільтра, що забезпечує рівномірність смаку впродовж усього процесу куріння. 
+								</p>
+								<p class="description">Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину):</p>
+							</div>
+							<div class="imageNanotek">
+								<div name="one"></div>
+								<div name="two"></div>
+								<div name="three"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</article>
+		</section>
+		<!-- sitehds -->
+		<section  id="site-hds" data-animation="eighth" data-name="hds" data-slide="sigarets">
+			<article>
+				<div>
+					<div class="hdsifno">
+						<div class="imagehds">
+							<div name="one"></div>
+							<div name="two"></div>
+						</div>
+						<div class="texthds">
+							<h3 class="title">
+								KENT HDs у форматі Super Slims
+								з технологією Precision Thread – останнього слова у технологіях передачі смаку. 
+							</h3>
+							<p>
+								Надтонке волокно всередині фільтра забезпечує рівномірно насичений смак KENT HDs упродовж всього процесу куріння, від початку до кінця. 
+							</p>
+							<p class="precision about-pack">
+								<span></span>
+								Precision Thread Technology
+							</p> 
+
+							<button class="submit moreDetail">Дізнатись більше</button>
+							<p class="description about-pack">
+									Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину):
+							</p>
+						</div>
+					</div>
+					<!-- filter -->
+					<div class="aboutFilter">
+						<div class="sigaret-wrapper">
+							<div class="sigaret"></div>
+						</div>
+						<div class="aboutFilterInfo">
+							<div>
+								<h3 class="titleTechnology">Precision Thread Technology</h3>
+								<p class='about-technology'>
+									Надтонке волокно (яке називається 
+									Precision Thread Пресіжн Тред) – це технологія спеціального волокна у фільтрі, що робить смак сигарети рівномірним протягом усього процесу куріння.
+								</p>
+								<button class="submit shortDetail">повернутись назад</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</article>
+		</section>
+		<!-- history start -->
+		<section id="history-main" data-animation="nineth" data-slide="history">
+			<article>
+				<div>
+					<a href="#" class="allHistory">вся історія</a>
+					<div class="mainHistory">
+						<h3>Час дізнатися про прогресивні зміни KENT<br/>
+							у часі. Обери лінійку, яку ти куриш.</h3>
+						<!-- <nav class="navhistory">
+							<a href="#" data-slide="history-hdi" name="hdi"></a>
+							<a href="#" data-slide="history-switch" name="switch"></a>
+							<a href="#" data-slide="history-nanotek" name="nanotek"></a>
+							<a href="#" data-slide="history-hd" name="hd"></a>
+							<a href="#" data-slide="history-hds" name="hds"></a>
+						</nav> -->
+					</div>
+				</div>
+			</article>
+		</section>
+		<!-- all history -->
+		<section id="history-all"  data-slide="history">
+			<article>
+				<div>
+					<div class="wrapper-table">
+						<a href="#" class="closeHisotry"></a>
+						<table class="table table-condensed">
+							<tr class="years">
+								<td>&nbsp;</td>
+								<td>2003</td>
+								<td>2007</td>
+								<td>2009</td>
+								<td>2010</td>
+								<td>2011</td>
+								<td>2012</td>
+								<td>2013</td>
+							</tr>
+							<tr class="boxes success hd">
+								<td><div name="kentHD"></div></td>
+								<td><div class="box"></div></td>
+								<td><div class="box seven"></div></td>
+								<td><div class="box nine"></div></td>
+								<td><div class="box ten"></div></td>
+								<td><div class="box eleven none"></div></td>
+								<td><div class="box twelve"></div></td>
+								<td><div class="box thirteen none"></div></td>
+							</tr>
+							<tr class="boxes hds">
+								<td><div name="kentHDS"></div></td>
+								<td><div class="box none"></div></td>
+								<td><div class="box seven none"></div></td>
+								<td><div class="box nine none"></div></td>
+								<td><div class="box ten none"></div></td>
+								<td><div class="box eleven none"></div></td>
+								<td><div class="box twelve"></div></td>
+								<td><div class="box thirteen none"></div></td>
+							</tr>
+							<tr class="boxes success nanotek">
+								<td><div name="kentNanotek"></div></td>
+								<td><div class="box none"></div></td>
+								<td><div class="box seven"></div></td>
+								<td><div class="box nine none"></div></td>
+								<td><div class="box ten none"></div></td>
+								<td><div class="box eleven"></div></td>
+								<td><div class="box twelve"></div></td>
+								<td><div class="box thirteen none"></div></td>
+							</tr>
+							<tr class="boxes switch">
+								<td><div name="kentSwitch"></div></td>
+								<td><div class="box none"></div></td>
+								<td><div class="box seven none"></div></td>
+								<td><div class="box nine none"></div></td>
+								<td><div class="box ten"></div></td>
+								<td><div class="box eleven none"></div></td>
+								<td><div class="box twelve"></div></td>
+								<td><div class="box thirteen none"></div></td>
+							</tr>
+							<tr class="boxes hdi success">
+								<td><div name="kentHDI"></div></td>
+								<td><div class="box none"></div></td>
+								<td><div class="box seven none"></div></td>
+								<td><div class="box nine none"></div></td>
+								<td><div class="box ten none"></div></td>
+								<td><div class="box eleven none"></div></td>
+								<td><div class="box twelve none"></div></td>
+								<td><div class="box thirteen"></div></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</article>
+		</section>
+		<!-- hd 2013 -->
+		<section id="hdi2013" data-animation="twentTwo" data-slide="history" data-history="hdi">
+			<article>
+				<div>
+					<div class="wrapperElements">
+						<div class="img">
+							<div name="one"></div>
+							<div name="two"></div>
+						</div>
+						<div class="info">
+							<h3>2013</h3>
+							<p>
+								На українському ринку з’являється KENT HDi – нові сигарети у форматі Demislims із трисекційним фільтром. Технологія вугільної фільтрації забезпечує м’який смак, технологія надтонкого волокна Precision Thread відповідає за рівномірну передачу смаку протягом усього процесу куріння, а турбокамера нового покоління забезпечує миттєву передачу смаку KENT HDi.
+							</p>
+							<p class="description">Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину):</p>
+						</div>
+					</div>
+				</div>
+			</article>
+		</section>
+		<!-- hd 2012 -->
+		<section id="hd2012" data-animation="tenth" data-slide="history" data-history="hd">
+			<article>
+				<div>
+					<div class="wrapperElements">
+						<div class="img">
+							<div></div>
+						</div>
+						<div class="info">
+							<h3>2012</h3>
+							<p>Розширення лінійки KENT HD. Тепер знайомий чіткий смак KENT HD – у варіанті 6 мг.</p>
+							<p class="description">Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину):</p>
+						</div>
+					</div>
+				</div>
+			</article>
+		</section>
+		<!-- swithc2012 -->
+		<section id="switch2012" data-animation="eleventh" data-slide="history" data-history="switch">
+			<article>
+				<div>
+					<div class="wrapperElements">
+						<div class="img">
+							<div></div>
+						</div>
+						<div class="info">
+							<h3>2012</h3>
+							<p>
+								Запуск KENT iSWITCH. Це нове ім’я та оновлений дизайн KENT Convertibles – перших в Україні сигарет із капсулою свіжого смаку у фільтрі. Нова пачка є втіленням найсучасніших дизайнерських рішень, технологій і матеріалів і відображає передову стратегію марки KENT. Сам же продукт лишився незмінним: 4 мг смол, 0,3 мг нікотину 
+								й та сама можливість обирати смак сигарети в будь-який момент куріння.
+							</p>
+							<p class="description">Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину):</p>
+						</div>
+					</div>
+				</div>
+			</article>
+		</section>
+		<!-- nanotek2012 -->
+		<section id="nanotek2012" data-animation="thirteenth" data-slide="history" data-history="nanotek">
+			<article>
+				<div>
+					<div class="wrapperElements">
+						<div class="img">
+							<div></div>
+						</div>
+						<div class="info">
+							<h3>2012</h3>
+							<p>
+								Поповнення лінійки сигарет у компактному форматі KENT Nanotek 2.0. З’являється KENT 
+								Nanotek 2.0 6 мг – нове покоління чіткого смаку 
+								у варіанті 6 міліграмів із використанням технології Precision Thread. Застосована в сигаретах KENT уперше саме в Nanotek 2.0 6 мг, технологія 
+								Precision Thread – це надтонке волокно всередині фільтра, що забезпечує рівномірність смаку 
+								Nanotek 2.0 упродовж усього процесу куріння.
+							</p>
+							<p class="description">Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину):</p>
+						</div>
+					</div>
+				</div>
+			</article>
+		</section>
+		<!-- hds2012 -->
+		<section id="hds2012" data-animation="fourteen" data-slide="history" data-history="hds">
+			<article>
+				<div>
+					<div class="wrapperElements">
+						<div class="img">
+							<div name="one"></div>
+							<div name="two"></div>
+						</div>
+						<div class="info">
+							<h3>2012</h3>
+							<p>
+								KENT HDs – перша пропозиція від Кент у форматі Super Slims із сучасним дизайном та технологією надтонкого волокна Precision Thread, яка забезпечує рівномірну насиченість смаку впродовж всього процесу куріння.
+							</p>
+							<p class="description">Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину):</p>
+						</div>
+					</div>
+				</div>
+			</article>
+		</section>
+		<!-- nanotek2011 -->
+		<section id="nanotek2011" data-animation="fiveteen" data-slide="history" data-history="nanotek">
+			<article>
+				<div>
+					<div class="wrapperElements">
+						<div class="img">
+							<div name="one"></div>
+							<div name="two"></div>
+						</div>
+						<div class="info">
+							<h3>2011</h3>
+							<p>
+								Відбувається запуск KENT Nanotek 2.0 – модернізованого KENT Nanotek. 2.0 – це нове покоління дизайну. Нова пачка отримує чорний колір та ребристі елементи поверхні. Незмінними залишаються компактний формат пачки, якість 
+								та смак сигарет. 
+							</p>
+							<p class="description">Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину):</p>
+						</div>
+					</div>
+				</div>
+			</article>
+		</section>
+		<!-- hd2010 -->
+		<section id="hd2010" data-animation="sixteen" data-slide="history" data-history="hd">
+			<article>
+				<div>
+					<div class="wrapperElements">
+						<div class="img">
+							<div name="one"></div>
+							<div name="two"></div>
+							<div name="three"></div>
+						</div>
+						<div class="info">
+							<h3>2010</h3>
+							<p>
+								Дизайн пачок KENT HD оновлено. Дзеркальна зворотна поверхня, колір хрому та рельєфна текстура зробили зовнішній вигляд пачки більш сучасним та стильним. 
+							</p>
+							<p class="description">Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину):</p>
+						</div>
+					</div>
+				</div>
+			</article>
+		</section>
+		<!-- switch 2010 -->
+		<section id="switch2010" data-animation="seventeen" data-slide="history" data-history="switch">
+			<article>
+				<div>
+					<div class="wrapperElements">
+						<div class="img">
+							<div></div>
+						</div>
+						<div class="info">
+							<h3>2010</h3>
+							<p>
+								Розширення продуктового портфеля KENT. В Україні з’являються KENT Convertibles – сигарети, смак яких можна змінити в будь-який момент куріння, легко трансформувавши звичний смак KENT в абсолютно новий свіжий смак завдяки ментоловій капсулі всередині фільтра. 
+							</p>
+							<p class="description">Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину):</p>
+						</div>
+					</div>
+				</div>
+			</article>
+		</section>
+		<!-- hd2009 -->
+		<section id="hd2009" data-animation="eighteen" data-slide="history" data-history="hd">
+			<article>
+				<div>
+					<div class="wrapperElements">
+						<div class="img">
+							<div name="one"></div>
+							<div name="two"></div>
+							<div name="three"></div>
+						</div>
+						<div class="info">
+							<h3>2009</h3>
+							<p>
+								На зміну KENT 3-TEK приходить KENT HD. 
+								KENT HD відкрив абсолютно новий стандарт 
+								смаку – смак у вимірі High Definition, більш чіткий та виразний.
+							</p>
+							<p class="description">Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину):</p>
+						</div>
+					</div>
+				</div>
+			</article>
+		</section>
+		<!-- nanotek2007 -->
+		<section id="nanotek2007" data-animation="nineteen" data-slide="history" data-history="nanotek">
+			<article>
+				<div>
+					<div class="wrapperElements">
+						<div class="img">
+							<div name="one"></div>
+							<div name="two"></div>
+							<div name="three"></div>
+						</div>
+						<div class="info">
+							<h3>2007</h3>
+							<p>
+								Цього року лінійку KENT розширили KENT
+								Nanotek – перші в Україні компактні сигарети 
+								з повним насиченим смаком. Вони стали засновником принципово нового формату сигарет 
+								Compact King Size.
+							</p>
+							<p class="description">Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину):</p>
+						</div>
+					</div>
+				</div>
+			</article>
+		</section>
+		<!-- hd2007 -->
+		<section id="hd2007" data-animation="twenty" data-slide="history" data-history="hd">
+			<article>
+				<div>
+					<div class="wrapperElements">
+						<div class="img">
+							<div name="one"></div>
+							<div name="two"></div>
+							<div name="three"></div>
+						</div>
+						<div class="info">
+							<h3>2007</h3>
+							<p>
+								Пачки KENT 3-TEK виходять в оновленому дизайні, що повністю відображає філософію бренду – завжди бути на крок попереду. Сигарети KENT уперше отримують пізнавані елементи – трапецію та коло сонік на пачках.
+							</p>
+							<p class="description">Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину):</p>
+						</div>
+					</div>
+				</div>
+			</article>
+		</section>
+		<!-- hd2003 -->
+		<section id="hd2003" data-animation="twentyOne" data-slide="history" data-history="hd">
+			<article>
+				<div>
+					<div class="wrapperElements">
+						<div class="img">
+							<div name="one"></div>
+							<div name="two"></div>
+							<div name="three"></div>
+						</div>
+						<div class="info">
+							<h3>2003</h3>
+							<p>
+								Запущено сигарети KENT 3-TEK – перші сигарети KENT в Україні. Для KENT 3-TEK було впроваджено систему потрійної вугільної фільтрації 3-TEK, яка складалася з 3 частин: вугільний фільтр був розташований між двома ацетатними. 
+							</p>
+							<p class="description">Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину):</p>
+						</div>
+					</div>
+				</div>
+			</article>
+		</section>
+		<!-- question -->
+		<section id="question" data-slide="question">
+			<article class="question">
+				<div class="question-anaswer">
+					<div>
+						<div class="button-wrapper">
+							<a href="#">Ваше питання</a>
+							<div class="block-wrapper">
+								<form action="" method="">
+									<textarea class="massege" name="massege" placeholder="Ваше запитання"></textarea>
+									<input type="submit" value="НАДІСЛАТИ" class="submitMassage">
+								</form>
+								<p>Твоє запитання успішно надіслано</p>
+							</div>
+						</div>
+						<div class="text-wrapper">
+							<div class="text">
+								<h3  class="open">Хто виробляє сигарети KENT?</h3>
+								<p style="display:block;">
+									Сигарети KENT виробляються на високотехнологічному сучасному обладнанні тютюнової фабрики «В.А.Т. – Прилуки» в місті Прилуки Чернігівської області та тютюнової фабрики 
+									ЗАТ «Бритіш Американ Тобакко – СПб» у Санкт-Петербурзі, Росія. Обладнання відповідає найвищим міжнародним стандартам і дозволяє виробляти якісний продукт.
+								</p>
+								<h3>Де виробляються сигарети KENT?</h3>
+								<p>
+									Сигарети KENT виробляються на високотехнологічному сучасному обладнанні тютюнової фабрики «В.А.Т. – Прилуки» в місті Прилуки Чернігівської області та тютюнової фабрики 
+									ЗАТ «Бритіш Американ Тобакко – СПб» у Санкт-Петербурзі, Росія. Обладнання відповідає найвищим міжнародним стандартам і дозволяє виробляти якісний продукт.
+								</p>
+								<h3>Які бувають сигарети KENT?</h3>
+								<p>
+									Сигарети KENT виробляються на високотехнологічному сучасному обладнанні тютюнової фабрики «В.А.Т. – Прилуки» в місті Прилуки Чернігівської області та тютюнової фабрики 
+									ЗАТ «Бритіш Американ Тобакко – СПб» у Санкт-Петербурзі, Росія. Обладнання відповідає найвищим міжнародним стандартам і дозволяє виробляти якісний продукт.
+								</p>
+								<h3>Які формати є в сигарет KENT?</h3>
+								<p>
+									Сигарети KENT виробляються на високотехнологічному сучасному обладнанні тютюнової фабрики «В.А.Т. – Прилуки» в місті Прилуки Чернігівської області та тютюнової фабрики 
+									ЗАТ «Бритіш Американ Тобакко – СПб» у Санкт-Петербурзі, Росія. Обладнання відповідає найвищим міжнародним стандартам і дозволяє виробляти якісний продукт.
+								</p>
+								<h3>Що таке KENT HD?</h3>
+								<p>
+									Сигарети KENT виробляються на високотехнологічному сучасному обладнанні тютюнової фабрики «В.А.Т. – Прилуки» в місті Прилуки Чернігівської області та тютюнової фабрики 
+									ЗАТ «Бритіш Американ Тобакко – СПб» у Санкт-Петербурзі, Росія. Обладнання відповідає найвищим міжнародним стандартам і дозволяє виробляти якісний продукт.
+								</p>
+							</div>
+						</div>	
+					</div>
+				</div>
+			</article>
+		</section>
+		<!-- profile -->
+		<section id="profile" data-slide="profile">
 			<article class="last profile-article">
 				<div>
-					<h2 class="title-block">Профайл &nbsp;&nbsp;</h2>
 					<div class="profile-wrapper">
 						<div class="profile">
 							<form  class="form-horizontal text-left" action=" " method=" ">
 
                                 <span id="formError" class="error hide">Виникла помилка</span>
-
    						 		<div class="controls">
 	     							<input type="text" name="name" placeholder="П. I. Б." class="text" id="name" value="" />
     							</div>
 
     							<label class="control-label" for="name">П. I. Б.</label>
-                                <span class="error err_name">Неправильно вказано дані (П. І. Б.)</span>
+                                <!-- <span class="error err_name">Неправильно вказано дані (П. І. Б.)</span> -->
 
 								<div class="controls">
 									<div class="dateBirthday">
@@ -122,33 +705,41 @@
 									</div>
 								</div>
 								<label class="control-label" for="date">Дата народження</label>
-                                <span class="error err_day">Невірні дані</span>
-                                <span class="error err_age">Тобі ще не виповнилося 18 років</span>
+                                <!-- <span class="error err_day">Невірні дані</span> -->
+                                <!-- <span class="error err_age">Тобі ще не виповнилося 18 років</span> -->
 
 								<div class="controls">
 	     							<input type="text" name="mobilePhone" placeholder="0 (96) 938-15-17" class="text" id="mobilePhone" value="" />
 	    						</div>
 	    						<label class="control-label" for="mobilePhone">Мобiльний телефон</label>
-                                <span class="error err_phone">Неправильний формат номера</span>
+                                <!-- <span class="error err_phone">Неправильний формат номера</span> -->
 
 								<div class="controls">
 	     							<input type="text" name="email" placeholder="E-mail" class="text" id="email" value="" />
 	    						</div>
 	    						<label class="control-label" for="email">E-mail</label>
-                                <span class="error err_email">Неправильний формат e-mail</span>
-                                <span class="error err_already_used_email" >Такий e-mail вже зареестровано</span>
+                                <!-- <span class="error err_email">Неправильний формат e-mail</span> -->
+                                <!-- <span class="error err_already_used_email" >Такий e-mail вже зареестровано</span> -->
 
 								<div class="controls">
 	     							<input type="password" name="password" placeholder="Пароль" class="text" id="password" value="" />
 	    						</div>
 	    						<label class="control-label" for="password">Пароль</label>
-                                <span class="error err_password">Пароль не відповідає вимогам</span>
+                                <!-- <span class="error err_password">Пароль не відповідає вимогам</span> -->
 
 	    						<div class="controls">
 	    							<div class="smoke">
 	    								<select name="brand1" class="sku skuA1 skuA" linked=".skuB1">
+											<option value="Місяць" disabled>Місяць</option>
+					                        <option value="0">Січень</option>
+					                        <option value="1">Лютий</option>
+					                        <option value="2">Березень</option>
 	    								</select>
 	    								<select name="sku1" class="sku skuB1 skuB">
+											<option value="Місяць" disabled>Місяць</option>
+					                        <option value="0">Січень</option>
+					                        <option value="1">Лютий</option>
+					                        <option value="2">Березень</option>
 	    								</select>
 	    							</div>
 	    						</div>
@@ -158,14 +749,28 @@
 	    						<div class="controls">
 	    							<div class="smoke">
 	    								<select name="brand2" class="sku skuA2 skuA" linked=".skuB2">
+											<option value="Місяць" disabled>Місяць</option>
+					                        <option value="0">Січень</option>
+					                        <option value="1">Лютий</option>
+					                        <option value="2">Березень</option>
 	    								</select>
 	    								<select name="sku2" class="sku skuB2 skuB">
+											<option value="Місяць" disabled>Місяць</option>
+					                        <option value="0">Січень</option>
+					                        <option value="1">Лютий</option>
+					                        <option value="2">Березень</option>
+					                        <option value="0">Січень</option>
+					                        <option value="1">Лютий</option>
+					                        <option value="2">Березень</option>
+					                        <option value="0">Січень</option>
+					                        <option value="1">Лютий</option>
+					                        <option value="2">Березень</option>
 	    								</select>
 	    							</div>
 	    						</div>
 	    						<label class="control-label" for="sigaretsOne">Марка сигарет, які ти куриш час від часу</label>
                                 <span class="error err_password">Треба вказати</span>
-                                <span class="error err_password">Пoвинно відрізнятись</span>
+                                <!-- <span class="error err_password">Пoвинно відрізнятись</span> -->
 
 								<div class="clear"></div>
                                 <span id="profileSuccess" class="succes hide">Відкореговані дані успішно збережено.</span>
@@ -177,6 +782,8 @@
 				</div>
 			</article>
 		</section>
+		
+
 	</div>
 	<div class="row-fluid footer no-text">
 			<div class="span12">
@@ -248,7 +855,7 @@
             // populate data
             $( '#name' ).val( profile.name );
             $( '#date' ).val( profile.day );
-            //$( '#month' ).val( profile.month );
+            $( '#month' ).val( profile.month );
             $( '#month' ).ikSelect( 'select', profile.month );
             $( '#year' ).val( profile.year );
             $( '#mobilePhone' ).val( profile.phone );
@@ -278,21 +885,21 @@
             // hide system error
             $( '#formError').addClass( 'hide' );
 
-            $.get( '/user/profile' )
-                .done( function( res ) {
-                    //console.log( 'profile done', arguments );
+            // $.get( '/user/profile' )
+            //     .done( function( res ) {
+            //         //console.log( 'profile done', arguments );
 
-                    // action
-                    if ( res.errors )
-                        errorsProfile( res.errors );
-                    else
-                        populateProfile( res.profile );
-                })
-                .fail( function() {
-                    //console.log( 'profile fails', arguments );
-                    // show system error
-                    $( '#formError' ).removeClass( 'hide').hide().fadeIn( 'slow' );
-                });
+            //         // action
+            //         if ( res.errors )
+            //             errorsProfile( res.errors );
+            //         else
+            //             populateProfile( res.profile );
+            //     })
+            //     .fail( function() {
+            //         //console.log( 'profile fails', arguments );
+            //         // show system error
+            //         $( '#formError' ).removeClass( 'hide').hide().fadeIn( 'slow' );
+            //     });
         }
         function updateProfile() {
             var form = {
@@ -315,25 +922,25 @@
             // hide old success
             $( '#profileSuccess' ).addClass( 'hide' );
 
-            $.post( '/user/profile', form )
-                .done( function( res ) {
-                    //console.log( 'save done', arguments );
-                    if ( res.error ) {
-                        // errors
-                        //$( '#formError' ).hide().removeClass( 'hide' ).fadeIn( 'slow' );
-                        errorsProfile( res );
-                    }
-                    else {
-                        // success message
-                        $( '#profileSuccess' ).hide().removeClass( 'hide' ).fadeIn( 'slow' );
-                        populateProfile( res.profile );
-                    }
-                })
-                .fail( function() {
-                    //console.log( 'save fails', arguments );
-                    // show system error
-                    $( '#formError' ).removeClass( 'hide').hide().fadeIn( 'slow' );
-                })
+            // $.post( '/user/profile', form )
+            //     .done( function( res ) {
+            //         //console.log( 'save done', arguments );
+            //         if ( res.error ) {
+            //             // errors
+            //             //$( '#formError' ).hide().removeClass( 'hide' ).fadeIn( 'slow' );
+            //             errorsProfile( res );
+            //         }
+            //         else {
+            //             // success message
+            //             $( '#profileSuccess' ).hide().removeClass( 'hide' ).fadeIn( 'slow' );
+            //             populateProfile( res.profile );
+            //         }
+            //     })
+            //     .fail( function() {
+            //         //console.log( 'save fails', arguments );
+            //         // show system error
+            //         $( '#formError' ).removeClass( 'hide').hide().fadeIn( 'slow' );
+            //     })
         }
 
 
