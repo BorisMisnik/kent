@@ -28,9 +28,6 @@ $(function(){
 		.parent()
 		.css('height','371px');
 
-	if($.browser.msie && parseInt($.browser.version, 10) <= 8) return;  // exit if ie8 and small
-
-	
 	TweenMax.staggerTo($('#zero,#fourth'),0,{scale:0.4});
 	TweenMax.staggerTo($('#first,#third'),0,{scale:0.7});
 	TweenMax.staggerTo($('#second'),0,{scale:1});
@@ -76,61 +73,5 @@ $(function(){
 			}
 
 		};
-
-		function compleate(){
-
-			var left = [];
-
-			$('.wrapeer').each(function(){
-
-				$this = $(this);
-				var size = parseFloat($this.css('left'));
-				left.push(size);
-
-			});
-
-			left.sort(function(a,b) { return a-b });
-					
-			$('.wrapeer').each(function(){
-
-				$this = $(this);
-				var distance = parseFloat($this.css('left'));
-
-				if(distance === left[0]){
-					$this.find('div').attr('id','zero');
-				}
-				else if(distance === left[1]){
-					$this.find('div').attr('id','first');
-				}
-				else if(distance === left[2]){
-					$this.find('div').attr('id','second');
-				}
-				else if(distance === left[3]){
-					$this.find('div').attr('id','third');
-				}
-				else{
-					$this.find('div').attr('id','fourth');
-				}
-
-				$('#second').on('mouseleve',mouseleave);
-				TweenMax.to($('#second'),0,{
-					scale:1,
-					onComplete : function() { animate = false; }
-				});
-				TweenMax.to($('#second').parent(),0,{
-					height:360
-				});
-
-			});	
-		}
-		var position = {
-
-			first  : '8.020833333333334%',
-			second : '21%',
-			third  : '45.25%',
-			four   : '68.54166666666667%',
-			five   : '81.916667%' 
-
-		}
 
 });

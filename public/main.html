@@ -30,6 +30,7 @@
 	<script src="js/jquery.placeholder.min.js"></script>
 	<script src="js/jquery.hoverIntent.minified.js"></script>
 	<script src="js/jquery.carouselBoxes.js"></script>
+	<script src="js/background-site.js"></script>
 	<script src="js/index.js"></script>
 	<!--[if lt IE 9]>
 		<link rel="stylesheet" href="css/ie8.css">
@@ -57,8 +58,10 @@
 		<li name="hd">HD</li>
 		<li name="hds">HDS</li>
 	</ul>
+	
+	<a href="#" class="allHistory">вся історія</a>
 
-	<h2 class="title-block">Сигарети KENT <span>/ 00.1</span></h2>
+	<h2 class="title-block"> </h2>
 
 	<div id="svg"></div>
 	<div class="container-fluid">
@@ -282,27 +285,18 @@
 		<section id="history-main" data-animation="nineth" data-slide="history">
 			<article>
 				<div>
-					<a href="#" class="allHistory">вся історія</a>
 					<div class="mainHistory">
-						<h3>Час дізнатися про прогресивні зміни KENT<br/>
-							у часі. Обери лінійку, яку ти куриш.</h3>
-						<!-- <nav class="navhistory">
-							<a href="#" data-slide="history-hdi" name="hdi"></a>
-							<a href="#" data-slide="history-switch" name="switch"></a>
-							<a href="#" data-slide="history-nanotek" name="nanotek"></a>
-							<a href="#" data-slide="history-hd" name="hd"></a>
-							<a href="#" data-slide="history-hds" name="hds"></a>
-						</nav> -->
+						<h3>Час дізнатися про прогресивні зміни <strong>KENT</strong> у часі.</h3>
+						<div class="arrow-start"></div>
 					</div>
 				</div>
 			</article>
 		</section>
 		<!-- all history -->
-		<section id="history-all"  data-slide="history">
+		<section id="history-all"  data-slide="history" data-animation="tweentyThree">
 			<article>
 				<div>
 					<div class="wrapper-table">
-						<a href="#" class="closeHisotry"></a>
 						<table class="table table-condensed">
 							<tr class="years">
 								<td>&nbsp;</td>
@@ -316,12 +310,12 @@
 							</tr>
 							<tr class="boxes success hd">
 								<td><div name="kentHD"></div></td>
-								<td><div class="box"></div></td>
-								<td><div class="box seven"></div></td>
-								<td><div class="box nine"></div></td>
-								<td><div class="box ten"></div></td>
+								<td><div class="box" data-scroll="hd2003"></div></td>
+								<td><div class="box seven" data-scroll="hd2007"></div></td>
+								<td><div class="box nine" data-scroll="hd2009"></div></td>
+								<td><div class="box ten" data-scroll="hd2010"></div></td>
 								<td><div class="box eleven none"></div></td>
-								<td><div class="box twelve"></div></td>
+								<td><div class="box twelve" data-scroll="hd2012"></div></td>
 								<td><div class="box thirteen none"></div></td>
 							</tr>
 							<tr class="boxes hds">
@@ -331,17 +325,17 @@
 								<td><div class="box nine none"></div></td>
 								<td><div class="box ten none"></div></td>
 								<td><div class="box eleven none"></div></td>
-								<td><div class="box twelve"></div></td>
+								<td><div class="box twelve" data-scroll="hds2012"></div></td>
 								<td><div class="box thirteen none"></div></td>
 							</tr>
 							<tr class="boxes success nanotek">
 								<td><div name="kentNanotek"></div></td>
 								<td><div class="box none"></div></td>
-								<td><div class="box seven"></div></td>
+								<td><div class="box seven" data-scroll="nanotek2007"></div></td>
 								<td><div class="box nine none"></div></td>
 								<td><div class="box ten none"></div></td>
-								<td><div class="box eleven"></div></td>
-								<td><div class="box twelve"></div></td>
+								<td><div class="box eleven" data-scroll="nanotek2011"></div></td>
+								<td><div class="box twelve" data-scroll="nanotek2012"></div></td>
 								<td><div class="box thirteen none"></div></td>
 							</tr>
 							<tr class="boxes switch">
@@ -349,9 +343,9 @@
 								<td><div class="box none"></div></td>
 								<td><div class="box seven none"></div></td>
 								<td><div class="box nine none"></div></td>
-								<td><div class="box ten"></div></td>
+								<td><div class="box ten" data-scroll="switch2010"></div></td>
 								<td><div class="box eleven none"></div></td>
-								<td><div class="box twelve"></div></td>
+								<td><div class="box twelve" data-scroll="switch2012"></div></td>
 								<td><div class="box thirteen none"></div></td>
 							</tr>
 							<tr class="boxes hdi success">
@@ -362,7 +356,7 @@
 								<td><div class="box ten none"></div></td>
 								<td><div class="box eleven none"></div></td>
 								<td><div class="box twelve none"></div></td>
-								<td><div class="box thirteen"></div></td>
+								<td><div class="box thirteen" data-scroll="hdi2013"></div></td>
 							</tr>
 						</table>
 					</div>

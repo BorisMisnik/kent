@@ -25,7 +25,7 @@
 
 body{
 	overflow:visible;
-	min-height:600px;
+	// min-height:600px;
 }
 .container-fluid{
 	overflow:hidden;
@@ -43,39 +43,41 @@ body{
 	font-family: Verdana, Geneva, sans-serif;
 	li{
 		position:relative;
-		-webkit-box-sizing:border-box;
-		-moz-box-sizing:border-box;
-		box-sizing:border-box;
-		width:213px;
-		// border-bottom:1px solid @bordeColor;
-		cursor:pointer;
+		width:42px;
+		
 		&.active{
+
 			a{
 			 background-color:#656e75;
-			 &:after{
-			 	position:absolute;
-			 	top:50%;
-			 	right:0;
-			 	display:block;
-			 	margin-top:-5.5px;
-			 	width:11px;
-			 	height:11px;
-			 	background:url("../img/icons.png") no-repeat -20px -76px;
-			 	content:'';
+				 &:after{
+				 	position:absolute;
+				 	top:50%;
+				 	right:0;
+				 	display:block;
+				 	margin-top:-5.5px;
+				 	width:11px;
+				 	height:11px;
+				 	background:url("../img/icons.png") no-repeat -20px -76px;
+				 	content:'';
+				 }
+			 }	
+			 span{
+			 	border-right:3px solid #656e75;
 			 }
-			}
+		}
+		&:hover{
+			a{background-color:#656e75;}
 			span{
 				border-right:3px solid #656e75;
 			}
 		}
-		&:hover{
-			a{background-color:#656e75;}
-			span{border-right:3px solid #656e75;}	
+		span{
+			border-right:3px solid transparent;
 		}
 	}
 	a{
 		position:relative;
-		z-index:2;
+		z-index:3;
 		display:inline-block;
 		width:42px;
 		height:44px;
@@ -92,10 +94,9 @@ body{
 	}
 	span{
 		position: absolute;
-		position:relative;
 		top: 0;
-		right: 214px;
-		z-index:1;
+		right: 0;
+		z-index:2;
 		display:inline-block;
 		width:166px;
 		height:44px;
@@ -105,6 +106,7 @@ body{
 		text-indent:12px;
 		text-transform:uppercase;
 		line-height:44px;
+		cursor:pointer;
 	}
 }
 .nav-scategory{
@@ -344,7 +346,6 @@ section h1{
 }
 .profile{
 	position:relative;
-	z-index:13;
 	margin:auto;
 	width:70.72916666666667%;
 	// .error{
@@ -466,8 +467,7 @@ section h1{
 	margin-bottom:22px;
 	color:#6b747a;
 	font-size:14px;
-	opacity:0;
-	filter:alpha(opacity=0);
+	position:relative;
 	strong{
 		color:#6b747a;
 	}
@@ -475,8 +475,7 @@ section h1{
 .description{
 	color:#7d888f;
 	font-size:12px;
-	opacity:0;
-	filter:alpha(opacity=0);
+	position:relative;
 }
 .packOne{
 	top: 400px;
@@ -497,7 +496,7 @@ section h1{
 }
 .title-block{
 	position:fixed;
-	top:50px;
+	top:4.141321%;
 	z-index:15;
 	padding-left:11.041666666666666%;
 	color:#5d6870;
@@ -733,8 +732,6 @@ section h1{
 	width:638px;
 	.description{
 		font-size:12px;
-		opacity:1;
-		filter:alpha(opacity=1);
 	}
 }
 .wrapper-box{
@@ -810,8 +807,6 @@ section h1{
 	.description{
 		color:#6b747a;
 		font-size:12px;
-		opacity: 1;
-		filter: alpha(opacity=1);
 	}
 }
 // nanotek
@@ -849,8 +844,6 @@ section h1{
 		margin-top: 55px;
 		width: 293px;
 		font-size:12px;
-		opacity: 1;
-		filter: alpha(opacity=1);
 	}
 }
 .imageNanotek{
@@ -923,8 +916,6 @@ section h1{
 	}
 	.precision,
 	.description {
-		opacity:1;
-		filter:alpha(opacity=1);
 	}
 	.precision{
 		margin-top:28px;
@@ -939,10 +930,12 @@ section h1{
 	position:relative;
 }
 .allHistory{
-	position:absolute;
+	display:none;
+	position:fixed;
+	z-index:12;
 	top:50%;
 	right:0;
-	margin-top: 15.5px;
+	margin-top: -128.5px;
 	width:115px;
 	height:45px;
 	background-color:#7d888f;
@@ -976,48 +969,8 @@ section h1{
 		line-height:1.4;
 	}
 }
-.navhistory{
-	overflow:hidden;
-	width:100%;
-	a{
-		display:block;
-		float:left;
-		margin-left:1px;
-		width:110px;
-		height:45px;
-		background-color:#7d888f;
-		background-image:url("../img/icons.png");
-		background-repeat:no-repeat;
-		-webkit-transition:background-color 500ms ease-in-out;
-		-moz-transition:background-color 500ms ease-in-out;
-		transition:background-color 500ms ease-in-out;
-		&:hover{
-			background-color:#656E75;	
-		}
-		&:first-child{margin-left:0;}
-	}
-	a[name="hdi"]{
-		background-position: -424px -60px;
-	}
-	a[name="switch"]{
-		background-position: -172px -60px;
-	}
-	a[name="nanotek"]{
-		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAICAMAAABZEogFAAAAM1BMVEX////////6+vrw8PDy8vL////////////////////////////29vb///8AAADv7+////9TCSoBAAAAD3RSTlNQcLPu248woCBgEIDHQABpSSJRAAABIklEQVR42jWSWxLFIAhDvdX6BMn+V3sTneYDguIpzDS5772nT8Zju3fGWmXHj8mv5k19nnvWjGpZP9Vi/NaPhwl4eQ+XVVwIdpjt/YKyiSu/aTnWngVtSy+kIZuCLqooGBdoESYgyhRwwdxP+KFxIpQzIYE1iyG1x/nWNF+E74FMYI6oArKzMS0UPAKW0FaGrhs65LWYHSXI+1TfzHYdv2diT7CKSCQ9GAONQH+wCIyyb8sHlPQSWTtcXAGiqVDPB+SkAe846gTOgjB+wLlJjq/5bKbC5pKXClpn+lb2iC3gboA3JHeOuMjpwdPKYNruA4ZR7yka2hkQV9vgQybSTqbdm1Vji8ywSoROa8vxJL2zwWhH7ynmY+cXW1d7rK5Cf9AfYb8e0kFVTkYAAAAASUVORK5CYII=);
-		background-position:center;
-	}
-	a[name="hd"]{
-		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAPCAMAAABQgiZcAAAALVBMVEX////////////////////////y8vL////////29vb///////8AAADv7+////8N09LJAAAADXRSTlOPUGCgIDDbcBDHgEAAkEnQlwAAAGpJREFUeNqV0MsOwCAIRFHqE4T6/59biSw0sUbvds5qwBVNeqEscrEtQFUzx3UZxTNXXzxzNZvjXv5zZG6KZYh3jjTocONsu3JhcqXnR5e49SRzi1/MWVcun7mEJ+71KBBZM4esofAY6vIBloIcs5LOcmgAAAAASUVORK5CYII=);
-		background-position:center;
-	}
-	a[name="hds"]{
-		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAbCAMAAADf5/YYAAAAM1BMVEX////y8vL////////////6+vr////w8PD////////////////29vb///8AAADv7+/////0JV4TAAAAD3RSTlMg23BQj7MQ7qBgMEDHgACj5mRwAAAAz0lEQVR42pWT2w6EIAwF8QZCoT3//7Vri27cYLJ1HpB4xgI1BPYT8gu7Qdx2mQB3bRJIYaddABR22lGAlb32DoDUpnZAbFAbyZrJZTcctKtHIxbqI7+yq8/e+k4QLnsnY9d5qncEEObNJLXHhe8sAMhGSHy0q8Id6kWTJvOjDeVmI/Jse/xrL/1VhELDKS+7ddLZPIvWoYNmjz0s9pXHtt84ee1ds1XXCLkeZDbOef2hlW8l/72ctINem/DmponKTnsWpMJOuwBrZK8dNmLjA6elQmpMG2NhAAAAAElFTkSuQmCC);
-		background-position:center;
-	}
-}
 // all history
 #history-all{
-	display:none;
 	.wrapper-table{
 		position:relative;
 		margin:auto;
@@ -1148,21 +1101,6 @@ section h1{
 		cursor:pointer;
 	}
 	.none{background-image:none !important;}
-
-	.closeHisotry{
-		@img:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAALCAMAAAB8rpxtAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAACZJREFUeNqdjEEKAAAIwub/P10RIV4TlIkgEqumsdmZ+zUzJP8/CwxKACv9SmB3AAAAAElFTkSuQmCC);
-		.backgorund (#7d888f,@img, center);
-		.transition (background-color,500ms,ease-in-out);
-		position:absolute;
-		top:-20px;
-		right:0;
-		display:block;
-		width:20px;
-		height:20px;
-		&:hover{
-			background-color:#656E75;
-		}
-	}
 }
 // history
 .wrapperElements{
@@ -1188,7 +1126,6 @@ section h1{
 		}
 		.description{
 			margin-top:19px;
-			filter:alpha(opacity=0);
 			opacity:1;
 			position:relative;
 			padding-top:18px;
