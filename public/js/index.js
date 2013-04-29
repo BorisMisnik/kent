@@ -89,7 +89,10 @@ $(function(){
 					block
 						.find('form')
 						.show();
-					block.fadeIn();
+
+					block.fadeIn()
+						 .delay(2500)
+						 .fadeOut();
 				}
 				else{
 					block.fadeOut();

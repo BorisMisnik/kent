@@ -41,8 +41,8 @@
 
 	<ul class="nav-site unstyled">
 		<li class="active"><a href="#" data-slide="sigarets">00.1</a><span>Сигареты КЕНТ</span></li>
-		<li><a href="#" data-slide="history">00.2</a><span>История КЕНТ </span></li>
-		<li><a href="#" data-slide="question">00.3</a><span>Вопросы-ответы</span></li>
+		<li><a href="#" data-slide="history">00.2</a><span>Історія КЕНТ </span></li>
+		<li><a href="#" data-slide="question">00.3</a><span>Запитання-відповіді</span></li>
 		<li><a href="#" data-slide="profile">00.4</a><span>Профайл</span></li>
 	</ul>
 
@@ -59,7 +59,7 @@
 		<li name="hds">HDS</li>
 	</ul>
 	
-	<a href="#" class="allHistory">вся історія</a>
+	<a href="#" class="allHistory">уся історія</a>
 
 	<h2 class="title-block"> </h2>
 
@@ -172,7 +172,6 @@
 		<section id="site-hd" data-animation="fiveth" data-name="hd" data-slide="sigarets">
 			<article>
 				<div>
-
 					<div class="boxesHD">
 						<div class="wrapper-box">
 							<div name="one"></div>
@@ -222,12 +221,32 @@
 								<p>
 									<strong>KENT Nanotek 2.0</strong> на додачу має надтонке волокно всередині фільтра, що забезпечує рівномірність смаку впродовж усього процесу куріння. 
 								</p>
+								<p class="precision about-pack">
+									<span></span>
+									Precision Thread Technology
+								</p> 
+								<button class="submit moreDetail">Дізнатись більше</button>
 								<p class="description">Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину):</p>
 							</div>
 							<div class="imageNanotek">
 								<div name="one"></div>
 								<div name="two"></div>
 								<div name="three"></div>
+							</div>
+						</div>
+					</div>
+					<div class="aboutFilter">
+						<div class="sigaret-wrapper">
+							<div class="sigaret"></div>
+						</div>
+						<div class="aboutFilterInfo">
+							<div>
+								<h3 class="titleTechnology">Precision Thread Technology</h3>
+								<p class='about-technology'>
+									Надтонке волокно (яке називається 
+									Precision Thread Пресіжн Тред) – це технологія спеціального волокна у фільтрі, що робить смак сигарети рівномірним протягом усього процесу куріння.
+								</p>
+								<button class="submit shortDetail">повернутись назад</button>
 							</div>
 						</div>
 					</div>
@@ -286,7 +305,7 @@
 			<article>
 				<div>
 					<div class="mainHistory">
-						<h3>Час дізнатися про прогресивні зміни <strong>KENT</strong> у часі.</h3>
+						<h3>Час дізнатися про прогресивні зміни <strong>KENT</strong> у часі</h3>
 						<div class="arrow-start"></div>
 					</div>
 				</div>
@@ -879,21 +898,21 @@
             // hide system error
             $( '#formError').addClass( 'hide' );
 
-            // $.get( '/user/profile' )
-            //     .done( function( res ) {
-            //         //console.log( 'profile done', arguments );
+            $.get( '/user/profile' )
+                .done( function( res ) {
+                    //console.log( 'profile done', arguments );
 
-            //         // action
-            //         if ( res.errors )
-            //             errorsProfile( res.errors );
-            //         else
-            //             populateProfile( res.profile );
-            //     })
-            //     .fail( function() {
-            //         //console.log( 'profile fails', arguments );
-            //         // show system error
-            //         $( '#formError' ).removeClass( 'hide').hide().fadeIn( 'slow' );
-            //     });
+                    // action
+                    if ( res.errors )
+                        errorsProfile( res.errors );
+                    else
+                        populateProfile( res.profile );
+                })
+                .fail( function() {
+                    //console.log( 'profile fails', arguments );
+                    // show system error
+                    $( '#formError' ).removeClass( 'hide').hide().fadeIn( 'slow' );
+                });
         }
         function updateProfile() {
             var form = {
@@ -916,25 +935,25 @@
             // hide old success
             $( '#profileSuccess' ).addClass( 'hide' );
 
-            // $.post( '/user/profile', form )
-            //     .done( function( res ) {
-            //         //console.log( 'save done', arguments );
-            //         if ( res.error ) {
-            //             // errors
-            //             //$( '#formError' ).hide().removeClass( 'hide' ).fadeIn( 'slow' );
-            //             errorsProfile( res );
-            //         }
-            //         else {
-            //             // success message
-            //             $( '#profileSuccess' ).hide().removeClass( 'hide' ).fadeIn( 'slow' );
-            //             populateProfile( res.profile );
-            //         }
-            //     })
-            //     .fail( function() {
-            //         //console.log( 'save fails', arguments );
-            //         // show system error
-            //         $( '#formError' ).removeClass( 'hide').hide().fadeIn( 'slow' );
-            //     })
+            $.post( '/user/profile', form )
+                .done( function( res ) {
+                    //console.log( 'save done', arguments );
+                    if ( res.error ) {
+                        // errors
+                        //$( '#formError' ).hide().removeClass( 'hide' ).fadeIn( 'slow' );
+                        errorsProfile( res );
+                    }
+                    else {
+                        // success message
+                        $( '#profileSuccess' ).hide().removeClass( 'hide' ).fadeIn( 'slow' );
+                        populateProfile( res.profile );
+                    }
+                })
+                .fail( function() {
+                    //console.log( 'save fails', arguments );
+                    // show system error
+                    $( '#formError' ).removeClass( 'hide').hide().fadeIn( 'slow' );
+                })
         }
 
 

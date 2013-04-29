@@ -41,7 +41,7 @@ var action = function () {
 
 		$('.sigaret').css('bottom','-382px');
 
-		TweenMax.to($('.sigaret'), 1, {bottom:0});
+		TweenMax.to($('.sigaret'), 1, {bottom:'41px'});
 
 	};
 
@@ -80,17 +80,22 @@ var action = function () {
 
 	that.nanotek = function(){
 
-		var p = $('.textNanotek p');
+		var text = $('.textNanotek *, .infoNanotek h3');
 		var div = $('.imageNanotek div');
 
-		p.css('left','-300px');
+		text.css('left','-480px');
 		TweenMax.staggerTo(div, 0, {scale:'0'});
 
-		TweenMax.staggerTo(p, 1, {left:'0'}, 0.35);
+		TweenMax.staggerTo(text, 0.5, {
+			left:'0',
+			ease:Circ.easeOut
+		}, 0.15);
 		TweenMax.staggerTo(div, 1.2, {
 			scale:'1',
 			ease:Circ.easeOut
 		},0.35);
+
+		this.filter();
 	};
 
 	that.hds = function(){
@@ -350,7 +355,6 @@ var action = function () {
 		img.css('right','-800px');
 		text.css('left','-800px');
 
-
 		TweenMax.staggerTo( img, 1, {
 			right : 0
 		}, 0.5);		
@@ -578,16 +582,16 @@ var action = function () {
 
 		switch (slide) {
 			case 'sigarets' : 
-				$('.title-block').html('СИГАРЕТИ KENT <span>/ 00.1</span>');
+				$('.title-block').html('<span>00.1 /</span> СИГАРЕТИ KENT');
 				break;
 			case 'history' :
-				$('.title-block').html('Історія КЕНТ <span>/ 00.2</span>');
+				$('.title-block').html('<span>00.2 /</span> Історія КЕНТ');
 				break;
 			case 'question' :
-				$('.title-block').html('Запитання-відповіді <span>/ 00.3</span>');
+				$('.title-block').html('<span>00.3 /</span> Запитання-відповіді');
 				break;
 			case 'profile' : 
-				$('.title-block').html('Профайл <span>/ 00.4</span>');
+				$('.title-block').html('<span>00.4 /</span> Профайл');
 				break;
 			default :
 				$('.title-block').html('');
@@ -710,7 +714,7 @@ $(document).ready(function(){
 						// console.log($(this).parent().attr('class'));
 						if( !$(this).parent().is('.mouseenter') ){
 							// console.log('Parent is mouseenter');
-							TweenMax.staggerTo(li,0.5,{left:'63px'},0.25);
+							TweenMax.staggerTo(li,0.3,{left:'93px'},0.25);
 
 						}
 
@@ -721,8 +725,8 @@ $(document).ready(function(){
 			TweenMax.to($('.nav-scategory .active'),0.5,{left:'0'});
 			if(!$('.nav-scategory .active').length){
 		
-				TweenMax.staggerTo($('.nav-scategory li'),0.5,{
-					left:'85px',
+				TweenMax.staggerTo($('.nav-scategory li'),0.3,{
+					left:'91px',
 					onComplete : function(){
 						$('.nav-scategory').fadeOut();
 					}
@@ -818,7 +822,7 @@ $(document).ready(function(){
 
 				$(this).addClass('mouseenter');
 
-				TweenMax.staggerTo(li,0.5,{'left' : 0},0.25);
+				TweenMax.staggerTo(li,0.3,{'left' : 0},0.25);
 
 			},
 			mouseleave : function(){
@@ -828,7 +832,7 @@ $(document).ready(function(){
 						.children('li')
 						.not('.active');
 
-				TweenMax.staggerTo(li,0.5,{'left' : '60px'},0.25);
+				TweenMax.staggerTo(li, 0.3, {'left' : '93px'}, 0.25);
 
 			}
 		})
@@ -980,6 +984,7 @@ $(document).ready(function(){
 
 					var left  = -$('.hdsifno').width();
 					var right = -filter.width()/2;
+
 					TweenMax.to( $('.hdsifno'),1,{ left:left } );
 					TweenMax.to( filter,1,{ marginRight:right } );
 
@@ -1002,6 +1007,49 @@ $(document).ready(function(){
 				}
 				
 				animation.hds();
+			}
+		});
+
+	$('#site-nanotek')
+		.find('.submit')
+		.on({
+			click : function(){
+
+				if($(this).is('.moreDetail')){
+
+					var filter = 
+						$(this)
+							.parents('section')
+							.find('.aboutFilter');
+
+					$('.infoNanotek').css('visibility','hidden');
+					filter.show();
+
+					var left  = -$('.infoNanotek').width();
+					var right = -filter.width()/2;
+
+					TweenMax.to( $('.infoNanotek'),1,{ left:left } );
+					TweenMax.to( filter,1,{ marginRight:right } );
+
+				}
+				else{
+					
+					var filter = 
+						$(this)
+							.parents('section')
+							.find('.aboutFilter');
+					
+					$('.infoNanotek').css('visibility','visible');
+					filter.hide();
+
+					var left  = 0;
+					var right = -3000;
+
+					TweenMax.to( $('.infoNanotek'),1,{ left:left } );
+					TweenMax.to( filter,1,{ marginRight:right } );
+				}
+				
+				animation.nanotek();
 			}
 		});
 
@@ -1064,7 +1112,7 @@ $(document).ready(function(){
 				$('.hdiShort').css('left' , left);
 
 			}
-			else if($('.hdsifno').css('visibility') === 'hidden'){
+			else if( $('.hdsifno').css('visibility') === 'hidden' ){
 
 				var right = -$('.aboutFilter').width()/2;
 				$('.aboutFilter').css('margin-right',right);
@@ -1073,6 +1121,16 @@ $(document).ready(function(){
 				$('.hdsifno').css('left' , left);
 
 			}
+			else if( $('.infoNanotek').css('visibility') === 'hidden' ){
+
+				var right = -$('.aboutFilter').width()/2;
+				$('.aboutFilter').css('margin-right',right);
+
+				var left = -$('.infoNanotek').width();
+				$('.infoNanotek').css('left' , left);
+
+			}	
+
 
 			$('.container-fluid').css({
 				'height' : function(){
