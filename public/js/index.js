@@ -80,21 +80,21 @@ $(function(){
 		.on({
 			click : function(e){
 				e.preventDefault();
-				var block = $('.block-wrapper');
 
+				var block = $('.block-wrapper');
 				if(!block.is(':visible')){
+
+					block.fadeIn();
+
 					block
 						.find('p')
 						.hide();
 					block
 						.find('form')
 						.show();
-
-					block.fadeIn()
-						 .delay(2500)
-						 .fadeOut();
 				}
 				else{
+			
 					block.fadeOut();
 				}
 			}
@@ -113,8 +113,11 @@ $(function(){
 				$(this)
 					.parent()
 					.find('p')
-					.fadeIn();
-
+					.fadeIn()
+					.delay(1800)
+					.fadeOut(function(){
+						$('.block-wrapper').fadeOut();
+					});
 			}
 		});
 
