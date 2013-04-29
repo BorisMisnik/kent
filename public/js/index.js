@@ -5,7 +5,7 @@ $(function(){
  	function scrollBar(){
         if ( markerMonth ) {
 
-                $(".ik_select_list_inner")
+                $(".ik_select_list_inner ul")
                     .mCustomScrollbar({
                         advanced:{ updateOnContentResize: true },
                         mouseWheel : true
@@ -14,18 +14,7 @@ $(function(){
          }
     }
 
-    function sigrates(){
-
-    	if($('.ik_select_list_inner').hasClass('mCustomScrollbar')) return;
-
-    	$('.ik_select_list_inner')
-    		 .mCustomScrollbar({
-               	advanced:{ updateOnContentResize: true },
-               	mouseWheel : true,
-               	set_height : 100
-            });
-    }
-    
+   
 	$('#month').ikSelect({
         ddFullWidth : false,
         autoWidth : false,
@@ -33,12 +22,6 @@ $(function(){
         ddCustomClass: "month",
         onShow : scrollBar
     });
-
-	$('.smoke select').ikSelect({
-		ddFullWidth : false,
-        autoWidth : false,
-        onShow : sigrates
-	});
 
 	$('input[placeholder], textarea[placeholder]').placeholder();
 

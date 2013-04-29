@@ -496,6 +496,7 @@ var action = function () {
 		}
 
 		var animationName = $('.now').data('animation');
+
 		this.startanimate(animationName);
 		this.titlePage();
 		this.selectBackground();
@@ -633,7 +634,37 @@ var action = function () {
 				lines.seven();
 				break;
 		}
-	}
+	};
+
+	var select = true;
+	that.select = function(){
+
+		if( select ){
+
+			function sigrates(){
+
+			    if($('.ik_select_list_inner ul').hasClass('mCustomScrollbar')) return;
+
+			    $('.ik_select_list_inner ul')
+			    	.mCustomScrollbar({
+			            advanced:{ updateOnContentResize: true },
+			            mouseWheel : true,
+			            set_height : 100
+			        });
+
+   			}
+
+			$('.smoke select').ikSelect({
+				ddFullWidth : false,
+		        autoWidth : false,
+		        onShow : sigrates
+			});
+
+			select = false;
+
+		}
+
+	};
 
 	return that;
 };
@@ -646,7 +677,7 @@ $(document).ready(function(){
 
 	animation.arrow();
 
-	var t = new Date().getTime(),l;
+	var t,l = new Date().getTime();
 	container.on({
 		mousewheel : function(event, delta){
 				
@@ -663,8 +694,7 @@ $(document).ready(function(){
 
 			$this = $(this);
 			var now = new Date().getTime();
-
-			if(now - l > 1000){
+			if(now - l > 500){
 				$this.trigger('scrollStart');
 				l = now;
 			}
@@ -678,7 +708,14 @@ $(document).ready(function(){
 
 		scrollStart : function(){
 
-			// console.log('Scroll Start');
+			// enable ikSelect
+			if( $('.now').is('#profile') ){
+				animation.select();
+			}
+			
+			if( $('.ik_select_block').is(':visible') ){
+				$('.ik_select_block').hide();
+			}
 		},
 
 		scrollEnd : function(){
@@ -751,6 +788,7 @@ $(document).ready(function(){
 				$('.allHistory').fadeOut();
 
 			}
+
 		}
 
 	});
@@ -878,7 +916,6 @@ $(document).ready(function(){
 						}
 
 					});
-		
 			}
 		});
 
