@@ -713,13 +713,12 @@ $(document).ready(function(){
 							TweenMax.staggerTo(li,0.5,{left:'63px'},0.25);
 
 						}
-						TweenMax.to($('.nav-scategory .active'),0.5,{left:'0'});
 
 						return false;
 					}
 
 				});
-
+			TweenMax.to($('.nav-scategory .active'),0.5,{left:'0'});
 			if(!$('.nav-scategory .active').length){
 		
 				TweenMax.staggerTo($('.nav-scategory li'),0.5,{
@@ -815,8 +814,7 @@ $(document).ready(function(){
 
 				var li = 
 					$(this)
-						.children('li')
-						.not('.active');
+						.children('li');
 
 				$(this).addClass('mouseenter');
 

@@ -320,7 +320,6 @@ var background = function(){
 
 				var h =  body.height() - hv.height()  - footer.height();
 				var w = container.width();
-				console.log('seven');
 
 				var x  = 0.1 * Math.cos(angleoff) + 0.6;
 				var x2 = 0.2 * Math.cos(angleoff) + 0.8;
