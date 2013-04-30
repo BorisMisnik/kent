@@ -734,10 +734,30 @@ var action = function () {
 
 	that.select = function(){
 
-		$('.controls').on({
+		$('.profile').on({
 
 			click : function(){
-				$(this).addClass('open')
+
+				if( $('#profile form').is('.disable') ){
+
+					$('.smoke select').ikSelect('hide_dropdown');
+					$('#month').ikSelect("hide_dropdown");
+
+					$('.ik_select_block sigarets').hide();
+
+				}
+
+				setTimeout(function(){
+
+					if( $('#profile form').is('.disable') ){
+						$('.ik_select_block').hide();
+					}
+					else{
+						$(this).addClass('open arrowT');
+					}
+
+				}, 0);
+
 			}
 
 		},'.ik_select_link_text');
@@ -752,37 +772,30 @@ var action = function () {
 
 				setTimeout(function(){
 
-					if( $('#profile form').is('.disable') ){
-								
-						$('.smoke select').ikSelect('hide_dropdown');
-						$('#month').ikSelect('hide_dropdown');
-						
-						return false;
+					if($('.ik_select_list_inner ul').hasClass('mCustomScrollbar') ||
+					   $('#profile form').is('.disable')) return;
 
-					}
-
-					$('.open').addClass('arrowT');
-
-				    if($('.ik_select_list_inner ul').hasClass('mCustomScrollbar')) return;
-
-				    $('.ik_select_list_inner ul')
-				    	.mCustomScrollbar({
-				            advanced:{ updateOnContentResize: true },
-				            mouseWheel : true,
-				            set_height : 100
-				        });
-				}, 0);
-				
+					$('.ik_select_list_inner ul')
+					  	.mCustomScrollbar({
+					        advanced:{ updateOnContentResize: true },
+					        mouseWheel : true,
+					        set_height : 100
+					});
+			
+				},0);
+			
    			}
 
    			function scrollBar(){
 
-				if($('.ik_select_list_inner ul').hasClass('mCustomScrollbar')) return;
-
+				if($('.ik_select_list_inner ul').hasClass('mCustomScrollbar') ||
+				   $('#profile form').is('.disable')) return;
+					
 		    	$(".ik_select_list_inner ul")
 		            .mCustomScrollbar({
 		                advanced:{ updateOnContentResize: true },
-		                mouseWheel : true
+		                mouseWheel : true,
+		                set_height : 100
 		             }); 
 		    }
 
