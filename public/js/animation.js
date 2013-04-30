@@ -769,6 +769,8 @@ var action = function () {
 					if($('.ik_select_list_inner ul').hasClass('mCustomScrollbar') ||
 					   $('#profile form').is('.disable')) return;
 
+
+					$('.ik_select_block').addClass('sigarets');
 					$('.ik_select_list_inner ul')
 					  	.mCustomScrollbar({
 					        advanced:{ updateOnContentResize: true },
@@ -784,7 +786,9 @@ var action = function () {
 
 				if($('.ik_select_list_inner ul').hasClass('mCustomScrollbar') ||
 				   $('#profile form').is('.disable')) return;
-					
+				
+
+				$('.ik_select_block').addClass('month');
 		    	$(".ik_select_list_inner ul")
 		            .mCustomScrollbar({
 		                advanced:{ updateOnContentResize: true },
@@ -804,7 +808,7 @@ var action = function () {
 			$('.wrapper-month select').ikSelect({
 		        ddFullWidth : false,
 		        autoWidth : false,
-		        ddCustomClass: "month",
+		        ddCustomClass: 'month',
 		        onShow : scrollBar
 	    	});
 
