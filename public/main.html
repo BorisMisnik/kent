@@ -158,35 +158,6 @@
 				</div>
 			</article>
 		</section>
-		<!-- filter -->
-		<section id="filter" data-animation="fourth" data-name="filter" data-slide="sigarets">
-			<article>
-				<div>
-					<div class="filter">
-						<h3 class="titleFilter">унікальний трисекційний фільтр</h3>
-					</div>
-				</div>
-			</article>
-		</section>
-		<!-- siteHD -->
-		<section id="site-hd" data-animation="fiveth" data-name="hd" data-slide="sigarets">
-			<article>
-				<div>
-					<div class="boxesHD">
-						<div class="wrapper-box">
-							<div name="one"></div>
-							<div name="two"></div>
-							<div name="three"></div>
-							<div name="four"></div>
-						</div>
-						<h3 class="hdTitle">KENT HD має унікальну систему фільтрації, яка містить 
-						2 вугільні мембрани та потрійний фільтр. </h3>
-						<p>Все це робить смак KENT HD чітким та виразним. Кожний елемент оновленого дизайну пачки KENT HD підкреслює стиль: дзеркальна поверхня, колір хрому та рельєфна структура. </p>
-						<p class="description">Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину):</p>
-					</div>
-				</div>
-			</article>
-		</section>
 		<!-- siteSwitch -->
 		<section id="site-hd" data-animation="sixeth" data-name="switch" data-slide="sigarets">
 			<article>
@@ -249,6 +220,35 @@
 								<button class="submit shortDetail">повернутись назад</button>
 							</div>
 						</div>
+					</div>
+				</div>
+			</article>
+		</section>
+		<!-- filter -->
+		<section id="filter" data-animation="fourth" data-name="filter" data-slide="sigarets">
+			<article>
+				<div>
+					<div class="filter">
+						<h3 class="titleFilter">унікальний трисекційний фільтр</h3>
+					</div>
+				</div>
+			</article>
+		</section>
+		<!-- siteHD -->
+		<section id="site-hd" data-animation="fiveth" data-name="hd" data-slide="sigarets">
+			<article>
+				<div>
+					<div class="boxesHD">
+						<div class="wrapper-box">
+							<div name="one"></div>
+							<div name="two"></div>
+							<div name="three"></div>
+							<div name="four"></div>
+						</div>
+						<h3 class="hdTitle">KENT HD має унікальну систему фільтрації, яка містить 
+						2 вугільні мембрани та потрійний фільтр. </h3>
+						<p>Все це робить смак KENT HD чітким та виразним. Кожний елемент оновленого дизайну пачки KENT HD підкреслює стиль: дзеркальна поверхня, колір хрому та рельєфна структура. </p>
+						<p class="description">Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину):</p>
 					</div>
 				</div>
 			</article>
@@ -686,7 +686,7 @@
 				<div>
 					<div class="profile-wrapper">
 						<div class="profile">
-							<form  class="form-horizontal text-left" action=" " method=" ">
+							<form  class="form-horizontal text-left disable" action=" " method=" " >
 
                                 <span id="formError" class="error hide">Виникла помилка</span>
    						 		<div class="controls">
@@ -698,7 +698,7 @@
 
 								<div class="controls">
 									<div class="dateBirthday">
-										<input type="text" name="date" placeholder="День" class="text" id="date"value="" />
+										<input type="text" name="date" placeholder="День" class="text" id="date"value="" disable/>
 										<select name="month" id="month">
 											<option value="Місяць" disabled>Місяць</option>
 					                        <option value="0">Січень</option>
@@ -788,7 +788,7 @@
 								<div class="clear"></div>
                                 <span id="profileSuccess" class="succes hide">Відкореговані дані успішно збережено.</span>
 
-	    						<input id="submitProfile" type="submit" class="submit" value="Редагувати" />
+	    						<input id="submitProfile" type="submit" class="submit disable" value="Редагувати" />
 							</form>
 						</div>
 					</div>
@@ -830,8 +830,10 @@
             $('.text h3').click(function(){
                 var $this = $(this);
                 if(!$this.is('.open')){
+
                     $this.addClass('open');
                     $this.next().slideDown();
+
                 }
                 else{
                     $this.removeClass('open');
@@ -855,8 +857,24 @@
             // handle submit
             $( '#submitProfile' )
                 .click( function( e ) {
-                    e.preventDefault();
-                    updateProfile();
+ 					e.preventDefault();
+                    if( $(this).is('.disable') ){
+
+                    	$('#profile form')
+                    		.addClass('save')
+                    		.removeClass('disable');
+
+                    	$(this)
+                    		.val('Зберегти')
+                    		.removeClass('disable');
+
+                    	return false;
+                    }
+                    else{
+
+                    	updateProfile();
+                    }
+                   
                 });
         }
 

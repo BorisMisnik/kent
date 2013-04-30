@@ -5,7 +5,8 @@ var action = function () {
 	var lines  = background();
 	lines.init()
 	     .line();
-	
+		
+
 	that.arrow = function(){
 
 		var tweenArrwo = new TimelineLite();
@@ -16,8 +17,14 @@ var action = function () {
 	};
 
 	that.boxes = function(){
-		$('.wrapeer').css({'top' : '150%'})
-		TweenMax.staggerTo($('.wrapeer'),0.5,{top:'50%'},0.25);	
+		var div = $('.wrapeer');
+		div.css({ 'top' : function(){
+			return div.parents('section').height()  + div.height();
+		} })
+		TweenMax.staggerTo( div, 0.6, {
+			top:184.5
+		}, 0.2);	
+
 	};
 
 	that.siteHdi = function(){
@@ -25,15 +32,22 @@ var action = function () {
 		var div = $('.block-image > div');
 		var text = $('#site-hdi .block-text').find('*');
 
-		div.css('top','400px');
-		text.css('left','800px');
+		div.css({ 'top' : function(){
+			return div.parents('section').height();
+		} });
+		text.css({ 'left' : function(){
+			return div.parents('section').width();
+		} });
 
 
-		TweenMax.staggerTo(div, 1, {top : 0}, 0.25);	
-		TweenMax.staggerTo(text, 1, {
+		TweenMax.staggerTo(div, 0.7, {
+			top : 0,
+			delay : 0.2
+		}, 0.25);	
+		TweenMax.staggerTo(text, 0.7, {
 			left : 0,
 			ease:Circ.easeOut
-		});
+		}, 0.2);
 		this.filter();
 	};
 
@@ -48,33 +62,54 @@ var action = function () {
 	that.siteHd = function(){
 
 		var div = $('.wrapper-box > div');
-		div.css('left','800px');
+		var text = $('.boxesHD h3, .boxesHD p');
 
-		TweenMax.staggerTo(div,1, {
-			left:0,
+		div.css({'top' : function(){
+			return -( div.parents('section').height() + div.height() )
+		} });	
+
+		text.css({'bottom' : function(){
+			return -( text.parents('section').height() + text.height() )
+		} });	
+
+		TweenMax.staggerTo(div,0.7, {
+			top:0,
+			delay : 0.2,
 			ease:Circ.easeOut
-		}, 0.5);	
+		}, 0.25);	
+
+		TweenMax.staggerTo(text, 0.7, {
+			bottom:0,
+			ease:Circ.easeOut
+		}, 0.25);	
 
 	};
 
 	that.switche = function(){
 
 		var image = $('.imageSwitch > div');
+		var text = $('.textSwitch *');
+
 		image.css({
-			'top' : '337px',
-			'left' : '-300px'
+			left : function(){
+				return -image.parents('section').width();
+			},
+			top : 0
 		});
 
-		var text = $('.textSwitch *');
-		TweenMax.staggerTo(text, 0, {scale:'0'});
+		text.css({ 'left' : function(){
+			return text.parents('section').width();
+		} });
 
-		TweenMax.staggerTo(text, 0.6, {scale:'1'}, 0.4);
 		TweenMax.to(image, 0.7, {
-			top:0,
 			left:0,
 			ease:Circ.easeOut
 		});
 
+		TweenMax.staggerTo(text, 0.7, {
+			left : 0,
+			ease:Circ.easeOut
+		}, 0.2);
 	};
 
 
@@ -83,15 +118,21 @@ var action = function () {
 		var text = $('.textNanotek *, .infoNanotek h3');
 		var div = $('.imageNanotek div');
 
-		text.css('left','-480px');
-		TweenMax.staggerTo(div, 0, {scale:'0'});
+		text.css({ 'left' : function(){
+			return -( text.parents('section').width() + text.width() )
+		} });
 
-		TweenMax.staggerTo(text, 0.5, {
-			left:'0',
+		div.css({ 'bottom' : function(){
+			return - ( div.parents('section').height() + div.height() )
+		} })
+
+		TweenMax.staggerTo(text, 0.7, {
+			left:0,
 			ease:Circ.easeOut
 		}, 0.15);
-		TweenMax.staggerTo(div, 1.2, {
-			scale:'1',
+		TweenMax.staggerTo(div, 0.7, {
+			bottom : 0,
+			delay : 0.2,
 			ease:Circ.easeOut
 		},0.35);
 
@@ -101,22 +142,26 @@ var action = function () {
 	that.hds = function(){
 
 		var div = $('.imagehds > div');
-		div.css('left','-400px');
+		div.css({ 'left' : function(){
+			return -( div.parents('section').width() + div.width() );
+		} });
 
 		var text = $('.texthds *');
 		text.css({
 			'position' : 'relative',
-			'left' 	   : '400px'
+			'left' 	   : function(){
+				return text.parents('section').width() + text.width() ;
+			}
 		});
 
-		TweenMax.staggerTo(div, 1, {
+		TweenMax.staggerTo(div, 0.7, {
 			left:'0',
 			ease:Circ.easeOut
-		}, 0.35);
-		TweenMax.staggerTo(text, 1, {
+		}, 0.3);
+		TweenMax.staggerTo(text, 0.7, {
 			left:'0',
 			ease:Circ.easeOut
-		}, 0.35);
+		}, 0.3);
 
 		this.filter();
 	};
@@ -150,21 +195,23 @@ var action = function () {
 		var text = $('#hd2012 .info')
 						.children('*');
 
-		TweenMax.to(img,0,{
-			scale : 0
-		});
-		TweenMax.staggerTo(text,0,{
-			scale : 0
-		});
+		img.css({ 'top' : function(){
+			return - ( img.parents('section').height() + img.height() );
+		} });
 
-		TweenMax.to(img,1,{
-			scale : 1,
-			ease:Back.easeInOut
+		text.css({ 'bottom' : function(){
+			return - ( text.parents('section').height() + text.height() );
+		} });
+
+		TweenMax.to(img, 0.7, {
+			top : 0,
+			delay : 0.2,
+			ease:Circ.easeOut
 		});
-		TweenMax.staggerTo(text,1,{
-			scale : 1,
-			ease:Back.easeInOut
-		},0.4);
+		TweenMax.staggerTo(text, 0.7, {
+			bottom : 0,
+			ease:Circ.easeOut
+		}, 0.4);
 
 	};
 
@@ -178,16 +225,20 @@ var action = function () {
 				$('#switch2012 .info')
 					.children('*');
 
-		img.css('left','-800px');
-		text.css('left','800px');
+		img.css({ 'left' : function(){
+			return -( img.parents('section').width() + img.width() );
+		} });
+		text.css({'left' : function(){
+			return ( text.parents('section').width() + text.width() );
+		} });
 
-		TweenMax.to(img,1,{
+		TweenMax.to(img, 0.7, {
 			left:0,
-			ease:Back.easeOut
+			ease:Circ.easeOut
 		});
-		TweenMax.staggerTo(text,1,{
+		TweenMax.staggerTo(text, 0.7, {
 			left : 0,
-			ease:Back.easeOut
+			ease:Circ.easeOut
 		},0.4);
 	};
 
@@ -200,17 +251,22 @@ var action = function () {
 		var text = $('#nanotek2012 .info')
 						.children('*');
 
-		img.css('top','800px');
-		text.css('left','-400px');
+		img.css({ 'top' : function(){
+			return img.parents('section').width() + img.width();
+		} });
 
-		TweenMax.to(img,1,{
+		text.css({ 'left' : function(){
+			return  text.parents('section').width() + text.width() ;
+		} });
+
+		TweenMax.to(img, 0.7, {
 			top : 0,
 			ease:Cubic.easeOut
 		});
-		TweenMax.staggerTo(text,1,{
+		TweenMax.staggerTo(text, 0.7, {
 			left : 0,
 			ease:Cubic.easeOut
-		},0.3);
+		},0.25);
 				
 
 	};
@@ -225,18 +281,23 @@ var action = function () {
 			$('#hds2012 .info')
 				.children('*');
 
-		img.css('top','800px');
-		TweenMax.staggerTo(text,0,{
-			scale : 0
-		});
+		img.css({'top' : function(){
+			return -( img.parents('section').height() + img.height() );
+		} });
 
-		TweenMax.staggerTo(img,1,{
+
+		text.css({'top' : function(){
+			return text.parents('section').height() + text.height() ;
+		} });
+
+		TweenMax.staggerTo(img, 0.7, {
 			top : 0,
 			ease:Circ.easeOut
 		},0.4);
-		TweenMax.staggerTo(text,1,{
-			scale : 1,
-			ease:Back.easeOut
+
+		TweenMax.staggerTo(text, 0.7, {
+			top : 0,
+			ease:Circ.easeOut
 		},0.4);
 
 	};
@@ -251,20 +312,24 @@ var action = function () {
 			$('#nanotek2011 .info')
 				.children('*');
 
-		TweenMax.staggerTo(img,0,{
-			scale : 0
-		});
-		text.css('right','-800px');
+		text.css({ 'right' : function(){
+			return -( text.parents('section').width() + text.width() );
+		} });
 
-		TweenMax.staggerTo(img,1,{
-			scale : 1,
+		img.css({ 'top' : function(){
+			return img.parents('section').width() + img.width();
+		} })
+
+		TweenMax.staggerTo(img, 0.7, {
+			top : 0,
+			delay : 0.2,
 			ease:Circ.easeOut
 		},0.4);
 
-		TweenMax.staggerTo(text,1,{
+		TweenMax.staggerTo(text, 0.7, {
 			right : 0,
-			ease:Back.easeOut
-		},0.5);
+			ease:Circ.easeOut
+		},0.4);
 
 	};
 
@@ -278,15 +343,20 @@ var action = function () {
 			$('#hd2010 .info')
 				.children('*');
 
-		img.css('top','900px');
-		text.css('top','-900px');
+		img.css({ 'top' : function(){
+			return img.parents('section').height() + img.height();
+		} });
 
-		TweenMax.staggerTo( img,1,{
+		text.css({ 'top' : function(){
+			return img.parents('section').height() + img.height();
+		} });
+
+		TweenMax.staggerTo( img, 0.7, {
 			top : 0,
 			ease:Circ.easeOut
 		},0.4);
 
-		TweenMax.staggerTo( text, 1 ,{
+		TweenMax.staggerTo( text, 0.7 ,{
 			top : 0,
 			ease:Circ.easeOut
 		},0.4);
@@ -302,16 +372,21 @@ var action = function () {
 			$('#switch2010 .info')
 				.children('*');
 
-		img.css('left','-900px');
-		text.css('top','900px');
+		img.css({ 'left' : function(){
+			return -( img.parents('section').width() + img.width() );
+		} });
 
-		TweenMax.staggerTo( img,1,{
+		text.css({ 'left' : function(){
+			return text.parents('section').width() + text.width();
+		} });
+
+		TweenMax.staggerTo( img, 0.7, {
 			left : 0,
 			ease:Circ.easeOut
 		},0.4);
 
-		TweenMax.staggerTo( text, 1 ,{
-			top : 0,
+		TweenMax.staggerTo( text, 0.7 ,{
+			left : 0,
 			ease:Circ.easeOut
 		},0.4);
 	};
@@ -326,20 +401,20 @@ var action = function () {
 			$('#hd2009 .info')
 				.children('*');	
 
+		img.css({ 'top' : function(){
+			return -( img.parents('section').height() + img.width() );
+		} });
 
-		TweenMax.staggerTo( img, 0, {
-			scale : 0
-		});		
-		TweenMax.staggerTo( text, 0, {
-			alpha : 0
-		});
-
-		TweenMax.staggerTo( img, 0.8, {
-			scale : 1
-		}, 0.5);		
-		TweenMax.staggerTo( text, 1, {
-			alpha : 1
-		}, 0.5);		
+		text.css({ 'left' : function(){
+			return text.parents('section').width() + text.width();
+		} });
+		TweenMax.staggerTo( img, 0.7, {
+			top : 0,
+			delay : 0.2
+		}, 0.4);		
+		TweenMax.staggerTo( text, 0.7, {
+			left : 0
+		}, 0.4);		
 	};
 
 	that.nanotek2007 = function(){
@@ -352,15 +427,20 @@ var action = function () {
 			$('#nanotek2007 .info')
 				.children('*');	
 
-		img.css('right','-800px');
-		text.css('left','-800px');
+		img.css({'top' : function(){
+			return img.parents('section').height() + img.height();
+		} });
+		text.css({'left' : function(){
+			return text.parents('section').width() + text.width();
+		} });
 
-		TweenMax.staggerTo( img, 1, {
-			right : 0
-		}, 0.5);		
-		TweenMax.staggerTo( text, 1, {
+		TweenMax.staggerTo( img, 0.7, {
+			top : 0,
+			delay : 0.2
+		}, 0.4);		
+		TweenMax.staggerTo( text, 0.7, {
 			left : 0
-		}, 0.5);	
+		}, 0.4);	
 
 	};
 
@@ -374,15 +454,19 @@ var action = function () {
 			$('#hd2007 .info')
 				.children('*');
 
-		img.css('right','800px');
-		text.css('left','800px');
+		img.css({ 'right' : function(){
+			return img.parents('section').width() + img.width();
+		} });
+		text.css({'left' : function(){
+			return text.parents('section').width() + text.width();
+		} });
 
-		TweenMax.staggerTo( img, 1, {
+		TweenMax.staggerTo( img, 0.7, {
 			right : 0
-		}, 0.5);		
-		TweenMax.staggerTo( text, 1, {
+		}, 0.4);		
+		TweenMax.staggerTo( text, 0.7, {
 			left : 0
-		}, 0.5);
+		}, 0.4);
 
 		// console.log('Start hd 2007');
 
@@ -398,15 +482,20 @@ var action = function () {
 			$('#hd2003 .info')
 				.children('*');
 
-		img.css('top','-800px');
-		text.css('bottom','-800px');
+		img.css({'top' : function(){
+			return -( img.parents('section').height() + img.height() );
+		} });
 
-		TweenMax.staggerTo( img, 1, {
+		text.css({'bottom' : function(){
+			return -( text.parents('section').height() + text.height() );
+		} });
+
+		TweenMax.staggerTo( img, 0.7, {
 			top : 0
-		}, 0.5);		
-		TweenMax.staggerTo( text, 1, {
+		}, 0.4);		
+		TweenMax.staggerTo( text, 0.7, {
 			bottom : 0
-		}, 0.5);
+		}, 0.4);
 
 	}
 
@@ -420,18 +509,23 @@ var action = function () {
 			$('#hdi2013 .info')
 				.children('*');
 
-		img.css('top','800px');
-		text.css('top','-800px');
+		img.css({ 'top' : function(){
+			return ( img.parents('section').height() + img.height() );
+		} });
+		text.css({'left' : function(){
+			return ( text.parents('section').width() + text.width() );
+		} });
 
 
-		TweenMax.staggerTo( img, 1, {
+		TweenMax.staggerTo( img, 0.7, {
 			top : 0,
+			delay : 0.2,
 			ease:Circ.easeOut
-		}, 0.5);		
-		TweenMax.staggerTo( text, 1, {
-			top : 0,
+		}, 0.25);		
+		TweenMax.staggerTo( text, 0.7, {
+			left : 0,
 			ease:Circ.easeOut
-		}, 0.5);
+		}, 0.25);
 	};
 
 	that.historyAll = function(){
@@ -635,29 +729,57 @@ var action = function () {
 				break;
 		}
 	};
-
+	// ikSelect
 	var select = true;
+
 	that.select = function(){
+
+		$('.controls').on({
+
+			click : function(){
+				$(this).addClass('open')
+			}
+
+		},'.ik_select_link_text');
 
 		if( select ){
 
+			function hide(){
+
+				$('.open').removeClass('open arrowT');
+			}
+
 			function sigrates(){
 
-			    if($('.ik_select_list_inner ul').hasClass('mCustomScrollbar')) return;
+				setTimeout(function(){
 
-			    $('.ik_select_list_inner ul')
-			    	.mCustomScrollbar({
-			            advanced:{ updateOnContentResize: true },
-			            mouseWheel : true,
-			            set_height : 100
-			        });
+					if( $('#profile form').is('.disable') ){
+								
+						$('.ik_select_block').hide();
+						return false;
 
+					}
+
+					$('.open').addClass('arrowT');
+
+				    if($('.ik_select_list_inner ul').hasClass('mCustomScrollbar')) return;
+
+				    $('.ik_select_list_inner ul')
+				    	.mCustomScrollbar({
+				            advanced:{ updateOnContentResize: true },
+				            mouseWheel : true,
+				            set_height : 100
+				        });
+				}, 0);
+				
    			}
 
 			$('.smoke select').ikSelect({
 				ddFullWidth : false,
 		        autoWidth : false,
-		        onShow : sigrates
+		        onShow : sigrates,
+		        onHide : hide,
+		        ddCustomClass : 'sigarets'
 			});
 
 			select = false;
@@ -945,6 +1067,12 @@ $(document).ready(function(){
 			}	
 		});
 
+	$('.arrow-start').on({
+		click : function(){
+			animation.scrollBotom();
+		}
+	})
+
 	$(document).on({
 		keydown : function(e){
 
@@ -1136,6 +1264,8 @@ $(document).ready(function(){
 				animation.selectBackground();
 			}	
 		});
+
+
 
 	$(window).on({
 		resize : function(){

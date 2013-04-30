@@ -103,5 +103,16 @@ $(function(){
 					});
 			}
 		});
+	$('#profile').on({
+		focus : function(){
+
+			if( $('#profile').find('form').is('.disable') ){
+
+				$(this).blur();
+
+			}
+
+		}
+	},'input')
 
 });

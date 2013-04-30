@@ -93,7 +93,7 @@ a{
 }
 .row-fluid.footer{
 	position: fixed;
-	bottom: 15.1%;
+	bottom: 15%;
 	height: 72px;
 
 	// background-color: white;
@@ -189,7 +189,7 @@ form .pass,
 	width:278px;
 	height:28px;
 	outline:none;
-	border:none;
+	border:1px solid transparent;
 	border-radius:0;
 	background-color:#e0e0e0;
 	box-shadow:none; 
@@ -198,10 +198,34 @@ form .pass,
 	font-size:12px;
 	font-family:Verdana, Geneva, sans-serif;
 	line-height:1;
+	-webkit-transition:all 500ms ease-in-out;
+	-moz-transition:all 500ms ease-in-out;
+	transition:all 500ms ease-in-out;
 	&:focus{
 		box-shadow:none;
+		background-color:#fff;
+		border-color:#e0e0e0; 
 	}
 }
+.save{
+	form .pass,
+	form .text,
+	.input-append .text,
+	input{
+		background-color:#fff;
+		border-color:#e0e0e0; 
+	}
+	.dateBirthday .ik_select_link,
+	.smoke .ik_select_link{
+		background-color:#fff;
+		border:1px solid #e0e0e0;
+		height: 26px;
+		-webkit-transition:all 500ms ease-in-out;
+		-moz-transition:all 500ms ease-in-out;
+		transition:all 500ms ease-in-out;
+	}
+}
+	
 body .submit{
 	float:right;
 	padding:0;
@@ -274,7 +298,7 @@ textarea{
 	width:353px;
 	height:149px;
 	outline:none;
-	border:none;
+	border:1px solid transparent;
 	border-radius:0;
 	background-color:#e0e0e0;
 	box-shadow:none;
@@ -283,7 +307,10 @@ textarea{
 	font-family:Verdana, Geneva;
 	font-weight:100;
 	resize:none;
+	transition:all 500ms ease-in-out;
 	&:focus{
+		background-color:#fff;
+		border-color:#e0e0e0;
 		box-shadow:none;
 	}
 }
@@ -353,5 +380,5 @@ textarea{
 }
 .ik_select_block{
 	height:auto;
+	margin-top: 13px;
 }
-
