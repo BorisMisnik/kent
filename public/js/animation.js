@@ -737,20 +737,14 @@ var action = function () {
 		$('.profile').on({
 
 			click : function(){
-
-				if( $('#profile form').is('.disable') ){
-
-					$('.ik_select_block').hide();
-					$('.smoke select').ikSelect('hide_dropdown');
-					$('.wrapper-month select').ikSelect("hide_dropdown");
-				}
-				else{
+				if( !$('#profile form').is('.disable') ){
 
 					$(this)
 						.find('.ik_select_link_text')
 						.addClass('open arrowT');
+						
 				}
-
+					
 
 			}
 
@@ -758,14 +752,14 @@ var action = function () {
 
 		if( select ){
 
+		
 			function hide(){
 				$('.open').removeClass('open arrowT');
 			}
 
 			function sigrates(){
 
-				setTimeout(function(){
-
+		
 					if($('.ik_select_list_inner ul').hasClass('mCustomScrollbar') ||
 					   $('#profile form').is('.disable')) return;
 
@@ -778,7 +772,7 @@ var action = function () {
 					        set_height : 100
 					});
 			
-				},0);
+				
 			
    			}
 
@@ -811,6 +805,9 @@ var action = function () {
 		        ddCustomClass: 'month',
 		        onShow : scrollBar
 	    	});
+
+			$('.smoke select').ikSelect('disable');
+			$('.wrapper-month select').ikSelect('disable');
 
 			select = false;
 
