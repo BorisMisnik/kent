@@ -742,7 +742,7 @@ var action = function () {
 					$(this)
 						.find('.ik_select_link_text')
 						.addClass('open arrowT');
-						
+
 				}
 					
 
@@ -752,37 +752,30 @@ var action = function () {
 
 		if( select ){
 
-		
 			function hide(){
 				$('.open').removeClass('open arrowT');
+				console.log('ikSelect hide');
 			}
 
-			function sigrates(){
-
-		
-					if($('.ik_select_list_inner ul').hasClass('mCustomScrollbar') ||
-					   $('#profile form').is('.disable')) return;
-
-
-					$('.ik_select_block').addClass('sigarets');
-					$('.ik_select_list_inner ul')
-					  	.mCustomScrollbar({
-					        advanced:{ updateOnContentResize: true },
-					        mouseWheel : true,
-					        set_height : 100
-					});
+			function show(){
+				console.log('ikSelect show');
+				if( $('.ik_select_list_inner ul').hasClass('mCustomScrollbar') ) return;
+				console.log('ikSelect show and enable scrollBar');
+				$('.ik_select_list_inner ul')
+					.mCustomScrollbar({
+					  	advanced:{ updateOnContentResize: true },
+					    mouseWheel : true,
+					    set_height : 100
+				});
 			
 				
 			
    			}
 
    			function scrollBar(){
-
-				if($('.ik_select_list_inner ul').hasClass('mCustomScrollbar') ||
-				   $('#profile form').is('.disable')) return;
-				
-
-				$('.ik_select_block').addClass('month');
+   				console.log('month ikSelect show');
+				if( $('.ik_select_list_inner ul').hasClass('mCustomScrollbar') ) return;
+				console.log('month ikSelect show and enable scrollBar');
 		    	$(".ik_select_list_inner ul")
 		            .mCustomScrollbar({
 		                advanced:{ updateOnContentResize: true },
@@ -794,7 +787,7 @@ var action = function () {
 			$('.smoke select').ikSelect({
 				ddFullWidth : false,
 		        autoWidth : false,
-		        onShow : sigrates,
+		        onShow : show,
 		        onHide : hide,
 		        ddCustomClass : 'sigarets'
 			});
