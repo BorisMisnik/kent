@@ -740,27 +740,21 @@ var action = function () {
 
 				if( $('#profile form').is('.disable') ){
 
+					$('.ik_select_block').hide();
 					$('.smoke select').ikSelect('hide_dropdown');
-					$('#month').ikSelect("hide_dropdown");
+					$('.wrapper-month select').ikSelect("hide_dropdown");
+				}
+				else{
 
-					$('.ik_select_block sigarets').hide();
-
+					$(this)
+						.find('.ik_select_link_text')
+						.addClass('open arrowT');
 				}
 
-				setTimeout(function(){
-
-					if( $('#profile form').is('.disable') ){
-						$('.ik_select_block').hide();
-					}
-					else{
-						$(this).addClass('open arrowT');
-					}
-
-				}, 0);
 
 			}
 
-		},'.ik_select_link_text');
+		},'.ik_select');
 
 		if( select ){
 
@@ -807,10 +801,9 @@ var action = function () {
 		        ddCustomClass : 'sigarets'
 			});
 
-			$('#month').ikSelect({
+			$('.wrapper-month select').ikSelect({
 		        ddFullWidth : false,
 		        autoWidth : false,
-		        ddMaxHeight  :114,
 		        ddCustomClass: "month",
 		        onShow : scrollBar
 	    	});

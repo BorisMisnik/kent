@@ -1,22 +1,7 @@
 $(function(){
 	var container = $('.container-fluid');
-	
+
 	$('input[placeholder], textarea[placeholder]').placeholder();
-
-    // $('.month .ik_select_option').click(function(){
-    //     var $this = $(this);
-    //     $this.attr('title',$this.data('title'))
- 
-    // }).hover(function(){
-    // 	$(this).data('title',$(this).attr('title'))
-    // 		   .attr('title','');
-    // },function(){
-    //     $(this).attr('title',$(this).data('title'));
-    // });
-
-    // $('.month .ik_select_option').attr({
-    // 	'name' : $(this).attr('title')
-    // });
 
 
 	$(window).resize(sizeSection);
