@@ -745,7 +745,6 @@ var action = function () {
 		if( select ){
 
 			function hide(){
-
 				$('.open').removeClass('open arrowT');
 			}
 
@@ -755,7 +754,7 @@ var action = function () {
 
 					if( $('#profile form').is('.disable') ){
 								
-						$('.ik_select_block').hide();
+						$('.smoke select').ikSelect('hide_dropdown');
 						return false;
 
 					}
@@ -774,6 +773,17 @@ var action = function () {
 				
    			}
 
+   			function scrollBar(){
+
+				if($('.ik_select_list_inner ul').hasClass('mCustomScrollbar')) return;
+
+		    	$(".ik_select_list_inner ul")
+		            .mCustomScrollbar({
+		                advanced:{ updateOnContentResize: true },
+		                mouseWheel : true
+		             }); 
+		    }
+
 			$('.smoke select').ikSelect({
 				ddFullWidth : false,
 		        autoWidth : false,
@@ -781,6 +791,14 @@ var action = function () {
 		        onHide : hide,
 		        ddCustomClass : 'sigarets'
 			});
+
+			$('#month').ikSelect({
+		        ddFullWidth : false,
+		        autoWidth : false,
+		        ddMaxHeight  :114,
+		        ddCustomClass: "month",
+		        onShow : scrollBar
+	    	});
 
 			select = false;
 

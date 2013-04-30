@@ -1,28 +1,6 @@
 $(function(){
 	var container = $('.container-fluid');
-	var raphael = background();
-	var markerMonth = true;
- 	function scrollBar(){
-        if ( markerMonth ) {
-
-                $(".ik_select_list_inner ul")
-                    .mCustomScrollbar({
-                        advanced:{ updateOnContentResize: true },
-                        mouseWheel : true
-                    });
-             markerMonth = false;
-         }
-    }
-
-   
-	$('#month').ikSelect({
-        ddFullWidth : false,
-        autoWidth : false,
-        ddMaxHeight  :114,
-        ddCustomClass: "month",
-        onShow : scrollBar
-    });
-
+	
 	$('input[placeholder], textarea[placeholder]').placeholder();
 
     $('.month .ik_select_option').click(function(){
