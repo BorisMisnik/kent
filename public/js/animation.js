@@ -755,6 +755,8 @@ var action = function () {
 					if( $('#profile form').is('.disable') ){
 								
 						$('.smoke select').ikSelect('hide_dropdown');
+						$('#month').ikSelect('hide_dropdown');
+						
 						return false;
 
 					}
