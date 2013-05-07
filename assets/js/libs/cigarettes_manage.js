@@ -94,7 +94,7 @@ function() {
                     val;
 
                 if( el.is('.btn-group') )
-                    el = $('.btn-group').prev('select');
+                    el = el.prev('select');
                 console.log( el );
                 // fill brands
                 el.empty();
