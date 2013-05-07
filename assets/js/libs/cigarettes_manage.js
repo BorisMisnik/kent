@@ -50,6 +50,8 @@ function() {
                     linked = el.attr( 'linked' ),
                     link = $( linked );
                 // console.log( 'CHANGE', arguments, el, val );
+                console.log(el);
+                console.log(el.is('div'));
                 selectCaption( el, val );
                 fillSelect( link, sku[ val ]);
 
@@ -133,7 +135,7 @@ function() {
 
 
     function visualUpdate() {
-    console.log( $('select.skuB') );
+
        $('select.skuB').selectpicker();
 
     }
