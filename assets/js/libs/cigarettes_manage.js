@@ -55,13 +55,23 @@ function() {
 
                 // visualUpdateCurrent( linked );
                 setTimeout( function() {
-                     $('select').selectpicker('refresh');
+
+                    $('select').selectpicker('refresh'); 
+
+                    $('.dropdown-menu').mCustomScrollbar({
+                        advanced:{
+                            updateOnContentResize: true
+                        },
+                        mouseWheel : true
+                    });
+
                 }, 0 );
             });
         fillSelect( brandFileds, brands );
     }
 
     function fillSku() {
+
     }
 
     // Helpers
@@ -120,16 +130,31 @@ function() {
                 // show caption
                 // console.log( 'current', current, val );
                 //selectCaption( el, el.val( val ));
+
             });
 
-        // $('.smoke select').ikSelect();
+            $('select').selectpicker('refresh'); 
 
+            $('.dropdown-menu').mCustomScrollbar({
+                advanced:{
+                    updateOnContentResize: true
+                },
+                mouseWheel : true
+            });
     }
 
     function defaultValue(){}
 
 
     function visualUpdate() {
+
         $('select').selectpicker('refresh'); 
+
+        $('.dropdown-menu').mCustomScrollbar({
+            advanced:{
+                updateOnContentResize: true
+            },
+            mouseWheel : true
+        });
     }
 });

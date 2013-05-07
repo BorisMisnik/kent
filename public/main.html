@@ -893,7 +893,6 @@
         {
             // hide old errors
             $( '.error' ).addClass( 'hide' );
-            console.log( profile );
             // populate data
             $( '#name' ).val( profile.name );
             $( '#date' ).val( profile.day );
@@ -905,6 +904,16 @@
             $( '#agree_age' ).prop( 'checked',  profile.agree_age );
             $( '#agree_rules' ).prop( 'checked', profile.agree_rules );
             $( '#agree_info' ).prop( 'checked', profile.agree_info );
+
+            $('select').selectpicker('refresh');
+
+        	$('.dropdown-menu').mCustomScrollbar({
+				advanced:{
+					updateOnContentResize: true
+				},
+				mouseWheel : true
+			});
+
         }
 
         function errorsProfile( errors ) {
