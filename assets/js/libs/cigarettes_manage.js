@@ -131,21 +131,21 @@ function() {
 
     function visualUpdate() {
 
-        $('.smoke select').ikSelect({
-            ddFullWidth : false,
-            autoWidth : false,
-            ddMaxHeight  :114,
-            onShow : scrollBar
-        });
+        // $('.smoke select').ikSelect({
+        //     ddFullWidth : false,
+        //     autoWidth : false,
+        //     ddMaxHeight  :114,
+        //     onShow : scrollBar
+        // });
 
         var marker = true;
         function scrollBar(){
             if ( marker ){
-                $(".ik_select_list_inner").mCustomScrollbar({
-                    advanced:{ updateOnContentResize: true },
-                    mouseWheel : true,
-                    set_height : 114
-                });
+                // $(".ik_select_list_inner").mCustomScrollbar({
+                //     advanced:{ updateOnContentResize: true },
+                //     mouseWheel : true,
+                //     set_height : 114
+                // });
             }
         }
     }
