@@ -893,12 +893,11 @@
         {
             // hide old errors
             $( '.error' ).addClass( 'hide' );
-
+            console.log( profile );
             // populate data
             $( '#name' ).val( profile.name );
             $( '#date' ).val( profile.day );
             $( '#month' ).val( profile.month );
-            $( '#month' ).ikSelect( 'select', profile.month );
             $( '#year' ).val( profile.year );
             $( '#mobilePhone' ).val( profile.phone );
             $( '#email' ).val( profile.email );
