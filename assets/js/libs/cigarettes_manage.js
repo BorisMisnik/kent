@@ -56,8 +56,8 @@ function() {
 
                 // visualUpdateCurrent( linked );
                 setTimeout( function() {
-
-                   $('select.skuB').selectpicker();
+                    console.log(skuFileds);
+                   skuFileds.selectpicker('refresh');
 
                    $('.skuB .dropdown-menu').mCustomScrollbar("destroy");
                    $('.skuB .dropdown-menu').mCustomScrollbar({
@@ -145,9 +145,10 @@ function() {
 
 
     function visualUpdate() {
+        console.log(skuFileds);
+       skuFileds.selectpicker('refresh');
 
-       $('select.skuB').selectpicker();
-       
+
        $('.skuB .dropdown-menu').mCustomScrollbar("destroy");
        $('.skuB .dropdown-menu').mCustomScrollbar({
             advanced:{
