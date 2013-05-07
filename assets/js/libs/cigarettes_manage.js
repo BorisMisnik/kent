@@ -126,7 +126,7 @@ function() {
 
             });
 
-        $('select').selectpicker('refresh'); 
+      
     }
 
     function defaultValue(){}

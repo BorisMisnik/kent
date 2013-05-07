@@ -906,7 +906,13 @@
             $( '#agree_info' ).prop( 'checked', profile.agree_info );
 
             $('select').selectpicker('refresh');
-
+            $('.dropdown-menu').mCustomScrollbar('destroy');
+            $('.dropdown-menu').mCustomScrollbar({
+				advanced:{
+					updateOnContentResize: true
+				},
+				mouseWheel : true
+			});
         }
 
         function errorsProfile( errors ) {
