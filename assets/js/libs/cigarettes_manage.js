@@ -92,8 +92,10 @@ function() {
                     first = true,
                     opt,
                     val;
-                console.log(el);
-                console.log(el.is('.btn-group'));
+
+                if( el.is('.btn-group') )
+                    el = $('.btn-group').prev('select');
+                console.log( el );
                 // fill brands
                 el.empty();
                 for ( val in data ) {
