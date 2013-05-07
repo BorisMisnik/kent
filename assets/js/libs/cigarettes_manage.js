@@ -55,8 +55,8 @@ function() {
 
                 // visualUpdateCurrent( linked );
                 setTimeout( function() {
-                    console.log('Refresh');
-                    $('.skuB').selectpicker('refresh'); 
+                    
+                    $('.skuB').selectpicker('render');
 
                 }, 0 );
             });
@@ -134,7 +134,7 @@ function() {
 
     function visualUpdate() {
         console.log('Refresh');
-       $('.skuB').selectpicker('refresh'); 
+       $('.skuB').selectpicker('render');
 
     }
 });
