@@ -57,7 +57,8 @@ function() {
                 // visualUpdateCurrent( linked );
                 setTimeout( function() {
 
-                   $('select.skuB').selectpicker('render');
+                   $('select.skuB').selectpicker();
+
                    $('.skuB .dropdown-menu').mCustomScrollbar("destroy");
                    $('.skuB .dropdown-menu').mCustomScrollbar({
                             advanced:{
@@ -145,7 +146,8 @@ function() {
 
     function visualUpdate() {
 
-       $('select.skuB').selectpicker('render');
+       $('select.skuB').selectpicker();
+       
        $('.skuB .dropdown-menu').mCustomScrollbar("destroy");
        $('.skuB .dropdown-menu').mCustomScrollbar({
             advanced:{
