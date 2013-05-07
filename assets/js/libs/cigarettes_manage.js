@@ -50,15 +50,21 @@ function() {
                     linked = el.attr( 'linked' ),
                     link = $( linked );
                 // console.log( 'CHANGE', arguments, el, val );
-                console.log(el);
-                console.log(el.is('.btn-group'));
+        
                 selectCaption( el, val );
                 fillSelect( link, sku[ val ]);
 
                 // visualUpdateCurrent( linked );
                 setTimeout( function() {
 
-                   $('select.skuB').selectpicker();
+                   $('select.skuB').selectpicker('render');
+                   $('.skuB .dropdown-menu').mCustomScrollbar("destroy");
+                   $('.skuB .dropdown-menu').mCustomScrollbar({
+                            advanced:{
+                                updateOnContentResize: true
+                            },
+                            mouseWheel : true
+                        });
 
                 }, 0 );
             });
@@ -95,7 +101,7 @@ function() {
 
                 if( el.is('.btn-group') )
                     el = el.prev('select');
-                console.log( el );
+ 
                 // fill brands
                 el.empty();
                 for ( val in data ) {
@@ -139,7 +145,13 @@ function() {
 
     function visualUpdate() {
 
-       $('select.skuB').selectpicker();
-
+       $('select.skuB').selectpicker('render');
+       $('.skuB .dropdown-menu').mCustomScrollbar("destroy");
+       $('.skuB .dropdown-menu').mCustomScrollbar({
+            advanced:{
+                updateOnContentResize: true
+            },
+            mouseWheel : true
+        });
     }
 });
