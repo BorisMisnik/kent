@@ -55,7 +55,7 @@ function() {
 
                 // visualUpdateCurrent( linked );
                 setTimeout( function() {
-                    $('.smoke select').ikSelect( 'reset' );
+                    // $('.smoke select').ikSelect( 'reset' );
                 }, 0 );
             });
         fillSelect( brandFileds, brands );
