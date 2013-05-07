@@ -734,33 +734,18 @@ var action = function () {
 
 	that.select = function(){
 
-		$('.profile').on({
-
-			click : function(){
-				if( !$('#profile form').is('.disable') ){
-
-					$(this)
-						.find('.ik_select_link_text')
-						.addClass('open arrowT');
-
-				}
-					
-
-			}
-
-		},'.ik_select');
-
 		if( select ){
 
 			function hide(){
-				$('.open').removeClass('open arrowT');
-				console.log('ikSelect hide');
+					
+				$('.ik_select_link_text').removeClass('open');
+
 			}
 
 			function show(){
-				console.log('ikSelect show');
+
 				if( $('.ik_select_list_inner ul').hasClass('mCustomScrollbar') ) return;
-				console.log('ikSelect show and enable scrollBar');
+	
 				$('.ik_select_list_inner ul')
 					.mCustomScrollbar({
 					  	advanced:{ updateOnContentResize: true },
@@ -773,14 +758,15 @@ var action = function () {
    			}
 
    			function scrollBar(){
-   				console.log('month ikSelect show');
+   			
 				if( $('.ik_select_list_inner ul').hasClass('mCustomScrollbar') ) return;
-				console.log('month ikSelect show and enable scrollBar');
+			
 		    	$(".ik_select_list_inner ul")
 		            .mCustomScrollbar({
 		                advanced:{ updateOnContentResize: true },
 		                mouseWheel : true,
-		                set_height : 100
+		                set_height : 100,
+		                set_width  : 105
 		             }); 
 		    }
 
@@ -801,6 +787,18 @@ var action = function () {
 
 			$('.smoke select').ikSelect('disable');
 			$('.wrapper-month select').ikSelect('disable');
+
+
+
+			$('.ik_select_link').on('click',function(){
+
+				if( $(this).hasClass('ik_select_link_disabled') ) return;
+
+				$(this)
+					.find('.ik_select_link_text')
+					.addClass('open')
+
+			});
 
 			select = false;
 
@@ -856,7 +854,10 @@ $(document).ready(function(){
 			}
 			
 			if( $('.ik_select_block').is(':visible') ){
-				$('.ik_select_block').hide();
+
+				$('.smoke select').ikSelect('hide_dropdown');
+				$('.wrapper-month select').ikSelect('hide_dropdown');
+				$('.ik_select_link_text').removeClass('open');
 			}
 		},
 
