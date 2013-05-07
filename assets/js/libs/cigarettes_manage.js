@@ -58,13 +58,6 @@ function() {
 
                     $('select').selectpicker('refresh'); 
 
-                    $('.dropdown-menu').mCustomScrollbar({
-                        advanced:{
-                            updateOnContentResize: true
-                        },
-                        mouseWheel : true
-                    });
-
                 }, 0 );
             });
         fillSelect( brandFileds, brands );
@@ -97,7 +90,7 @@ function() {
                     first = true,
                     opt,
                     val;
-
+                console.log(el);
                 // fill brands
                 el.empty();
                 for ( val in data ) {
@@ -134,13 +127,6 @@ function() {
             });
 
         $('select').selectpicker('refresh'); 
-
-                    $('.dropdown-menu').mCustomScrollbar({
-                        advanced:{
-                            updateOnContentResize: true
-                        },
-                        mouseWheel : true
-                    });
     }
 
     function defaultValue(){}
@@ -150,11 +136,5 @@ function() {
 
         $('select').selectpicker('refresh'); 
 
-        $('.dropdown-menu').mCustomScrollbar({
-            advanced:{
-                updateOnContentResize: true
-            },
-            mouseWheel : true
-        });
     }
 });
