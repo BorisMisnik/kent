@@ -77,7 +77,8 @@ $(function(){
 			}
 
 		}
-	},'input')
+	},'input');
 
-
+	//select 
+	$('select').selectpicker();
 });

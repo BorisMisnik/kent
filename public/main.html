@@ -6,8 +6,7 @@
     
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/jquery.mCustomScrollbar.css"/>
-	<link rel="stylesheet" href="css/cutext.css"/>
-	<link rel="stylesheet" href="css/ikSelect.css"/>
+	<link rel="stylesheet" href="css/bootstrap-select.min.css"/>
     <link rel="stylesheet/less" type="text/css" href="css/font.less">
     <link rel="stylesheet/less" type="text/css" href="css/main.less">
 	<link rel="stylesheet/less" type="text/css" href="css/index.less">
@@ -20,7 +19,8 @@
 	<script src="js/jScrollPane.js"></script>
 	<script src="js/jquery.mousewheel.js"></script>
 	<script src="js/cutext.js"></script>
-	<script src="js/jquery.ikSelect.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-select.min.js"></script>
 	<script src="js/animation.js"></script>
 	<script src="js/jquery.maskedinput.min.js"></script>
 	<script src="js/form.js"></script>
@@ -698,9 +698,9 @@
 
 								<div class="controls">
 									<div class="dateBirthday">
-										<input type="text" name="date" placeholder="День" class="text" id="date"value="" disable/>
+										<input type="text" name="date" placeholder="День" class="text" id="date"value=""/>
 										<div class="wrapper-month">
-											<select name="month" id="month">
+											<select name="month" id="month" data-width="116px" data-size="4" disabled>
 												<option value="Місяць" disabled>Місяць</option>
 						                        <option value="0">Січень</option>
 						                        <option value="1">Лютий</option>
@@ -744,13 +744,13 @@
 
 	    						<div class="controls">
 	    							<div class="smoke">
-	    								<select name="brand1" class="sku skuA1 skuA" linked=".skuB1">
+	    								<select name="brand1" class="sku skuA1 skuA" linked=".skuB1" data-width="193px" disabled>
 											<option value="Місяць" disabled>Місяць</option>
 					                        <option value="0">Січень</option>
 					                        <option value="1">Лютий</option>
 					                        <option value="2">Березень</option>
 	    								</select>
-	    								<select name="sku1" class="sku skuB1 skuB">
+	    								<select name="sku1" class="sku skuB1 skuB" data-width="193px" disabled>
 											<option value="Місяць" disabled>Місяць</option>
 					                        <option value="0">Січень</option>
 					                        <option value="1">Лютий</option>
@@ -763,13 +763,11 @@
 
 	    						<div class="controls">
 	    							<div class="smoke">
-	    								<select name="brand2" class="sku skuA2 skuA" linked=".skuB2">
+	    								<select name="brand2" class="sku skuA2 skuA" linked=".skuB2" data-width="193px" disabled>
 											<option value="Місяць" disabled>Місяць</option>
 					                        <option value="0">Січень</option>
-					                        <option value="1">Лютий</option>
-					                        <option value="2">Березень</option>
 	    								</select>
-	    								<select name="sku2" class="sku skuB2 skuB">
+	    								<select name="sku2" class="sku skuB2 skuB" data-width="193px" disabled>
 											<option value="Місяць" disabled>Місяць</option>
 					                        <option value="0">Січень</option>
 					                        <option value="1">Лютий</option>
@@ -829,6 +827,7 @@
                 },
                 mouseWheel : true
             });
+
             $('.text h3').click(function(){
                 var $this = $(this);
                 if(!$this.is('.open')){
@@ -866,12 +865,19 @@
                     		.addClass('save')
                     		.removeClass('disable');
 
+                    	$('select').prop('disabled',false);
+        				$('select').selectpicker('refresh');
+
+        				$('.dropdown-menu').mCustomScrollbar({
+						    advanced:{
+						        updateOnContentResize: true
+						    },
+						    mouseWheel : true
+						});
+
                     	$(this)
                     		.val('Зберегти')
                     		.removeClass('disable');
-
-                    	$('.smoke select').ikSelect('enable');
-						$('.wrapper-month select').ikSelect('enable');	
 
                     	return false;
                     }
@@ -978,9 +984,7 @@
                     $( '#formError' ).removeClass( 'hide').hide().fadeIn( 'slow' );
                 })
         }
-
-
 	</script>
-    <script src="/js/libs/cigarettes_manage.js"></script>
+	<script src="/js/libs/cigarettes_manage.js"></script>
 </body>
 </html>

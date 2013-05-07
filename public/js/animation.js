@@ -729,83 +729,6 @@ var action = function () {
 				break;
 		}
 	};
-	// ikSelect
-	var select = true;
-
-	that.select = function(){
-
-		if( select ){
-
-			function hide(){
-					
-				$('.ik_select_link_text').removeClass('open');
-
-			}
-
-			function show(){
-
-				if( $('.ik_select_list_inner ul').hasClass('mCustomScrollbar') ) return;
-	
-				$('.ik_select_list_inner ul')
-					.mCustomScrollbar({
-					  	advanced:{ updateOnContentResize: true },
-					    mouseWheel : true,
-					    set_height : 100
-				});
-			
-				
-			
-   			}
-
-   			function scrollBar(){
-   			
-				if( $('.ik_select_list_inner ul').hasClass('mCustomScrollbar') ) return;
-			
-		    	$(".ik_select_list_inner ul")
-		            .mCustomScrollbar({
-		                advanced:{ updateOnContentResize: true },
-		                mouseWheel : true,
-		                set_height : 100,
-		                set_width  : 105
-		             }); 
-		    }
-
-			$('.smoke select').ikSelect({
-				ddFullWidth : false,
-		        autoWidth : false,
-		        onShow : show,
-		        onHide : hide,
-		        ddCustomClass : 'sigarets'
-			});
-
-			$('.wrapper-month select').ikSelect({
-		        ddFullWidth : false,
-		        autoWidth : false,
-		        ddCustomClass: 'month',
-		        onShow : scrollBar
-	    	});
-
-			$('.smoke select').ikSelect('disable');
-			$('.wrapper-month select').ikSelect('disable');
-
-
-
-			$('.ik_select_link').on('click',function(){
-
-				if( $(this).hasClass('ik_select_link_disabled') ) return;
-
-				$(this)
-					.find('.ik_select_link_text')
-					.addClass('open')
-
-			});
-
-			select = false;
-
-		}
-
-	};
-
 	return that;
 };
 
@@ -848,17 +771,6 @@ $(document).ready(function(){
 
 		scrollStart : function(){
 
-			// enable ikSelect
-			if( $('.now').is('#profile') ){
-				animation.select();
-			}
-			
-			if( $('.ik_select_block').is(':visible') ){
-
-				$('.smoke select').ikSelect('hide_dropdown');
-				$('.wrapper-month select').ikSelect('hide_dropdown');
-				$('.ik_select_link_text').removeClass('open');
-			}
 		},
 
 		scrollEnd : function(){

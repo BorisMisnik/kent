@@ -55,7 +55,7 @@ function() {
 
                 // visualUpdateCurrent( linked );
                 setTimeout( function() {
-                    $('.smoke select').ikSelect( 'redraw' );
+                     $('select').selectpicker('refresh');
                 }, 0 );
             });
         fillSelect( brandFileds, brands );
@@ -130,33 +130,33 @@ function() {
 
 
     function visualUpdate() {
+        $('select').selectpicker('refresh');
+        // $('.smoke select').ikSelect({
+        //     ddFullWidth : false,
+        //     autoWidth : false,
+        //     onShow : show,
+        //     onHide : hide,
+        //     ddCustomClass : 'sigarets'
+        // });
 
-        $('.smoke select').ikSelect({
-            ddFullWidth : false,
-            autoWidth : false,
-            onShow : show,
-            onHide : hide,
-            ddCustomClass : 'sigarets'
-        });
-
-        function hide(){
+        // function hide(){
                     
-            $('.ik_select_link_text').removeClass('open');
+        //     $('.ik_select_link_text').removeClass('open');
 
-        }
+        // }
 
-        function show(){
+        // function show(){
 
-            if( $('.ik_select_list_inner ul').hasClass('mCustomScrollbar') ) return;
+        //     if( $('.ik_select_list_inner ul').hasClass('mCustomScrollbar') ) return;
     
-            $('.ik_select_list_inner ul')
-                .mCustomScrollbar({
-                    advanced:{ updateOnContentResize: true },
-                    mouseWheel : true,
-                    set_height : 100
-            });
+        //     $('.ik_select_list_inner ul')
+        //         .mCustomScrollbar({
+        //             advanced:{ updateOnContentResize: true },
+        //             mouseWheel : true,
+        //             set_height : 100
+        //     });
             
-        }
+        // }
         
     }
 });
