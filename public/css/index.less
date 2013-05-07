@@ -1384,11 +1384,15 @@ section h1{
 }
 #profile{
 	.dropdown-menu{
+		min-width: auto;
 		border-radius:0;
 		border:1px solid #E0E0E0;
 		border-top: 0;
 		box-shadow:none;
 		margin:0;
+		-webkit-box-sizing:content-box;
+		-moz-box-sizing:content-box;
+		box-sizing:content-box;
 		a{
 			padding:0;
 			min-height: 25px;
@@ -1408,14 +1412,11 @@ section h1{
 	}
 	.wrapper-month {
 		.dropdown-menu{
-			width:113px;
+			width: 114px;
 		}
 		.mCSB_container{
 			width: 110px;
 		}
-	}
-	.mCustomScrollBox{
-		height:92px !important;
 	}
 	.open{
 		.caret{
@@ -1437,7 +1438,7 @@ section h1{
 		float:right;
 	}
 	.dropdown-menu{
-		width:99px;
+		width: 191px;
 	}
 	.mCSB_container{
 		width: 100%;

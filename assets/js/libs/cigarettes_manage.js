@@ -132,6 +132,15 @@ function() {
                 //selectCaption( el, el.val( val ));
 
             });
+
+        $('select').selectpicker('refresh'); 
+
+                    $('.dropdown-menu').mCustomScrollbar({
+                        advanced:{
+                            updateOnContentResize: true
+                        },
+                        mouseWheel : true
+                    });
     }
 
     function defaultValue(){}

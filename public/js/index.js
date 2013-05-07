@@ -80,5 +80,6 @@ $(function(){
 	},'input');
 
 	//select 
+
 	$('select').selectpicker();
 });
