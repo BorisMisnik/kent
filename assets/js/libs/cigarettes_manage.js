@@ -51,7 +51,7 @@ function() {
                     link = $( linked );
                 // console.log( 'CHANGE', arguments, el, val );
                 console.log(el);
-                console.log(el.is('div'));
+                console.log(el.is('.btn-group'));
                 selectCaption( el, val );
                 fillSelect( link, sku[ val ]);
 
@@ -93,6 +93,7 @@ function() {
                     opt,
                     val;
                 console.log(el);
+                console.log(el.is('.btn-group'));
                 // fill brands
                 el.empty();
                 for ( val in data ) {
