@@ -131,23 +131,31 @@ function() {
 
     function visualUpdate() {
 
-        // $('.smoke select').ikSelect({
-        //     ddFullWidth : false,
-        //     autoWidth : false,
-        //     ddMaxHeight  :114,
-        //     onShow : scrollBar
-        // });
+        $('.smoke select').ikSelect({
+            ddFullWidth : false,
+            autoWidth : false,
+            onShow : show,
+            onHide : hide,
+            ddCustomClass : 'sigarets'
+        });
 
-        var marker = true;
-        function scrollBar(){
-            if ( marker ){
-                // $(".ik_select_list_inner").mCustomScrollbar({
-                //     advanced:{ updateOnContentResize: true },
-                //     mouseWheel : true,
-                //     set_height : 114
-                // });
-            }
+        function hide(){
+                    
+            $('.ik_select_link_text').removeClass('open');
+
         }
-    }
+
+        function show(){
+
+            if( $('.ik_select_list_inner ul').hasClass('mCustomScrollbar') ) return;
+    
+            $('.ik_select_list_inner ul')
+                .mCustomScrollbar({
+                    advanced:{ updateOnContentResize: true },
+                    mouseWheel : true,
+                    set_height : 100
+            });
+            
+        }
 
 });
