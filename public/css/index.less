@@ -1384,7 +1384,7 @@ section h1{
 }
 #profile{
 	.dropdown-menu{
-		min-width: auto;
+		min-width: 0;
 		border-radius:0;
 		border:1px solid #E0E0E0;
 		border-top: 0;
@@ -1408,6 +1408,11 @@ section h1{
 		span{
 			vertical-align:middle;
 			border:0 !important;
+			white-space:normal;
+			display:inline-block;
+			height:auto;
+			margin:0;
+			line-height:1.1;
 		}
 	}
 	.wrapper-month {
@@ -1425,6 +1430,10 @@ section h1{
 			top:0;
 		}
 	}
+	.filter-option{
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
 }
 #profile .bootstrap-select{
 	outline:none;
@@ -1439,9 +1448,17 @@ section h1{
 	}
 	.dropdown-menu{
 		width: 191px;
+		span{
+			width:190px;
+		}
 	}
 	.mCSB_container{
 		width: 100%;
+	}
+	li.disabled a{
+		span:first-child{
+			display:none;
+		}
 	}
 	
 }
