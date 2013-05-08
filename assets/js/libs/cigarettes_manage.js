@@ -56,7 +56,7 @@ function() {
 
                 // visualUpdateCurrent( linked );
                 setTimeout( function() {
-                    console.log(skuFileds);
+
                    skuFileds.selectpicker('refresh');
 
                    $('.skuB .dropdown-menu').mCustomScrollbar("destroy");
@@ -145,9 +145,8 @@ function() {
 
 
     function visualUpdate() {
-        console.log(skuFileds);
-       skuFileds.selectpicker('refresh');
 
+       skuFileds.selectpicker('refresh');
 
        $('.skuB .dropdown-menu').mCustomScrollbar("destroy");
        $('.skuB .dropdown-menu').mCustomScrollbar({

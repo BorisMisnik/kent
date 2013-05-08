@@ -1365,7 +1365,7 @@ section h1{
 	background: #E0E0E0;
 	border:1px solid transparent;
 	height: 28px;
-	color:#9E9E9E;
+	color:#6B747A;
 	text-shadow:none;
 	-webkit-transition:all 500ms ease-in-out;
 	-moz-transition:all 500ms ease-in-out;
@@ -1375,6 +1375,7 @@ section h1{
 		font-size: 12px;
 		font-family: Verdana, Geneva, sans-serif;
 		top: 5px;
+		color:#6B747A;
 	}
 	.caret{
 		border-top: 4px solid #9E9E9E;
@@ -1393,11 +1394,13 @@ section h1{
 		-webkit-box-sizing:content-box;
 		-moz-box-sizing:content-box;
 		box-sizing:content-box;
+		color:#6B747A;
 		a{
 			padding:0;
 			min-height: 25px;
 			display:block;
 			padding-left: 2px;
+			max-width: 100%;
 			&:hover{
 				background:#E0E0E0;
 				color:#fff;
@@ -1406,8 +1409,22 @@ section h1{
 			}
 		}
 		span{
+			display:none;
+		}
+		span.text{
+			display:inline-block;
+			width:85%;
+			height:auto;
+			margin:0;
 			vertical-align:middle;
 			border:0 !important;
+			color:#6B747A;
+			&:after{
+				content:'';
+				display:block;
+				width:50px;
+				height:100%;
+			}
 		}
 	}
 	.wrapper-month {
