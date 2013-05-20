@@ -130,8 +130,7 @@ var background = function(){
 				angleoff += angleoffdelta;
 				timer = setTimeout(function(){animate(angleoffdelta)},500);
 			}
-
-
+			
 		},
 		two : function(){
 
