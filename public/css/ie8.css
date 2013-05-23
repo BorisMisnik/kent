@@ -50,9 +50,7 @@
 #hds2012 .img div{background-image:url("../img/hds2012.png");}
 
 
-#profile select + .btn-group{
-	background: #E0E0E0;
-}
+
 #profile input{
 	height: 28px;
 	line-height: 28px;
@@ -61,9 +59,17 @@
 	line-height: 1;
 	height: 39px;
 }
-#profile  select + .btn-group:hover {
+#profile select + .btn-group:hover {
 	color: #6B747A !important;	
 	position: relative;
+}
+#profile .dropdown-toggle,
+.sku{
+	background: #E0E0E0;
+}
+.disable #month + .btn-group .btn,
+.disable #month + .btn-group{
+	background: #E0E0E0;
 }
 #profile .dropdown-toggle:hover{
 	outline: none !important;

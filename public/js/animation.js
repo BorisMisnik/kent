@@ -683,7 +683,7 @@ var action = function () {
 				$('.title-block').html('<span>00.2 /</span> Історія КЕНТ');
 				break;
 			case 'question' :
-				$('.title-block').html('<span>00.3 /</span> Запитання-відповіді');
+				$('.title-block').html('<span>00.3 /</span> Запитання та відповіді');
 				break;
 			case 'profile' : 
 				$('.title-block').html('<span>00.4 /</span> Профайл');

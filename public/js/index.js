@@ -82,4 +82,7 @@ $(function(){
 	//select 
 
 	$('select').selectpicker();
+	$('.btn-group *').on('mouseenter',function(){
+		$(this).css('opacity','1');
+	})
 });
