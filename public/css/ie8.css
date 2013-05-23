@@ -61,7 +61,29 @@
 	line-height: 1;
 	height: 39px;
 }
-#profile  select + .btn-group:hover button{
+#profile  select + .btn-group:hover {
 	color: #6B747A !important;	
 	position: relative;
+}
+#profile .dropdown-toggle:hover{
+	outline: none !important;
+	box-shadow: none;
+	border-radius: 0;
+	background: #E0E0E0;
+	border: 1px solid rgba(0, 0, 0, 0);
+	height: 28px;
+	color: #6B747A;
+	text-shadow: none;
+}
+#profile .dropdown-toggle:hover span{
+	text-shadow: none;
+	font-size: 12px;
+	font-family: Verdana, Geneva, sans-serif;
+	top: 5px;
+	color: #6B747A;
+}
+#profile .dropdown-toggle:hover .caret{
+	border-top: 4px solid #9E9E9E;
+	top: 4px;
+	right: 7px;
 }

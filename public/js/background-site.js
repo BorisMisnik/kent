@@ -53,8 +53,8 @@ var background = function(){
 		},
 		resize : function(){
 
-			h =  body.height() - hv.height()  - footer.height();
-			w = container.width();
+			var h =  body.height() - hv.height()  - footer.height();
+			var w = container.width();
 
 			$('#svg')
 				.find('svg')
@@ -66,12 +66,11 @@ var background = function(){
 		},
 
 		svgChangeSize : function(){
-			$('#svg')
-				.find('svg')
-				.attr({
-					'height' : h,
-					'width'  : w
-				});
+
+			var h =  body.height() - hv.height()  - footer.height();
+			var w = container.width();
+
+			that.p.setSize(w, h);
 		},
 
 		line : function(){
