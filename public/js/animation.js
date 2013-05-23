@@ -1166,23 +1166,26 @@ $(document).ready(function(){
 			}
 		});
 
+	var boxes = $('#history-all').find('.box')
+	// TweenMax.staggerTo(boxes,0,{
+	// 	scale : 0.98
+	// },0);
 	//box in all history slide
-	$('#history-all')
-		.find('.box')
+	boxes
 		.on({
-			mouseenter : function(){
+			// mouseenter : function(){
 
-				TweenMax.to($(this),0.1,{
-					scale : 1.05
-				});
+			// 	TweenMax.to($(this),0.1,{
+			// 		scale : 1
+			// 	});
 
-			},
-			mouseleave : function(){
+			// },
+			// mouseleave : function(){
 
-				TweenMax.to($(this),0.1,{
-					scale : 1
-				});
-			},
+			// 	TweenMax.to($(this),0.1,{
+			// 		scale : 0.98
+			// 	});
+			// },
 			click : function(){
 
 				var slide = $(this).data('scroll');

@@ -28,7 +28,6 @@ $(function(){
 		.parent()
 		.css('height','371px');
 
-
 	if ( $.browser.msie && parseInt( $.browser.version, 10) <= 8 ) return;
 
 	TweenMax.staggerTo($('#zero,#fourth'),0,{scale:0.4});

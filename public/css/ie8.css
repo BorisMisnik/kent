@@ -30,6 +30,9 @@
 	position: relative;
 	left: 10px;
 }
+.carousel .wrapeer > .switch p{
+	bottom: 10px;
+}
 .carousel .wrapeer[data-name="hds"]{
 	height: 254px !important;
 }
@@ -47,3 +50,14 @@
 #hds2012 .img div{background-image:url("../img/hds2012.png");}
 
 
+#profile select + .btn-group{
+	background: #E0E0E0;
+}
+#profile input{
+	height: 28px;
+	line-height: 28px;
+}
+#profile .form-horizontal .submit{
+	line-height: 1;
+	height: 39px;
+}

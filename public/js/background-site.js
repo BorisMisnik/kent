@@ -92,7 +92,8 @@ var background = function(){
 				};
 
 				angleoff += angleoffdelta;
-				timer = setTimeout(function(){animate(angleoffdelta)},1000);
+				if ( !( $.browser.msie && parseInt( $.browser.version, 10) <= 8 ) )
+					timer = setTimeout(function(){animate(angleoffdelta)},1000);
 			}
 		},
 		one : function(){
@@ -128,7 +129,8 @@ var background = function(){
 				};
 
 				angleoff += angleoffdelta;
-				timer = setTimeout(function(){animate(angleoffdelta)},500);
+				if ( !( $.browser.msie && parseInt( $.browser.version, 10) <= 8 ) )
+					timer = setTimeout(function(){animate(angleoffdelta)},500);
 			}
 			
 		},
@@ -164,7 +166,8 @@ var background = function(){
 				};
 
 				angleoff += angleoffdelta;
-				timer = setTimeout(function(){animate(angleoffdelta)},500);
+				if ( !( $.browser.msie && parseInt( $.browser.version, 10) <= 8 ) )
+					timer = setTimeout(function(){animate(angleoffdelta)},500);
 			}
 		},
 		three : function(){
@@ -198,7 +201,8 @@ var background = function(){
 				};
 
 				angleoff += angleoffdelta;
-				timer = setTimeout(function(){animate(angleoffdelta)},500);
+				if ( !( $.browser.msie && parseInt( $.browser.version, 10) <= 8 ) )
+					timer = setTimeout(function(){animate(angleoffdelta)},500);
 			}
 		},
 		four : function(){
@@ -236,7 +240,8 @@ var background = function(){
 				};
 
 				angleoff += angleoffdelta;
-				timer = setTimeout(function(){animate(angleoffdelta)},500);
+				if ( !( $.browser.msie && parseInt( $.browser.version, 10) <= 8 ) )
+					timer = setTimeout(function(){animate(angleoffdelta)},500);
 			}
 		},
 		five : function(){
@@ -272,7 +277,8 @@ var background = function(){
 				};
 
 				angleoff += angleoffdelta;
-				timer = setTimeout(function(){animate(angleoffdelta)},500);
+				if ( !( $.browser.msie && parseInt( $.browser.version, 10) <= 8 ) )
+					timer = setTimeout(function(){animate(angleoffdelta)},500);
 			}
 		},
 		six : function(){
@@ -308,7 +314,8 @@ var background = function(){
 				};
 
 				angleoff += angleoffdelta;
-				timer = setTimeout(function(){animate(angleoffdelta)},500);
+				if ( !( $.browser.msie && parseInt( $.browser.version, 10) <= 8 ) )
+					timer = setTimeout(function(){animate(angleoffdelta)},500);
 			}
 		},
 		seven : function(){
@@ -344,7 +351,8 @@ var background = function(){
 				};
 
 				angleoff += angleoffdelta;
-				timer = setTimeout(function(){animate(angleoffdelta)},500);
+				if ( !( $.browser.msie && parseInt( $.browser.version, 10) <= 8 ) )
+					timer = setTimeout(function(){animate(angleoffdelta)},500);
 			}
 
 		}
