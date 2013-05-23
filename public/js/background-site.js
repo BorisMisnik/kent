@@ -53,8 +53,8 @@ var background = function(){
 		},
 		resize : function(){
 
-			var h =  body.height() - hv.height()  - footer.height();
-			var w = container.width();
+			h =  body.height() - hv.height()  - footer.height();
+			w = container.width();
 
 			$('#svg')
 				.find('svg')
@@ -62,7 +62,18 @@ var background = function(){
 					'height' : h,
 					'width'  : w
 				});
+
 		},
+
+		svgChangeSize : function(){
+			$('#svg')
+				.find('svg')
+				.attr({
+					'height' : h,
+					'width'  : w
+				});
+		},
+
 		line : function(){
 
 			clearTimeout(timer);
@@ -94,6 +105,8 @@ var background = function(){
 				angleoff += angleoffdelta;
 				if ( !( $.browser.msie && parseInt( $.browser.version, 10) <= 8 ) )
 					timer = setTimeout(function(){animate(angleoffdelta)},1000);
+				else
+					that.svgChangeSize();
 			}
 		},
 		one : function(){
@@ -131,6 +144,8 @@ var background = function(){
 				angleoff += angleoffdelta;
 				if ( !( $.browser.msie && parseInt( $.browser.version, 10) <= 8 ) )
 					timer = setTimeout(function(){animate(angleoffdelta)},500);
+				else
+					that.svgChangeSize();
 			}
 			
 		},
@@ -168,6 +183,8 @@ var background = function(){
 				angleoff += angleoffdelta;
 				if ( !( $.browser.msie && parseInt( $.browser.version, 10) <= 8 ) )
 					timer = setTimeout(function(){animate(angleoffdelta)},500);
+				else
+					that.svgChangeSize();
 			}
 		},
 		three : function(){
@@ -203,6 +220,8 @@ var background = function(){
 				angleoff += angleoffdelta;
 				if ( !( $.browser.msie && parseInt( $.browser.version, 10) <= 8 ) )
 					timer = setTimeout(function(){animate(angleoffdelta)},500);
+				else
+					that.svgChangeSize();
 			}
 		},
 		four : function(){
@@ -242,6 +261,8 @@ var background = function(){
 				angleoff += angleoffdelta;
 				if ( !( $.browser.msie && parseInt( $.browser.version, 10) <= 8 ) )
 					timer = setTimeout(function(){animate(angleoffdelta)},500);
+				else
+					that.svgChangeSize();
 			}
 		},
 		five : function(){
@@ -279,6 +300,8 @@ var background = function(){
 				angleoff += angleoffdelta;
 				if ( !( $.browser.msie && parseInt( $.browser.version, 10) <= 8 ) )
 					timer = setTimeout(function(){animate(angleoffdelta)},500);
+				else
+					that.svgChangeSize();
 			}
 		},
 		six : function(){
@@ -316,6 +339,8 @@ var background = function(){
 				angleoff += angleoffdelta;
 				if ( !( $.browser.msie && parseInt( $.browser.version, 10) <= 8 ) )
 					timer = setTimeout(function(){animate(angleoffdelta)},500);
+				else
+					that.svgChangeSize();
 			}
 		},
 		seven : function(){
@@ -353,6 +378,8 @@ var background = function(){
 				angleoff += angleoffdelta;
 				if ( !( $.browser.msie && parseInt( $.browser.version, 10) <= 8 ) )
 					timer = setTimeout(function(){animate(angleoffdelta)},500);
+				else
+					that.svgChangeSize();
 			}
 
 		}

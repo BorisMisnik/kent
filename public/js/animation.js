@@ -1244,7 +1244,14 @@ $(document).ready(function(){
 				}
 			});
 
-			lines.resize();
+			if ( $.browser.msie && parseInt( $.browser.version, 10) <= 8 ){
+				lines.resize();
+				animation.selectBackground();
+			}
+			else{
+				lines.resize();
+			}
+			
 
 		}
 	});
