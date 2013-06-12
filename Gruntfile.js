@@ -25,11 +25,55 @@ module.exports = function(grunt) {
 //                    "path/to/result.css": "path/to/source.less"
 //                }
 //            }
+        },
+
+        useminPrepare: {
+            html: 'public/js/pack1.html'
+        },
+
+        usemin: {
+            html: ['public/js/pack1.html']
+        },
+
+        coffee: {
+
+            compile: {
+                options: {
+                    join: true //,bare : true,
+                },
+                files  : {
+                    'public/js/app.js': [
+                        'public/coffee/misc.coffee',
+                        'public/coffee/AssetsManager.coffee',
+                        'public/coffee/views/PackSpiteSheet.coffee',
+                        'public/coffee/views/PackComposition.coffee',
+                        'public/coffee/app.coffee'
+                     ]
+                }
+            }
+        },
+        macreload: {
+
+            chrome: {
+                browser: 'safari',
+                editor: 'webstorm'
+            }
         }
+
             // todo: watch section
     });
 
     grunt.loadNpmTasks( 'grunt-contrib-less' );
-    grunt.registerTask( 'default', [ 'less' ]);
+    grunt.loadNpmTasks( 'grunt-contrib-concat' );
+    grunt.loadNpmTasks( 'grunt-contrib-coffee' );
+    grunt.loadNpmTasks( 'grunt-usemin' );
+    grunt.loadNpmTasks( 'grunt-macreload' );
+
+    //grunt.registerTask( 'default', [ 'less' ]);
+
+    grunt.registerTask( 'default', [
+        'coffee',
+         'macreload'
+    ]);
 
 };
