@@ -249,7 +249,7 @@ class PackComposition extends createjs.Container
               prevX = e.stageX
               prevY = e.stageY
 
-              nuFrame =  @pss.frame+deltaX/2
+              nuFrame =  @pss.frame+deltaX/4
               nuFrame = (if (nuFrame < 0) then 106 + nuFrame else (if (nuFrame > 106) then nuFrame - 106 else nuFrame))
               @pss.frame = nuFrame
 

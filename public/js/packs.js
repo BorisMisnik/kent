@@ -411,7 +411,7 @@
                 deltaY = prevY - e.stageY;
                 prevX = e.stageX;
                 prevY = e.stageY;
-                nuFrame = _this.pss.frame + deltaX / 2;
+                nuFrame = _this.pss.frame + deltaX / 4;
                 nuFrame = (nuFrame < 0 ? 106 + nuFrame : (nuFrame > 106 ? nuFrame - 106 : nuFrame));
                 return _this.pss.frame = nuFrame;
               });
