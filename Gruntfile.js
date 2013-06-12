@@ -42,7 +42,7 @@ module.exports = function(grunt) {
                     join: true //,bare : true,
                 },
                 files  : {
-                    'public/js/app.js': [
+                    'public/js/packs.js': [
                         'public/coffee/misc.coffee',
                         'public/coffee/AssetsManager.coffee',
                         'public/coffee/views/PackSpiteSheet.coffee',
