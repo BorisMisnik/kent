@@ -245,6 +245,12 @@
     return exp.PackSpiteSheet = PackSpiteSheet;
   });
 
+  kent.packs.assetsManager.addAssetURL('i_360', 'img/i360.png');
+
+  kent.packs.assetsManager.addAssetURL('i_open', 'img/iOpen.png');
+
+  kent.packs.assetsManager.addAssetURL('i_sig', 'img/iSig.png');
+
   PackComposition = (function(_super) {
     __extends(PackComposition, _super);
 
@@ -263,17 +269,22 @@
       this.pss2 = new kent.packs.views.PackSpiteSheet();
       this.pss2.visible = false;
       kent.packs.app.pss2 = this.pss2;
-      this.addChild(this.pss, this.pss2);
       this.pack_rotator = new createjs.Shape();
-      this.pack_rotator.graphics.beginFill(createjs.Graphics.getRGB(0, 255, 0, 0)).drawRect(0, 0, 220, 280);
+      this.pack_rotator.graphics.beginFill(createjs.Graphics.getRGB(0, 255, 0, 0.0)).drawRect(0, 0, 220, 280);
       this.pack_rotator.hitArea = new createjs.Shape(new createjs.Graphics().beginFill("#000").drawRect(0, 0, 220, 280));
       this.pack_rotator.x = -110;
       this.pack_rotator.y = -60;
       this.pack_opener = new createjs.Shape();
-      this.pack_opener.graphics.beginFill(createjs.Graphics.getRGB(255, 0, 0, 0)).drawRect(0, 0, 220, 140);
+      this.pack_opener.graphics.beginFill(createjs.Graphics.getRGB(255, 0, 0, 0.0)).drawRect(0, 0, 220, 140);
       this.pack_opener.hitArea = new createjs.Shape(new createjs.Graphics().beginFill("#000").drawRect(0, 0, 220, 140));
       this.pack_opener.x = -110;
       this.pack_opener.y = -200;
+      this.pack_closr = new createjs.Shape();
+      this.pack_closr.graphics.beginFill(createjs.Graphics.getRGB(0, 0, 255, 0.0)).drawRect(0, 0, 220, 70);
+      this.pack_closr.hitArea = new createjs.Shape(new createjs.Graphics().beginFill("#000").drawRect(0, 0, 220, 70));
+      this.pack_closr.x = -110;
+      this.pack_closr.y = -270;
+      this.pack_closr.visible = false;
       this.fltr_btn_1 = new createjs.Shape();
       this.fltr_btn_1.graphics.beginFill(createjs.Graphics.getRGB(0, 255, 0, .0)).drawRect(-100, -75, 200, 150);
       this.fltr_btn_1.hitArea = new createjs.Shape(new createjs.Graphics().beginFill("#000").drawRect(-100, -75, 200, 150));
@@ -321,11 +332,15 @@
       fltr_btn_3_src = 318;
       fltr_btn_3_trgt = 327;
       this.fltr_btn_1.addEventListener("mouseover", function() {
-        return TweenMax.fromTo(_this.pss2, fltr_btn_1_trgt - fltr_btn_1_src, {
+        TweenMax.fromTo(_this.pss2, fltr_btn_1_trgt - fltr_btn_1_src, {
           frame: fltr_btn_1_src
         }, {
           frame: fltr_btn_1_trgt,
           useFrames: true
+        });
+        return TweenMax.to(_this.title_fltr_sbt_2, 1, {
+          alpha: 1,
+          ease: Sine.easeOut
         });
       });
       this.fltr_btn_1.addEventListener("mouseout", function() {
@@ -337,11 +352,15 @@
         });
       });
       this.fltr_btn_2.addEventListener("mouseover", function() {
-        return TweenMax.fromTo(_this.pss2, fltr_btn_2_trgt - fltr_btn_2_src, {
+        TweenMax.fromTo(_this.pss2, fltr_btn_2_trgt - fltr_btn_2_src, {
           frame: fltr_btn_2_src
         }, {
           frame: fltr_btn_2_trgt,
           useFrames: true
+        });
+        return TweenMax.to(_this.title_fltr_sbt_1, 1, {
+          alpha: 1,
+          ease: Sine.easeOut
         });
       });
       this.fltr_btn_2.addEventListener("mouseout", function() {
@@ -353,11 +372,15 @@
         });
       });
       this.fltr_btn_3.addEventListener("mouseover", function() {
-        return TweenMax.fromTo(_this.pss2, fltr_btn_3_trgt - fltr_btn_3_src, {
+        TweenMax.fromTo(_this.pss2, fltr_btn_3_trgt - fltr_btn_3_src, {
           frame: fltr_btn_3_src
         }, {
           frame: fltr_btn_3_trgt,
           useFrames: true
+        });
+        return TweenMax.to(_this.title_fltr_sbt_3, 1, {
+          alpha: 1,
+          ease: Sine.easeOut
         });
       });
       this.fltr_btn_3.addEventListener("mouseout", function() {
@@ -368,13 +391,27 @@
           useFrames: true
         });
       });
-      this.addChild(this.pack_opener, this.pack_rotator, this.fltr_btn_1, this.fltr_btn_2, this.fltr_btn_3, this.title, this.title_fltr_1, this.title_fltr_2, this.title_fltr_3, this.title_fltr_sbt_1, this.title_fltr_sbt_2, this.title_fltr_sbt_3);
+      this.i_360 = new createjs.Bitmap(kent.packs.assetsManager.getAssetURL('i_360'));
+      this.i_360.x = -324 / 2;
+      this.i_360.y = 180;
+      this.i_open_1 = new createjs.Bitmap(kent.packs.assetsManager.getAssetURL('i_open'));
+      this.i_open_1.x = -100;
+      this.i_open_1.y = -110;
+      this.i_open_2 = new createjs.Bitmap(kent.packs.assetsManager.getAssetURL('i_open'));
+      this.i_open_2.x = -52 / 2;
+      this.i_open_2.y = -115;
+      this.i_open_2.alpha = 0;
+      this.i_sig = new createjs.Bitmap(kent.packs.assetsManager.getAssetURL('i_sig'));
+      this.i_sig.x = 280;
+      this.i_sig.y = -26;
+      this.i_sig.alpha = 0;
+      this.addChild(this.i_360, this.pss, this.pss2, this.i_open_1, this.i_open_2, this.i_sig, this.pack_opener, this.pack_closr, this.pack_rotator, this.fltr_btn_1, this.fltr_btn_2, this.fltr_btn_3, this.title, this.title_fltr_1, this.title_fltr_2, this.title_fltr_3, this.title_fltr_sbt_1, this.title_fltr_sbt_2, this.title_fltr_sbt_3);
       this.state_machine = StateMachine.create({
         inital: 'none',
         events: [
           {
             name: 'rotate',
-            from: 'none',
+            from: '*',
             to: 'rotation'
           }, {
             name: 'open',
@@ -400,9 +437,14 @@
         ],
         callbacks: {
           onenterrotation: function() {
+            console.log("enter rotation");
+            _this.pack_closr.visible = false;
             _this.pack_rotator.addEventListener("mousedown", function(e) {
               var prevX, prevY;
               _this.pack_opener.visible = false;
+              TweenMax.to(_this.i_open_1, .5, {
+                alpha: 0
+              });
               prevX = e.stageX;
               prevY = e.stageY;
               _this.pack_rotator.getStage().addEventListener("stagemousemove", function(e) {
@@ -427,13 +469,19 @@
                   useFrames: true,
                   ease: Linear.easeNone,
                   onComplete: function() {
-                    return _this.pack_opener.visible = true;
+                    _this.pack_opener.visible = true;
+                    return TweenMax.to(_this.i_open_1, .5, {
+                      alpha: 1
+                    });
                   }
                 });
               });
             });
-            return _this.pack_opener.addEventListener("mousedown", function(e) {
+            _this.pack_opener.addEventListener("mousedown", function(e) {
               var prevX, prevY;
+              TweenMax.to(_this.i_open_1, .5, {
+                alpha: 0
+              });
               _this.pack_rotator.visible = false;
               prevX = e.stageX;
               prevY = e.stageY;
@@ -474,30 +522,92 @@
                 }
               });
             });
+            TweenMax.to(_this.i_360, .5, {
+              alpha: 1
+            });
+            TweenMax.to(_this.i_open_1, .5, {
+              alpha: 1
+            });
+            return TweenMax.to(_this.i_open_2, .5, {
+              alpha: 0
+            });
           },
           onleaverotation: function() {
+            console.log("leave rotation");
+            TweenMax.to(_this.i_360, .5, {
+              alpha: 0
+            });
             _this.pack_opener.visible = false;
             _this.pack_rotator.visible = false;
             _this.pack_opener.removeAllEventListeners("mousedown");
             return _this.pack_rotator.removeAllEventListeners("mousedown");
           },
           onenteropen: function() {
+            console.log("enter open");
             return console.log('on enter open');
           },
           onentersig: function() {
-            _this.pss2.y += 6;
+            console.log("enter sig");
+            _this.pss2.y = 6;
             _this.pss2.frame = 121;
             _this.pss2.visible = true;
             _this.pss2.rotation = -90;
             _this.pss2.scaleX = _this.pss2.scaleY = .597;
             _this.pss2.maskLeft = 690;
             _this.pack_opener.visible = true;
-            return _this.pack_opener.addEventListener("mousedown", function(e) {
+            _this.pack_closr.visible = true;
+            _this.pack_closr.addEventListener("mousedown", function(e) {
+              var prevX, prevY;
+              _this.pss2.visible = false;
+              _this.pack_rotator.visible = false;
+              prevX = e.stageX;
+              prevY = e.stageY;
+              _this.pack_closr.getStage().addEventListener("stagemousemove", function(e) {
+                var deltaX, deltaY, nuFrame;
+                deltaX = prevX - e.stageX;
+                deltaY = prevY - e.stageY;
+                prevX = e.stageX;
+                prevY = e.stageY;
+                nuFrame = _this.pss.frame + deltaY / 4;
+                nuFrame = (nuFrame < 107 ? 107 : (nuFrame > 120 ? 120 : nuFrame));
+                _this.pss.frame = nuFrame;
+                return console.log(nuFrame);
+              });
+              return _this.pack_closr.getStage().addEventListener("stagemouseup", function(e) {
+                var time;
+                console.log("@@pack_closr close pack");
+                _this.pack_opener.getStage().removeAllEventListeners("stagemousemove");
+                _this.pack_opener.getStage().removeAllEventListeners("stagemouseup");
+                if (_this.pss.frame > 115) {
+                  time = 120 - _this.pss.frame;
+                  return TweenMax.to(_this.pss, time, {
+                    frame: 120,
+                    ease: Linear.easeNone,
+                    useFrames: true,
+                    onComplete: function() {
+                      return _this.state_machine.getsig();
+                    }
+                  });
+                } else {
+                  return TweenMax.to(_this.pss, time, {
+                    frame: 107,
+                    ease: Linear.easeNone,
+                    useFrames: true,
+                    onComplete: function() {
+                      _this.state_machine.rotate();
+                      return _this.pack_rotator.visible = true;
+                    }
+                  });
+                }
+              });
+            });
+            _this.pack_opener.addEventListener("mousedown", function(e) {
               var prevX, prevY;
               prevX = e.stageX;
               prevY = e.stageY;
               _this.pack_opener.getStage().addEventListener("stagemousemove", function(e) {
                 var deltaX, deltaY, nuy;
+                console.log("@pack_opener : sig");
                 deltaX = prevX - e.stageX;
                 deltaY = prevY - e.stageY;
                 prevX = e.stageX;
@@ -511,40 +621,62 @@
               return _this.pack_opener.getStage().addEventListener("stagemouseup", function(e) {
                 _this.pack_opener.getStage().removeAllEventListeners("stagemousemove");
                 _this.pack_opener.getStage().removeAllEventListeners("stagemouseup");
-                if (_this.pss2.y > -70) {
+                if (_this.pss2.y > -50) {
                   return TweenMax.to(_this.pss2, .5, {
                     y: 6,
                     maskLeft: 690
                   });
                 } else {
                   _this.pack_opener.visible = false;
+                  _this.pack_closr.visible = false;
                   _this.pack_opener.removeAllEventListeners("mousedown");
                   _this.pack_opener.getStage().removeAllEventListeners("stagemousemove");
                   TweenMax.to(_this.pss, 1.5, {
                     y: 1000
                   });
-                  return TweenMax.to(_this.pss2, .5, {
+                  TweenMax.to(_this.pss2, .5, {
                     maskLeft: 0,
                     y: 0,
                     onComplete: function() {
                       return _this.state_machine.rotatesig();
                     }
                   });
+                  return TweenMax.to(_this.i_open_2, .5, {
+                    alpha: 0
+                  });
                 }
               });
             });
+            return TweenMax.to(_this.i_open_2, .5, {
+              alpha: 1
+            });
+          },
+          onleavesig: function() {
+            console.log("leave sig");
+            _this.pack_closr.removeAllEventListeners("mousedown");
+            _this.pack_opener.removeAllEventListeners("mousedown");
+            _this.pack_opener.getStage().removeAllEventListeners("stagemousemove");
+            return _this.pack_opener.getStage().removeAllEventListeners("stagemouseup");
           },
           onenterrotatedsig: function() {
             TweenMax.to(_this.pss2, .5, {
               scaleX: 1,
               scaleY: 1,
-              rotation: 0
+              rotation: 0,
+              onComplete: function() {
+                return TweenMax.to(_this.i_sig, .5, {
+                  alpha: 1
+                });
+              }
             });
             return _this.pack_opener.getStage().addEventListener("click", function() {
               return _this.state_machine.openfilter();
             });
           },
           onenteropenedfilter: function() {
+            TweenMax.to(_this.i_sig, .5, {
+              alpha: 0
+            });
             _this.pack_opener.getStage().removeAllEventListeners("click");
             console.log(_this.pss2.frame);
             TweenMax.to(_this.pss2, 110 * 2, {
@@ -568,22 +700,7 @@
               delay: 3.5,
               ease: Sine.easeOut
             });
-            TweenMax.to(_this.title_fltr_3, 1, {
-              alpha: 1,
-              delay: 4,
-              ease: Sine.easeOut
-            });
-            TweenMax.to(_this.title_fltr_sbt_1, 1, {
-              alpha: 1,
-              delay: 3,
-              ease: Sine.easeOut
-            });
-            TweenMax.to(_this.title_fltr_sbt_2, 1, {
-              alpha: 1,
-              delay: 3.5,
-              ease: Sine.easeOut
-            });
-            return TweenMax.to(_this.title_fltr_sbt_3, 1, {
+            return TweenMax.to(_this.title_fltr_3, 1, {
               alpha: 1,
               delay: 4,
               ease: Sine.easeOut
