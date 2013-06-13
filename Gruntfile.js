@@ -52,6 +52,39 @@ module.exports = function(grunt) {
                 }
             }
         },
+
+        concat: {
+            tornado:{
+                src: [
+                    'public/js/preloadjs-0.3.1.min.js',
+                    'public/js/easeljs-0.6.1.min.js',
+                    'public/js/TweenMax.min.js',
+                    'public/js/state-machine.min.js',
+                    'public/js/packs.min.js'],
+                dest: 'public/js/packs.min.js'
+            }
+
+        },
+
+        uglify: {
+            packs: {
+                files: {
+                    'public/js/packs.min.js': ['public/js/packs.js']
+                }
+            }
+        },
+
+        removelogging: {
+            dist: {
+                src: "public/js/packs.js",
+                dest: "public/js/packs.js",
+
+                options: {
+                    // see below for options. this is optional.
+                }
+            }
+        },
+
         macreload: {
 
             chrome: {
@@ -63,17 +96,21 @@ module.exports = function(grunt) {
             // todo: watch section
     });
 
-    grunt.loadNpmTasks( 'grunt-contrib-less' );
-    grunt.loadNpmTasks( 'grunt-contrib-concat' );
-    grunt.loadNpmTasks( 'grunt-contrib-coffee' );
-    grunt.loadNpmTasks( 'grunt-usemin' );
+    grunt.loadNpmTasks('grunt-contrib');
     grunt.loadNpmTasks( 'grunt-macreload' );
+    grunt.loadNpmTasks("grunt-remove-logging");
 
     //grunt.registerTask( 'default', [ 'less' ]);
 
     grunt.registerTask( 'default', [
         'coffee',
+        'uglify',
+        'removelogging',
+        'concat',
          'macreload'
     ]);
 
 };
+
+
+

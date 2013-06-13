@@ -18,6 +18,8 @@
     "grunt-contrib-coffee": "~0.7.0",
     "grunt-s3": "~0.2.0-alpha.2",
     "grunt-macreload": "~0.1.3",
-    "grunt-usemin": "~0.1.12"
+    "grunt-usemin": "~0.1.12",
+    "grunt-contrib": "~0.7.0",
+    "grunt-remove-logging": "~0.1.1"
   }
 }

@@ -437,7 +437,7 @@
         ],
         callbacks: {
           onenterrotation: function() {
-            console.log("enter rotation");
+            
             _this.pack_closr.visible = false;
             _this.pack_rotator.addEventListener("mousedown", function(e) {
               var prevX, prevY;
@@ -459,7 +459,7 @@
               });
               return _this.pack_rotator.getStage().addEventListener("stagemouseup", function(e) {
                 var targetFrame, time;
-                console.log("@pack_rotator stagemouseup");
+                
                 _this.pack_rotator.getStage().removeAllEventListeners("stagemousemove");
                 _this.pack_rotator.getStage().removeAllEventListeners("stagemouseup");
                 targetFrame = (_this.pss.frame > 106 / 2 ? 106 : 0);
@@ -497,7 +497,7 @@
               });
               return _this.pack_opener.getStage().addEventListener("stagemouseup", function(e) {
                 var time;
-                console.log("@pack_opener stagemouseup");
+                
                 _this.pack_opener.getStage().removeAllEventListeners("stagemousemove");
                 _this.pack_opener.getStage().removeAllEventListeners("stagemouseup");
                 if (_this.pss.frame > 115) {
@@ -533,7 +533,7 @@
             });
           },
           onleaverotation: function() {
-            console.log("leave rotation");
+            
             TweenMax.to(_this.i_360, .5, {
               alpha: 0
             });
@@ -543,11 +543,11 @@
             return _this.pack_rotator.removeAllEventListeners("mousedown");
           },
           onenteropen: function() {
-            console.log("enter open");
-            return console.log('on enter open');
+            
+            return 
           },
           onentersig: function() {
-            console.log("enter sig");
+            
             _this.pss2.y = 6;
             _this.pss2.frame = 121;
             _this.pss2.visible = true;
@@ -571,11 +571,11 @@
                 nuFrame = _this.pss.frame + deltaY / 4;
                 nuFrame = (nuFrame < 107 ? 107 : (nuFrame > 120 ? 120 : nuFrame));
                 _this.pss.frame = nuFrame;
-                return console.log(nuFrame);
+                return 
               });
               return _this.pack_closr.getStage().addEventListener("stagemouseup", function(e) {
                 var time;
-                console.log("@@pack_closr close pack");
+                
                 _this.pack_opener.getStage().removeAllEventListeners("stagemousemove");
                 _this.pack_opener.getStage().removeAllEventListeners("stagemouseup");
                 if (_this.pss.frame > 115) {
@@ -607,7 +607,7 @@
               prevY = e.stageY;
               _this.pack_opener.getStage().addEventListener("stagemousemove", function(e) {
                 var deltaX, deltaY, nuy;
-                console.log("@pack_opener : sig");
+                
                 deltaX = prevX - e.stageX;
                 deltaY = prevY - e.stageY;
                 prevX = e.stageX;
@@ -652,7 +652,7 @@
             });
           },
           onleavesig: function() {
-            console.log("leave sig");
+            
             _this.pack_closr.removeAllEventListeners("mousedown");
             _this.pack_opener.removeAllEventListeners("mousedown");
             _this.pack_opener.getStage().removeAllEventListeners("stagemousemove");
@@ -678,7 +678,7 @@
               alpha: 0
             });
             _this.pack_opener.getStage().removeAllEventListeners("click");
-            console.log(_this.pss2.frame);
+            
             TweenMax.to(_this.pss2, 110 * 2, {
               frame: 121 + 110,
               ease: Linear.easeNone,
@@ -712,7 +712,7 @@
         }
       });
       this.state_machine.rotate();
-      return console.log(this.state_machine.current);
+      return 
     };
 
     return PackComposition;
@@ -734,7 +734,7 @@
 
     App.prototype.initStage = function() {
       var _this = this;
-      console.log("initStage " + this.stageWidth + ", " + this.stageHeight);
+      
       this.stage = new createjs.Stage("app-canvas");
       this.stage.enableMouseOver(20);
       this.preload_label = new createjs.Text("0%".toUpperCase(), "22px Verdana", "#6B747A");
@@ -751,7 +751,7 @@
           pss.x = _this.stageWidth / 2;
           pss.y = _this.stageHeight / 2;
           _this.stage.addChild(pss);
-          console.log("COMPLETE");
+          
           return _this.preload_label.visible = false;
         },
         progress: function(loaded) {
