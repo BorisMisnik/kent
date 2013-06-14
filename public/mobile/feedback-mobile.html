@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Feedback</title>
+
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/bootstrap-responsive.min.css">
+    <link rel="stylesheet/less" type="text/css" href="../css/main.less">
+	<link rel="stylesheet/less" type="text/css" href="../css/feedback.less">
+
+	<script src="../js/less-1.3.3.min.js"></script>
+	<script src="../js/jquery-1.9.1.min.js"></script>
+	<script src="../js/form.js"></script>
+	<script src="../js/raphael-min.js"></script>
+	<script src="../js/background-mobile.js"></script>
+
+</head>
+<body>
+	<div class="container-fluid">
+		<div id="svg"></div>
+		<div class="row-fluid main">
+			<div class="span12">
+				<section id="feedback">
+					<div class="wrapper-form">
+						<h1>Зворотний зв’язок<a href="#"></a></h1>
+						<p class="text">Щоб твоє звернення надійшло за призначенням, обов'язково вкажи своє ім'я, електронну адресу та виклади детально суть твого звернення. </p>
+						<form class="form-horizontal" action=" " method=" ">
+
+							<div class="controls">
+     							<input type="email" name="email" value="E-mail" class="text inputError" id="email">
+								<span class="error">Неправильний формат e-mail.</span>
+    						</div>
+
+
+   						 	<div class="controls">
+     							<input type="text" name="name" value="Iм’я" class="text inputError" id="name">
+     							<span class="error">Введи своє ім'я.</span>
+    						</div>
+							
+							<div class="controls">
+								<div class="inputError wrapperTextarea">
+									<textarea name="massege" id="massege" value="Повідомлення" class="">Повідомлення</textarea>
+								</div>
+								<span class="error">Введи своє повідомлення.</span>
+							</div>
+							<p>
+								Щоб твоє звернення надійшло за призначенням, обов'язково вкажи своє ім'я, електронну адресу та виклади детально суть твого звернення.
+							</p>
+							<span class="error" style="display:none;">Неправильно вказано дані. Обери щонайменше 5 неоднакових символів</span>
+							<div class="wrapper">
+								<h2>0-800-50-84-15</h2>
+								<div class="control-group">
+									<input type="submit" value="OK" class="submit">
+								</div>
+							</div>
+						</form>
+					</div>
+				</section>
+			</div>
+		</div>
+		<div class="row-fluid footer no-text">
+			<div class="span12">
+				<footer>
+					<span class="infoLine">Інформаційна лінія: 0 800 50 14 85 </span>
+					<nav class="footerNav">
+						<a href="#">Зворотний зв’язок</a>
+						<a href="#">Правила користування сайтом</a>
+					</nav>
+				</footer>
+			</div>
+		</div>
+		<div class="row-fluid xv">
+			<div class="span12">
+				<div id="xv">
+					<img src="../img/xv.jpg" alt=" " />
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

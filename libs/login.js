@@ -75,6 +75,7 @@ function syncRegistry() {
  * @param res
  */
 exports.login = function( req, res ) {
+
     var username = req.body.username,
         password = req.body.password,
         user = users[ username ],
@@ -92,6 +93,7 @@ exports.login = function( req, res ) {
 
     // error
     if ( !result ) {
+        
         res.json({
             error: 'Wrong credentials',
             wrong_credentials: true
