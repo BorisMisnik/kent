@@ -147,7 +147,7 @@
     }
 
     PackSpiteSheet.prototype.initialize = function() {
-      var frames, images, n;
+      var frames, images, n, scale;
       PackSpiteSheet.__super__.initialize.apply(this, arguments);
       images = [];
       frames = [];
@@ -192,8 +192,11 @@
         }
       });
       this.img = new createjs.BitmapAnimation(this.spriteSheet);
-      this.img.x = -978 / 2;
-      this.img.y = -550 / 2;
+      scale = .95;
+      this.img.scaleX = scale;
+      this.img.scaleY = scale;
+      this.img.x = -978 * scale / 2;
+      this.img.y = -550 * scale / 2;
       this.img.gotoAndStop(0);
       this.maskWidth = 1000;
       this._mask = new createjs.Shape();
@@ -393,7 +396,7 @@
       });
       this.i_360 = new createjs.Bitmap(kent.packs.assetsManager.getAssetURL('i_360'));
       this.i_360.x = -324 / 2;
-      this.i_360.y = 180;
+      this.i_360.y = 170;
       this.i_open_1 = new createjs.Bitmap(kent.packs.assetsManager.getAssetURL('i_open'));
       this.i_open_1.x = -100;
       this.i_open_1.y = -110;
