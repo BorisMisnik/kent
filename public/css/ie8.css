@@ -1,0 +1,95 @@
+.carousel .wrapeer[data-name="nanotek"]{
+	height: 254px !important;
+}
+.carousel .wrapeer > .nanotek{
+	background-image:url("../img/nanotek_ie8.png");
+	background-position: 0 0;
+	height: 124px;
+	width: 68px;
+	position: relative;
+	top: 51px;
+	left: 46px;
+}
+.carousel .wrapeer[data-name="hd"]{
+	height: 303px !important;
+}
+.carousel .wrapeer > .hd{
+	background-image:url("../img/hd_ie8.png");
+	background-position: 0 0;
+	position: relative;
+	left: 21px;
+	top: 6px;
+}
+.carousel .wrapeer > .hdi{
+	position: relative;
+	top: -38px;
+}
+.carousel .wrapeer > .switch{
+	background-image:url("../img/switch_ie8.png");
+	background-position: 0 0;
+	position: relative;
+	left: 10px;
+}
+.carousel .wrapeer > .switch p{
+	bottom: 10px;
+}
+.carousel .wrapeer[data-name="hds"]{
+	height: 254px !important;
+}
+.carousel .wrapeer > .hds{
+	background-image:url("../img/hds_ie8.png");
+	background-position: 0 0;
+	width: 56px;
+	height: 126px;
+	position: relative;
+	top: 42px;
+	left: 38px;
+}
+.imageSwitch > div{background-image:url("../img/switchbox.png");}
+#switch2012 .img div{background-image:url("../img/switch2012.png");}
+#hds2012 .img div{background-image:url("../img/hds2012.png");}
+
+
+
+#profile input{
+	height: 28px;
+	line-height: 28px;
+}
+#profile .form-horizontal .submit{
+	line-height: 1;
+	height: 39px;
+}
+#profile select + .btn-group:hover {
+	color: #6B747A !important;	
+	position: relative;
+}
+#profile .dropdown-toggle,
+.sku{
+	background: #E0E0E0;
+}
+.disable #month + .btn-group .btn,
+.disable #month + .btn-group{
+	background: #E0E0E0;
+}
+#profile .dropdown-toggle:hover{
+	outline: none !important;
+	box-shadow: none;
+	border-radius: 0;
+	background: #E0E0E0;
+	border: 1px solid rgba(0, 0, 0, 0);
+	height: 28px;
+	color: #6B747A;
+	text-shadow: none;
+}
+#profile .dropdown-toggle:hover span{
+	text-shadow: none;
+	font-size: 12px;
+	font-family: Verdana, Geneva, sans-serif;
+	top: 5px;
+	color: #6B747A;
+}
+#profile .dropdown-toggle:hover .caret{
+	border-top: 4px solid #9E9E9E;
+	top: 4px;
+	right: 7px;
+}

@@ -1,4 +1,4 @@
-// ikSelect 0.9.2
+// ikSelect 0.9.4
 // Copyright (c) 2012 Igor Kozlov
 // i10k.ru
 
@@ -8,10 +8,12 @@
 		syntax: "<div class=\"ik_select_link\"><span class=\"ik_select_link_text\"></span></div><div class=\"ik_select_block\"><div class=\"ik_select_list\"></div></div>",
 		autoWidth: true,
 		ddFullWidth: true,
+		equalWidths: true,
 		customClass: "",
 		ddCustomClass: "",
 		ddMaxHeight: 200,
 		filter: false,
+		nothingFoundText: "Nothing found",
 		onShow: function () {},
 		onHide: function () {},
 		onKeyUp: function () {},
@@ -32,17 +34,21 @@
 		var ikselect = this;
 
 		ikselect.element = element;
-
-		ikselect.options = $.extend({}, defaults, options);
-
 		ikselect._defaults = defaults;
 
 		if (ikselect.element === undefined) {
 			return ikselect;
 		}
+		ikselect.select = $(element); // original select
+
+		var dataOptions = {};
+		for (var key in defaults) {
+			dataOptions[key] = ikselect.select.data(key.toLowerCase());
+		}
+
+		ikselect.options = $.extend({}, defaults, options, dataOptions);
 
 		ikselect.fakeSelect = $("<div class=\"ik_select\">" + ikselect.options.syntax + "</div>"); // fake select object made with passed syntax
-		ikselect.select = $(ikselect.element); // original select
 		ikselect.link = $(".ik_select_link", ikselect.fakeSelect); // fake select
 		ikselect.linkText = $(".ik_select_link_text", ikselect.fakeSelect); // fake select's text
 		ikselect.block = $(".ik_select_block", ikselect.fakeSelect); // fake select's dropdown
@@ -51,7 +57,7 @@
 
 		ikselect.filter = $([]); // filter text input
 		ikselect.listItemsOriginal = $([]); // contains original list items when filtering
-		ikselect.nothingFoundText = $("<div class=\"ik_nothing_found\"/>").html(ikselect.select.data("nothingfoundtext"));
+		ikselect.nothingFoundText = $("<div class=\"ik_nothing_found\"/>").html(ikselect.options.nothingFoundText);
 
 		if (ikselect.options.filter && ! $.browser.mobile) {
 			ikselect.filterWrap = $(".ik_select_filter_wrap", ikselect.fakeSelect);
@@ -107,6 +113,7 @@
 				}
 				if (selectOpened.length) {
 					selectOpened.data("plugin_ikSelect").hide_block();
+					return this;
 				}
 				ikselect.show_block();
 				if (ikselect.options.filter) {
@@ -144,26 +151,32 @@
 
 			// filtering using filter
 			var filterValOld = "";
+			var searchIndexes;
 
 			filter.bind("keyup.ikSelect", function () {
 				listInner.show();
+				var filterVal = filter.val();
 
-				if (filterValOld === "" && ! ikselect.listItemsOriginal.length) {
+				if (typeof searchIndexes === "undefined") {
 					ikselect.listItemsOriginal = ikselect.listItems;
+					searchIndexes = $.makeArray($(".ik_select_option", ikselect.listItems).map(function (index, value) {
+						return $(value).text().toLowerCase();
+					}));
 				}
 
-				if (filter.val() !== filterValOld) {
-					if (filter.val() === "") {
+				if (filterVal !== filterValOld) {
+					if (filterVal === "") {
 						ikselect.listItems = ikselect.listItemsOriginal.show();
 						ikselect.listOptgroupItems.show();
 						ikselect.nothingFoundText.remove();
 					} else {
-						ikselect.listItems = ikselect.listItemsOriginal.show();
+						ikselect.listItems = $([]);
 						ikselect.listOptgroupItems.show();
-
-						ikselect.listItems.each(function () {
-							if ($(".ik_select_option", this).html().search(new RegExp(filter.val(), "i")) === -1) {
-								ikselect.listItems = ikselect.listItems.not(this);
+						ikselect.listItemsOriginal.each(function (index) {
+							if (searchIndexes[index].indexOf(filterVal) >= 0) {
+								ikselect.listItems = ikselect.listItems.add(this);
+								$(this).show();
+							} else {
 								$(this).hide();
 							}
 						});
@@ -188,12 +201,13 @@
 						}
 					}
 
-					filterValOld = filter.val();
+					filterValOld = filterVal;
 				}
 			});
 
 			// keyboard controls for the fake select and fake dropdown
 			select.add(filter).bind("keydown.ikSelect keyup.ikSelect", function (event) {
+				var handle = $(this);
 				var listItems = ikselect.listItems;
 
 				if (ikselect.hoverIndex < 0) {
@@ -241,6 +255,9 @@
 					break;
 				case 33: //page up
 				case 36: //home
+					if (handle.is(filter) && keycode === 36) {
+						return;
+					}
 					if (type === "keydown") {
 						event.preventDefault();
 						ikselect._move_to(listItems.filter(".not(ik_select_option_disabled):first"));
@@ -248,6 +265,9 @@
 					break;
 				case 34: //page down
 				case 35: //end
+					if (handle.is(filter) && keycode === 35) {
+						return;
+					}
 					if (type === "keydown") {
 						event.preventDefault();
 						ikselect._move_to(listItems.filter(".not(ik_select_option_disabled):last"));
@@ -319,17 +339,23 @@
 			var ikselect = this;
 			var select = ikselect.select;
 			var fakeSelect = ikselect.fakeSelect;
+			var link = ikselect.link;
 			var block = ikselect.block;
 			var list = ikselect.list;
 			var listInner = ikselect.listInner;
+			var filter = ikselect.filter;
 
 			var autoWidth = ikselect.options.autoWidth; // set select width according to the longest option
 			var ddFullWidth = ikselect.options.ddFullWidth; // set dropdown width according to the longest option
 
+			if (ikselect.options.filter) {
+				filter.hide();
+			}
+
 			// width calculations for the fake select when "autoWidth" is "true"
 			if (autoWidth || ddFullWidth) {
 				listInner.width("auto");
-				$("ul", listInner).width("auto");
+				$("ul:first", listInner).width("auto");
 				fakeSelect.width("auto");
 
 				block.show().width(9999);
@@ -338,7 +364,7 @@
 				var maxWidthOuter = list.outerWidth(true);
 				var maxWidthInner = list.width();
 				list.css("position", "static");
-				block.hide().css("width", "100%");
+				block.css("width", "100%");
 				listInner.css("float", "none");
 
 				if (scrollbarWidth === -1) {
@@ -355,15 +381,24 @@
 				if (ddFullWidth) {
 					block.width(maxWidthOuter);
 					listInner.width(maxWidthInner);
-					$("ul", listInner).width(maxWidthInner);
+					$("ul:first", listInner).width(maxWidthInner);
 				}
 				if (maxWidthOuter > parentWidth) {
 					maxWidthOuter = parentWidth;
 				}
 				if (autoWidth) {
-					fakeSelect.width(maxWidthOuter);
+					var liFirst = ikselect.listItems.first();
+					var liPaddings = parseInt(liFirst.css("paddingLeft"), 10) + parseInt(liFirst.css("paddingRight"), 10);
+					var linkPaddings = link.outerWidth(true) - link.width();
+					fakeSelect.width(linkPaddings > liPaddings ? maxWidthOuter - liPaddings + linkPaddings : maxWidthOuter).addClass("ik_select_autowidth");
 				}
 			}
+
+			if (ikselect.options.filter) {
+				filter.show().outerWidth(ikselect.filterWrap.width());
+			}
+
+			block.hide();
 
 			ikselect._fix_height();
 
@@ -381,7 +416,8 @@
 				select.css({
 					opacity: 0,
 					left: 0,
-					height: fakeSelect.height()
+					height: fakeSelect.height(),
+					width: fakeSelect.width()
 				});
 			}
 		},
@@ -412,14 +448,14 @@
 					newOptions += "<ul>";
 					$("option", optgroup).each(function () {
 						var option = $(this);
-						newOptions += "<li" + (option.is(":disabled") ? " class=\"ik_select_option_disabled\"" : "") + "><span class=\"ik_select_option" + (option[0].getAttribute("value") ? "" : " ik_select_option_novalue") + "\" title=\"" + option.val() + "\">" + option.html() + "</span></li>";
+						newOptions += "<li" + (option.is(":disabled") ? " class=\"ik_select_option_disabled\"" : "") + "><span class=\"ik_select_option" + (option[0].getAttribute("value") ? "" : " ik_select_option_novalue") + "\" data-title=\"" + option.val() + "\">" + option.html() + "</span></li>";
 					});
 					newOptions += "</ul>";
 
 					newOptions += "</li>";
 				} else {
 					var option = $(this);
-					newOptions += "<li" + (option.is(":disabled") ? " class=\"ik_select_option_disabled\"" : "") + "><span class=\"ik_select_option" + (option[0].getAttribute("value") ? "" : " ik_select_option_novalue") + "\" title=\"" + option.val() + "\">" + option.html() + "</span></li>";
+					newOptions += "<li" + (option.is(":disabled") ? " class=\"ik_select_option_disabled\"" : "") + "><span class=\"ik_select_option" + (option[0].getAttribute("value") ? "" : " ik_select_option_novalue") + "\" data-title=\"" + option.val() + "\">" + option.html() + "</span></li>";
 				}
 			});
 			newOptions += "</ul>";
@@ -445,7 +481,7 @@
 			listItemsEnabled.bind("click.ikSelect", function () {
 				var option = $(".ik_select_option", this);
 				linkText.html(option.html());
-				select.val(option.attr("title"));
+				select.val(option.data("title"));
 				ikselect.active.removeClass("ik_select_active");
 				ikselect.active = $(this).addClass("ik_select_active");
 				ikselect.hide_block();
@@ -585,7 +621,7 @@
 
 			$.each(args, function (index, value) {
 				if (typeof value === "string") {
-					fakeSelectHtml += "<li><span class=\"ik_select_option\" title=\"" + index + "\">" + value + "</span></li>";
+					fakeSelectHtml += "<li><span class=\"ik_select_option\" data-title=\"" + index + "\">" + value + "</span></li>";
 					selectHtml += "<option value=\"" + index + "\">" + value + "</option>";
 				} else if (typeof value === "object") {
 					var ul = $("> ul > li.ik_select_optgroup:eq(" + index + ") > ul", listInner); // 'index' - optgroup index
@@ -594,7 +630,7 @@
 					var newOptions = value; // 'value' - new option objects
 
 					$.each(newOptions, function (index, value) {
-						fakeSelectHtml += "<li><span class=\"ik_select_option\" title=\"" + index + "\">" + value + "</span></li>";
+						fakeSelectHtml += "<li><span class=\"ik_select_option\" data-title=\"" + index + "\">" + value + "</span></li>";
 						selectHtml += "<option value=\"" + index + "\">" + value + "</option>";
 					});
 
@@ -652,6 +688,7 @@
 		_select_fake_option: function () {
 			var ikselect = this;
 			var select = ikselect.select;
+			var fakeSelect = ikselect.fakeSelect;
 			var link = ikselect.link;
 			var linkText = ikselect.linkText;
 			var listItems = ikselect.listItems;
@@ -668,6 +705,13 @@
 
 			ikselect.hover = listItems.removeClass("ik_select_hover ik_select_active").eq(ind).addClass("ik_select_hover ik_select_active");
 			ikselect.active = ikselect.hover;
+
+			if ($.browser.mobile) {
+				select.css({
+					height: fakeSelect.height(),
+					width: fakeSelect.width()
+				});
+			}
 		},
 
 		// disables select
@@ -845,7 +889,7 @@
 			}
 			if (! block.is(":visible") || $.browser.mozilla) {
 				if (! $.browser.mozilla) {
-					select.val($(".ik_select_option", jqObj).attr("title"));
+					select.val($(".ik_select_option", jqObj).data("title"));
 					select.change();
 				}
 				linkText.html($(".ik_select_option", jqObj).html());
