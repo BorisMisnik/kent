@@ -19,17 +19,17 @@ function() {
         .success( function( data ) {
             // console.log( 'brands', data );
             brands = data;
-            if ( !--count ) initCigarettes();
+            if ( !--count ) init();
         });
     $
         .ajax({ url: '/js/data/sku.json' })
         .success( function( data ) {
             // console.log( 'sku', data );
             sku = data;
-            if ( !--count ) initCigarettes();
+            if ( !--count ) init();
         });
 
-    function initCigarettes() {
+    function init() {
         fillBrands();
         fillSku();
         // init fields caption
@@ -50,41 +50,31 @@ function() {
                     linked = el.attr( 'linked' ),
                     link = $( linked );
                 // console.log( 'CHANGE', arguments, el, val );
+        
                 selectCaption( el, val );
                 fillSelect( link, sku[ val ]);
 
                 // visualUpdateCurrent( linked );
                 setTimeout( function() {
-                    $('.smoke select').ikSelect( 'reset' );
+
+                   skuFileds.selectpicker('refresh');
+
+                   $('.skuB .dropdown-menu').mCustomScrollbar("destroy");
+                   $('.skuB .dropdown-menu').mCustomScrollbar({
+                            advanced:{
+                                updateOnContentResize: true
+                            },
+                            mouseWheel : true
+                        });
+
                 }, 0 );
             });
         fillSelect( brandFileds, brands );
     }
 
     function fillSku() {
+
     }
-
-    function fillSKUList( el ) {
-        var
-            val = el && el.val(),
-            linked = el && el.attr( 'linked' ),
-            link = $( linked );
-
-        //console.log( 'CHANGE', el, linked, val );
-
-        if ( !el || !el.length ) return;
-        if ( !val ) return;
-        if ( !link || !link.length ) return;
-
-        selectCaption( el, val );
-        fillSelect( link, sku[ val ]);
-
-        setTimeout( function() {
-            $('.smoke select').ikSelect( 'reset' );
-        }, 0 );
-    }
-    // hack (!) api
-    window.fillSKUList = fillSKUList;
 
     // Helpers
 
@@ -110,6 +100,9 @@ function() {
                     opt,
                     val;
 
+                if( el.is('.btn-group') )
+                    el = el.prev('select');
+ 
                 // fill brands
                 el.empty();
                 for ( val in data ) {
@@ -142,10 +135,10 @@ function() {
                 // show caption
                 // console.log( 'current', current, val );
                 //selectCaption( el, el.val( val ));
+
             });
 
-        // $('.smoke select').ikSelect();
-
+      
     }
 
     function defaultValue(){}
@@ -153,23 +146,14 @@ function() {
 
     function visualUpdate() {
 
-        $('.smoke select').ikSelect({
-            ddFullWidth : false,
-            autoWidth : false,
-            ddMaxHeight  :114,
-            onShow : scrollBar
+       skuFileds.selectpicker('refresh');
+
+       $('.skuB .dropdown-menu').mCustomScrollbar("destroy");
+       $('.skuB .dropdown-menu').mCustomScrollbar({
+            advanced:{
+                updateOnContentResize: true
+            },
+            mouseWheel : true
         });
-
-        var marker = true;
-        function scrollBar(){
-            if ( marker ){
-                $(".ik_select_list_inner").mCustomScrollbar({
-                    advanced:{ updateOnContentResize: true },
-                    mouseWheel : true,
-                    set_height : 114
-                });
-            }
-        }
     }
-
 });
