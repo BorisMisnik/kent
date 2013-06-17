@@ -227,7 +227,7 @@ class PackComposition extends createjs.Container
 
     @i_360 = new createjs.Bitmap(kent.packs.assetsManager.getAssetURL('i_360'))
     @i_360.x=-324/2
-    @i_360.y = 180
+    @i_360.y = 170
 
     @i_open_1 = new createjs.Bitmap(kent.packs.assetsManager.getAssetURL('i_open'))
     @i_open_1.x=-100
