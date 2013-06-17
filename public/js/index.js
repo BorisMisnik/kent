@@ -48,15 +48,16 @@ $(function(){
 
 	// submit form massege
 
-	$('.block-wrapper form')
+	$('.block-wrapper .submitMassage')
 		.on({
-			submit : function(e){
+			click : function(e){
 				e.preventDefault();
-
 				$(this)
+					.parent()
 					.fadeOut();
 
 				$(this)
+					.parent()
 					.parent()
 					.find('p')
 					.fadeIn()
