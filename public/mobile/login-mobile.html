@@ -12,7 +12,6 @@
 
 	<script src="../js/jquery-1.9.1.min.js"></script>
 	<script src="../js/less-1.3.3.min.js"></script>
-	<script src="../js/form.js"></script>
 	<script src="../js/raphael-min.js"></script>
 	<script src="../js/background-mobile.js"></script>
 </head>
@@ -28,8 +27,8 @@
 							<h1>Авторизація користувача</h1>
 							<form class="form-horizontal" action=" " method=" ">
 								
-								<input type="email" name="login" value="Логін" class="text inputError">
-								<input type="text" name="password" value="Пароль" class="pass inputError">
+								<input type="email" name="login" placeholder="Логін" class="text inputError">
+								<input type="password" name="password" placeholder="Пароль" class="pass inputError">
 
 								<span class="error">Неправильно введено логін або пароль. Спробуй ще раз.</span>
 								<div class="control-group">
@@ -57,7 +56,7 @@
 				<footer>
 					<span class="infoLine">Інформаційна лінія: 0 800 50 14 85 </span>
 					<nav class="footerNav">
-						<a href="#">Зворотний зв’язок</a>
+						<a href="#">Зворотний зв’язок</a> <span class="hidden-phone">|</span>
 						<a href="#">Правила користування сайтом</a>
 					</nav>
 				</footer>
@@ -72,5 +71,10 @@
 		</div>
 	</div>
 </div>
+<script>
+	$('input').on('focus', function(){
+		$(this).removeClass('inputError');
+	})
+</script>
 </body>
 </html>

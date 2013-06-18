@@ -72,13 +72,13 @@
 							
 							<label class="control-label hidden-phone" for="password">Пароль</label>
 							<div class="controls">
-     							<input type="text" name="password" placeholder="Пароль" class="text inputError" id="password">
+     							<input type="password" name="password" placeholder="Пароль" class="text inputError" id="password">
      							<!-- <span class="error">Пароль не відповідає вимогам</span> -->
     						</div>
 							
 							<label class="control-label hidden-phone" for="passwordTwo">Пiдтвердження пароля</label>
 							<div class="controls">
-     							<input type="text" name="passwordTwo" placeholder="Пiдтвердження пароля" class="text inputError" id="passwordTwo">
+     							<input type="password" name="passwordTwo" placeholder="Пiдтвердження пароля" class="text inputError" id="passwordTwo">
      							<!-- <span class="error">Паролі не збігаються</span> -->
     						</div>
 
@@ -92,24 +92,24 @@
 							<label class="checkbox">
 							  <input type="checkbox" placeholder="ok18" style="display:none">
 							  <span class="checkbox chekboxError"></span>
-							  Я підтверджую, що я курю та мені виповнилось 18 років
+							  <p>Я підтверджую, що я курю та мені виповнилось 18 років</p> 
 							</label>
 							
 							<label class="checkbox">
 							  <input type="checkbox" placeholder="okRules" style="display:none">
 							  <span class="checkbox chekboxError"></span>
-							  Я погоджуюсь з <a href="#"><strong>умовами користування</strong></a> цим веб-сайтом
+							  <p>Я погоджуюсь з <a href="#"><strong>умовами користування</strong></a> цим веб-сайтом</p>
 							</label>
 
 							<label class="checkbox">
 							  <input type="checkbox" placeholder="okSite" style="display:none">
 							  <span class="checkbox chekboxError"></span>
-							 Я погоджуюсь з тим, щоб інформація про тютюнові вироби,<br/>
-							 які випускаються під <strong>ТМ «KENT»</strong>, надавалася мені<br/>
-							 за допомогою <a href="123"><strong>kent.com.ua</strong></a>
+							  <p> Я погоджуюсь з тим, щоб інформація про тютюнові вироби,<br/>
+								 які випускаються під <strong>ТМ «KENT»</strong>, надавалася мені<br/>
+								 за допомогою <a href="123"><strong>kent.com.ua</strong></a></p>
 							</label>
 							<span class="error">Ти не погодився з усіма пунктами</span>	
-							<input type="submit" placeholder="ok" class="submit">
+							<input type="submit" value="ok" class="submit">
 						</form>
 					</div>
 				</section>
@@ -121,7 +121,7 @@
 				<footer>
 					<span class="infoLine">Інформаційна лінія: 0 800 50 14 85 </span>
 					<nav class="footerNav">
-						<a href="#">Зворотний зв’язок</a>|
+						<a href="#">Зворотний зв’язок</a> <span class="hidden-phone">|</span>
 						<a href="#">Правила користування сайтом</a>
 					</nav>
 				</footer>
@@ -155,10 +155,15 @@
 			var span = $this.find( 'span' );
 			span.removeClass( 'chekboxError' );
 
-			if( span.is( '.check' ) )
+			if( span.is( '.check' ) ){
+				$this.find('input').attr('checked', false);
 				span.removeClass( 'check' );
-			else
+			}
+			else{
+				$this.find('input').attr('checked', true);
 				span.addClass( 'check' );
+
+			}
 
 		});
 

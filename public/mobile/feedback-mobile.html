@@ -66,7 +66,7 @@
 				<footer>
 					<span class="infoLine">Інформаційна лінія: 0 800 50 14 85 </span>
 					<nav class="footerNav">
-						<a href="#">Зворотний зв’язок</a>
+						<a href="#">Зворотний зв’язок</a> <span class="hidden-phone">|</span>
 						<a href="#">Правила користування сайтом</a>
 					</nav>
 				</footer>
@@ -81,7 +81,12 @@
 		</div>
 	</div>
 	<script>
-
+		$('input').on('focus', function(){
+			$(this).removeClass('inputError');
+		});
+		$('textarea').on('focus', function(){
+			$(this).parent().removeClass('inputError');
+		})
 	</script>
 </body>
 </html>

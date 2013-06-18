@@ -6,7 +6,7 @@ var mobile = {
 
 		var svg = this.svg
 		  , w   = $('.container-fluid').width()
-		  , h   = $('body').height();
+		  , h   = $('.container-fluid').height()-40;
 
 		this.raphael = 	 new Raphael(svg, w, h);
 		this.cratesPath = [];
@@ -16,7 +16,7 @@ var mobile = {
 
 	resize : function(){
 
-		var h = $('body').height();
+		var h = $('.container-fluid').height()-40;
 		var w = $('.container-fluid').width();
 		this.raphael.setSize(w, h);
 		this.animation(this.now);
@@ -66,7 +66,7 @@ var mobile = {
 		var _this = this;
 		console.log('1');
 		var w = $('.container-fluid').width();
-		var h =  $('body').height();
+		var h =  $('.container-fluid').height()-40;
 		var array = [
 			"M0 "+(h*0.52)+"R"+(w*0.64)+" "+(h*0.49)+" "+w+" "+(h*0.04),
 			"M0 "+(h*0.57)+"R"+(w*0.64)+" "+(h*0.54)+" "+w+" "+(h*0.1),
@@ -96,7 +96,7 @@ var mobile = {
 
 	two : function(){
 		console.log('2');
-		var h = $('body').height()
+		var h = $('.container-fluid').height()-40
 		  , w = $('.container-fluid').width()
 		  , angleoff = 1.9
 		  , y  = 0.2 * Math.cos(angleoff) + 0.54
@@ -124,7 +124,7 @@ var mobile = {
 
 	three: function(){
 		console.log('3');
-		var h = $('body').height()
+		var h = $('.container-fluid').height()-40
 		  , w = $('.container-fluid').width()
 		  , angleoff = 1.9
 		  , y  = 0.01 * Math.sin(angleoff) + 0.85
@@ -151,7 +151,7 @@ var mobile = {
 
 	four: function(){
 		console.log('4');
-		var h = $('body').height()
+		var h = $('.container-fluid').height()-40
 		  , w = $('.container-fluid').width()
 		  , angleoff = 1.9
 		  , y  = 0.2 * Math.sin(angleoff) + 0.3
@@ -178,7 +178,7 @@ var mobile = {
 
 	five: function(){
 
-		var h = $('body').height()
+		var h = $('.container-fluid').height()-40
 		  , w = $('.container-fluid').width()
 		  , angleoff = 1.9
 		  , y  = 0.2 * Math.cos(angleoff) + 0.4
@@ -207,7 +207,7 @@ var mobile = {
 
 	six: function(){
 		console.log('6');
-		var h = $('body').height()
+		var h = $('.container-fluid').height()-40
 		  , w = $('.container-fluid').width()
 		  , angleoff = 1.9
 		  , x  = 0.2 * Math.sin(angleoff) + 0.64
@@ -236,7 +236,7 @@ var mobile = {
 
 	seven: function(){
 		console.log('7');
-		var h = $('body').height()
+		var h = $('.container-fluid').height()-40
 		  , w = $('.container-fluid').width()
 		  , angleoff = 1.9
 		  , x  = 0.1 * Math.cos(angleoff) + 0.6

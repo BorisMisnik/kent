@@ -47,7 +47,12 @@ form{
 }
 span.checkbox{
 	float: left;
-	margin:5px 7px 10px -20px;
+	margin:5px 0 10px -20px;
+}
+label.checkbox{
+	p{
+		margin-left: 7px;
+	}
 }
 input[type="submit"]{
 	margin-bottom:16px;
@@ -124,6 +129,27 @@ input[type="submit"]{
 .error{
 	margin-top:0;
 }
+.selectMonth{
+	height: 28px;
+	vertical-align: top !important;
+	font-size: 12px;
+	color: #555;
+	background-color: #e0e0e0;
+	border-radius: 0;
+	width: 148px;
+	-webkit-transition: background-color 500ms ease-in-out;
+	transition: background-color 500ms ease-in-out;
+	outline: none;
+}
+.selectMonth.inputError{
+	color: #555;
+}
+.selectMonth:focus{
+	background-color: #fff;
+}
+.dateBirthday input[name="year"]{
+	width: 70px;
+}
 
 @media (max-width: 767px) {
 
@@ -187,45 +213,6 @@ input[type="submit"]{
 
 	.selectMonth{
 		height: 55px;
-		vertical-align: top !important;
 		font-size: 24px;
-		color: #555;
-		background-color: #e0e0e0;
-		border-radius: 0;
-		width: 148px;
-		-webkit-transition: background-color 500ms ease-in-out;
-		transition: background-color 500ms ease-in-out;
-		outline: none;
-	}
-	.selectMonth.inputError{
-		color: #555;
-	}
-	.selectMonth:focus{
-		background-color: #fff;
-	}
-}
-
-@media (min-width: 768px) and (max-width: 979px) {
-
-	.selectMonth{
-		height: 28px;
-		vertical-align: top !important;
-		font-size: 12px;
-		color: #555;
-		background-color: #e0e0e0;
-		border-radius: 0;
-		width: 148px;
-		-webkit-transition: background-color 500ms ease-in-out;
-		transition: background-color 500ms ease-in-out;
-		outline: none;
-	}
-	.selectMonth.inputError{
-		color: #555;
-	}
-	.selectMonth:focus{
-		background-color: #fff;
-	}
-	.dateBirthday input[name="year"]{
-		width: 70px;
 	}
 }
