@@ -214,15 +214,6 @@ form .pass,
 		background-color:#fff;
 		border-color:#e0e0e0; 
 	}
-	.dateBirthday .ik_select_link,
-	.smoke .ik_select_link{
-		background-color:#fff;
-		border:1px solid #e0e0e0;
-		height: 26px;
-		-webkit-transition:background-color 500ms ease-in-out;
-		-moz-transition:background-color 500ms ease-in-out;
-		transition:background-color 500ms ease-in-out;
-	}
 }
 	
 body .submit{
@@ -357,40 +348,9 @@ textarea{
 .hide {
   display: none;
 }
-.dateBirthday{
-	.ik_select{
-		display:inline-block;
-	}
-	.ik_select_link{
-		position: relative;
-		display: inline-block;
-		width: 86px;
-		height: 28px;
-		background-color: #E0E0E0;
-		text-align: left;
-		font-size: 12px;
-		font-family: Verdana, Geneva, sans-serif;
-		border: 0;
-	}
-	.ik_select_link_text{
-		padding-top:7px;
-		color:#7D888F;
-	}
-}
-.ik_select_block{
-	height:auto;
-	margin-top: 13px;
-}
-.ik_select_list li{
-	left:-3px;
-}
 
 #filter article > div{
 	text-align: center;
-}
-canvas{
-	position: relative;
-	top: -90px;
 }
 #filter .title{
 	font-size: 30px;
@@ -425,3 +385,81 @@ canvas{
 	color: #6B747A;
 	text-align: center;
 }
+
+@media (max-width: 767px) {
+	body{
+		padding: 0;
+		font-size: 16px;
+
+		.submit{
+			width: 223px;
+			height: 38px;
+			font-size: 16px;
+			line-height: 38px;
+		}
+	}
+	label, 
+	input,
+	button, 
+	select, 
+	textarea{
+		font-size: 16px;
+		&:focus{
+			box-shadow: none !important;
+			border-color: #e0e0e0 !important;
+			color: #7d888f !important;
+		}
+	}
+	.error{
+		font-size: 16px;
+	}
+	.wrapper-form{
+		padding:0 29px;
+	}
+	
+	.container-fluid .row-fluid h1{
+		font-size: 23px;
+		margin: 15px 0;
+	}
+	
+	form {
+		.text,
+		.pass,
+		.input-append .text {
+			width: 470px;
+			height: 55px;
+			font-size: 24px;
+		}
+	}
+	span.checkbox{
+		width:19px;
+		height:19px;
+		background-image: url("../img/mobileCheckbox.png");
+		background-position: 0 -22px;
+	}
+	.row-fluid.footer{
+		height: auto;
+		footer{
+			padding: 16px 10px 15px;
+		}
+	}
+	.row-fluid.footer.no-text{
+		height: auto;
+	}
+	.row-fluid.footer p{
+		font-size: 14px
+	}
+	.infoLine{
+		background-image: none;
+		font-size: 14px;
+		padding: 0;
+		width: 170px;
+	}
+	.footerNav{
+		width: 278px;
+		text-align: right;
+	}
+	.footerNav a{
+		font-size: 14px;
+	}
+}	

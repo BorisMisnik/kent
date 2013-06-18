@@ -31,3 +31,24 @@
 	}
 	input[type="submit"]{margin:0;}
 }
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+
+	#login{
+		.form-horizontal{
+			width: 469px;
+		}
+		.linkRegistred{
+			font-size: 28px;
+			font-weight: 100;
+		}
+		.control-group{
+			margin-top: 24px;
+			& + .control-group{
+				margin:30px 0 0;
+			}
+		}
+	}
+	
+}

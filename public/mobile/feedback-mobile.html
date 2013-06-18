@@ -7,12 +7,11 @@
 
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/bootstrap-responsive.min.css">
-    <link rel="stylesheet/less" type="text/css" href="../css/main.less">
-	<link rel="stylesheet/less" type="text/css" href="../css/feedback.less">
+    <link rel="stylesheet/less" type="text/css" href="../css/main-mobile.less">
+	<link rel="stylesheet/less" type="text/css" href="../css/feedback-mobile.less">
 
 	<script src="../js/less-1.3.3.min.js"></script>
 	<script src="../js/jquery-1.9.1.min.js"></script>
-	<script src="../js/form.js"></script>
 	<script src="../js/raphael-min.js"></script>
 	<script src="../js/background-mobile.js"></script>
 
@@ -28,20 +27,22 @@
 						<p class="text">Щоб твоє звернення надійшло за призначенням, обов'язково вкажи своє ім'я, електронну адресу та виклади детально суть твого звернення. </p>
 						<form class="form-horizontal" action=" " method=" ">
 
+							<label class="control-label hidden-phone" for="email">E-mail</label>
 							<div class="controls">
-     							<input type="email" name="email" value="E-mail" class="text inputError" id="email">
+     							<input type="email" name="email" placeholder="E-mail" class="text inputError" id="email">
 								<span class="error">Неправильний формат e-mail.</span>
     						</div>
 
-
+							<label class="control-label hidden-phone" for="name">Iм’я</label>
    						 	<div class="controls">
-     							<input type="text" name="name" value="Iм’я" class="text inputError" id="name">
+     							<input type="text" name="name" placeholder="Iм’я" class="text inputError" id="name">
      							<span class="error">Введи своє ім'я.</span>
     						</div>
-							
+
+							<label class="control-label input-label hidden-phone" for="massege">Повідомлення</label>
 							<div class="controls">
 								<div class="inputError wrapperTextarea">
-									<textarea name="massege" id="massege" value="Повідомлення" class="">Повідомлення</textarea>
+									<textarea name="massege" id="massege" placeholder="Повідомлення" class="">Повідомлення</textarea>
 								</div>
 								<span class="error">Введи своє повідомлення.</span>
 							</div>
@@ -79,5 +80,8 @@
 			</div>
 		</div>
 	</div>
+	<script>
+
+	</script>
 </body>
 </html>
