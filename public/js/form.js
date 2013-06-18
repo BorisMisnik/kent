@@ -140,8 +140,4 @@ $(function(){
 			'heght' : $(document).height()
 		})
 	});
-
-	if($('#mobilePhone').length){
-		$('#mobilePhone').mask("0 (99) 999-99-99");
-	}
 })
