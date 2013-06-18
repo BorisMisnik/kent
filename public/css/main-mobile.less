@@ -44,6 +44,7 @@ a{
 	padding:0;
 	width:100%;
 	height:100%;
+	z-index: 1
 }
 .row-fluid{
 	height: 77%;
@@ -96,6 +97,7 @@ a{
 	position: absolute;
 	bottom: 15%;
 	height: 72px;
+	z-index: 1;
 	p{
 		margin-bottom:10px;
 		color:@colorTwo;
@@ -462,4 +464,11 @@ textarea{
 	.footerNav a{
 		font-size: 14px;
 	}
-}	
+}
+/* Landscape phones and down */
+@media (max-width: 480px) {
+	.row-fluid.footer,
+	.row-fluid.xv{
+		min-width: 688px;
+	}
+}
