@@ -35,6 +35,10 @@ a{
 		color:@colorOne;
 	}
 }
+#scroll{
+	position: absolute;
+	top: 0;
+}
 .clear{
 	float:none;
 	clear:both;
@@ -44,7 +48,6 @@ a{
 	padding:0;
 	width:100%;
 	height:100%;
-	z-index: 1
 }
 .row-fluid{
 	height: 77%;
@@ -281,7 +284,7 @@ span.checkbox{
 	position:absolute;
 	top:0;
 	left:0;
-	z-index:0;
+	z-index:-1;
 	width:100%;
 	height:100%;
 }
@@ -467,8 +470,7 @@ textarea{
 }
 /* Landscape phones and down */
 @media (max-width: 480px) {
-	.row-fluid.footer,
-	.row-fluid.xv{
-		// min-width: 688px;
+	.footerNav a{
+		font-size: 10px
 	}
 }

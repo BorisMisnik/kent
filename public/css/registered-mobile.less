@@ -1,7 +1,5 @@
 // @import 'main.less';
-.registered{
-	min-height:800px;
-}
+
 form{
 	text-align:left;
 }
@@ -150,9 +148,12 @@ input[type="submit"]{
 .dateBirthday input[name="year"]{
 	width: 70px;
 }
-
+/* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
-
+	.container-fluid{
+		min-height:1300px;
+		min-width: 600px;
+	}
 	.text{
 		font-size: 17px;
 		color: #656e75 !important;

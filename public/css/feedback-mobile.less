@@ -1,12 +1,4 @@
 //@import 'main.less';
-#scroll{
-	position: absolute;
-	top: 0;
-}
-.container-fluid{
-	min-height: 1000px;
-	min-width: 600px;
-}
 #feedback {
     .wrapper-form{
         width:532px;
@@ -49,7 +41,7 @@
 .error{
 	margin:0 0 12px;
 }
-
+/* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
 	#feedback{
 		.wrapper-form{
@@ -75,5 +67,9 @@
 				float: right;
 			}
 		}
+	}
+	.container-fluid{
+		min-height: 1000px;
+		min-width: 600px;
 	}
 }
