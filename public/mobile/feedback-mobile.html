@@ -92,6 +92,11 @@
 		})
 
 		var scroll = new iScroll('scroll');
+		window.addEventListener("resize", function() {
+			setTimeout(function(){
+				scroll.refresh();
+			}, 0);
+		}, false);
 	</script>
 </body>
 </html>
