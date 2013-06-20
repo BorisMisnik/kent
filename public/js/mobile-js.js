@@ -12,7 +12,7 @@ $(function(){
     });
 
 	window.addEventListener("resize", function() {
-		$('.container-fluid').css('margin-bottom', $('.xv').height() + $('.footer').height() + $('.wrapper-form').height() + 60)
+		$('.container-fluid').css('min-height', $('.xv').height() + $('.footer').height() + $('.wrapper-form').height() + 60)
 		setTimeout(function(){
 			scroll.refresh();
 		}, 0);
@@ -35,20 +35,21 @@ $(function(){
 	// checkbox 
 	$('span.checkbox').on('click', function(e){
 		
-		e.stopImmediatePropagation()
-		e.preventDefault();
+		// e.stopImmediatePropagation()
+		// e.preventDefault();
+
 
 		var $this = $(this);
 		$this.removeClass( 'chekboxError' );
 
-		if( $this.is( '.check' ) ){
-			$this.parent().find('input').attr('checked', false);
-			$this.removeClass( 'check' );
-		}
-		else{
+		// if( $this.is( '.check' ) ){
+		// 	$this.parent().find('input').attr('checked', false);
+		// 	$this.removeClass( 'check' );
+		// }
+		// else{
 			$this.parent().find('input').attr('checked', true);
 			$this.addClass( 'check' );
-		}
+		// }
 
 	});
 
