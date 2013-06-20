@@ -41,8 +41,10 @@ $(function(){
 		var $this = $(this);
 		$this.removeClass( 'chekboxError' );
 		touchStarted = true;
+
 		setTimeout(function(){
 			if( !touchStarted ){
+				alert( 123 )
 				if( $this.is( '.check' ) ){
 					$this.parent().find('input').attr('checked', false);
 					$this.removeClass( 'check' );
