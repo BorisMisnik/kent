@@ -33,26 +33,32 @@ $(function(){
 	});
 
 	// checkbox 
+	var touchStarted = false;
 	$('span.checkbox').on('touchstart  mousedown', function(e){
 		
-		// e.stopImmediatePropagation()
-		// e.preventDefault();
-
-
+		e.preventDefault();
+    	
 		var $this = $(this);
 		$this.removeClass( 'chekboxError' );
-
-		if( $this.is( '.check' ) ){
-			$this.parent().find('input').attr('checked', false);
-			$this.removeClass( 'check' );
-		}
-		else{
-			$this.parent().find('input').attr('checked', true);
-			$this.addClass( 'check' );
-		}
-
+		touchStarted = true;
+		setTimeout(function(){
+			if( !touchStarted ){
+				if( $this.is( '.check' ) ){
+					$this.parent().find('input').attr('checked', false);
+					$this.removeClass( 'check' );
+				}
+				else{
+					$this.parent().find('input').attr('checked', true);
+					$this.addClass( 'check' );
+				}
+			}
+		}, 200);
+	
 	});
-
+	$('span.checkbox').on('touchend mouseup touchcancel',function (e){
+	    e.preventDefault();
+	    touchStarted = false;
+	});
 	// label
 	$('label').on('click', 'a', function(){
 		window.location = $(this).attr('href');
