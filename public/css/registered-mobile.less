@@ -1,7 +1,9 @@
 // @import 'main.less';
-
 form{
 	text-align:left;
+}
+.container-fluid{
+	min-height:1300px
 }
 #registered{
 	label{
@@ -134,7 +136,7 @@ input[type="submit"]{
 	color: #555;
 	background-color: #e0e0e0;
 	border-radius: 0;
-	width: 148px;
+	width: 145px;
 	-webkit-transition: background-color 500ms ease-in-out;
 	transition: background-color 500ms ease-in-out;
 	outline: none;
@@ -144,14 +146,23 @@ input[type="submit"]{
 }
 .selectMonth:focus{
 	background-color: #fff;
+}	
+.dateBirthday{
+	text-align: left;
 }
 .dateBirthday input[name="year"]{
-	width: 70px;
+	width: 67px;
+}
+.dateBirthday input[name="date"]{
+	margin-right: 2px;
+}
+.dateBirthday select{
+	margin-right: 2px;
 }
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
 	.container-fluid{
-		min-height:1300px;
+		min-height:1000px;
 		min-width: 600px;
 	}
 	.text{
@@ -174,7 +185,6 @@ input[type="submit"]{
 		}
 	}
 	.dateBirthday{
-		text-align: left;
 		width: 474px;
 	}
 	.dateBirthday input[name="date"]{
@@ -216,4 +226,7 @@ input[type="submit"]{
 		height: 55px;
 		font-size: 24px;
 	}
+}
+@media (max-width: 480px) {
+	min-height: 1300px;
 }

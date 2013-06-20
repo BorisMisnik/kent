@@ -30,7 +30,7 @@ $(function(){
 	});
 
 	// checkbox 
-	$('.checkbox').on('click', function(e){
+	$('label.checkbox').on('click', function(e){
 		
 		e.stopImmediatePropagation()
 		e.preventDefault();
