@@ -33,7 +33,7 @@ $(function(){
 	});
 
 	// checkbox 
-	$('span.checkbox').on('click', function(e){
+	$('span.checkbox').on('touchstart  mousedown', function(e){
 		
 		// e.stopImmediatePropagation()
 		// e.preventDefault();
@@ -42,14 +42,14 @@ $(function(){
 		var $this = $(this);
 		$this.removeClass( 'chekboxError' );
 
-		// if( $this.is( '.check' ) ){
-		// 	$this.parent().find('input').attr('checked', false);
-		// 	$this.removeClass( 'check' );
-		// }
-		// else{
+		if( $this.is( '.check' ) ){
+			$this.parent().find('input').attr('checked', false);
+			$this.removeClass( 'check' );
+		}
+		else{
 			$this.parent().find('input').attr('checked', true);
 			$this.addClass( 'check' );
-		// }
+		}
 
 	});
 
