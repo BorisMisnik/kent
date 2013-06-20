@@ -48,7 +48,7 @@ $(function(){
 					$this.parent().find('input').attr('checked', false);
 					$this.removeClass( 'check' );
 				}
-				else{
+				else if(  ){
 					$this.parent().find('input').attr('checked', true);
 					$this.addClass( 'check' );
 				}
