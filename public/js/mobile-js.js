@@ -1,4 +1,5 @@
 $(function(){
+
 	$('.container-fluid').css('min-height', $('.xv').height() + $('.footer').height() + $('.wrapper-form').height() + 60)
 	var scroll = new iScroll('scroll', {
 		 onBeforeScrollStart: function (e) {
@@ -33,33 +34,24 @@ $(function(){
 	});
 
 	// checkbox 
-	var touchStarted = false;
-	$('span.checkbox').on('touchstart  mousedown', function(e){
+	$('span.checkbox').hammer().on('tap', function(e){
 		
 		e.preventDefault();
     	
 		var $this = $(this);
 		$this.removeClass( 'chekboxError' );
-		touchStarted = true;
+		if( $this.is( '.check' ) ){
+			$this.parent().find('input').attr('checked', false);
+			$this.removeClass( 'check' );
+		}
+		else{
+			$this.parent().find('input').attr('checked', true);
+			$this.addClass( 'check' );
+		}
+		
+	});
 
-		setTimeout(function(){
-			if( !touchStarted ){
-				if( $this.is( '.check' ) ){
-					$this.parent().find('input').attr('checked', false);
-					$this.removeClass( 'check' );
-				}
-				else{
-					$this.parent().find('input').attr('checked', true);
-					$this.addClass( 'check' );
-				}
-			}
-		}, 200);
-	
-	});
-	$('span.checkbox').on('touchend mouseup touchcancel',function (e){
-	    e.preventDefault();
-	    touchStarted = false;
-	});
+
 	// label
 	$('label').on('click', 'a', function(){
 		window.location = $(this).attr('href');
