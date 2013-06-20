@@ -1,5 +1,5 @@
 $(function(){
-
+	$('.container-fluid').css('min-height', $('.xv').height() + $('.footer').height() + $('.wrapper-form').height() + 60)
 	var scroll = new iScroll('scroll', {
 		 onBeforeScrollStart: function (e) {
             var target = e.target;
@@ -12,10 +12,13 @@ $(function(){
     });
 
 	window.addEventListener("resize", function() {
+		$('.container-fluid').css('margin-bottom', $('.xv').height() + $('.footer').height() + $('.wrapper-form').height() + 60)
 		setTimeout(function(){
 			scroll.refresh();
 		}, 0);
 	}, false);
+	
+	
 
 	//  form
 	// remove error class
@@ -30,22 +33,21 @@ $(function(){
 	});
 
 	// checkbox 
-	$('label.checkbox').on('click', function(e){
+	$('span.checkbox').on('click', function(e){
 		
 		e.stopImmediatePropagation()
 		e.preventDefault();
 
 		var $this = $(this);
-		var span = $this.find( 'span' );
-		span.removeClass( 'chekboxError' );
+		$this.removeClass( 'chekboxError' );
 
-		if( span.is( '.check' ) ){
-			$this.find('input').attr('checked', false);
-			span.removeClass( 'check' );
+		if( $this.is( '.check' ) ){
+			$this.parent().find('input').attr('checked', false);
+			$this.removeClass( 'check' );
 		}
 		else{
-			$this.find('input').attr('checked', true);
-			span.addClass( 'check' );
+			$this.parent().find('input').attr('checked', true);
+			$this.addClass( 'check' );
 		}
 
 	});
@@ -77,4 +79,7 @@ $(function(){
 	$(':file').on('change',function(e){
 		$('.fileInput').val( $(this).val() );
 	});
+
+	// 
+
 })
