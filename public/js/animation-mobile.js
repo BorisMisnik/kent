@@ -3,14 +3,6 @@ var action = function () {
 	var that = {};
 	var container = $('.container-fluid');
 
-	
-	that.arrow = function(){
-
-		TweenMax.to($('.arrow-start'), .6, {top:"-5px",
-                       repeat:-1, yoyo:true});
-
-		return that;	
-	};
 
 
 	that.scrollTop = function(){
@@ -28,7 +20,7 @@ var action = function () {
 
 	};
 	
-	that.scrollBottom = function(){
+	that.scrollBotom = function(){
 		
 		if( $('#photo').is('.now') || container.is(':animated') ) return;
 
@@ -92,7 +84,6 @@ $(document).ready(function(){
 
 	var animation = action();
 	var container = $('.container-fluid');
-	animation.arrow();
 
 	var t,l = new Date().getTime();
 
@@ -102,7 +93,7 @@ $(document).ready(function(){
 			animation.scrollTop();
 		},
 		swipedown: function(){
-			animation.scrollBottom();	
+			animation.scrollBotom();	
 		}
 	});
 
@@ -144,61 +135,6 @@ $(document).ready(function(){
 					}
 
 				});
-
-			var categoryname = $('.now').data('name');
-			$('.nav-scategory .active').removeClass('active');
-
-			$('.nav-scategory li')
-				.each(function(){
-
-					if( $(this).attr('name') === categoryname ){
-
-						$('.nav-scategory').show();
-					
-						$(this).addClass('active');
-
-						var li = $('.nav-scategory li').not('.active');
-						// console.log($(this).parent().attr('class'));
-						if( !$(this).parent().is('.mouseenter') ){
-							// console.log('Parent is mouseenter');
-							TweenMax.staggerTo(li,0.3,{left:'93px'},0.25);
-
-						}
-
-						return false;
-					}
-
-				});
-
-			if(!$('.nav-scategory .active').length){
-		
-				TweenMax.staggerTo($('.nav-scategory li'),0.3,{
-					left:'91px',
-					onComplete : function(){
-						$('.nav-scategory').fadeOut();
-					}
-				},0.25);
-
-			}
-
-
-			// all History button
-
-			var now = $('section.now');
-
-			if( now.data('slide') === 'history' && 
-				!now.is( '#history-main' ) && 
-				!now.is( '#history-all' ) ){
-
-				$('.allHistory').fadeIn();
-
-			}
-			else{
-
-				$('.allHistory').fadeOut();
-
-			}
-
 		}
 
 	});
@@ -207,22 +143,18 @@ $(document).ready(function(){
 
 		$('.container-fluid section')
 			.each(function(){
-
-			var dataname = $(this).data('name');
+			$this = $(this);
+			var dataname = $this.data('name');
 			
 			if(dataname === name){
 
 				$('section.now').removeClass('now');
-				$(this).addClass('now');
+				$this.addClass('now');
 
-				var y = $(this).offset().top;
-				var animationName = $(this).data('animation');
+				var y = $this.offset().top;
 
 				container
 					.animate({'scrollTop' : container.scrollTop() + y},1000);
-
-				animation.startanimate(animationName);
-				animation.selectBackground();
 
 				return false;
 			}
@@ -237,14 +169,14 @@ $(document).ready(function(){
 		.on({
 			mousemove : function(e){
 	
-				if( $(this).find('li').width() != 42) return;
+				if( $(this).find('li').width() != 67) return;
 
 				var x = e.pageX;
 				var li = $(this).find('li');
 
-				if(x > 40) return;
+				if(x > 65) return;
 
-				TweenMax.staggerTo(li, 0.3, {width:'210px'}, 0.25);	
+				TweenMax.staggerTo(li, 0.3, {width:'237px'}, 0.25);	
 
 			},
 			mouseleave : function(){
@@ -252,44 +184,12 @@ $(document).ready(function(){
 				var li = $(this).find('li');
 
 				TweenMax.staggerTo(li, 0.3, {
-					width:'42px'
+					width:'67px'
 				}, 0.25);
 
 			}
 		});
 
-	// navigate category hover and click
-	$('.nav-scategory')
-		.on({
-
-			mouseenter : function(){
-
-				var li = 
-					$(this)
-						.children('li');
-
-				$(this).addClass('mouseenter');
-
-				TweenMax.staggerTo(li,0.3,{'left' : 0},0.25);
-
-			},
-			mouseleave : function(){
-				$(this).removeClass('mouseenter');
-				var li = 
-					$(this)
-						.children('li')
-						.not('.active');
-
-				TweenMax.staggerTo(li, 0.3, {'left' : '93px'}, 0.25);
-
-			}
-		})
-		.find('li')
-		.on({
-			click : function(){
-				clickboxe( $(this).attr('name') );
-			}
-		});
 
 	// navigate site click
 	$('.nav-site')
