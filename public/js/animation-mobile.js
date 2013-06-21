@@ -245,7 +245,7 @@ $(document).ready(function(){
 				$this  = $(this);
 
 				if($this.is('.prev')){
-					animation.scrolTop();
+					animation.scrollTop();
 				}
 				else{
 					animation.scrollBotom();

@@ -145,7 +145,7 @@ section h1{
 .scrollButton{
 	position: absolute;
 	right: 0;
-	bottom: 256px;
+	top: 62px;
 	z-index: 11;
 	width: 79px;
 	height: 136px;
@@ -1238,29 +1238,50 @@ section h1{
 	.container-fluid{
 		min-width: 700px;
 	}
+	.footerNav{
+		width: 407px;
+	}
 	.footerNav a{
 		font-size: 9px;
 	}
 	.infoLine{
 		font-size: 9px;
-
+		width: 220px;
 	}
 	.hello{
 		width: 490px;
 		margin: auto;
 	}
-
+	.hello{
+		font-size: 15px;
+	}
+	.arrow-start{
+		margin-top: 5px;
+	}
 }
 /* Landscape phones and down */
 @media (max-width: 480px) {
+	.row-fluid.footer footer{
+		padding: 9px 10px 6px;
+	}
 	.footerNav{
-		width: 277px !important;
+		width: auto !important;;
+		float:left;
+		text-align: left;
 	}
 	.footerNav a{
 		font-size: 9px !important;
+		padding: 0;
+		margin-right: 5px;
+	}
+	.footerNav a:last-child{
+		margin-right: 0;
+	}
+	.footerNav span + a{
+		padding: 0;
 	}
 	.infoLine{
 		font-size: 9px !important;
-		width: 136px;
+		width: auto !important;;
 	}
 }
