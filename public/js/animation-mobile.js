@@ -237,8 +237,9 @@ $(document).ready(function(){
 
 	$('.scrollButton')
 		.find('a')
+		.hammer()
 		.on({
-			click : function(e){
+			tap : function(e){
 
 				e.preventDefault();
 
@@ -253,8 +254,8 @@ $(document).ready(function(){
 			}	
 		});
 
-	$('.arrow-start').on({
-		click : function(){
+	$('.arrow-start').hammer().on({
+		tap : function(){
 			animation.scrollBotom();
 		}
 	})

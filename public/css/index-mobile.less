@@ -378,7 +378,7 @@ section h1{
 	}
 	.title{
 		position: relative;
-		left: 400px;
+		left: 0;
 		color:#6b747a;
 	}
 }
@@ -1238,15 +1238,28 @@ section h1{
 	.container-fluid{
 		min-width: 700px;
 	}
+	.row-fluid.footer footer{
+		padding: 9px 10px 6px;
+	}
 	.footerNav{
 		width: 407px;
+		float:left;
+		text-align:left
 	}
 	.footerNav a{
 		font-size: 9px;
+		padding:0;
+		margin-right: 5px;
+	}
+	.footerNav a:last-child{
+		margin-right: 0;
+	}
+	.footerNav span + a{
+		padding: 0;
 	}
 	.infoLine{
 		font-size: 9px;
-		width: 220px;
+		width: 100%;
 	}
 	.hello{
 		width: 490px;
@@ -1258,12 +1271,42 @@ section h1{
 	.arrow-start{
 		margin-top: 5px;
 	}
+	.submit.moreDetail{
+		margin-bottom: 0;
+	}
+	// hdi
+	.hdiBlock{
+		width: 449px;
+		margin: auto;
+		.block-image{
+			width: 135px;
+			height:130px;
+			margin: auto;
+			float:none;
+		}
+		.block-text{
+			float: none;
+			width: 373px;
+			height: 282px;
+			margin: 20px auto;
+		}
+		.title{
+			font-size: 17px;
+			margin-bottom: 4px;
+		}
+		.about-pack{
+			margin-bottom: 6px;
+			font-size: 12px;
+		}
+	}
 }
 /* Landscape phones and down */
 @media (max-width: 480px) {
-	.row-fluid.footer footer{
-		padding: 9px 10px 6px;
+	
+	.nav-site {
+		display: none;
 	}
+	
 	.footerNav{
 		width: auto !important;;
 		float:left;
