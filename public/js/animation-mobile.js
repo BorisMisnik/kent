@@ -4,19 +4,20 @@ var action = function () {
 	var container = $('.container-fluid');
 
 
-
 	that.scrollTop = function(){
 
 		if( $('#main').is('.now') || container.is(':animated') ) return;
 
 		var yScrol = container.scrollTop() - container.height();
 		var scroll = yScrol > 0 ? yScrol : 0;
-
+		
 		container.animate({'scrollTop' : scroll},1000);
 
+		this.scroll = scroll;
 		this.top = true;
 		this.bottom = false;
 		this.selectAnimation();
+
 
 	};
 	
@@ -25,9 +26,9 @@ var action = function () {
 		if( $('#photo').is('.now') || container.is(':animated') ) return;
 
 		var yScrol = container.scrollTop() + container.height();
-
 		container.animate({'scrollTop' : yScrol},1000);
 
+		this.scroll = yScrol;
 		this.top = false;
 		this.bottom = true;
 		this.selectAnimation();
@@ -50,7 +51,7 @@ var action = function () {
 				.next()
 				.addClass('now');
 		}
-		
+		$('section.now').scrollTop( 0 );
 		this.titlePage();
 
 	};
@@ -84,19 +85,36 @@ $(document).ready(function(){
 
 	var animation = action();
 	var container = $('.container-fluid');
+	$.event.special.swipe.verticalDistanceThreshold = 35;
+	$.event.special.swipe.handleSwipe = function( start, stop ) {
+		var element = $( start.origin[0] );
 
-	var t,l = new Date().getTime();
+		if ( stop.time - start.time < $.event.special.swipe.durationThreshold && 
+			!element.is( 'p' ) &&  !element.is( 'span' ) 
+			&& !element.is( 'h3' ) && !element.is( 'button' ) && !element.is( 'img' )
+			&& !element.is('.block-text') && !element.is('.sigaret') && !element.is('.text-wrapper') 
+			&& !element.is( '.no-sweep' )) {
 
-	container.hammer().on({
-		swipeup : function(){
-			console.log( 'top' );
-			animation.scrollTop();
+		    start.origin
+			  .trigger('swipe')
+		      .trigger( start.coords[1] > stop.coords[ 1 ] ? "swipeup" : "swipedwon" )
+
+	  	}
+	}
+	$('.container-fluid').on({
+		swipedwon : function(){
+			animation.scrollBotom();
+			
 		},
-		swipedown: function(){
-			animation.scrollBotom();	
-		}
-	});
+		swipeup : function(){
+			animation.scrollTop();
+		
+		},
+		swipe : function(){
 
+		}
+	})
+	var t,l = new Date().getTime();
 	container.on({
 		
 		scroll : function(){
@@ -230,14 +248,13 @@ $(document).ready(function(){
 	$('.carousel')
 		.find('.wrapeer')
 		.on({
-			click : function(){
+			tap : function(){
 				clickboxe( $(this).data('name') );
 			}
 		});
 
 	$('.scrollButton')
 		.find('a')
-		.hammer()
 		.on({
 			tap : function(e){
 
@@ -254,196 +271,52 @@ $(document).ready(function(){
 			}	
 		});
 
-	$('.arrow-start').hammer().on({
+	$('.arrow-start').on({
 		tap : function(){
 			animation.scrollBotom();
 		}
 	})
 
 
-	$('.hdi')
-		.find('.submit')
+	$('section button')
 		.on({
-			click : function(){
-				if($(this).is('.moreDetail')){
+			tap : function(e){
+				e.preventDefault();
+				$this = $(this);
 
-					var filter = 
-						$(this)
-							.parents('section')
-							.find('.aboutFilter');
-						
-					$('.hdiShort').css('visibility','hidden');
-					filter.show();
+				var filter = 
+					$this
+						.parents('section')
+						.find('.aboutFilter');
 
-					var left  = -$('.hdiShort').width();
-					var right = -filter.width()/2;
-					TweenMax.to( $('.hdiShort'),1,{ left:left } );
-					TweenMax.to( filter,1,{ marginRight:right } );
+				var text = 
+					$this
+						.parents('section')
+						.find('.infoF');
 
-				}
-				else{
+					if($this.is('.moreDetail')){
 
-					var filter = 
-						$(this)
-							.parents('section')
-							.find('.aboutFilter');
+						text.hide();
+						filter.show();
 
-					$('.hdiShort').css('visibility','visible');
-					filter.hide();
+					}
+					else{
 
-					var left  = 0;
-					var right = -3000;
-					TweenMax.to( $('.hdiShort'),1,{ left:left } );
-					TweenMax.to( filter,1,{ marginRight:right } );
+						text.show();
+						filter.hide();
 
-				}
-				animation.siteHdi();
+					}
+
 			}
 		});
 
-	$('#site-hds')
-		.find('.submit')
-		.on({
-			click : function(){
-
-				if($(this).is('.moreDetail')){
-
-					var filter = 
-						$(this)
-							.parents('section')
-							.find('.aboutFilter');
-
-					$('.hdsifno').css('visibility','hidden');
-					filter.show();
-
-					var left  = -$('.hdsifno').width();
-					var right = -filter.width()/2;
-
-					TweenMax.to( $('.hdsifno'),1,{ left:left } );
-					TweenMax.to( filter,1,{ marginRight:right } );
-
-				}
-				else{
-					
-					var filter = 
-						$(this)
-							.parents('section')
-							.find('.aboutFilter');
-					
-					$('.hdsifno').css('visibility','visible');
-					filter.hide();
-
-					var left  = 0;
-					var right = -3000;
-					TweenMax.to( $('.hdsifno'),1,{ left:left } );
-					TweenMax.to( filter,1,{ marginRight:right } );
-
-				}
-				
-				animation.hds();
+		$( window ).on( "orientationchange", function( event ) {
+			var scroll = $('section.now').position().top;
+			if( scroll !== 0 ){
+				$('section.now').scrollTop( 0 );
+				$('.container-fluid').scrollTop( $('.container-fluid').scrollTop() + scroll );
 			}
-		});
-
-	$('#site-nanotek')
-		.find('.submit')
-		.on({
-			click : function(){
-
-				if($(this).is('.moreDetail')){
-
-					var filter = 
-						$(this)
-							.parents('section')
-							.find('.aboutFilter');
-
-					$('.infoNanotek').css('visibility','hidden');
-					filter.show();
-
-					var left  = -$('.infoNanotek').width();
-					var right = -filter.width()/2;
-
-					TweenMax.to( $('.infoNanotek'),1,{ left:left } );
-					TweenMax.to( filter,1,{ marginRight:right } );
-
-				}
-				else{
-					
-					var filter = 
-						$(this)
-							.parents('section')
-							.find('.aboutFilter');
-					
-					$('.infoNanotek').css('visibility','visible');
-					filter.hide();
-
-					var left  = 0;
-					var right = -3000;
-
-					TweenMax.to( $('.infoNanotek'),1,{ left:left } );
-					TweenMax.to( filter,1,{ marginRight:right } );
-				}
-				
-				animation.nanotek();
-			}
-		});
-
-
-	
-
-
-
-	$(window).on({
-		resize : function(){
-
-			if($('.hdiShort').css('visibility') === 'hidden'){
-
-				var right = -$('.aboutFilter').width()/2;
-				$('.aboutFilter').css('margin-right',right);
-
-				var left = -$('.hdiShort').width();
-				$('.hdiShort').css('left' , left);
-
-			}
-			else if( $('.hdsifno').css('visibility') === 'hidden' ){
-
-				var right = -$('.aboutFilter').width()/2;
-				$('.aboutFilter').css('margin-right',right);
-
-				var left = -$('.hdsifno').width();
-				$('.hdsifno').css('left' , left);
-
-			}
-			else if( $('.infoNanotek').css('visibility') === 'hidden' ){
-
-				var right = -$('.aboutFilter').width()/2;
-				$('.aboutFilter').css('margin-right',right);
-
-				var left = -$('.infoNanotek').width();
-				$('.infoNanotek').css('left' , left);
-
-			}	
-
-
-			$('.container-fluid').css({
-				'height' : function(){
-
-					var size = $('.xv').height() + $('.fotter').height();
-					return $('body').height() - size;
-
-				}
-			});
 			
-
-		}
-	});
-
-	$('.container-fluid').css({
-		'height' : function(){
-
-			var size = $('.xv').height() + $('.fotter').height();
-			return $('body').height() - size;
-
-		}
-	});
+		});
 
 })
