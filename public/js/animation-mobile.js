@@ -101,21 +101,21 @@ $(document).ready(function(){
 	var animation = action();
 	var container = $('.container-fluid');
 	$.event.special.swipe.verticalDistanceThreshold = 35;
-	$.event.special.swipe.handleSwipe = function( start, stop ) {
-		var element = $( start.origin[0] );
+	// $.event.special.swipe.handleSwipe = function( start, stop ) {
+	// 	var element = $( start.origin[0] );
 
-		if ( stop.time - start.time < $.event.special.swipe.durationThreshold && 
-			!element.is( 'p' ) &&  !element.is( 'span' ) 
-			&& !element.is( 'h3' ) && !element.is( 'button' ) && !element.is( 'img' )
-			&& !element.is('.block-text') && !element.is('.sigaret') && !element.is('.text-wrapper') 
-			&& !element.is( '.no-sweep' ) ) {
+	// 	if ( stop.time - start.time < $.event.special.swipe.durationThreshold && 
+	// 		!element.is( 'p' ) &&  !element.is( 'span' ) 
+	// 		&& !element.is( 'h3' ) && !element.is( 'button' ) && !element.is( 'img' )
+	// 		&& !element.is('.block-text') && !element.is('.sigaret') && !element.is('.text-wrapper') 
+	// 		&& !element.is( '.no-sweep' ) ) {
 
-		    start.origin
-			  .trigger('swipe')
-		      .trigger( start.coords[1] > stop.coords[ 1 ] ? "swipeup" : "swipedwon" )
+	// 	    start.origin
+	// 		  .trigger('swipe')
+	// 	      .trigger( start.coords[1] > stop.coords[ 1 ] ? "swipeup" : "swipedwon" )
 
-	  	}
-	}
+	//   	}
+	// }
 	$('.container-fluid').on({
 		swipedwon : function(){
 			animation.scrollBotom();
@@ -331,15 +331,23 @@ $(document).ready(function(){
 	var footer = $('.footer');
 	var xv = $('.xv');
 	var w = $(window);
-
+	var img = $('.block-image img');
 	function heightQuestion(){
 
-		question.height( w.height() - ( footer.height() +  xv.height() + 150 ) )
-		if( question.height() > 342 )
-			question.height(342);
+		question.height( w.height() - ( footer.height() +  xv.height() + 110 ) )
+		if( question.height() > 314 )
+			question.height(314);
+	}
+	function sizePacks(){
+
+		if( w.height() <  478){
+			var maxHeight = w.height() - ( footer.height() +  xv.height() + 50 )
+			img.css('max-height', maxHeight);
+		}
+
 	}
 	heightQuestion();
-
+	sizePacks();
 	$( window ).on( 'orientationchange resize', function( event ) {
 
 		if( !$('section.now').length ){
@@ -361,7 +369,8 @@ $(document).ready(function(){
 			$('section.now').scrollTop( 0 );
 			$('.container-fluid').scrollTop( $('.container-fluid').scrollTop() + scroll );
 		}
-		heightQuestion();	
+		heightQuestion();
+		sizePacks();
 	});
 
 })
