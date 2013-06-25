@@ -334,9 +334,9 @@ $(document).ready(function(){
 
 	function heightQuestion(){
 
-		if( w.width() > 480 ) return;
-		question.height( w.height() - ( footer.height() +  xv.height() + 80 ) )
-
+		question.height( w.height() - ( footer.height() +  xv.height() + 150 ) )
+		if( question.height() > 342 )
+			question.height(342);
 	}
 	heightQuestion();
 
