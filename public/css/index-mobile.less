@@ -36,7 +36,7 @@ body{
 }
 .nav-site{
 	position:absolute;
-	top:62px;
+	top:28px;
 	z-index:11;
 	font-size:11px;
 	font-family: Verdana, Geneva, sans-serif;
@@ -122,7 +122,7 @@ section{
 }
 section article{
 	display:table;
-	margin:0;
+	margin:40px 0; 
 	width:100%;
 	height:100%;
 	&.copy{
@@ -146,7 +146,7 @@ section h1{
 .scrollButton{
 	position: absolute;
 	right: 0;
-	top: 62px;
+	top: 28px;
 	z-index: 11;
 	width: 79px;
 	height: 136px;
@@ -350,7 +350,7 @@ section h1{
 		position: absolute;
 		bottom: -39px;
 		float: none;
-		width:192px;
+		width:192px !important;
 		height:39px;
 		color:#fff;
 	}
@@ -480,46 +480,10 @@ section h1{
 // boxes
 .carousel{
 	position:relative;
-	height: 259px;
+	width: 100%;
 	text-align:center;
 	margin-bottom: 0;
-	.wrapeer{
-		display:inline-block;
-		margin-top:0;
-		width: 107px;
-		height: 259px;
-		cursor:pointer;
-	}
-	.wrapeer > div{
-		height:259px;
-		background-image:url("../img/mobilePacks.png");
-		background-repeat:no-repeat;
-	}
-
-	.nanotek{
-		width:107px;
-		background-position:0 0;
-	}
-
-	.hd{
-		width: 112px;
-		background-position: -123px 0px;
-	}
-
-	.hdi{
-		width: 116px;
-		background-position: -246px 0;
-	}
-
-	.switch{
-		width: 120px;
-		background-position: -369px 0;
-	}
-
-	.hds{
-		width: 107px;
-		background-position: -489px 0;
-	}
+	display: inline-block;
 }
 // hdi-site
 .submit.moreDetail,
@@ -969,78 +933,42 @@ section h1{
 #hdi2013{
 }
 // select
-#profile .dropdown-toggle{
-	outline:none !important;
-	box-shadow:none;
-	border-radius:0;
-	background: #E0E0E0;
-	border:1px solid transparent;
-	height: 28px;
-	color:#6b747a;
-	text-shadow:none;
-	-webkit-transition:all 500ms ease-in-out;
-	-moz-transition:all 500ms ease-in-out;
-	transition:all 500ms ease-in-out;
-	span{
-		text-shadow:none;
-		font-size: 12px;
-		font-family: Verdana, Geneva, sans-serif;
-		top: 5px;
-		color:#6B747A;
-	}
-	.caret{
-		border-top: 4px solid #9E9E9E;
-		top: 4px;
-		right: 7px;
-	}
-}
 #profile{
-	.dropdown-menu{
-		min-width: 0;
-		border-radius:0;
-		border:1px solid #E0E0E0;
-		border-top: 0;
-		box-shadow:none;
-		margin:0;
-		-webkit-box-sizing:content-box;
-		-moz-box-sizing:content-box;
-		box-sizing:content-box;
-		color:#6B747A;
-		a{
-			padding:0;
-			min-height: 25px;
-			display:block;
-			padding-left: 2px;
-			max-width: 100%;
-			&:hover{
-				background:#E0E0E0;
-				color:#fff;
-				text-decoration:none;
-				cursor:default;
-			}
-		}
-		span{
-			display:none;
-		}
-		span.text{
-			display:inline-block;
-			width:85%;
-			height:auto;
-			margin:0;
-			vertical-align:middle;
-			border:0 !important;
-			white-space:normal;
-			display:inline-block;
-			height:auto;
-			margin:0;
-			line-height:1.1;  
-			color:#6b747a;
+	.dateBirthday{
+		text-align: left;
+	}
+	.dateBirthday input[name="year"]{
+		width: 67px;
+	}
+	.dateBirthday input[name="date"]{
+		margin-right: 2px;
+	}
+	.dateBirthday select{
+		margin-right: 2px;
+	}
+	.sku{
+		width: 194px;
+	}
+	.smoke{
+		width: 100%;
+	}
+	select{
+		height: 28px;
+		vertical-align: top !important;
+		font-size: 12px;
+		color: #555;
+		background-color: #e0e0e0;
+		border-radius: 0;
+		width: 143px;
+		-webkit-transition: background-color 500ms ease-in-out;
+		transition: background-color 500ms ease-in-out;
+		outline: none;
+		&:focus{
+			background-color: #fff;
 		}
 	}
-	.wrapper-month {
-		.dropdown-menu{
-			width: 114px;  
-		}
+	select.inputError{
+		color: #555;
 	}
 	.open{
 		.caret{
@@ -1052,44 +980,6 @@ section h1{
 	.filter-option{
 		white-space: nowrap;
 		text-overflow: ellipsis;
-	}
-}
-#profile .smoke{
-	width:397px;
-	.skuA{
-		float:left;
-	}
-	.skuB{
-		float:right;
-	}
-	.dropdown-menu{
-		width: 191px;
-		span{
-			width:190px;
-		}
-	}
-	li.disabled a{
-		span:first-child{
-			display:none;
-		}
-	}
-	
-}
-#profile .save{
-	.dropdown-toggle{
-		background:#fff;
-		color:#6B747A;
-		border: 1px solid #E0E0E0;
-		span{
-			color:#6B747A;
-		}
-	}
-
-}
-.dropdown-menu{
-	.text{
-		background:none;
-		display:inline;
 	}
 }
 .month{
@@ -1115,6 +1005,57 @@ section h1{
 }
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
+	.dateBirthday{
+		width: 100%;
+	}
+	.dateBirthday label{
+		float: right !important;
+		width: 121px !important;
+		display: inline-block;
+		position: relative;
+		top: 11px;
+		font-size: 13px;
+
+	}
+	.dateBirthday input[name="date"]{
+		width: 83px !important;
+	}
+	.profile-article{
+		margin-bottom: 60px;
+	}
+	.profile{
+		width: 75%;
+		margin: 40px auto;
+		.form-horizontal{
+			width: 100%; 
+		}
+		.form-horizontal .controls{
+			width: 100%;
+		}
+	}
+	#profile{
+		select{
+			height: 55px;
+			font-size: 24px;
+		}
+		input{
+			width: 100%;
+		}
+		.sku{
+			width: 49%;
+		}
+		p{
+			color: #656E75;
+		}
+	}
+	.question-anaswer > div{
+		position: relative;
+		padding-top: 8px;
+		width: 100%;
+		height: 236px;
+		overflow: hidden;
+		background-color: #FFF;
+	}
 	.wrapperElements{
 		width: auto !important;
 		height: auto;
@@ -1140,8 +1081,7 @@ section h1{
 	#hds2012 img,
 	#hd2009 img,
 	#nanotek2007 img,
-	#hd2007 img,
-	#hd2003 img{
+	#hd2007 img{
 		max-width: 25%;
 	}
 	.mainHistory{
@@ -1319,9 +1259,11 @@ section h1{
 }
 /* Landscape phones and down */
 @media (max-width: 480px) {
+	#carousel{
+		display: none;
+	}
 	#question article{
-		margin-top: 15px;
-		height:20%;
+		height:100%;
 	}	
 	.question-anaswer > div{
 		height: 168px;
@@ -1336,7 +1278,7 @@ section h1{
 		display: none;
 	}
 	.footerNav{
-		width: auto !important;;
+		width: auto !important;
 		float:left;
 		text-align: left;
 	}
@@ -1353,7 +1295,7 @@ section h1{
 	}
 	.infoLine{
 		font-size: 9px !important;
-		width: auto !important;;
+		width: auto !important; 
 	}
 	.hdiBlock{
 		img{

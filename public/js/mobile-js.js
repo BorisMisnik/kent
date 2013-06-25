@@ -1,26 +1,26 @@
 var scroll;
 $(function(){
-	// $('.container-fluid').css('min-height', $('.xv').height() + $('.footer').height() + $('.wrapper-form').height() + 60)
-	// scroll = new iScroll('scroll', {
-	// 	hScrollbar: true,
-	// 	hScroll: true,
-	// 	 onBeforeScrollStart: function (e) {
- //            var target = e.target;
- //            while (target.nodeType != 1) target = target.parentNode;
+	$('.container-fluid').css('min-height', $('.xv').height() + $('.footer').height() + $('.wrapper-form').height() + 60)
+	scroll = new iScroll('scroll', {
+		hScrollbar: true,
+		hScroll: true,
+		 onBeforeScrollStart: function (e) {
+            var target = e.target;
+            while (target.nodeType != 1) target = target.parentNode;
 
- //            console.log( target.tagName );
- //            if (target.tagName != 'SELECT' && target.tagName != 'INPUT' && target.tagName != 'TEXTAREA')
- //                e.preventDefault();
- //        }
- //    });
+            console.log( target.tagName );
+            if (target.tagName != 'SELECT' && target.tagName != 'INPUT' && target.tagName != 'TEXTAREA')
+                e.preventDefault();
+        }
+    });
 
-	// window.addEventListener("resize", function() {
-	// 	// $('.container-fluid').css('min-height', $('.xv').height() + $('.footer').height() + $('.wrapper-form').height() + 60)
-	// 	setTimeout(function(){
-	// 		scroll.refresh();
+	window.addEventListener("resize", function() {
+		$('.container-fluid').css('min-height', $('.xv').height() + $('.footer').height() + $('.wrapper-form').height() + 60)
+		setTimeout(function(){
+			scroll.refresh();
 
-	// 	}, 0);
-	// }, false);
+		}, 0);
+	}, false);
 	
 	
 
