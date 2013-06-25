@@ -192,7 +192,7 @@ $(document).ready(function(){
 				$('section.now').removeClass('now');
 				$this.addClass('now');
 
-				var y = $this.offset().top + 30;
+				var y = $this.offset().top + 17;
 
 				container
 					.animate({'scrollTop' : container.scrollTop() + y},1000);
@@ -327,7 +327,8 @@ $(document).ready(function(){
 			}
 		});
 
-	$( window ).on( "orientationchange", function( event ) {
+	$( window ).on( 'orientationchange resize', function( event ) {
+		console.log( 123 );
 		var scroll = $('section.now').position().top;
 		if( scroll !== 0 ){
 			$('section.now').scrollTop( 0 );
