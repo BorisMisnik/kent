@@ -192,7 +192,7 @@ $(document).ready(function(){
 				$('section.now').removeClass('now');
 				$this.addClass('now');
 
-				var y = $this.offset().top + 17;
+				var y = $this.offset().top + 12;
 
 				container
 					.animate({'scrollTop' : container.scrollTop() + y},1000);
