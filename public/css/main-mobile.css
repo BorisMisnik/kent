@@ -10,6 +10,7 @@ body {
   font-size: 12px;
   font-family: Verdana, Geneva, sans-serif;
   position: relative;
+  overflow: hidden;
 }
 body > div {
   width: 100%;
@@ -35,6 +36,7 @@ a:hover {
 #scroll {
   position: absolute;
   top: 0;
+  z-index: 3;
 }
 .clear {
   float: none;
@@ -348,6 +350,9 @@ textarea:focus {
   vertical-align: top;
   line-height: normal;
 }
+.button-photo {
+  text-align: center !important;
+}
 .succes {
   display: block;
   margin-top: 8px;
@@ -452,41 +457,53 @@ textarea:focus {
     background-image: url("../img/mobileCheckbox.png");
     background-position: 0 -22px;
   }
-  .row-fluid.footer {
-    height: auto;
-  }
   .row-fluid.footer footer {
-    padding: 16px 10px 15px;
+    padding: 9px 10px 6px;
   }
   .row-fluid.footer.no-text {
-    height: auto;
-  }
-  .row-fluid.footer p {
-    font-size: 14px;
-  }
-  .infoLine {
-    background-image: none;
-    font-size: 14px;
-    padding: 0;
-    width: 170px;
+    height: 40px;
   }
   .footerNav {
-    width: 278px;
-    text-align: right;
+    width: 407px;
+    float: left;
+    text-align: left;
   }
   .footerNav a {
-    font-size: 14px;
+    font-size: 9px;
+    padding: 0;
+    margin-right: 5px;
+  }
+  .footerNav a:last-child {
+    margin-right: 0;
+  }
+  .footerNav span + a {
+    padding: 0;
+  }
+  .infoLine {
+    font-size: 9px;
+    width: 100%;
   }
 }
 /* Landscape phones and down */
 @media (max-width: 480px) {
-  .footerNav a {
-    font-size: 12px;
-  }
   .footerNav {
-    width: 151px !important;
+    width: auto !important;
+    float: left;
+    text-align: left;
+  }
+  .footerNav a {
+    font-size: 9px !important;
+    padding: 0;
+    margin-right: 5px;
+  }
+  .footerNav a:last-child {
+    margin-right: 0;
+  }
+  .footerNav span + a {
+    padding: 0;
   }
   .infoLine {
-    font-size: 12px !important;
+    font-size: 9px !important;
+    width: auto !important;
   }
 }
