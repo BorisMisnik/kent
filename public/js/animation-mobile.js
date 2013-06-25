@@ -327,7 +327,7 @@ $(document).ready(function(){
 			}
 		});
 
-	$( window ).on( "orientationchange resize", function( event ) {
+	$( window ).on( "orientationchange", function( event ) {
 		var scroll = $('section.now').position().top;
 		if( scroll !== 0 ){
 			$('section.now').scrollTop( 0 );
