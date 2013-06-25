@@ -192,7 +192,7 @@ $(document).ready(function(){
 				$('section.now').removeClass('now');
 				$this.addClass('now');
 
-				var y = $this.offset().top + 12;
+				var y = $this.offset().top
 
 				container
 					.animate({'scrollTop' : container.scrollTop() + y},1000);
@@ -327,14 +327,41 @@ $(document).ready(function(){
 			}
 		});
 
+	var question = $('.question-anaswer > div');
+	var footer = $('.footer');
+	var xv = $('.xv');
+	var w = $(window);
+
+	function heightQuestion(){
+
+		if( w.width() > 480 ) return;
+		question.height( w.height() - ( footer.height() +  xv.height() + 80 ) )
+
+	}
+	heightQuestion();
+
 	$( window ).on( 'orientationchange resize', function( event ) {
-		console.log( 123 );
+
+		if( !$('section.now').length ){
+
+			$('section').each(function(){
+
+				var position = $(this).offset().top
+
+				if( position <= 10 && position >= -10 )
+					$(this).addClass('now');
+
+			});
+
+		}
+
 		var scroll = $('section.now').position().top;
+
 		if( scroll !== 0 ){
 			$('section.now').scrollTop( 0 );
 			$('.container-fluid').scrollTop( $('.container-fluid').scrollTop() + scroll );
 		}
-			
+		heightQuestion();	
 	});
 
 })
