@@ -331,7 +331,7 @@ $(document).ready(function(){
 	var footer = $('.footer');
 	var xv = $('.xv');
 	var w = $(window);
-	var img = $('.block-image img');
+	var img = $('.block-image img, .carousel img');
 	function heightQuestion(){
 
 		question.height( w.height() - ( footer.height() +  xv.height() + 110 ) )
@@ -340,10 +340,8 @@ $(document).ready(function(){
 	}
 	function sizePacks(){
 
-		if( w.height() <  478){
-			var maxHeight = w.height() - ( footer.height() +  xv.height() + 50 )
-			img.css('max-height', maxHeight);
-		}
+		var maxHeight = w.height() - ( footer.height() +  xv.height() + 50 )
+		img.css('max-height', maxHeight);
 
 	}
 	heightQuestion();
