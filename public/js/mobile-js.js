@@ -2,8 +2,6 @@ var scroll;
 $(function(){
 
 
-	console.log($('#meta').length); 
-
 	$('.container-fluid').css('min-height', $('.xv').height() + $('.footer').height() + $('.wrapper-form').height() + 60)
 	scroll = new iScroll('scroll', {
 		 onBeforeScrollStart: function (e) {
