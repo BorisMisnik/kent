@@ -2,8 +2,6 @@ var scroll;
 $(function(){
 	$('.container-fluid').css('min-height', $('.xv').height() + $('.footer').height() + $('.wrapper-form').height() + 60)
 	scroll = new iScroll('scroll', {
-		hScrollbar: true,
-		hScroll: true,
 		 onBeforeScrollStart: function (e) {
             var target = e.target;
             while (target.nodeType != 1) target = target.parentNode;
@@ -14,7 +12,7 @@ $(function(){
         }
     });
 
-	window.addEventListener("resize", function() {
+	window.addEventListener("resize ", function() {
 		$('.container-fluid').css('min-height', $('.xv').height() + $('.footer').height() + $('.wrapper-form').height() + 60)
 		setTimeout(function(){
 			scroll.refresh();
