@@ -5,7 +5,7 @@ var mobile = {
 		this.svg = document.getElementById('svg');
 
 		var svg = this.svg
-		  , w   = $('.container-fluid').width()
+		  , w   = $('.xv').width()
 		  , h   = $(window).height() - $('.xv').height();
 
 		this.raphael = 	 new Raphael(svg, w, h);

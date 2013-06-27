@@ -12,7 +12,7 @@ $(function(){
         }
     });
 
-	window.addEventListener("resize ", function() {
+	window.addEventListener("resize", function() {
 		$('.container-fluid').css('min-height', $('.xv').height() + $('.footer').height() + $('.wrapper-form').height() + 60)
 		setTimeout(function(){
 			scroll.refresh();
