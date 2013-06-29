@@ -1,0 +1,58 @@
+//@import 'main.less';
+#login{
+	form{
+		width:278px;
+	}
+	.control-group{
+		margin:4px 0 0;
+		a{
+			display:block;
+			float:left;
+		}
+		& + .control-group{
+			margin:9px 0 0;
+		}
+	}
+	.labelContainer{
+		float:right;
+		margin:0;
+		padding:0;
+		vertical-align: top;
+	}
+	.linkRegistred{
+		position: relative;
+		top: 3px;
+		font-size:16px;
+		font-family: Verdana, Geneva, sans-serif;
+	}
+	span.checkbox{
+		float:none;
+		margin:0;
+	}
+	input[type="submit"]{margin:0;}
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+	.row-fluid.footer{
+		height: 90px;
+	}
+	.container-fluid{
+		min-width: 600px;
+	}
+	#login{
+		.form-horizontal{
+			width: 469px;
+		}
+		.linkRegistred{
+			font-size: 28px;
+			font-weight: 100;
+		}
+		.control-group{
+			margin-top: 24px;
+			& + .control-group{
+				margin:30px 0 0;
+			}
+		}
+	}	
+}

@@ -5,8 +5,8 @@ var mobile = {
 		this.svg = document.getElementById('svg');
 
 		var svg = this.svg
-		  , w   = $('.container-fluid').width()
-		  , h   = $('body').height() - $('.xv').height() - $('.footer').height();
+		  , w   = $('.xv').width()
+		  , h   = $(window).height() - $('.xv').height();
 
 		this.raphael = 	 new Raphael(svg, w, h);
 		this.cratesPath = [];
@@ -16,8 +16,13 @@ var mobile = {
 
 	resize : function(){
 
-		var h = $('body').height() - $('.xv').height() - $('.footer').height();
-		var w = $('.container-fluid').width();
+		var h = $(window).height() - $('.xv').height();
+		var w = $('.xv').width();
+		$('svg').attr({
+			'width' : w,
+			'height' : h
+		});
+		
 		this.raphael.setSize(w, h);
 		this.animation(this.now);
 	},
@@ -65,8 +70,8 @@ var mobile = {
 	one : function(){
 		var _this = this;
 		console.log('1');
-		var w = $('.container-fluid').width();
-		var h =  $('body').height() - $('.xv').height() - $('.footer').height();
+		var w = $('.xv').width();
+		var h =  $(window).height() - $('.xv').height();
 		var array = [
 			"M0 "+(h*0.52)+"R"+(w*0.64)+" "+(h*0.49)+" "+w+" "+(h*0.04),
 			"M0 "+(h*0.57)+"R"+(w*0.64)+" "+(h*0.54)+" "+w+" "+(h*0.1),
@@ -96,8 +101,8 @@ var mobile = {
 
 	two : function(){
 		console.log('2');
-		var h = $('body').height() - $('.xv').height() - $('.footer').height()
-		  , w = $('.container-fluid').width()
+		var h = $(window).height() - $('.xv').height()
+		  , w = $('.xv').width()
 		  , angleoff = 1.9
 		  , y  = 0.2 * Math.cos(angleoff) + 0.54
 		  , y2 = 0.3 * Math.cos(angleoff) + 0.53
@@ -124,8 +129,8 @@ var mobile = {
 
 	three: function(){
 		console.log('3');
-		var h = $('body').height() - $('.xv').height() - $('.footer').height()
-		  , w = $('.container-fluid').width()
+		var h = $(window).height() - $('.xv').height()
+		  , w = $('.xv').width()
 		  , angleoff = 1.9
 		  , y  = 0.01 * Math.sin(angleoff) + 0.85
 		  , x  = 0.2 * Math.sin(angleoff) + 0.5;
@@ -151,8 +156,8 @@ var mobile = {
 
 	four: function(){
 		console.log('4');
-		var h = $('body').height() - $('.xv').height() - $('.footer').height()
-		  , w = $('.container-fluid').width()
+		var h = $(window).height() - $('.xv').height()
+		  , w = $('.xv').width()
 		  , angleoff = 1.9
 		  , y  = 0.2 * Math.sin(angleoff) + 0.3
 		  , x  = 0.1 * Math.sin(angleoff) + 0.5;
@@ -178,8 +183,8 @@ var mobile = {
 
 	five: function(){
 
-		var h = $('body').height() - $('.xv').height() - $('.footer').height()
-		  , w = $('.container-fluid').width()
+		var h = $(window).height() - $('.xv').height()
+		  , w = $('.xv').width()
 		  , angleoff = 1.9
 		  , y  = 0.2 * Math.cos(angleoff) + 0.4
 		  , x  = 0.09 * Math.cos(angleoff) + 0.6
@@ -207,8 +212,8 @@ var mobile = {
 
 	six: function(){
 		console.log('6');
-		var h = $('body').height() - $('.xv').height() - $('.footer').height()
-		  , w = $('.container-fluid').width()
+		var h = $(window).height() - $('.xv').height()
+		  , w = $('.xv').width()
 		  , angleoff = 1.9
 		  , x  = 0.2 * Math.sin(angleoff) + 0.64
 		  , y  = 0.05 * Math.sin(angleoff) + 0.52
@@ -236,8 +241,8 @@ var mobile = {
 
 	seven: function(){
 		console.log('7');
-		var h = $('body').height() - $('.xv').height() - $('.footer').height()
-		  , w = $('.container-fluid').width()
+		var h = $(window).height() - $('.xv').height()
+		  , w = $('.xv').width()
 		  , angleoff = 1.9
 		  , x  = 0.1 * Math.cos(angleoff) + 0.6
 		  , y  = 0.1 * Math.cos(angleoff) + 0.2

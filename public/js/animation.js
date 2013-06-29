@@ -572,7 +572,7 @@ var action = function () {
 	};
 
 	that.selectAnimation = function(){
-
+		// console.log( '123' );
 		if( this.top && $('.now').prev() ) {
 
 			$('.now')

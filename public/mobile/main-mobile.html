@@ -1,0 +1,1016 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=767">
+	<title>Kent</title>
+    
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/bootstrap-responsive.min.css">
+    <link rel="stylesheet/less" href="../css/main-mobile.less">
+	<link rel="stylesheet/less" href="../css/index-mobile.less">
+	<link rel="shortcut icon" href="../img/fav.png" type="image/png">
+	
+	<script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+	<script src="../js/jquery.mobile.custom.min.js"></script>
+	<script src="../js/less-1.3.3.min.js"></script>
+	<script src="../js/TweenMax.min.js"></script>	 
+	<script src="../js/animation-mobile.js"></script>
+	<script src="../js/index-mobile.js"></script>
+	
+	<script src="../js/raphael-min.js"></script>
+ 	<script src="../js/background-mobile.js"></script>
+
+</head>
+<body>
+
+	<div class="row-fluid footer no-text">
+		<div class="span12">
+			<footer>
+				<span class="infoLine">Інформаційна лінія: 0 800 50 84 15 </span>
+				<nav class="footerNav">
+					<a href="/#!/feedback">Зворотний зв’язок</a><span class="hidden-phone">|</span>
+					<a href="/#!/rules">Правила користування сайтом</a><span class="hidden-phone">|</span>
+					<a href="/auth/logout">Вийти</a>
+				</nav>
+			</footer>
+		</div>
+	</div>
+
+	<div class="row-fluid xv">
+		<div class="span12">
+			<div id="xv">
+				<img src="../img/xv.jpg" alt=" " />
+			</div>
+		</div>
+	</div>
+
+	<ul class="nav-site unstyled">
+		<li class="active"><a href="#" data-slide="sigarets">00.1</a><span>Сигареты КЕНТ</span></li>
+		<li><a href="#" data-slide="history">00.2</a><span>Історія КЕНТ </span></li>
+		<li><a href="#" data-slide="question">00.3</a><span>Запитання-відповіді</span></li>
+		<li><a href="#" data-slide="profile">00.4</a><span>Профайл</span></li>
+	</ul>
+
+	<div class="scrollButton">
+		<a href="#" class="prev"></a>
+		<a href="#" class="next"></a>
+	</div>
+
+	<h2 class="title-block"> </h2>
+
+	<div id="svg"></div>
+	
+	<div id="scroll" data-role='page'>
+		<div class="container-fluid">
+			<!-- Hello -->
+			<section id="main" class="now" data-animation="first">
+				<article>
+					<div>
+						<p class="hello">Вітаємо у просторі <strong>KENT</strong>.<br/>
+						   ти можеш дізнатися більше про сигарети <strong>KENT</strong>,<br/>
+						   прогрес бренда та останні досягнення.</p>
+						<!-- <p class="hello">Для початку використовуй скрол</p> -->
+						<div class="arrow-start"></div>
+					</div>
+				</article>
+			</section>
+			<!-- carousel boxes -->
+			<section id="carousel" data-animation="second" data-slide="sigarets">
+				<article>
+					<div>
+						<div class="carousel">
+							<img src="../img/nanotekStart.png" alt=" " data-name="nanotek">
+							<img src="../img/hdStart.png" alt=" " data-name="hd">
+							<img src="../img/hdiStart.png" alt=" " data-name="hdi">
+							<img src="../img/switchStart.png" alt=" " data-name="switch">
+							<img src="../img/hdsStart.png" alt=" " data-name="hds">
+						</div>
+					</div>
+				</article>
+			</section>
+			<!-- hdi-info -->
+			<section id="site-hdi" data-name="hdi" data-animation="third" data-slide="sigarets">
+				<article class="hdi">
+					<div>
+						<!-- hdi short info -->
+						<div class="hdiShort infoF">
+							<div class="hdiBlock">
+								<div class="block-image">
+									<img src="../img/hdfirst.png" alt=" "/>
+								</div>
+								<div class="block-text">
+									<h3 class="title">KENT HDi – це нові сигарети KENT у форматі Demi Slims.</h3>
+		
+									<p class="about-pack visible-desktop">Технологія вугільної фільтрації забезпечує унікальний м’який смак.</p>
+									
+									<p class="about-pack">Технологія надтонкого волокна <strong>Precision Thread</strong> відповідає за рівномірну передачу смаку протягом усього процесу куріння. </p>
+
+									<p class="about-pack">Турбокамера нового покоління забезпечує миттєву передачу смаку KENT HDi. </p>
+
+									<p class="precision about-pack">
+										<span></span>
+										Precision Thread Technology
+									</p> 
+									<!-- <button class="submit moreDetail visible-desktop">Дізнатись більше</button> -->
+									<p class="description about-pack">
+										Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину):
+									</p>
+								</div>
+							</div>
+						</div>
+						<!-- hdi detail -->
+						<div class="aboutFilter">
+							<div class="sigaret-wrapper">
+								<div class="sigaret"></div>
+							</div>
+							<div class="aboutFilterInfo">
+								<div>
+									<h3 class="titleTechnology">Precision Thread Technology</h3>
+									<p class='about-technology'>
+										Надтонке волокно, яке називається 
+										Precision Thread (Пресіжн Тред) – це технологія спеціального волокна у фільтрі, що робить смак сигарети рівномірним протягом усього процесу куріння.
+									</p>
+									<button class="submit shortDetail">повернутись назад</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+			<!-- siteSwitch -->
+			<section id="site-hd" data-animation="sixeth" data-name="switch" data-slide="sigarets">
+				<article>
+					<div>
+						<div class="infoSwitch">
+							<div class="imageSwitch block-image">
+								<img src="../img/switch_ie8.png" alt=" ">
+							</div>
+							<div class="textSwitch block-text">
+								<h3>KENT iSWITCH – це перші в Україні сигарети, що дозволяють самостійно керувати смаком.</h3>
+								<p>З KENT iSWITCH смак сигарети можна змінити в будь-який момент куріння. У фільтрі кожної сигарети – капсула свіжого смаку. Для її активації необхідно стиснути фільтр у місці, позначеному click-символом. Лише одне стискання дозволить трансформувати смак KENT в абсолютно новий та свіжий. </p>
+								<p>Обирати тобі – звичний чіткий смак чи принципово новий, що освіжає. </p>
+								<p class="description">Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину): </p>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+			<!-- sitenanotek -->
+			<section id="site-nanotek" data-animation="seventh" data-name="nanotek" data-slide="sigarets">
+				<article>
+					<div>
+						<div class="infoNanotek infoF">
+							<div class="imageNanotek block-image">
+								<img src="../img/boxesnanotek.png" alt=" "/>
+							</div>
+							<div class="infoImageNanotek block-text">
+								<h3 class="nanotekTitle">KENT Nanotek 2.0 має принципово новий формат<br/>  сигарет – Compact King Size. </h3>
+								<div class="textNanotek">
+									<p>
+										Це перші в Україні компактні сигарети, які дають усю насиченість смаку 
+										з активованим вугільним фільтром. 
+									</p>
+									<p>
+										Серед KENT Nanotek 2.0 тільки KENT Nanotek 2.0 Blue на додачу має надтонке волокно всередині фільтра, що забезпечує рівномірність смаку впродовж усього процесу куріння. 
+									</p>
+									<p class="precision about-pack">
+										<span></span>
+										Precision Thread Technology
+									</p> 
+									<!-- <button class="submit moreDetail visible-desktop">Дізнатись більше</button> -->
+									<p class="description">Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину): </p>
+								</div>
+							</div>
+						</div>
+						<div class="aboutFilter">
+							<div class="sigaret-wrapper">
+								<div class="sigaret"></div>
+							</div>
+							<div class="aboutFilterInfo">
+								<div>
+									<h3 class="titleTechnology">Precision Thread Technology</h3>
+									<p class='about-technology'>
+										Надтонке волокно, яке називається 
+										Precision Thread (Пресіжн Тред) – це технологія спеціального волокна у фільтрі, що робить смак сигарети рівномірним протягом усього процесу куріння.
+									</p>
+									<button class="submit shortDetail">повернутись назад</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+			<!-- siteHD -->
+			<section id="site-hd" data-animation="fiveth" data-name="hd" data-slide="sigarets">
+				<article>
+					<div>
+						<div class="boxesHD">
+							<div class="wrapper-box block-image">
+								<img src="../img/boxeshd.png" alt=" "/>
+							</div>
+							<div class="block-text">
+								<h3 class="hdTitle">KENT HD – це сигарети у форматі King Size. </h3>
+								<p>Вони мають систему фільтрації, яка містить 2 вугільні мембрани та потрійний фільтр. 
+									Усе це робить смак KENT HD чітким та виразним. </p>
+								<p class="description">Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину): </p>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+			<!-- sitehds -->
+			<section  id="site-hds" data-animation="eighth" data-name="hds" data-slide="sigarets">
+				<article>
+					<div>
+						<div class="hdsifno infoF">
+							<div class="imagehds block-image">
+								<img src="../img/hds2012!.png" alt=" "/>
+								<img src="../img/hds2012to.png" alt=" "/>
+							</div>
+							<div class="texthds block-text">
+								<h3 class="title">
+									KENT HDs – це KENT у форматі Super Slims, особливістю якого стало використання інноваційної технології Precision Thread – останнього слова у технологіях передачі смаку.  
+								</h3>
+								<p>
+									Надтонке волокно всередині фільтра забезпечує рівномірно насичений смак KENT HDs упродовж всього процесу куріння, від початку до кінця. 
+								</p>
+								<p class="precision about-pack">
+									<span></span>
+									Precision Thread Technology
+								</p> 
+
+								<!-- <button class="submit moreDetail visible-desktop">Дізнатись більше</button> -->
+								<p class="description about-pack">
+										Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину):
+								</p>
+							</div>
+						</div>
+						<!-- filter -->
+						<div class="aboutFilter">
+							<div class="sigaret-wrapper">
+								<div class="sigaret"></div>
+							</div>
+							<div class="aboutFilterInfo">
+								<div>
+									<h3 class="titleTechnology">Precision Thread Technology</h3>
+									<p class='about-technology'>
+										Надтонке волокно, яке називається 
+										Precision Thread (Пресіжн Тред) – це технологія спеціального волокна у фільтрі, що робить смак сигарети рівномірним протягом усього процесу куріння.
+									</p>
+									<button class="submit shortDetail">повернутись назад</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+			<!-- history start -->
+			<section id="history-main" data-animation="nineth" data-slide="history">
+				<article>
+					<div>
+						<div class="mainHistory">
+							<h3>Час дізнатися про прогресивні зміни <br/> <strong>KENT</strong> у часі</h3>
+							<div class="arrow-start"></div>
+						</div>
+					</div>
+				</article>
+			</section>
+			<!-- hd 2013 -->
+			<section id="hdi2013" data-animation="twentTwo" data-slide="history" data-history="hdi">
+				<article>
+					<div>
+						<div class="wrapperElements">
+							<div class="img block-image">
+								<img src="../img/hdfirst.png" alt=" "/>
+							</div>
+							<div class="info block-text">
+								<h3>2013</h3>
+								<p>
+									На українському ринку з’являється <br/> KENT HDi. Це нова пропозиція від марки KENT з унікальним трисекційним фільтром з турбо-секцією у сучасному компактному форматі. Технологія вугільної фільтрації забезпечує м’який смак, технологія надтонкого волокна Precision Thread відповідає за рівномірну передачу смаку протягом усього процесу куріння, а турбо-секція нового покоління забезпечує миттєву передачу смаку KENT HDi. 
+								</p>
+								<p class="description">Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину): </p>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+			<!-- hd 2012 -->
+			<section id="hd2012" data-animation="tenth" data-slide="history" data-history="hd">
+				<article>
+					<div>
+						<div class="wrapperElements">
+							<div class="img block-image">
+								<img src="../img/kent2012.png" alt=" "/>
+							</div>
+							<div class="info block-text">
+								<h3>2012</h3>
+								<p>Розширення лінійки KENT HD. Тепер знайомий чіткий смак KENT HD – у варіанті 6 мг під назваю Spectra. </p>
+								<p class="description">Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину): </p>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+			<!-- swithc2012 -->
+			<section id="switch2012" data-animation="eleventh" data-slide="history" data-history="switch">
+				<article>
+					<div>
+						<div class="wrapperElements">
+							<div class="img block-image">
+								<img src="../img/switch2012.png" alt=" "/>
+							</div>
+							<div class="info block-text">
+								<h3>2012</h3>
+								<p>
+									Запуск KENT iSWITCH. Це нове ім’я та оновлений дизайн KENT Convertibles – перших в Україні сигарет із капсулою свіжого смаку у фільтрі. Нова пачка є втіленням найсучасніших дизайнерських рішень, технологій і матеріалів і відображає передову стратегію марки KENT. Сам же продукт лишився незмінним, включно з можливістю обирати смак сигарети в будь-який момент куріння.
+								</p>
+								<p class="description">Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину): </p>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+			<!-- nanotek2012 -->
+			<section id="nanotek2012" data-animation="thirteenth" data-slide="history" data-history="nanotek">
+				<article>
+					<div>
+						<div class="wrapperElements">
+							<div class="img block-image">
+								<img src="../img/nanotek2012.png" alt=" "/>
+							</div>
+							<div class="info block-text">
+								<h3>2012</h3>
+								<p>
+									Поповнення лінійки сигарет у компактному форматі KENT Nanotek 2.0. З’являється KENT Nanotek 2.0 Blue – нове покоління чіткого смаку у варіанті 6 міліграмів із використанням технології Precision Thread. Застосована в сигаретах KENT уперше саме в Nanotek 2.0 Blue, технологія Precision Thread – це надтонке волокно всередині фільтра, що забезпечує рівномірність смаку упродовж усього процесу куріння. 
+								</p>
+								<p class="description">Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину): </p>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+			<!-- hds2012 -->
+			<section id="hds2012" data-animation="fourteen" data-slide="history" data-history="hds">
+				<article>
+					<div>
+						<div class="wrapperElements">
+							<div class="img block-image">
+								<img src="../img/hds2012!.png" alt=" "/>
+								<img src="../img/hds2012to.png" alt=" "/>
+							</div>
+							<div class="info block-text">
+								<h3>2012</h3>
+								<p>
+									Запущено KENT HDs – першу пропозицію від KENT у форматі Super Slims. Сучасний дизайн пачки відображає прогресивний стиль KENT. А технологія надтонкого волокна Precision Thread забезпечує рівномірну насиченість смаку впродовж усього процесу куріння. 
+								</p>
+								<p class="description">Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину):
+								</p>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+			<!-- nanotek2011 -->
+			<section id="nanotek2011" data-animation="fiveteen" data-slide="history" data-history="nanotek">
+				<article>
+					<div>
+						<div class="wrapperElements">
+							<div class="img block-image">
+								<img src="../img/nanotek2011.png" alt=" "/>
+								<img src="../img/nanotek2011two.png" alt=" "/>
+							</div>
+							<div class="info block-text">
+								<h3>2011</h3>
+								<p>
+									Відбувається запуск KENT Nanotek 2.0 – модернізованого KENT Nanotek. <br/> 2.0 – це нове покоління дизайну. Нова пачка отримує чорний колір та ребристі елементи поверхні. Незмінними залишаються компактний формат пачки, якість та смак сигарет.
+								</p>
+								<p class="description">Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину):</p>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+			<!-- hd2010 -->
+			<section id="hd2010" data-animation="sixteen" data-slide="history" data-history="hd">
+				<article>
+					<div>
+						<div class="wrapperElements">
+							<div class="img block-image">
+								<img src="../img/hd2010.png" alt=" "/>
+								<img src="../img/hd2010two.png" alt=" "/>
+								<img src="../img/hd2010three.png" alt=" "/>
+							</div>
+							<div class="info block-text">
+								<h3>2010</h3>
+								<p>
+									Дизайн пачок KENT HD оновлено. Дзеркальна зворотна поверхня, колір хрому та рельєфна текстура зробили зовнішній вигляд пачки більш сучасним та стильним. А 3 варіанти смаку сигарет KENT HD лишилися незмінними.
+								</p>
+								<p class="description">Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину): </p>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+			<!-- switch 2010 -->
+			<section id="switch2010" data-animation="seventeen" data-slide="history" data-history="switch">
+				<article>
+					<div>
+						<div class="wrapperElements">
+							<div class="img block-image">
+								<img src="../img/switch2010.png" alt=" "/>
+							</div>
+							<div class="info block-text">
+								<h3>2010</h3>
+								<p>
+									Розширення продуктового портфеля KENT. В Україні з’являються KENT Convertibles – сигарети, смак яких можна змінити в будь-який момент куріння, легко трансформувавши звичний смак KENT в абсолютно новий свіжий смак завдяки ментоловій капсулі всередині фільтра. 
+								</p>
+								<p class="description">Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину): </p>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+			<!-- hd2009 -->
+			<section id="hd2009" data-animation="eighteen" data-slide="history" data-history="hd">
+				<article>
+					<div>
+						<div class="wrapperElements">
+							<div class="img block-image">
+								<img src="../img/hd2009.png" alt=" "/>
+								<img src="../img/hd2009two.png" alt=" "/>
+								<img src="../img/hd2009three.png" alt=" "/>
+							</div>
+							<div class="info block-text">
+								<h3>2009</h3>
+								<p>
+									На зміну KENT 3-TEK приходить KENT HD. KENT HD відкрив абсолютно новий стандарт смаку – смак у вимірі High Definition, більш чіткий та виразний. 
+								</p>
+								<p class="description">Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину):</p>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+			<!-- nanotek2007 -->
+			<section id="nanotek2007" data-animation="nineteen" data-slide="history" data-history="nanotek">
+				<article>
+					<div>
+						<div class="wrapperElements">
+							<div class="img block-image">
+								<img src="../img/nanotek2007.png" alt=" "/>
+								<img src="../img/nanotek2007two.png" alt=" "/>
+								<img src="../img/nanotek2007three.png" alt=" "/>
+							</div>
+							<div class="info block-text">
+								<h3>2007</h3>
+								<p>
+									Цього року лінійку KENT розширили KENT Nanotek – перші в Україні компактні сигарети з повним насиченим смаком. Вони стали засновником принципово нового формату сигарет Compact King Size. 
+								</p>
+								<p class="description">Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину): </p>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+			<!-- hd2007 -->
+			<section id="hd2007" data-animation="twenty" data-slide="history" data-history="hd">
+				<article>
+					<div>
+						<div class="wrapperElements">
+							<div class="img block-image">
+								<img src="../img/hd2007.png" alt=" "/>
+								<img src="../img/hd2007two.png" alt=" "/>
+								<img src="../img/hd2007three.png" alt=" "/>
+							</div>
+							<div class="info block-text">
+								<h3>2007</h3>
+								<p>
+									Пачки KENT 3-TEK виходять в оновленому дизайні, що повністю відображає філософію бренду – завжди бути на крок попереду. Сигарети KENT уперше отримують пізнавані елементи – трапецію та коло сонік на пачках. А ще варіанти сигарет KENT 3-TEK дістають нові назви – Blue Futura 8, Silver Neo 4 та White Infina 1. При цьому смак усіх трьох варіантів лишається незмінним.
+								</p>
+								<p class="description">Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину): </p>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+			<!-- hd2003 -->
+			<section id="hd2003" data-animation="twentyOne" data-slide="history" data-history="hd">
+				<article>
+					<div>
+						<div class="wrapperElements">
+							<div class="img block-image">
+								<img src="../img/hd2003.png" alt=" "/>
+								<img src="../img/hd2003two.png" alt=" "/>
+								<img src="../img/hd2003three.png" alt=" "/>
+							</div>
+							<div class="info block-text">
+								<h3>2003</h3>
+								<p>
+									Запущено сигарети KENT 3-TEK – перші сигарети KENT в Україні. Для KENT 3-TEK було впроваджено систему потрійної вугільної фільтрації 3-TEK, яка складалася з 3 частин: вугільний фільтр був розташований між двома ацетатними. 
+								</p>
+								<p class="description">Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину): </p>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+			<!-- question -->
+			<section id="question" data-slide="question">
+				<article class="question">
+					<div class="question-anaswer">
+						<div>
+							<div class="button-wrapper no-sweep">
+								<a href="#" class="no-sweep">Ваше питання</a>
+								<div class="block-wrapper no-sweep">
+									<form action="" method="">
+										<textarea class="massege no-sweep" name="massege" placeholder="Ваше запитання"></textarea>
+										<input type="submit" value="НАДІСЛАТИ" class="submitMassage no-sweep">
+									</form>
+									<p>Твоє запитання успішно надіслано</p>
+								</div>
+							</div>
+							<div class="text-wrapper no-sweep">
+								<div class="text">
+									<h3  class="open">Хто виробляє сигарети KENT?</h3>
+									<p style="display:block;">
+										Сигарети KENT випускає компанія «Бритіш Американ Тобакко», що заснована у 1902 р. і є одним з лідерів світового тютюнового ринку. В Україні «Бритіш Американ Тобакко» представлена такими відомими марками, як: 
+									</p>
+									<ul>
+										<li>міжнародні: «DUNHILL» («ДАНХІЛ»), «KЕNT» («КEНТ»), «ROTHMANS» («РОТМАНС»), «VOGUE» («ВОГ»), «LUCKY STRIKE» («ЛАКІ СТРАЙК»), «PALL MALL» («ПЕЛЛ МЕЛЛ»), CAPRI («КАПРІ»).</li>
+										<li>національні: «ПРИЛУКИ ОСОБЛИВІ», «ПРИЛУКИ ПРЕМІУМ», «ОТАМАН», «КОЗАК».</li>
+									</ul>
+									<h3>Де виробляються сигарети KENT?</h3>
+									<p>
+										Сигарети KENT виробляються на високотехнологічному сучасному обладнанні тютюнової фабрики «В.А.Т. – Прилуки» в місті Прилуки Чернігівської області та тютюнової фабрики ЗАТ «Бритіш Американ Тобакко – СПб» у Санкт-Петербурзі, Росія. Обладнання відповідає найвищим міжнародним стандартам і дозволяє виробляти якісний продукт.
+									</p>
+									<h3>Які бувають сигарети KENT?</h3>
+									<p>
+										Сигарети KENT представлено на українському ринку в 12 варіантах:
+										KENT у класичному форматі:<br/>
+										KENT HD Futura: 8 мг смол; 0,7 мг нікотину.<br/>
+										KENT HD Spectra: 6 мг смол; 0,5 мг нікотину.<br/>
+										KENT HD Neo: 4 мг смол; 0,3 мг нікотину.<br/>
+										KENT HD Infina: 1 мг смол; 0,1 мг нікотину.<br/>
+										KENT iSWITCH: 4 мг смол; 0,3 мг нікотину.<br/>
+										KENT HDi Blue: 6 мг смол; 0,5 мг нікотину.<br/>
+										KENT HDi Silver: 4 мг смол; 0,4 мг нікотину.<br/>
+										<br/>
+										KENT у компактному форматі:<br/>
+										KENT Nanotek 2.0 Blue: 6 мг смол; 0,6 мг нікотину.<br/>
+										KENT Nanotek 2.0 Silver: 4 мг смол; 0,4 мг нікотину.<br/>
+										KENT Nanotek 2.0 White: 1 мг смол; 0,2 мг нікотину.<br/>
+										<br/>
+										KENT у форматі Super Slims:<br/>
+										KENT HDs Blue: 5 мг смол; 0,6 мг нікотину.<br/> 
+										KENT HDs Silver: 3 мг смол; 0,4 мг нікотину.<br/>
+										<br/>
+										KENT у форматі Demi Slims:<br/>
+										KENT HDi Blue: 6 мг смол; 0,5 мг нікотину.<br/>
+										KENT HDi Silver: 4 мг смол; 0,4 мг нікотину.<br/>
+									</p>
+									<h3>Які формати є в сигарет KENT?</h3>
+									<p>
+										Сигарети KENT представлено у 4 форматах:<br/>
+										King Size – класичний формат сигарет. Довжина сигарети у форматі King Size – 83 мм, діаметр – 7,5 мм.<br/>
+										King Size Super Slims – компактний формат сигарет. Довжина сигарети у цьому форматі – 83 мм, діаметр – 4,5 мм.<br/>
+										Super Slims – надтонкий формат сигарет. Довжина сигарети у форматі Super Slims – 99 мм, діаметр – 4,5 мм.<br/>
+										Demi Slims - довжина сигарети – 83 мм, діаметр – 6,2 мм.
+									</p>
+									<h3>Що таке KENT HD?</h3>
+									<p>
+										HD – це скорочена назва технології «Хай Дефінішн». У перекладі – «висока чіткість». Від початку під технологією «Хай Дефінішн» мали на увазі специфікацію електронних пристроїв, яка підтримує відтворення аудіо- та відео-форматів високої якості. Що ж до сигарет KENT HD, під технологією HD мається на увазі багаторівнева система фільтрації, а саме – потрійний фільтр з двома вугільними мембранами, який дозволяє покращити смакові характеристики сигарет KENT HD та зробити їхній смак більш чітким. 
+									</p>
+									<h3>Чим відрізняються сигарети KENT HD від сигарет KENT Nanotek 2.0?</h3>
+									<p>
+										1.&nbsp;Сигарети KENT HD мають звичайний формат King Size.
+										Сигарети KENT Nanotek 2.0 мають формат King Size Super Slims. Це інноваційний формат, який дозволив зробити сигарети більш компактними, але при цьому зберегти всю насиченість смаку. <br/>
+										2.&nbsp;KENT HD має трисекційний фільтр, який складається з двох ацетатних частин і вугільного фільтра.
+										KENT Nanotek 2.0 має вугільний фільтр.<br/><br/>
+										Варіанти смаку KENT HD:<br/>
+										KENT HD Futura: 8 мг смол; 0,7 мг нікотину.<br/>
+										KENT HD Spectra: 6 мг смол; 0,5 мг нікотину.<br/>
+										KENT HD Neo: 4 мг смол; 0,3 мг нікотину.<br/>
+										KENT HD Infina: 1 мг смол; 0,1 мг нікотину.<br/>
+										Варіанти смаку KENT Nanotek 2.0:<br/>
+										KENT Nanotek 2.0 Blue: 6 мг смол; 0,6 мг нікотину.<br/>
+										KENT Nanotek 2.0 Silver: 4 мг смол; 0,4 мг нікотину.<br/>	
+										KENT Nanotek 2.0 White: 1 мг смол; 0,2 мг нікотину.<br/>
+									</p>
+									<h3>У чому полягає особливість фільтра сигарет KENT HD?</h3>
+									<p>KENT HD має трисекційний фільтр, який складається з двох ацетатних частин і вугільного фільтра.</p>
+
+									<h3>Скільки коштує новий KENT HD?</h3>
+									<p>Станом натравень 2013 року, максимальна роздрібна ціна KENT HD – 14 гривень. Максимальна роздрібна ціна завжди надрукована на пачці. Проте вона може змінюватися залежно від цінової політики.</p>
+
+									<h3>Які варіанти смаку сигарет KENT HD існують?</h3>
+									<p>Сигарети KENT HD представлені у 4 варіантах. Вміст смол та нікотину в димі однієї сигарети KENT HD:<br/>
+										KENT HD Futura: 8 мг смол; 0,7 мг нікотину.<br/>
+										KENT HD Spectra: 6 мг смол; 0,5 мг нікотину.<br/>
+										KENT HD Neo: 4 мг смол; 0,3 мг нікотину.<br/>
+										KENT HD Infina: 1 мг смол; 0,1 мг нікотину.<br/>
+									</p>
+
+									<h3>Звідки пішли назви Neo, Infina, Futura, Spectra?</h3>
+									<p>Neo означає «новий» латинською. Infina – від латинського infinum – нескінченно малий. Futura – від futurum – майбутній. Spectra перекладається як «спектр».</p>
+
+									<h3>Що таке KENT Nanotek 2.0?</h3>
+									<p>Це сигарети KENT у форматі King Size Super Slims. Завдяки цьому формату пачка є більш компактною, але при цьому якість та смак сигарет залишаються такими самими, як і у форматі King Size. </p>
+
+									<h3>Що означає Nanotek?</h3>
+									<p>Назва Nanotek походить від двох грецьких слів. Нано (від грец. nаnos – карлик) – це приставка для утворення одиниці, рівної одній мільярдній частині вихідної одиниці. Наприклад, 1 нанометр = 10-9 м. «Тек» у перекладі з грецької мови означає «технологія».
+									</p>
+
+									<h3>Чому змінився дизайн KENT Nanotek?</h3>
+									<p>Це пов’язано з тим, що KENT вирішив уніфікувати сім’ю Nanotek.</p>
+
+									<h3>Що означає 2.0?</h3>
+									<p>2.0 – це нове покоління дизайну, друга версія.</p>
+
+									<h3>Чи змінився смак KENT Nanotek?</h3>
+									<p>Ні. Дизайн пачок KENT Nanotek оновлено, а смак сигарет залишився незмінним.</p>
+
+									<h3>Які варіанти смаку сигарет KENT Nanotek 2.0 існують? Чим вони відрізняються?</h3>
+									<p>KENT Nanotek представлений у 3 варіантах, які відрізняються вмістом смол та нікотину:<br/>
+										KENT Nanotek 2.0 Blue: 6 мг смол; 0,6 мг нікотину.<br/>
+										KENT Nanotek 2.0 Silver: 4 мг смол; 0,4 мг нікотину.<br/>	
+										KENT Nanotek 2.0 White: 1 мг смол; 0,2 мг нікотину.<br/>
+									</p>
+
+									<h3>Скільки коштує KENT Nanotek?</h3>
+									<p>Станом на травень 2013 року, максимальна роздрібна ціна KENT Nanotek – 14,5 гривень. Максимальна роздрібна ціна завжди надрукована на пачці. Проте вона може змінюватися залежно від цінової політики.</p>
+
+									<h3>Який фільтр у Kent Nanotek 2.0?</h3>
+									<p>KENT Nanotek містить активований вугільний фільтр. KENT Nanotek 2.0 Blue на додачу має надтонке волокно всередині фільтра, що забезпечує рівномірність смаку упродовж усього процесу куріння.</p>
+
+									<h3>Що таке Nanotek 2.0 Blue, Silver, White?</h3>
+									<p>Blue, Silver, White – це назви варіантів смаку сигарет KENT Nanotek 2.0. Вони символізують рівень насиченості та міцність смаку сигарет.</p>
+
+									<h3>Що таке King Size Super Slims?</h3>
+									<p>King Size Super Slims – це формат сигарет KENT Nanotek 2.0. Довжина сигарети формату Compact King Size – 83 мм, на відміну від звичайних Superslims Size, довжина яких – 100 мм.</p>
+
+									<h3>Що таке KENT Nanotek 2.0 6 мг (Blue)?</h3>
+									<p>Nanotek 2.0 Blue – це нове покоління сигарет компактного формату у варіанті 6 міліграмів із застосуванням технології Precision Thread (Пресіжн Тред).</p>
+
+									<h3>Що таке Precision Thread?</h3>
+									<p>Precision Thread (Пресіжн Тред) − це надтонке волокно всередині фільтра. Це нитка, просочена спеціальним соусом, який додається до суміші тютюнів для зволоження та розкриття окремих компонентів тютюнового смаку й аромату. Завдяки застосуванню Precision Thread (Пресіжн Тред) смак сигарети концентрується в нитці, і так забезпечується рівномірна насиченість смаку впродовж всього процесу куріння.</p>
+
+									<h3>Що таке KENT iSWITCH?</h3>
+									<p>KENT iSWITCH – це нове ім’я та оновлений дизайн KENT Convertibles – перших в Україні сигарет, що дозволяють самостійно керувати смаком.<br/>
+									З однієї пачки Ви можете викурити звичайну сигарету, а можете надати їй свіжого ментолового смаку лише одним кліком на спеціальну желатинову капсулу у фільтрі.
+									</p>
+
+									<h3>Який фільтр у KENT iSWITCH?</h3>
+									<p>Сигарети KENT iSWITCH мають вугільно-ацетатний фільтр, також всередині ацетатної частини міститься ментолова капсула.</p>
+
+									<h3>Як змінювати смак KENT iSWITCH?</h3>
+									<p>Змінити смак можна завдяки спеціальній желатиновій капсулі, яка є у фільтрі кожної сигарети KENT iSWITCH.
+									Щоб активувати цю капсулу, треба натиснути на фільтр у місці, позначеному Клік-символом. 
+									Одне натискання – і Ви змінюєте звичний смак KENT на ментоловий. 
+									Ви можете трансформувати смак сигарети в будь-який момент куріння або не робити цього взагалі. Вибір завжди за вами.
+									</p>
+
+									<h3>Що означає слово iSWITCH?</h3>
+									<p>Це слово складається з двох частин: букви «і» та слова «switch». (від англійських «I» – я, «switch»  – змінюю). </p>
+
+									<h3>Чи відбулися зміни в продукті iSWITCH?</h3>
+									<p>Ні, це той самий продукт, що й раніше. Змінився лише дизайн пачки.</p>
+
+									<h3>Що являє собою капсула, яка міститься у фільтрі KENT iSWITCH?</h3>
+									<p>Це желатинова капсула з ментолом, натискаючи на яку, Ви маєте можливість керувати смаком сигарети, змінюючи його зі звичного на свіжий.</p>
+
+									<h3>KENT iSWITCH мають ментоловий смак?</h3>
+									<p>До того як Ви активуєте капсулу у фільтрі, сигарета має звичний смак, подібний до KENT HD Neo (смол – 4 мг, нікотину – 0,3 мг). Після активації капсули Ви відчуєте свіжий ментоловий смак. Смак можна міняти зі звичного на ментоловий за Вашим бажанням.</p>
+
+									<h3>Скільки варіантів смаку є в KENT iSWITCH?</h3>
+									<p>У KENT iSWITCH – один варіант смаку, який можна трансформувати на ментоловий у будь-який момент куріння. Вміст смол в одній сигареті – 4 мг, нікотину – 0,3 мг.</p>
+
+									<h3>Скільки коштують KENT iSWITCH?</h3>
+									<p>Станом на травень 2013 року максимальна роздрібна ціна KENT iSWITCH – 15 гривень. Максимальна роздрібна ціна завжди надрукована на пачці. Проте вона може змінюватися залежно від цінової політики.</p>
+
+									<h3>А KENT iSWITCH – це шкідливо?</h3>
+									<p>KENT iSWITCH є не більш і не менш шкідливим за будь-які інші сигарети. Сигарети KENT iSWITCH сертифіковані і відповідають усім стандартам, встановленим законодавством України. Нагадуємо, що куріння будь-яких сигарет шкодить Вашому здоров’ю та може викликати захворювання на рак. </p>
+
+									<h3>Що змінилося у KENT HDs порівняно з попереднім KENT?</h3>
+									<p>Це пропозиція від KENT у форматі Superslims з технологією надтонкого волокна Precision Thread (Пресіжн Тред) та сучасним дизайном.</p>
+
+									<h3>Які варіанти смаку сигарет KENT HDs існують?</h3>
+									<p>Сигарети KENT HDs з технологією Precision Thread (Пресіжн Тред) доступні у двох варіантах:<br/>
+									KENT HDs Blue: 5 мг смол; 0,6 мг нікотину.<br/>
+									KENT HDs Silver: 3 мг смол; 0,4 мг нікотину.
+									</p>
+
+									<h3>Скільки коштує KENT HDs?</h3>
+									<p>Станом на травень 2013 року максимальна роздрібна ціна KENT HDs – 14 гривень. Максимальна роздрібна ціна завжди надрукована на пачці. Проте вона може змінюватися залежно від цінової політики.</p>
+
+									<h3>Що таке KENT HDi?</h3>
+									<p>Це нова пропозиція від KENT. KENT HDi поєднав у собі 3 технології передачі смаку у трисекційному фільтрі, що носить назву Trip Core Filter (Тріп Кор Філтер):<br/>
+									Технологія вугільної фільтрації забезпечує унікальний м’який смак. <br/>
+									Технологія надтонкого волокна Precision Thread (Пресижн Тред) відповідає за рівномірну передачу смаку протягом усього процесу куріння. <br/>
+									А турбокамера нового покоління забезпечує миттєву передачу смаку KENT HDi. 
+									</p>
+
+									<h3>Які варіанти смаку сигарет KENT HDi існують?</h3>
+									<p>KENT HDi доступний у двох варіантах – Blue (6 мг) і Silver (4 мг).</p>
+
+									<h3>Скільки коштує KENT HDi?</h3>
+									<p>Станом на травень 2013 року максимальна роздрібна ціна KENT HDi – 15 гривень. Максимальна роздрібна ціна завжди надрукована на пачці. Проте вона може змінюватися залежно від цінової політики.</p>
+
+									<h3>Які активності від ТМ KENT проводяться зараз?</h3>
+									<p>У зв’язку з прийняттям нового законодавства щодо заборони реклами й стимулювання продажу тютюнових виробів, з 16 вересня 2012 року проведення активностей припинено.</p>
+
+									<h3>Чому з'явились нові попередження про шкоду куріння?</h3>
+									<p>У зв’язку з прийняттям нового законодавства, з 4 жовтня 2012 року було введене нове маркування сигаретних пачок.
+									На одній стороні пачки або блоку зазначається основне медичне попередження: «Куріння вбиває», а на іншій стороні упаковки – додаткове у вигляді одного з десяти текстових написів та кольорових малюнків, які наносяться на упаковки по черзі. 
+									Виконання цього закону є обов'язковим для всіх виробників тютюнових виробів.
+									</p>
+
+									<h3>Скажіть, чому підвищилися ціни на сигарети?</h3>
+									<p>Ціна на сигарети змінюється внаслідок різних факторів, серед яких: підвищення державного акцизного збору, подорожчання сировини, зростання витрат на транспортування, зміна кон’юнктури ринку.<br/>
+									Закон забороняє продавати сигарети за ціною, вищою за вказану на кожній пачці, а оскільки в місці продажу можуть бути сигарети, вироблені в різний період та з різними цінами, продавець зобов'язаний перевіряти кожну пачку та продавати її за ціною, не вищою за вказану.
+									</p>
+
+									<h3>Чи в усіх містах України я можу придбати сигарети KENT?</h3>
+									<p>Сьогодні Ви можете придбати сигарети KENT в усіх містах України.</p>
+
+									<h3>Я придбав неякісні сигарети/пачку KENT, що робити?</h3>
+									<p>Для проведення експертизи Вам необхідно зберегти сигарети та/або пачку та надати їх представникові марки.  </p>
+
+									<h3>Чи має KENT власну гарячу лінію?</h3>
+									<p>Так, інформацію про сигарети KENT Ви можете отримати від операторів нашої інформаційної лінії за номером: 0-800-50-84-15.</p>
+
+									<h3>Чому сигарети називаються KENT?</h3>
+									<p>Інформацію про марку KENT Ви можете отримати на веб-сайті www.kent.com.ua (у розділі «Історія KENT»). Якщо Вам потрібна додаткова інформація, будь ласка, зателефонуйте на інформаційну лінію: 0-800-50-84-15.<br/>
+									Якщо Ваше питання потребує уточнення, Ви можете залишити своє ім’я та контактний телефон, і ми обов’язково з Вами зв’яжемося та дамо Вам відповідь.
+									</p>
+
+									<h3>Де можна більше дізнатися про KENT?</h3>
+									<p>Інформацію про сигарети KENT Ви можете отримати від операторів інформаційної лінії: 0-800-50-84-15 та на веб-сайті www.kent.com.ua (у розділі «Сигарети KENT»). 
+									Якщо Ваше питання потребує уточнення, Ви можете залишити своє ім’я та контактний телефон, і ми обов’язково з Вами зв’яжемося та дамо Вам відповідь.
+									</p>
+
+									<h3>Де можна більше дізнатися про історію марки KENT?</h3>
+									<p>Інформацію про історію марки KENT Ви можете отримати на веб-сайті www.kent.com.ua (у розділі «Історія KENT»). Якщо Вам потрібна додаткова інформація, будь ласка, зателефонуйте на інформаційну лінію: 0-800-50-84-15. <br/>
+									Якщо Ваше питання потребує уточнення, Ви можете залишити своє ім’я та контактний телефон, і ми обов’язково з Вами зв’яжемося та дамо Вам відповідь.
+									</p>
+								</div>
+							</div>	
+						</div>
+					</div>
+				</article>
+			</section>
+			<!-- profile -->
+			<section id="profile" data-slide="profile">
+				<article class="profile-article">
+					<div>
+						<div class="profile-wrapper">
+							<div class="profile no-sweep">
+								<form  class="form-horizontal text-left" action=" " method=" " >
+
+	                                <span id="formError" class="error hide">Виникла помилка</span>
+	   						 		<div class="controls">
+		     							<input type="text" name="name" placeholder="П. I. Б." class="text" id="name" value="" />
+	    							</div>
+
+	    							<label class="control-label hidden-phone" for="name">П. I. Б.</label>
+	                                <!-- <span class="error err_name">Неправильно вказано дані (П. І. Б.)</span> -->
+
+									<div class="controls">
+										<div class="dateBirthday">
+											<input type="text" name="date" placeholder="День" class="text" id="date"value=""/>
+											<select name="month" id="month">
+													<option value="Місяць" disabled>Місяць</option>
+							                        <option value="0">Січень</option>
+							                        <option value="1">Лютий</option>
+							                        <option value="2">Березень</option>
+							                        <option value="3">Квітень</option>
+							                        <option value="4">Травень</option>
+							                        <option value="5">Червень</option>
+							                        <option value="6">Липень</option>
+							                        <option value="7">Серпень</option>
+							                        <option value="8">Вересень</option>
+							                        <option value="9">Жовтень</option>
+							                        <option value="10">Листопад</option>
+							                        <option value="11">Грудень</option>
+		                                	</select>
+											<input type="text" id="year" name="year" placeholder="Рік" class="text" value="" />
+											<label class="control-label visible-phone" for="date" >Дата народження</label>
+										</div>
+									</div>
+									<label class="control-label hidden-phone" for="date">Дата народження</label>
+	                   <!--              <span class="error err_day">Невірні дані</span>
+	                                <span class="error err_age">Тобі ще не виповнилося 18 років</span> -->
+
+									<div class="controls">
+		     							<input type="text" name="mobilePhone" placeholder="0 (96) 938-15-17" class="text" id="mobilePhone" value="" />
+		    						</div>
+		    						<label class="control-label hidden-phone" for="mobilePhone">Мобiльний телефон</label>
+	                            <!--     <span class="error err_phone">Неправильний формат номера</span> -->
+
+									<div class="controls">
+		     							<input type="text" name="email" placeholder="E-mail" class="text" id="email" value="" />
+		    						</div>
+		    						<label class="control-label hidden-phone" for="email">E-mail</label>
+	                           <!--      <span class="error err_email">Неправильний формат e-mail</span>
+	                                <span class="error err_already_used_email" >Такий e-mail вже зареестровано</span> -->
+
+									<div class="controls">
+		     							<input type="password" name="password" placeholder="Пароль" class="text" id="password" value="" />
+		    						</div>
+		    						<label class="control-label hidden-phone" for="password">Пароль</label>
+	                                <!-- <span class="error err_password">Пароль не відповідає вимогам</span> -->
+									<p class="control-label visible-phone">Марка сигарет, які ти куриш постійно</p>
+		    						<div class="controls">
+		    							<div class="smoke">
+		    								<select name="brand1" class="sku skuA1 skuA" linked=".skuB1">
+												<option value="Місяць" disabled>Місяць</option>
+						                        <option value="0">Січень</option>
+						                        <option value="1">Лютий</option>
+						                        <option value="2">Березень</option>
+		    								</select>
+		    								<select name="sku1" class="sku skuB1 skuB">
+												<option value="Місяць" disabled>Місяць</option>
+						                        <option value="0">Січень</option>
+						                        <option value="1">Лютий</option>
+						                        <option value="2">Березень Березень Березень Березень Березень Березень</option>
+		    								</select>
+		    							</div>
+		    						</div>
+		    						<label class="control-label hidden-phone" for="sigaretsOne">Марка сигарет, які ти куриш постійно</label>
+	                                <!-- <span class="error err_password">Треба вказати</span> -->
+									<p class="control-label visible-phone">Марка сигарет, які ти куриш час від часу</p>
+		    						<div class="controls">
+		    							<div class="smoke">
+		    								<select name="brand2" class="sku skuA2 skuA">
+												<option value="Місяць" disabled>Місяць</option>
+						                        <option value="0">Січень</option>
+		    								</select>
+		    								<select name="sku2" class="sku skuB2 skuB">
+												<option value="Місяць" disabled>Місяць</option>
+						                        <option value="0">Січень</option>
+						                        <option value="1">Лютий</option>
+						                        <option value="2">Березень</option>
+						                        <option value="0">Січень</option>
+						                        <option value="1">Лютий</option>
+						                        <option value="2">Березень</option>
+						                        <option value="0">Січень</option>
+						                        <option value="1">Лютий</option>
+						                        <option value="2">BOND STREET ORIGINAL SELECTION</option>
+		    								</select>
+		    							</div>
+		    						</div>
+		    						<label class="control-label hidden-phone" for="sigaretsOne">Марка сигарет, які ти куриш час від часу</label>
+	                 <!--                <span class="error err_password">Треба вказати</span>
+	                                <span class="error err_password">Пoвинно відрізнятись</span> -->
+
+									<div class="clear"></div>
+	                                <span id="profileSuccess" class="succes hide">Відкореговані дані успішно збережено.</span>
+
+		    						<input id="submitProfile" type="submit" class="submit disable" value="Зберегти" />
+								</form>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+		</div>
+	</div>
+	<script>
+
+        $( document ).ready( function() {
+
+            $('.text h3').on('tap', function(){
+                var $this = $(this);
+                if(!$this.is('.open')){
+
+                    $this.addClass('open');
+                    $this.next().slideDown();
+                    $this.next().next('ul').slideDown();
+
+                }
+                else{
+                    $this.removeClass('open');
+                    $this.next().slideUp();
+                    $this.next().next('ul').slideUp();
+                }
+            });
+
+
+            // init profile editor
+            initProfile();
+        });
+
+
+        // Profile Editor
+
+        /**
+         * Initialize Main page
+         */
+        function initProfile() {
+            getProfile();
+            // handle submit
+            $( '#submitProfile' )
+                .on('tap', function( e ) {
+ 					e.preventDefault();
+                    	updateProfile();
+                });
+        }
+
+        function populateProfile( profile )
+        {
+            // hide old errors
+            $( '.error' ).addClass( 'hide' );
+            // populate data
+            $( '#name' ).val( profile.name );
+            $( '#date' ).val( profile.day );
+            $( '#month' ).val( profile.month );
+            $( '#year' ).val( profile.year );
+            $( '#mobilePhone' ).val( profile.phone );
+            $( '#email' ).val( profile.email );
+            $( '#password' ).val( profile.password );
+            $( '#agree_age' ).prop( 'checked',  profile.agree_age );
+            $( '#agree_rules' ).prop( 'checked', profile.agree_rules );
+            $( '#agree_info' ).prop( 'checked', profile.agree_info );
+
+        }
+
+        function errorsProfile( errors ) {
+            var name,
+                error;
+            for ( name in errors ) {
+                error = errors[ name ];
+                if ( !error ) continue;
+                $( '.err_' + name ).removeClass( 'hide' );
+                // console.log( 'shown error:', name );
+            }
+        }
+
+        /**
+         * Profile code
+         */
+        function getProfile() {
+
+            // hide system error
+            $( '#formError').addClass( 'hide' );
+
+            $.get( '/user/profile' )
+                .done( function( res ) {
+                    //console.log( 'profile done', arguments );
+
+                    // action
+                    if ( res.errors )
+                        errorsProfile( res.errors );
+                    else
+                        populateProfile( res.profile );
+                })
+                .fail( function() {
+                    //console.log( 'profile fails', arguments );
+                    // show system error
+                    $( '#formError' ).removeClass( 'hide').hide().fadeIn( 'slow' );
+                });
+        }
+        function updateProfile() {
+            var form = {
+                name: $( '#name' ).val(),
+                day: $( '#date' ).val(),
+                month: $( '#month' ).val(),
+                year: $( '#year' ).val(),
+                phone: $( '#mobilePhone' ).val(),
+                email: $( '#email' ).val(),
+                password: $( '#password' ).val(),
+                brand1: $( '#brand1' ).val(),
+                sku1: $( '#sku1' ).val(),
+                brand2: $( '#brand2' ).val(),
+                sku2: $( '#sku2' ).val()
+            };
+            //console.log( 'form:', form );
+
+            // hide system error
+            $( '#formError').addClass( 'hide' );
+            // hide old success
+            $( '#profileSuccess' ).addClass( 'hide' );
+
+            $.post( '/user/profile', form )
+                .done( function( res ) {
+                    //console.log( 'save done', arguments );
+                    if ( res.error ) {
+                        // errors
+                        //$( '#formError' ).hide().removeClass( 'hide' ).fadeIn( 'slow' );
+                        errorsProfile( res );
+                    }
+                    else {
+                        // success message
+                        $( '#profileSuccess' ).hide().removeClass( 'hide' ).fadeIn( 'slow' );
+                        populateProfile( res.profile );
+                    }
+                })
+                .fail( function() {
+                    //console.log( 'save fails', arguments );
+                    // show system error
+                    $( '#formError' ).removeClass( 'hide').hide().fadeIn( 'slow' );
+                })
+        }
+	</script>
+	<script src="/js/libs/cigarettes_manage_mobile.js"></script>
+</body>
+</html>

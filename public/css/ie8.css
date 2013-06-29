@@ -93,3 +93,7 @@
 	top: 4px;
 	right: 7px;
 }
+canvas{
+	position: relative;
+	top: 0;
+}

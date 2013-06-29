@@ -514,6 +514,7 @@ section h1{
 	background-repeat:no-repeat;
 	cursor:pointer;
 }
+
 // boxes
 .carousel{
 	position:relative;
@@ -1554,6 +1555,98 @@ section h1{
 	opacity: 1;
 	filter: alpha(opacity=1);
 }
-
-
-// 
+// photo
+.photo{
+	width: 475px;
+	height: 406px;
+	margin: auto;
+}
+.big-photo-wrapper{
+	width: 100%;
+	height: 297px;
+	overflow: hidden;
+	position: relative;
+}
+.nextP,
+.prevP{
+	display: block;
+	width:28px;
+	height:59px;
+	position: absolute;
+	top: 50%;
+	margin-top: -29.5px;
+	background-color:#7d888f;
+	background-repeat: no-repeat;
+	background-position: center; 
+	-webkit-transition: background-color  500ms ease-in-out;
+	-moz-transition: background-color  500ms ease-in-out;
+	transition: background-color  500ms ease-in-out; 
+	z-index: 3;
+}
+.nextP:hover,
+.prevP:hover{
+	background-color: #656e75;
+}
+.nextP{ 
+	right:0;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAPCAMAAAABFhU/AAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAACNJREFUeNqNxrENAAAIw7Dk/6eZ6AJCeDJIc9bUX++QsIVOAQ2gAC1FHh8KAAAAAElFTkSuQmCC);
+}
+.prevP{
+	left:0;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAPCAMAAAABFhU/AAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAACRJREFUeNqNzTEKAAAIw8Dm/592kSJYxEy3RR0GCRiceHM8NlUNVAAtSVep6wAAAABJRU5ErkJggg==);
+}
+.photos{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+#donwload{
+	display: block;
+	width:115px;
+	height:31px;
+	margin: 9px auto;
+	text-align: center;
+	text-transform: uppercase;
+	color: #fff;
+	font-size: 11px;
+	line-height: 31px;
+	background-color:#7d888f; 
+	-webkit-transition: background-color  500ms ease-in-out;
+	-moz-transition: background-color  500ms ease-in-out;
+	transition: background-color  500ms ease-in-out;
+}
+#donwload:hover{
+	background-color: #656e75;
+	text-decoration: none;
+}
+.small-photo-wrapper{
+	width: 100%;
+	height:59px;
+	overflow: hidden;
+	position: relative;
+}
+.wrapper-photos{
+	width: 416px;
+	height: 59px;
+	margin: auto;
+	overflow: hidden;
+	img{
+		display: block;
+		float:left;
+	}
+}
+.big-photo-wrapper{
+	img{
+		max-width: 475px;
+		max-height: 297px;
+		position: absolute;
+	}
+}
+.small-photo-wrapper{
+	img{
+		max-width:52px;
+		max-height: 59px;
+		cursor: pointer;
+	}
+}

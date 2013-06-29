@@ -34,6 +34,7 @@ app.configure( function() {
 });
 
 app.configure( 'development', function() {
+    console.log( 123 );
     app.use( express.errorHandler() );
 });
 
