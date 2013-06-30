@@ -28,7 +28,7 @@ define(
                         'Login:', username,
                         'password:', password );
                     $.post(
-                        '/auth/login', {
+                        '/account/login', {
                             username: username,
                             password: password
                         })
@@ -55,7 +55,7 @@ define(
                 },
 
                 logout: function( callback ) {
-                    $.get( '/auth/logout' )
+                    $.get( '/account/logout' )
                         .fail( function( def, type, status ) {
                             Backbone.log( 'logout: ajax fail', status );
                             if ( status == 'Unauthorized' )
@@ -76,7 +76,7 @@ define(
 
                 remind: function( email, callback ) {
                     $.post(
-                        '/auth/remind', {
+                        '/account/remind', {
                             email: email
                         })
                         .fail( function( def, type, status ) {
@@ -91,7 +91,7 @@ define(
 
                 signup: function( form, callback ) {
                     $.post(
-                        '/auth/signup',
+                        '/account/signup',
                         Object( form ))
                         .fail( function( def, type, status ) {
                             Backbone.log( 'signup: ajax fail', status );

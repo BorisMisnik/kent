@@ -1,54 +1,15 @@
 [
     {
-        "method": "post",
-        "url": "/auth/login",
-        "script": "./libs/login",
-        "handler": "login"
-    },
-    {
         "method": "get",
-        "url": "/auth/logout",
-        "script": "./libs/login",
-        "handler": "logout"
-    },
-    {
-        "method": "post",
-        "url": "/auth/remind",
-        "script": "./libs/login",
-        "handler": "remind"
-    },
-    {
-        "method": "post",
-        "url": "/auth/signup",
-        "script": "./libs/account",
-        "handler": "signup"
-    },
-    {
-        "method": "get",
-        "url": "/user/profile",
-        "script": "./libs/account",
-        "handler": "getProfile"
-    },
-    {
-        "method": "post",
-        "url": "/user/profile",
-        "script": "./libs/account",
-        "handler": "setProfile"
-    },
-    {
-        "method": "post",
-        "url": "/feedback",
-        "script": "./libs/feedback",
-        "handler": "feedback"
-    },
-
-
-
-    {
-        "_method": "get",
-        "_url": "/main.html",
-        "script": "./libs/main",
+        "url": "/main.html",
+        "script": "./routes/main",
         "handler": "main"
+    },
+    {
+        "method": "get",
+        "url": "/account/logout",
+        "script": "./routes/account",
+        "handler": "logout"
     }
 
 ]

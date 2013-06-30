@@ -50,24 +50,46 @@ $(function(){
 
 	$('.block-wrapper .submitMassage')
 		.on({
-			click : function(e){
+			click : function( e ) {
 				e.preventDefault();
-				$(this)
-					.parent()
-					.fadeOut();
+                var self = this;
 
-				$(this)
-					.parent()
-					.parent()
-					.find('p')
-					.fadeIn()
-					.delay(1800)
-					.fadeOut(function(){
-						$('.block-wrapper').fadeOut();
-					});
+                // ajax message
+                var input = $( self ).parent().find( '.massege' ),
+        	    message = input.val();
+                $.post( '/feedback', { message: message })
+                    .done( function( res ) {
+                        if ( res && res.error ) errorSendMessage( res.error );
+                        else closeMsgPopup();
+                    })
+                    .fail( function() {
+                        errorSendMessage();
+                    });
+
+                // message sending error
+                function errorSendMessage( err ) {
+                    // todo: show error
+                    closeMsgPopup();
+                }
+                // close window
+                function closeMsgPopup() {
+                    $( self )
+                        .parent()
+                        .fadeOut();
+                    $( self )
+                        .parent()
+                        .parent()
+                        .find('p')
+                        .fadeIn()
+                        .delay(1800)
+                        .fadeOut(function(){
+                            $('.block-wrapper').fadeOut();
+                            // clean input
+                            input.val( '' );
+                        });
+                }
 			}
 		});
-
 
 	$('#profile').on({
 		focus : function(){

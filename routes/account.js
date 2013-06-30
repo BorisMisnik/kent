@@ -7,17 +7,8 @@
  * @version 0.0.1
  */
 
-var pipe = require( './pipe' ),
+var pipe = require( './../libs/pipe' ),
     request = require( 'request' );
-
-exports.login =
-    function( req, res ) {
-        console.log( 'Login:', req.body );
-        pipe( req, res,
-            '/account/login',
-            { form: req.body }
-        );
-    };
 
 exports.logout =
     function( req, res ) {
@@ -27,13 +18,4 @@ exports.logout =
             function ( error, response, body) {
                 res.redirect( '/' );
             });
-    };
-
-exports.remind =
-    function( req, res ) {
-        console.log( 'Remind:', req.body );
-        pipe( req, res,
-            '/account/remind',
-            { form: req.body }
-        );
     };
