@@ -559,7 +559,7 @@ var action = function () {
 	
 	that.scrollBotom = function(){
 		
-		if( $('#profile').is('.now') || container.is(':animated') ) return;
+		if( $('#photo').is('.now') || container.is(':animated') ) return;
 
 		var yScrol = container.scrollTop() + container.height();
 
