@@ -22,16 +22,21 @@ define(
                     return this.authorized
                 },
 
-                login: function( username, password, callback ) {
+                login: function( username, password, remember, callback ) {
+                    this.log( 'Login:', username, 'password:', password, 'remember:', remember );
+                    // args
+                    if ( 'function' == typeof remember )
+                        var callback = remember,
+                            remember = undefined;
                     // query
-                    this.log(
-                        'Login:', username,
-                        'password:', password );
-                    $.post(
-                        '/account/login', {
-                            username: username,
-                            password: password
-                        })
+                    var request = {
+                        username: username,
+                        password: password
+                    };
+                    if ( remember ) request.remember_me = true;
+
+                    // ajax
+                    $.post( '/login', request )
                         .fail( function( def, type, status ) {
                             Backbone.log( 'login: ajax fail', status );
 
@@ -55,7 +60,7 @@ define(
                 },
 
                 logout: function( callback ) {
-                    $.get( '/account/logout' )
+                    $.get( '/logout' )
                         .fail( function( def, type, status ) {
                             Backbone.log( 'logout: ajax fail', status );
                             if ( status == 'Unauthorized' )

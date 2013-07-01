@@ -19,15 +19,23 @@ var config = require( '../config.json' ),
  */
 exports.main = function( req, res, next ) {
 
-    request.get( config.service + '/account',
+    request.get( config.service + '/user',
         function( err, responce, body ) {
-            debugger;
-            // unauthorized session
-            if ( err
-                || '404' == responce.statusCode
-                || '401' == responce.statusCode )
-                res.redirect( '/' );
+            // parse body
+            var result;
+            try { result = JSON.parse( body ); }
+            catch( e ) {}
             // user is logged
-            else next();
+            if ( result && result.success ) return next();
+            // unauthorized session
+            res.redirect( '/' );
+
+//            // unauthorized session
+//            if ( err
+//                || '404' == responce.statusCode
+//                || '401' == responce.statusCode )
+//                res.redirect( '/' );
+//            // user is logged
+//            else next();
         });
 };

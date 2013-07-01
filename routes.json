@@ -7,7 +7,7 @@
     },
     {
         "method": "get",
-        "url": "/account/logout",
+        "url": "/logout",
         "script": "./routes/account",
         "handler": "logout"
     }
