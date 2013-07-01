@@ -1,10 +1,5 @@
 /*!
  * Application Bootstrap and Configurator
- *
- * @author Andjey Guzhovskiy, <me.the.ascii@gmail.com>
- * @copyright (c) 2013 Andjey Guzhovskiy
- * @licence CLOSED
- * @version 0.0.1
  */
 
 define(
@@ -26,7 +21,7 @@ define(
                         error: true,
                         warn: true
                     },
-                    local: false,
+                    local: true,
                     remote: {
                         // todo: debug-server
                         url: 'http://localhost:8080/logs/message'

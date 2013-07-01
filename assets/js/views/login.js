@@ -8,7 +8,8 @@ define(
         Backbone.log( 'app.login' );
 
         var errors = {
-                wrong_credentials: 'Неправильно введено логін або пароль. Спробуй ще раз.'
+                wrong_credentials: 'Неправильно введено логін або пароль. Спробуй ще раз.',
+                not_activated: 'Ваш аккаунт не активовано. Спробуй пізніше.'
             },
 
             Model = Backbone.Model.extend({
@@ -56,7 +57,8 @@ define(
                     // values
                     var self = this,
                         username = self.$( '#username' ).val(),
-                        password = self.$( '#password' ).val();
+                        password = self.$( '#password' ).val(),
+                        remember = 'checked' == self.$( '#remember' ).attr( 'checked' );
                     self.model
                         .set( 'username', username )
                         .set( 'password', password );
@@ -64,12 +66,12 @@ define(
 
                     // query
                     user.login(
-                        username, password,
+                        username, password, remember,
                         function( err, res, fail ) {
                             if ( err ) return;
                             if ( fail
                                 || !res
-                                || !res.authorized ) {
+                                || !res.success ) {
                                 // show error
                                 self._errors = fail;
                                 self.render();

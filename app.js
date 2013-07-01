@@ -7,6 +7,7 @@ var express = require( 'express' ),
     http = require( 'http' ),
     path = require( 'path' ),
     colors = require( 'colors' ),
+    pipe = require( './libs/pipe' ),
 
     config = require( './config.json' ),
     port = process.env.PORT || config.port || 3000;
@@ -16,25 +17,20 @@ var app = express(),
     // http routes configuration file
     routes = require( './routes.json' );
 
+// Setup http server
 app.configure( function() {
     app.set( 'port', port );
     app.use( express.favicon() );
-    app.use( express.logger( 'default' ));
+    //app.use( express.logger( 'default' ));
     app.use( express.bodyParser() );
     app.use( express.methodOverride() );
-    app.use( express.cookieParser() );
-    app.use( express.session({
-        store: new MemoryStore(),
-        secret: 'LAo2QP3y1oQ5wdV',
-        key: 'sid'
-    }));
     app.use( app.router );
     app.use( express.static( path.join( __dirname, 'assets' )));
     app.use( express.static( path.join( __dirname, 'public' )));
 });
 
 app.configure( 'development', function() {
-    console.log( 123 );
+    console.log( '\nDevelopment Edition'.yellow.bold );
     app.use( express.errorHandler() );
 });
 
@@ -61,6 +57,12 @@ for ( var id in routes ) {
     // assign route
     app[ route.method ]( route.url, handler );
 }
+
+// Pipe requests to the Backend
+app.use( function( req, res ) {
+    console.log( '!Pipe:', req.path, req.params, req.body );
+    pipe( req, res, req.path, { form: req.body });
+});
 
 http.createServer( app )
     .listen( app.get( 'port' ),

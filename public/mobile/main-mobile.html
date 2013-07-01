@@ -31,7 +31,7 @@
 				<nav class="footerNav">
 					<a href="/#!/feedback">Зворотний зв’язок</a><span class="hidden-phone">|</span>
 					<a href="/#!/rules">Правила користування сайтом</a><span class="hidden-phone">|</span>
-					<a href="/auth/logout">Вийти</a>
+					<a href="/logout">Вийти</a>
 				</nav>
 			</footer>
 		</div>
@@ -953,7 +953,7 @@
             // hide system error
             $( '#formError').addClass( 'hide' );
 
-            $.get( '/user/profile' )
+            $.get( '/account' )
                 .done( function( res ) {
                     //console.log( 'profile done', arguments );
 
@@ -990,7 +990,7 @@
             // hide old success
             $( '#profileSuccess' ).addClass( 'hide' );
 
-            $.post( '/user/profile', form )
+            $.post( '/account/profile', form )
                 .done( function( res ) {
                     //console.log( 'save done', arguments );
                     if ( res.error ) {

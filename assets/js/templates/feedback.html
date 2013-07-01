@@ -4,6 +4,10 @@
         <p class="text">Щоб твоє звернення надійшло за призначенням, обов'язково вкажи своє ім'я, електронну адресу та виклади детально суть твого звернення. </p>
         <form class="form-horizontal" action=" " method=" ">
 
+            {{#errors.database}}
+            <span id="formError" class="error">Виникла помилка</span>
+            {{/errors.database}}
+
             <label class="control-label" for="email">E-mail</label>
             <div class="controls">
                 <input type="text" name="email" placeholder="E-mail" class="text" id="email" value="{{email}}" />

@@ -1,10 +1,5 @@
 /*!
  * Module: Module
- *
- * @author Andjey Guzhovskiy, <me.the.ascii@gmail.com>
- * @copyright (c) 2013 Andjey Guzhovskiy
- * @licence CLOSED
- * @version 0.0.1
  */
 
 // singleton
@@ -27,33 +22,66 @@ define(
                     return this.authorized
                 },
 
-                login: function( username, password, callback ) {
+                login: function( username, password, remember, callback ) {
+                    this.log( 'Login:', username, 'password:', password, 'remember:', remember );
+                    // args
+                    if ( 'function' == typeof remember )
+                        var callback = remember,
+                            remember = undefined;
                     // query
-                    this.log(
-                        'Login:', username,
-                        'password:', password );
-                    $.post(
-                        '/auth/login', {
-                            username: username,
-                            password: password
-                        })
+                    var request = {
+                        username: username,
+                        password: password
+                    };
+                    if ( remember ) request.remember_me = true;
+
+                    // ajax
+                    $.post( '/login', request )
                         .fail( function( def, type, status ) {
                             Backbone.log( 'login: ajax fail', status );
+
+                            // unauthorized
+                            if ( status == 'Unauthorized' )
+                                return callback( null, null, {
+                                    errors: true,
+                                    wrong_credentials: true
+                                });
+                            // other errors
                             callback( new Error( status ));
                         })
                         .done( function( res ) {
                             Backbone.log( 'login: ajax done', res );
-                            if ( res.error ) {
-                                callback( null, null, res );
-                            } else {
-                                callback( null, res );
-                            }
+
+                            if ( res.error )
+                                return callback( null, null, res );
+
+                            callback( null, res );
                         });
                 },
 
+                logout: function( callback ) {
+                    $.get( '/logout' )
+                        .fail( function( def, type, status ) {
+                            Backbone.log( 'logout: ajax fail', status );
+                            if ( status == 'Unauthorized' )
+                                return callback( null, null, {
+                                    errors: true,
+                                    unauthorized: true
+                                });
+                        })
+                        .done( function( res ) {
+                            Backbone.log( 'logout: ajax success', res );
+                            if ( res.error )
+                                return callback( null, null, res );
+                            callback( null, res );
+                        });
+                },
+
+
+
                 remind: function( email, callback ) {
                     $.post(
-                        '/auth/remind', {
+                        '/account/remind', {
                             email: email
                         })
                         .fail( function( def, type, status ) {
@@ -68,7 +96,7 @@ define(
 
                 signup: function( form, callback ) {
                     $.post(
-                        '/auth/signup',
+                        '/account/signup',
                         Object( form ))
                         .fail( function( def, type, status ) {
                             Backbone.log( 'signup: ajax fail', status );
