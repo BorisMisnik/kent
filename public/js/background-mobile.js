@@ -1,7 +1,5 @@
 var mobile = {
-
 	init : function(){
-
 		this.svg = document.getElementById('svg');
 
 		var svg = this.svg
@@ -12,6 +10,9 @@ var mobile = {
 		this.cratesPath = [];
 		this.one();
 		this.interval();
+
+		$(window).resize(this.resize.bind(this));
+
 	},
 
 	resize : function(){
@@ -22,7 +23,6 @@ var mobile = {
 			'width' : w,
 			'height' : h
 		});
-		
 		this.raphael.setSize(w, h);
 		this.animation(this.now);
 	},
@@ -269,12 +269,4 @@ var mobile = {
 	}
 
 }
-
-$(window).on({
-	ready : function(){
-		mobile.init();
-	},
-	resize: function(){
-		mobile.resize();
-	}
-});
+mobile.init();

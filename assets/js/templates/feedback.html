@@ -8,7 +8,7 @@
             <span id="formError" class="error">Виникла помилка</span>
             {{/errors.database}}
 
-            <label class="control-label" for="email">E-mail</label>
+            <label class="control-label hidden-phone hidden-phone" for="email">E-mail</label>
             <div class="controls">
                 <input type="text" name="email" placeholder="E-mail" class="text" id="email" value="{{email}}" />
                 {{#errors.email}}
@@ -16,7 +16,7 @@
                 {{/errors.email}}
             </div>
 
-            <label class="control-label" for="name">Iм’я</label>
+            <label class="control-label hidden-phone" for="name">Iм’я</label>
             <div class="controls">
                 <input type="text" name="name" placeholder="Iм’я" class="text" id="name" value="{{name}}" />
                 {{#errors.name}}
@@ -24,7 +24,7 @@
                 {{/errors.name}}
             </div>
 
-            <label class="control-label input-label" for="massege">Повідомлення</label>
+            <label class="control-label input-label hidden-phone" for="massege">Повідомлення</label>
             <div class="controls">
                 <div class="wrapperTextarea">
                     <textarea name="massege" id="massege" placeholder="Повідомлення" class="">{{message}}</textarea>

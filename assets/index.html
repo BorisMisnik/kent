@@ -6,6 +6,7 @@
 <head>
     <title>Kent HDi</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
@@ -24,76 +25,112 @@
     <!--<script src="http://cdnjs.cloudflare.com/ajax/libs/curl/0.7.3/curl-kitchen-sink/curl.js"></script>-->
     <script src="/js/libs/curl.js"></script>
     <script>
+        var detectMobile = (function(){
+             return /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)
+         })();
 
         // bootstrap
         window.require = curl;
-        curl({
-            baseUrl: '/js',
-            pluginPath: '/js/libs/curl/plugin',
-            paths: {
-                jquery: 'http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js',
-                // jquery142: 'http://cdnjs.cloudflare.com/ajax/libs/jquery/1.4.2/jquery.min.js',
-                //underscore: 'http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js',
-                //backbone: 'http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js',
-                //layoutmanager: 'http://cdnjs.cloudflare.com/ajax/libs/backbone.layoutmanager/0.8.5/backbone.layoutmanager.js',
-                //modelbinder: 'http://cdnjs.cloudflare.com/ajax/libs/backbone.modelbinder/0.1.6/Backbone.ModelBinder.min.js',
-                hogan: 'http://cdnjs.cloudflare.com/ajax/libs/hogan.js/2.0.0/hogan.js',
-                raphael: 'libs/raphael-min.js',
-                swfobject: 'http://cdnjs.cloudflare.com/ajax/libs/swfobject/2.2/swfobject.js'
-            }
-        })
-        .next([
-            // engine
-//            'js!jquery!order',
-//            'js!underscore!order',
-//            'js!backbone!order',
-//            'js!layoutmanager!order',
-//            'js!modelbinder!order',
-            'js!hogan',
-            'js!libs/jquery.placeholder.min.js',
+        if( !detectMobile ){
+            curl({
+                baseUrl: '/js',
+                pluginPath: '/js/libs/curl/plugin',
+                paths: {
+                    jquery: 'http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js',
+                    // jquery142: 'http://cdnjs.cloudflare.com/ajax/libs/jquery/1.4.2/jquery.min.js',
+                    //underscore: 'http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js',
+                    //backbone: 'http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js',
+                    //layoutmanager: 'http://cdnjs.cloudflare.com/ajax/libs/backbone.layoutmanager/0.8.5/backbone.layoutmanager.js',
+                    //modelbinder: 'http://cdnjs.cloudflare.com/ajax/libs/backbone.modelbinder/0.1.6/Backbone.ModelBinder.min.js',
+                    hogan: 'http://cdnjs.cloudflare.com/ajax/libs/hogan.js/2.0.0/hogan.js',
+                    raphael: 'libs/raphael-min.js',
+                    swfobject: 'http://cdnjs.cloudflare.com/ajax/libs/swfobject/2.2/swfobject.js'
+                }
+            })
+            .next([
+                // engine
+    //            'js!jquery!order',
+    //            'js!underscore!order',
+    //            'js!backbone!order',
+    //            'js!layoutmanager!order',
+    //            'js!modelbinder!order',
+                'js!hogan',
+                'js!libs/jquery.placeholder.min.js',
 
-            // shims
-            // todo: create `ie!` prefix plugin for `curl.js`
-//            'js!/js/html5shiv.js!order',          // ie
-//            'js!/js/PIE_IE678.js!order',          // ie678
-//            'js!/js/ie8.js!order!order',          // ie8
-//            'js!libs/jquery.placeholder.min.js!order',
+                // shims
+                // todo: create `ie!` prefix plugin for `curl.js`
+    //            'js!/js/html5shiv.js!order',          // ie
+    //            'js!/js/PIE_IE678.js!order',          // ie678
+    //            'js!/js/ie8.js!order!order',          // ie8
+    //            'js!libs/jquery.placeholder.min.js!order',
 
-            // frontend
-            'js!jquery.maskedinput.min.js!order',
-            // css
-            'css!/css/bootstrap.min.css',
-            'css!/css/font.css',
-            'css!/css/main.css',
-            // todo: move to the modules definition
-            'css!/css/registered.css',
-            'css!/css/login.css',
-            'css!/css/remind.css',
-            'css!/css/rules.css',
-            'css!/css/feedback.css'
-        ])
-        .next([
-            // configure and
-            // run application
-            // assets/js/boot.js
-            'boot'
-        ],
-//        function(){
-//            console.log( 'SUCCESS:', arguments );
-//            console.log( Backbone );
-//            // setTimeout( function() { window.location.reload() }, 500 );
-//        },
-        // main onload
-        null,
-        // main error handler
-        function( err ) {
-            //console.log( 'ERR:', arguments );
-//            console && console.log &&
-//            console.log( 'ERROR:', err, err.stack );
-            // alert( 'ERR', err.toString() );
-            throw err;
-        });
-
+                // frontend
+                'js!jquery.maskedinput.min.js!order',
+                // css
+                'css!/css/bootstrap.min.css',
+                'css!/css/font.css',
+                'css!/css/main.css',
+                // todo: move to the modules definition
+                'css!/css/registered.css',
+                'css!/css/login.css',
+                'css!/css/remind.css',
+                'css!/css/rules.css',
+                'css!/css/feedback.css'
+            ])
+            .next([
+                // configure and
+                // run application
+                // assets/js/boot.js
+                'boot'
+            ],
+    //        function(){
+    //            console.log( 'SUCCESS:', arguments );
+    //            console.log( Backbone );
+    //            // setTimeout( function() { window.location.reload() }, 500 );
+    //        },
+            // main onload
+            null,
+            // main error handler
+            function( err ) {
+                //console.log( 'ERR:', arguments );
+    //            console && console.log &&
+    //            console.log( 'ERROR:', err, err.stack );
+                // alert( 'ERR', err.toString() );
+                throw err;
+            });
+        }
+        else{
+            curl({
+                baseUrl: '/js',
+                pluginPath: '/js/libs/curl/plugin',
+                paths: {
+                    jquery: 'http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js',
+                    hogan: 'http://cdnjs.cloudflare.com/ajax/libs/hogan.js/2.0.0/hogan.js',
+                    raphael: 'libs/raphael-min.js',
+                    swfobject: 'http://cdnjs.cloudflare.com/ajax/libs/swfobject/2.2/swfobject.js'
+                }
+            })
+            .next([
+                // engine
+                'js!hogan',
+                'js!libs/jquery.placeholder.min.js',
+                // frontend
+                'js!jquery.maskedinput.min.js!order',
+                // css
+                'css!/css/bootstrap.min.css',
+                'css!/css/bootstrap-responsive.min.css',
+                'css!/css/main-mobile.css'
+            ])
+            .next([
+                'boot'
+            ],
+            // main onload
+            null,
+            // main error handler
+            function( err ) {
+                throw err;
+            });
+        }
     </script>
 
 </head>

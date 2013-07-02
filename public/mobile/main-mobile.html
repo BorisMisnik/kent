@@ -13,6 +13,7 @@
 	
 	<script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
 	<script src="../js/jquery.mobile.custom.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/less-1.3.3.min.js"></script>
 	<script src="../js/TweenMax.min.js"></script>	 
 	<script src="../js/animation-mobile.js"></script>
@@ -20,7 +21,8 @@
 	
 	<script src="../js/raphael-min.js"></script>
  	<script src="../js/background-mobile.js"></script>
-
+	
+	<script src="js/photo.js"></script>
 </head>
 <body>
 
@@ -50,6 +52,7 @@
 		<li><a href="#" data-slide="history">00.2</a><span>Історія КЕНТ </span></li>
 		<li><a href="#" data-slide="question">00.3</a><span>Запитання-відповіді</span></li>
 		<li><a href="#" data-slide="profile">00.4</a><span>Профайл</span></li>
+		<li><a href="#" data-slide="photo">00.5</a><span>Фото розділ</span></li>
 	</ul>
 
 	<div class="scrollButton">
@@ -773,7 +776,7 @@
 	    							</div>
 
 	    							<label class="control-label hidden-phone" for="name">П. I. Б.</label>
-	                                <!-- <span class="error err_name">Неправильно вказано дані (П. І. Б.)</span> -->
+	                                <span class="error err_name">Неправильно вказано дані (П. І. Б.)</span>
 
 									<div class="controls">
 										<div class="dateBirthday">
@@ -798,27 +801,27 @@
 										</div>
 									</div>
 									<label class="control-label hidden-phone" for="date">Дата народження</label>
-	                   <!--              <span class="error err_day">Невірні дані</span>
-	                                <span class="error err_age">Тобі ще не виповнилося 18 років</span> -->
+	                                <span class="error err_day">Невірні дані</span>
+	                                <span class="error err_age">Тобі ще не виповнилося 18 років</span>
 
 									<div class="controls">
 		     							<input type="text" name="mobilePhone" placeholder="0 (96) 938-15-17" class="text" id="mobilePhone" value="" />
 		    						</div>
 		    						<label class="control-label hidden-phone" for="mobilePhone">Мобiльний телефон</label>
-	                            <!--     <span class="error err_phone">Неправильний формат номера</span> -->
+	                                <span class="error err_phone">Неправильний формат номера</span>
 
 									<div class="controls">
 		     							<input type="text" name="email" placeholder="E-mail" class="text" id="email" value="" />
 		    						</div>
 		    						<label class="control-label hidden-phone" for="email">E-mail</label>
-	                           <!--      <span class="error err_email">Неправильний формат e-mail</span>
-	                                <span class="error err_already_used_email" >Такий e-mail вже зареестровано</span> -->
+	                                <span class="error err_email">Неправильний формат e-mail</span>
+	                                <span class="error err_already_used_email" >Такий e-mail вже зареестровано</span>
 
 									<div class="controls">
 		     							<input type="password" name="password" placeholder="Пароль" class="text" id="password" value="" />
 		    						</div>
 		    						<label class="control-label hidden-phone" for="password">Пароль</label>
-	                                <!-- <span class="error err_password">Пароль не відповідає вимогам</span> -->
+	                                <span class="error err_password">Пароль не відповідає вимогам</span>
 									<p class="control-label visible-phone">Марка сигарет, які ти куриш постійно</p>
 		    						<div class="controls">
 		    							<div class="smoke">
@@ -837,7 +840,7 @@
 		    							</div>
 		    						</div>
 		    						<label class="control-label hidden-phone" for="sigaretsOne">Марка сигарет, які ти куриш постійно</label>
-	                                <!-- <span class="error err_password">Треба вказати</span> -->
+	                                <span class="error err_password">Треба вказати</span>
 									<p class="control-label visible-phone">Марка сигарет, які ти куриш час від часу</p>
 		    						<div class="controls">
 		    							<div class="smoke">
@@ -860,14 +863,50 @@
 		    							</div>
 		    						</div>
 		    						<label class="control-label hidden-phone" for="sigaretsOne">Марка сигарет, які ти куриш час від часу</label>
-	                 <!--                <span class="error err_password">Треба вказати</span>
-	                                <span class="error err_password">Пoвинно відрізнятись</span> -->
+	                                <span class="error err_password">Треба вказати</span>
+	                                <span class="error err_password">Пoвинно відрізнятись</span>
 
 									<div class="clear"></div>
 	                                <span id="profileSuccess" class="succes hide">Відкореговані дані успішно збережено.</span>
 
 		    						<input id="submitProfile" type="submit" class="submit disable" value="Зберегти" />
 								</form>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+			<!-- photo -->
+			<section id="photo" data-slide="photo">
+				<article class="last photo-article">
+					<div>
+						<div class="photo-wrapper">
+							<div class="photo">
+								<!-- input -->
+								<input type="hidden" value='[{"large-photo":"img/photo/1.jpg","big-photo":"img/photo/1.jpg"},{"large-photo":"img/photo/2.jpg","big-photo":"img/photo/2.jpg"},{"large-photo":"img/photo/3.jpg","big-photo":"img/photo/3.jpg"},{"large-photo":"img/photo/4.jpg","big-photo":"img/photo/4.jpg"},{"large-photo":"img/photo/5.jpg","big-photo":"img/photo/5.jpg"},{"large-photo":"img/photo/6.jpg","big-photo":"img/photo/6.jpg"},{"large-photo":"img/photo/7.jpg","big-photo":"img/photo/7.jpg"},{"large-photo":"img/photo/8.jpg","big-photo":"img/photo/8.jpg"},{"large-photo":"img/photo/9.jpg","big-photo":"img/photo/9.jpg"},{"large-photo":"img/photo/1.jpg","big-photo":"img/photo/1.jpg"},{"large-photo":"img/photo/2.jpg","big-photo":"img/photo/2.jpg"},{"large-photo":"img/photo/3.jpg","big-photo":"img/photo/3.jpg"},{"large-photo":"img/photo/4.jpg","big-photo":"img/photo/4.jpg"},{"large-photo":"img/photo/5.jpg","big-photo":"img/photo/5.jpg"},{"large-photo":"img/photo/6.jpg","big-photo":"img/photo/6.jpg"},{"large-photo":"img/photo/7.jpg","big-photo":"img/photo/7.jpg"},{"large-photo":"img/photo/8.jpg","big-photo":"img/photo/8.jpg"},{"large-photo":"img/photo/9.jpg","big-photo":"img/photo/9.jpg"}]' id="allImg">
+
+								<div id="myCarousel" class="carousel slide">
+								  <!-- Carousel items -->
+								  <div class="carousel-inner">
+								  </div>
+								  <!-- Carousel nav -->
+									<a class="carousel-control left" href="#myCarousel" data-slide="prev"></a>
+									<a class="carousel-control right" href="#myCarousel" data-slide="next"></a>
+								</div>
+							
+								<a href="#" id="donwload">СКАЧАТИ В HD</a>
+						
+								<div class="small-photo-wrapper">
+									<div id="smallCarousel" class="carousel slide">
+								 	<!-- Carousel items -->
+										  <div class="carousel-inner">
+										  </div>
+								  	<!-- Carousel nav -->
+										<a class="carousel-control left" href="#smallCarousel" data-slide="prev"></a>
+										<a class="carousel-control right" href="#smallCarousel" data-slide="next"></a>
+									</div>
+								</div>
+
 							</div>
 						</div>
 					</div>

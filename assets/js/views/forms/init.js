@@ -180,7 +180,7 @@ define(
 
         function checkboxClick( e ) {
             e.preventDefault();
-
+            if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) return;
             var $this = $(this);
             var input = $this.find(':checkbox');
             var span = $this.find('span');
@@ -267,58 +267,79 @@ define(
             init: function() {
                 $( init );
             
+                if( !/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ){
+                    if($('#rules').length){
+                        $('#rulles').mCustomScrollbar();
+                    }
 
-                if($('#rules').length){
-                    $('#rulles').mCustomScrollbar();
-                }
+                    $('input[placeholder], textarea[placeholder]').placeholder();
+                    var marker = true;
+                    function scrollBar(){
+                         if ( marker ) {
+                                $(".ik_select_list_inner")
+                                    .mCustomScrollbar({
+                                        advanced:{ updateOnContentResize: true },
+                                        mouseWheel : true
+                                    });
+                                marker = false;
+                         }
 
-                $('input[placeholder], textarea[placeholder]').placeholder();
-                var marker = true;
-                function scrollBar(){
-                     if ( marker ) {
-                            $(".ik_select_list_inner")
-                                .mCustomScrollbar({
-                                    advanced:{ updateOnContentResize: true },
-                                    mouseWheel : true
-                                });
-                            marker = false;
-                     }
+                    }
 
-                }   
-                $('#month').ikSelect({
-                        ddFullWidth : false,
-                        autoWidth : false,
-                        ddMaxHeight  :114,
-                        ddCustomClass : 'regis',
-                        onShow : scrollBar
-                });
+                     $('#month').ikSelect({
+                            ddFullWidth : false,
+                            autoWidth : false,
+                            ddMaxHeight  :114,
+                            ddCustomClass : 'regis',
+                            onShow : scrollBar
+                    });
 
-                if($('#registered').length){
-                    $('.ik_select_link_text').text('Місяць');
+                    if($('#registered').length){
+                        $('.ik_select_link_text').text('Місяць');
 
-                    $('.ik_select_option').click(function(){
-                        var $this = $(this);
-                      
+                        $('.ik_select_option').click(function(){
+                            var $this = $(this);
+                          
 
-                            setTimeout(function(){
-                                $this.attr('title',$this.data('title'))
+                                setTimeout(function(){
+                                    $this.attr('title',$this.data('title'))
 
-                                $('.ik_select_link_text').text($this.text())
-                                $('select#month').val($this.attr('title'));
+                                    $('.ik_select_link_text').text($this.text())
+                                    $('select#month').val($this.attr('title'));
 
-                            },10)
+                                },10)
 
-                        }).hover(function(){
-                            $(this).data('title',$(this).attr('title'))
-                                   .attr('title','');
+                            }).hover(function(){
+                                $(this).data('title',$(this).attr('title'))
+                                       .attr('title','');
 
-                        },function(){
+                            },function(){
 
-                             $(this).attr('title',$(this).data('title'));
+                                 $(this).attr('title',$(this).data('title'));
 
+                            });
+                        }
+                    }
+                    else{
+
+                        if( !$('.swiper-container').length ) return
+                        $.getScript('js/idangerous.swiper-1.9.1.min.js', function(){
+                            var swiper = $('.swiper-container').swiper({
+                                mode:'horizontal',
+                                loop: true,
+                                createPagination: true,
+                                pagination: '.page-nav'
+                            });
+
+                            $('.page-nav').on('click', 'span', function(){
+                                swiper.swipeTo( $(this).index() );
+                            });
                         });
+                        
+
                     }
                 }
+               
 
             // todo: setup only needed events
 //            setup: function( name ) {

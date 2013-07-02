@@ -40,7 +40,7 @@ $(function(){
 	$('span.checkbox').hammer().on('tap', function(e){
 		
 		e.preventDefault();
-    	
+  		
 		var $this = $(this);
 		$this.removeClass( 'chekboxError' );
 		if( $this.is( '.check' ) ){

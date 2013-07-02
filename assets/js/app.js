@@ -26,7 +26,7 @@ function( registry, router,
 
     var App,
         app,
-
+        template = 'layout',
         // views of application stages
         defaultView = 'login',
         views = {
@@ -39,8 +39,13 @@ function( registry, router,
             rules: Rules,
             thanks: Thanks,
             feedback: Feedback
-        };
+        },
+        detectMobile = (function(){
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)
+        })();
 
+       if( detectMobile )
+            template = 'layout-mobile'; 
 
     /**
      * Initialize Application
@@ -60,9 +65,11 @@ function( registry, router,
     /**
      * Application
      */
+
+   
     App = Backbone.Layout.extend(
     {
-        template: 'layout',
+        template: template,
         stripes: Stripes,
 
         initialize: function() {
@@ -79,7 +86,8 @@ function( registry, router,
             // todo: fade elder
         },
         afterRender: function() {
-            this.stripes.set( this.model.get( 'state' ));
+            if( !detectMobile )
+                this.stripes.set( this.model.get( 'state' ));
             // todo: fade in
         }
     });

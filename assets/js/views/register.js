@@ -16,7 +16,11 @@ define(
     ],
     function( router, user, Person, form ) {
         Backbone.log( 'app.register', arguments );
+        var template = 'register';
 
+        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ){
+                template = 'register-mobile';
+        }
         var
             Image = Backbone.Model.extend({
                 // (c) http://stackoverflow.com/questions/8171562/backbone-form-with-file-upload-how-to-handle
@@ -51,7 +55,7 @@ define(
 
             Register = Backbone.Layout.extend(
             {
-                template: 'register',
+                template: template,
                 events: {
                     // 'click .fileButton': nop,
                     'click .webcamButton': 'webcam',
@@ -121,6 +125,32 @@ define(
                             self.photo.readFile( file );
 
                         });
+
+
+                    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+             
+                        var $ = document; 
+                        var head  = $.getElementsByTagName('head')[0];
+                        var link  = $.createElement('link');
+                        link.rel  = 'stylesheet';
+                        link.type = 'text/css';
+                        link.href = '/css/register-mobile.css';
+                        head.appendChild(link);
+
+                        function script(filename){
+                            var fileref = $.createElement('script');
+                            fileref.type = 'text/javascript'
+                            fileref.src=  '/js/' + filename;
+                            head.appendChild(fileref);
+                        }
+
+                        script('iscroll-lite.js');
+                        script('jquery.hammer.min.js');
+                        script('background-mobile.js');
+                        script('mobile-js.js');
+                    }
+
+
                 },
 
                 get: function() {
