@@ -1161,66 +1161,66 @@
 		 */
 		function getProfile() {
 
-			// hide system error
-			$( '#formError').addClass( 'hide' );
+            // hide system error
+            $( '#formError').addClass( 'hide' );
 
-			$.get( '/user/profile' )
-				.done( function( res ) {
-					//console.log( 'profile done', arguments );
+            $.get( '/account' )
+                .done( function( res ) {
+                    //console.log( 'profile done', arguments );
 
-					// action
-					if ( res.errors )
-						errorsProfile( res.errors );
-					else
-						populateProfile( res.profile );
-				})
-				.fail( function() {
-					//console.log( 'profile fails', arguments );
-					// show system error
-					$( '#formError' ).removeClass( 'hide').hide().fadeIn( 'slow' );
-				});
-		}
+                    // action
+                    if ( res.errors )
+                        errorsProfile( res.errors );
+                    else
+                        populateProfile( res.profile );
+                })
+                .fail( function() {
+                    //console.log( 'profile fails', arguments );
+                    // show system error
+                    $( '#formError' ).removeClass( 'hide').hide().fadeIn( 'slow' );
+                });
+        }
 		function updateProfile() {
 			var form = {
-				name: $( '#name' ).val(),
-				day: $( '#date' ).val(),
-				month: $( '#month' ).val(),
-				year: $( '#year' ).val(),
-				phone: $( '#mobilePhone' ).val(),
-				email: $( '#email' ).val(),
-				password: $( '#password' ).val(),
-				brand1: $( '#brand1' ).val(),
-				sku1: $( '#sku1' ).val(),
-				brand2: $( '#brand2' ).val(),
-				sku2: $( '#sku2' ).val()
-			};
-			//console.log( 'form:', form );
+                name: $( '#name' ).val(),
+                day: $( '#date' ).val(),
+                month: $( '#month' ).val(),
+                year: $( '#year' ).val(),
+                phone: $( '#mobilePhone' ).val(),
+                email: $( '#email' ).val(),
+                password: $( '#password' ).val(),
+                brand1: $( '#brand1' ).val(),
+                sku1: $( '#sku1' ).val(),
+                brand2: $( '#brand2' ).val(),
+                sku2: $( '#sku2' ).val()
+            };
+            //console.log( 'form:', form );
 
-			// hide system error
-			$( '#formError').addClass( 'hide' );
-			// hide old success
-			$( '#profileSuccess' ).addClass( 'hide' );
+            // hide system error
+            $( '#formError').addClass( 'hide' );
+            // hide old success
+            $( '#profileSuccess' ).addClass( 'hide' );
 
-			$.post( '/user/profile', form )
-				.done( function( res ) {
-					//console.log( 'save done', arguments );
-					if ( res.error ) {
-						// errors
-						//$( '#formError' ).hide().removeClass( 'hide' ).fadeIn( 'slow' );
-						errorsProfile( res );
-					}
-					else {
-						// success message
-						$( '#profileSuccess' ).hide().removeClass( 'hide' ).fadeIn( 'slow' );
-						populateProfile( res.profile );
-					}
-				})
-				.fail( function() {
-					//console.log( 'save fails', arguments );
-					// show system error
-					$( '#formError' ).removeClass( 'hide').hide().fadeIn( 'slow' );
-				})
-		}
+            $.post( '/account/profile', form )
+                .done( function( res ) {
+                    //console.log( 'save done', arguments );
+                    if ( res.error ) {
+                        // errors
+                        //$( '#formError' ).hide().removeClass( 'hide' ).fadeIn( 'slow' );
+                        errorsProfile( res );
+                    }
+                    else {
+                        // success message
+                        $( '#profileSuccess' ).hide().removeClass( 'hide' ).fadeIn( 'slow' );
+                        populateProfile( res.profile );
+                    }
+                })
+                .fail( function() {
+                    //console.log( 'save fails', arguments );
+                    // show system error
+                    $( '#formError' ).removeClass( 'hide').hide().fadeIn( 'slow' );
+                })
+        }
 	</script>
 	<script src="/js/libs/cigarettes_manage.js"></script>
 	<script src="js/packs.min.js"></script>
