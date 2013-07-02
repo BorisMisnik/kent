@@ -71,6 +71,19 @@ define(
                     this.model = new Backbone.Model();
                     this.person = new Person();
                     this.photo = new Image();
+
+                    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+             
+                        var $ = document; 
+                        var head  = $.getElementsByTagName('head')[0];
+                        var link  = $.createElement('link');
+                        link.rel  = 'stylesheet';
+                        link.type = 'text/css';
+                        link.href = '/css/register-mobile.css';
+                        head.appendChild(link);
+
+                    }
+
                 },
 
                 serialize: function( ) {
@@ -126,31 +139,21 @@ define(
 
                         });
 
-
                     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-             
-                        var $ = document; 
-                        var head  = $.getElementsByTagName('head')[0];
-                        var link  = $.createElement('link');
-                        link.rel  = 'stylesheet';
-                        link.type = 'text/css';
-                        link.href = '/css/register-mobile.css';
-                        head.appendChild(link);
+                            function script(filename){
+                                var $ = document; 
+                                var head  = $.getElementsByTagName('head')[0];
+                                var fileref = $.createElement('script');
+                                fileref.type = 'text/javascript'
+                                fileref.src=  '/js/' + filename;
+                                head.appendChild(fileref);
+                            }
 
-                        function script(filename){
-                            var fileref = $.createElement('script');
-                            fileref.type = 'text/javascript'
-                            fileref.src=  '/js/' + filename;
-                            head.appendChild(fileref);
-                        }
-
-                        script('iscroll-lite.js');
-                        script('jquery.hammer.min.js');
-                        script('background-mobile.js');
-                        script('mobile-js.js');
+                            script('iscroll-lite.js');
+                            script('jquery.hammer.min.js');
+                            script('background-mobile.js');
+                            script('mobile-js.js');
                     }
-
-
                 },
 
                 get: function() {
