@@ -1,0 +1,28 @@
+<div>
+	<section id="login"> 
+		<div class="wrapper-form">
+			<h1>Авторизація користувача</h1>
+			<form class="form-horizontal" action=" " method=" ">				
+				<input type="text" id="username" name="username" placeholder="Логін" class="text" value="{{form.username}}">
+           		<input type="password" id="password" name="password" placeholder="Пароль" class="pass" value="{{form.password}}">
+
+	            {{#errors}}
+	            <span class="error">{{.}}</span>
+	            {{/errors}}
+
+	            <div class="control-group">
+	                <a href="#!/remind">Відновити пароль</a>
+
+	                <label class="checkbox labelContainer inline">
+	                    <input type="checkbox" value="" class="checkbox hide" name="remember" id="remember" />
+	                    Запам’ятати мене <span class="checkbox"></span>
+	                </label>
+	            </div>
+	            <div class="control-group">
+	                <a href="#!/register" class="linkRegistred">Реєстрація</a>
+	                <input id="submitLogin" type="submit" value="OK" class="submit">
+	            </div>
+			</form>
+		</div>
+	</section>
+</div>

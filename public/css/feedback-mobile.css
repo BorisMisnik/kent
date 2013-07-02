@@ -1,0 +1,73 @@
+/* Landscape phone to portrait tablet */
+#feedback .wrapper-form {
+  width: 532px;
+  text-align: left;
+}
+#feedback .wrapper-form p {
+  margin: 5px 0 18px;
+  color: #656e75;
+  text-align: left;
+  font-size: 12px;
+}
+.form-horizontal .controls + p {
+  margin-top: 17px;
+  margin-bottom: 13px;
+}
+.row-fluid h1 {
+  font-size: 21px;
+}
+.form-horizontal .control-label {
+  float: right;
+  width: 200px;
+  text-align: left;
+}
+.input-label.control-label {
+  margin: 0;
+  padding: 0;
+  width: 103px;
+  height: 159px;
+  line-height: 159px;
+}
+.form-horizontal .controls {
+  margin-left: 0;
+}
+.wrapperTextarea {
+  width: 369px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+.error {
+  margin: 0 0 12px;
+}
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+  #feedback .wrapper-form p {
+    margin: 0 0 16px;
+    font-size: 16px;
+  }
+  #feedback .wrapperTextarea {
+    width: 468px;
+    overflow: hidden;
+  }
+  #feedback .wrapperTextarea textarea {
+    width: 454px;
+    font-size: 24px;
+  }
+  #feedback .wrapper {
+    overflow: hidden;
+  }
+  #feedback .wrapper h2 {
+    float: left;
+  }
+  #feedback .wrapper .control-group {
+    float: right;
+  }
+  .container-fluid {
+    min-width: 600px;
+  }
+}
+@media (max-width: 480px) {
+  min-height: 1000px;
+}
