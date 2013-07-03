@@ -1056,16 +1056,23 @@ section h1 {
 }
 .small-photo-wrapper .carousel-inner {
   height: 59px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 27px;
 }
 .small-photo-wrapper .carousel {
   height: 59px;
 }
 .small-photo-wrapper .carousel .item {
   line-height: 59px;
+  height: 59px;
+  width: 60px;
+  display: inline-block;
 }
 .small-photo-wrapper .carousel .item img {
   max-height: 59px;
-  max-width: 52px;
+  max-width: 60px;
 }
 .small-photo-wrapper .carousel-control.left,
 .small-photo-wrapper .carousel-control.right {

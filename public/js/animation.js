@@ -562,7 +562,6 @@ var action = function () {
 		if( $('#photo').is('.now') || container.is(':animated') ) return;
 
 		var yScrol = container.scrollTop() + container.height();
-
 		container.animate({'scrollTop' : yScrol},1000);
 
 		this.top = false;
