@@ -15,7 +15,6 @@ define(
                 device = (function(){
                     if( navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile/) ) return false;
                 })();
-                alert(navigator.userAgent)
                 var isFileInputSupported = (function () {
                    if(navigator.userAgent.match(/(Android (1.0|1.1|1.5|1.6|2.0|2.1|2.3))|(Windows Phone (OS 7|8.0))|(XBLWP)|(ZuneWP)|(w(eb)?OSBrowser)|(webOS)|(Kindle\/(1.0|2.0|2.5|3.0))/)) {
                         return false;
@@ -313,6 +312,7 @@ define(
                 })
                 $('#rules').find('.wrapper-form p:last').css('margin-bottom', '300px');
                 if( navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile/) ) return;
+                alert(123)
                 $('.webcamButton').show(); 
                 $('.button-photo').removeAttr('style');
 
