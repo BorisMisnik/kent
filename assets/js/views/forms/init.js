@@ -38,7 +38,15 @@ define(
                     'min-height': wrapperForm.height() + 230
                 })
             }
-            alert(navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile/)) 
+
+            if(!device){
+
+                $('.webcamButton').hide();
+                $('.button-photo').css({
+                    'text-align': 'center'
+                });
+
+            }
             $('#scroll').niceScroll();
             $('input')
                 .off( 'focus', inputFocus )
@@ -302,17 +310,12 @@ define(
             init: function() {
                 $( init );
 
-                $('.webcamButton').hide();
-                $('.button-photo').css({
-                    'text-align': 'center'
-                });
                 $('#rulles').css({
                     'height' : '100%',
                 })
                 $('#rules').find('.wrapper-form p:last').css('margin-bottom', '300px');
 
                 if( navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile/) ) return;
-
 
                 // $('.webcamButton').show(); 
                 $('.button-photo').removeAttr('style');
