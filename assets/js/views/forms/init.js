@@ -20,6 +20,7 @@ define(
                         return false;
                     }
                 })();
+
             if( !isFileInputSupported ){
                 $('.fileButton').hide();
                 $('.button-photo').css('text-align', 'center');
@@ -27,14 +28,12 @@ define(
 
             if ($('#registered').length){
                 containerFluid.css({
-                    'height':wrapperForm.height() + 230,
                     'min-height': wrapperForm.height() + 230
                 })
             }
 
             if ($('#feedback').length){
                 containerFluid.css({
-                    'height':wrapperForm.height() + 230,
                     'min-height': wrapperForm.height() + 230
                 })
             }
@@ -314,6 +313,8 @@ define(
                     'height' : '100%',
                 })
                 $('#rules').find('.wrapper-form p:last').css('margin-bottom', '300px');
+
+                $('#scroll').niceScroll();
 
                 if( navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile/) ) return;
 
