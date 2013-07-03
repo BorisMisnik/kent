@@ -38,8 +38,7 @@ define(
                     'min-height': wrapperForm.height() + 230
                 })
             }
-     
-             
+            alert(navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile/)) 
             $('#scroll').niceScroll();
             $('input')
                 .off( 'focus', inputFocus )
@@ -311,7 +310,7 @@ define(
                     'height' : '100%',
                 })
                 $('#rules').find('.wrapper-form p:last').css('margin-bottom', '300px');
-                alert(navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile/))
+
                 if( navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile/) ) return;
 
 
