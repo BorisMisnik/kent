@@ -14,7 +14,7 @@ exports.logout =
     function( req, res ) {
         console.log( 'Logout:', req.session );
 
-        pipe.request( 'get', '/logout',
+        pipe.request( 'get', '/logout', { headers: req.headers },
             function ( error, response, body) {
                 res.redirect( '/' );
             });

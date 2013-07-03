@@ -21,7 +21,7 @@ var app = express(),
 app.configure( function() {
     app.set( 'port', port );
     app.use( express.favicon() );
-    //app.use( express.logger( 'default' ));
+    app.use( express.logger( 'default' ));
     app.use( express.bodyParser() );
     app.use( express.methodOverride() );
     app.use( app.router );
@@ -35,7 +35,8 @@ app.configure( 'development', function() {
 });
 
 console.log( '\nStarting server'.magenta.bold );
-console.log( 'Server path:', process.cwd() );
+console.log( 'Server path:'.green, process.cwd() );
+console.log( 'Backend location:'.green, config.service );
 
 // Assign routes
 for ( var id in routes ) {
@@ -51,7 +52,7 @@ for ( var id in routes ) {
         console.log( script, handler );
         continue;
     } else {
-        console.log( 'Route', route.url );
+        console.log( 'Route'.grey, route.url );
     }
 
     // assign route
@@ -60,8 +61,8 @@ for ( var id in routes ) {
 
 // Pipe requests to the Backend
 app.use( function( req, res ) {
-    console.log( '!Pipe:', req.path, req.params, req.body );
-    pipe( req, res, req.path, { form: req.body });
+    console.log( 'PIPE:'.green.bold, req.url, req.headers, req.body );
+    pipe( req, res );
 });
 
 http.createServer( app )
