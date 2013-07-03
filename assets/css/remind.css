@@ -23,6 +23,9 @@
   float: none;
   margin-top: 15px;
 }
+#remind .submit:hover {
+  text-decoration: none;
+}
 .compleat .text,
 .compleat .error,
 .compleat .form,
@@ -42,4 +45,19 @@
 .comp,
 a.submit {
   display: none;
+}
+@media (max-width: 767px) {
+  .container-fluid {
+    min-width: 600px;
+  }
+  #remind .wrapper-form {
+    width: 513px;
+  }
+  #remind .text {
+    font-size: 18px;
+    margin: 19px 0 21px;
+  }
+  #remind input.text {
+    margin: 6px 0 19px;
+  }
 }

@@ -148,9 +148,12 @@ define(
             stop();
             // inint and start
             // stripes animation
-            init();
+            if( !/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ){
+                init();
+                $( window ).resize( onresize );
+            }
             // listen window resize
-            $( window ).resize( onresize );
+
         }
         function stop() {
             // stop animation

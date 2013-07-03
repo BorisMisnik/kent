@@ -5,7 +5,7 @@
         <h1>Реєcтрацiя користувача</h1>
         <form class="form-horizontal text-left" action=" " method=" ">
 
-            <label class="control-label" for="name">П. I. Б.</label>
+            <label class="control-label hidden-phone" for="name">П. I. Б.</label>
             <div class="controls">
                 <input type="text" name="name" placeholder="П. I. Б." class="text" id="name" value="{{values.name}}">
                 {{#errors.name}}
@@ -13,11 +13,11 @@
                 {{/errors.name}}
             </div>
 
-            <label class="control-label" for="date">Дата народження</label>
+            <label class="control-label hidden-phone" for="date">Дата народження</label>
             <div class="controls">
                 <div class="dateBirthday">
                     <input type="text" name="date" placeholder="День" placeholder="День" class="text" id="date" value="{{values.day}}" />
-                    <select name="month" id="month">
+                    <select name="month" id="month" class="selectMonth">
                         <option value="Місяць" disabled>Місяць</option>
                         <option value="0">Січень</option>
                         <option value="1">Лютий</option>
@@ -34,13 +34,14 @@
                     </select>
                     <!-- <input type="text" name="month" placeholder="Місяць" placeholder="Місяць" class="text" id="month" value="{{values.month}}" /> -->
                     <input type="text" name="year" placeholder="Рік" placeholder="Рік" class="text" id="year" value="{{values.year}}" />
+                    <label class="control-label visible-phone" for="date" >Дата народження</label>
                 </div>
                 {{#errors.age}}
                 <span class="error">Тобі ще не виповнилося 18 років</span>
                 {{/errors.age}}
             </div>
 
-            <label class="control-label" for="mobilePhone">Мобiльний телефон</label>
+            <label class="control-label hidden-phone" for="mobilePhone">Мобiльний телефон</label>
             <div class="controls">
                 <input type="text" name="mobilePhone" placeholder="0 (00) 000-00-00" class="text" id="mobilePhone" value="{{values.phone}}" />
                 {{#errors.phone}}
@@ -48,7 +49,7 @@
                 {{/errors.phone}}
             </div>
 
-            <label class="control-label" for="email">E-mail</label>
+            <label class="control-label hidden-phone" for="email">E-mail</label>
             <div class="controls">
                 <input type="text" name="email" placeholder="E-mail" class="text" id="email" value="{{values.email}}" />
                 {{#errors.email}}
@@ -59,7 +60,7 @@
                 {{/errors.already_used_email}}
             </div>
 
-            <label class="control-label" for="password">Пароль</label>
+            <label class="control-label hidden-phone" for="password">Пароль</label>
             <div class="controls">
                 <input type="password" name="password" placeholder="Пароль" class="text" id="password" value="{{values.password}}" />
                 {{#errors.password}}
@@ -67,7 +68,7 @@
                 {{/errors.password}}
             </div>
 
-            <label class="control-label" for="passwordTwo">Пiдтвердження пароля</label>
+            <label class="control-label hidden-phone" for="passwordTwo">Пiдтвердження пароля</label>
             <div class="controls">
                 <input type="password" name="passwordTwo" placeholder="Пiдтвердження пароля" class="text" id="passwordTwo" value="{{values.password2}}" />
                 {{#errors.not_same_passwords}}
@@ -75,7 +76,7 @@
                 {{/errors.not_same_passwords}}
             </div>
 
-            <p class="massege">Для отримання доступу на сайт, будь ласка, завантаж копію документа, <br/> що посвідчує вік:</p>
+            <p class="massege">Для отримання доступу на сайт, будь ласка, завантаж копію документа, що посвідчує вік:</p>
 
             <div class="button-photo">
                 <a href="#!/upload" class="submit fileButton  ">завантажити</a>

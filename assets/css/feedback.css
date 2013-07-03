@@ -31,7 +31,7 @@
   margin-left: 0;
 }
 .wrapperTextarea {
-  width: 375px;
+  width: 369px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -39,4 +39,34 @@
 }
 .error {
   margin: 0 0 12px;
+}
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+  #feedback .wrapper-form p {
+    margin: 0 0 16px;
+    font-size: 16px;
+  }
+  #feedback .wrapperTextarea {
+    width: 468px;
+    overflow: hidden;
+  }
+  #feedback .wrapperTextarea textarea {
+    width: 454px;
+    font-size: 24px;
+  }
+  #feedback .wrapper {
+    overflow: hidden;
+  }
+  #feedback .wrapper h2 {
+    float: left;
+  }
+  #feedback .wrapper .control-group {
+    float: right;
+  }
+  .container-fluid {
+    min-width: 600px;
+  }
+}
+@media (max-width: 480px) {
+  min-height: 1200px;
 }

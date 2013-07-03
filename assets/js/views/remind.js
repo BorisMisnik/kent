@@ -27,28 +27,6 @@ define(
                 afterRender: function() {
                     // custom form fields
                     form.init();
-                    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-             
-                        var $ = document; 
-                        var head  = $.getElementsByTagName('head')[0];
-                        var link  = $.createElement('link');
-                        link.rel  = 'stylesheet';
-                        link.type = 'text/css';
-                        link.href = '/css/remind-mobile.css';
-                        head.appendChild(link);
-
-                        function script(filename){
-                            var fileref = $.createElement('script');
-                            fileref.type = 'text/javascript'
-                            fileref.src=  '/js/' + filename;
-                            head.appendChild(fileref);
-                        }
-
-                        script('iscroll-lite.js');
-                        script('jquery.hammer.min.js');
-                        script('background-mobile.js');
-                        script('mobile-js.js');
-                    }
                 },
 
                 submit: function( e ) {

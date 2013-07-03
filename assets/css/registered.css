@@ -446,3 +446,107 @@ input[type="submit"] {
   opacity: 0.5;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
 }
+select {
+  vertical-align: top !important;
+  width: 113px;
+  height: 32px;
+  position: relative;
+  top: -2px;
+}
+@media (max-width: 767px) {
+  .selectMonth {
+    height: 28px;
+    vertical-align: top !important;
+    font-size: 12px;
+    color: #555;
+    background-color: #e0e0e0;
+    border-radius: 0;
+    width: 145px;
+    -webkit-transition: background-color 500ms ease-in-out;
+    transition: background-color 500ms ease-in-out;
+    outline: none;
+  }
+  select {
+    top: 0;
+  }
+  .selectMonth.inputError {
+    color: #555;
+  }
+  .selectMonth:focus {
+    background-color: #fff;
+  }
+  .dateBirthday {
+    text-align: left;
+  }
+  .dateBirthday input[name="year"] {
+    width: 67px;
+  }
+  .dateBirthday input[name="date"] {
+    margin-right: 2px;
+  }
+  .dateBirthday select {
+    margin-right: 2px;
+  }
+  .text {
+    font-size: 17px;
+    color: #656e75 !important;
+  }
+  .link.submit {
+    line-height: 37px;
+  }
+  .input-append .fileInput {
+    height: 38px !important;
+  }
+  .input-append {
+    position: relative;
+  }
+  .input-append .submit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 113px;
+  }
+  .dateBirthday {
+    width: 474px;
+  }
+  .dateBirthday input[name="date"] {
+    width: 83px;
+  }
+  .dateBirthday label {
+    float: right;
+    width: 121px !important;
+    display: inline-block;
+    position: relative;
+    top: 11px;
+    font-size: 13px !important;
+  }
+  .button-photo {
+    text-align: justify;
+  }
+  .button-photo .submit {
+    font-size: 16px;
+  }
+  .button-photo .submit:hover {
+    text-decoration: none;
+  }
+  .button-photo .fileButton {
+    width: 165px;
+    height: 38px;
+    line-height: 38px;
+  }
+  .button-photo #web {
+    width: 279px;
+    line-height: 37px;
+  }
+  #registered label {
+    color: #656e75;
+    font-size: 16px;
+  }
+  #registered label p {
+    width: 414px;
+  }
+  .selectMonth {
+    height: 55px;
+    font-size: 24px;
+  }
+}

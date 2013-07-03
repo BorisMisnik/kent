@@ -5,12 +5,12 @@
  	background-color:@color;
  	background-image:@image;
  	background-position: @position;
- 	background-repeat: no-repeat;
+ 	background-repeat: no-repeat; 
 }
 .transition (@name, @time, @easing){
 	-webkit-transition : @arguments;
 	-moz-transition : @arguments;
-	transition : @arguments;
+	transition : @arguments; 
 }
 .size (@w, @h){
 	width : @w;
@@ -19,7 +19,7 @@
 .font (@size, @color, @weight, @line-height){
 	color:@color;
 	font-weight:@weight;
-	font-size:@size; 
+	font-size:@size;
 	line-height:@line-height;
 }
 
@@ -35,6 +35,10 @@ body{
 .footer,
 .xv{
 	z-index:20;
+}
+.row-fluid.footer,
+.row-fluid.xv{
+	position: fixed;
 }
 .nav-site{
 	position:fixed;

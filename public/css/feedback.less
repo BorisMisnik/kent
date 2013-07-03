@@ -41,3 +41,37 @@
 .error{
 	margin:0 0 12px;
 }
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+	#feedback{
+		.wrapper-form{
+			p{
+				margin: 0 0 16px;
+				font-size: 16px;
+			}
+		}
+		.wrapperTextarea{
+			width: 468px;
+			overflow: hidden;
+			textarea{
+				width: 454px;
+				font-size: 24px;
+			}
+		}
+		.wrapper{
+			overflow: hidden;
+			h2{
+				float: left;
+			}
+			.control-group{
+				float: right;
+			}
+		}
+	}
+	.container-fluid{
+		min-width: 600px;
+	}
+}
+@media (max-width: 480px) {
+	min-height: 1200px;
+}

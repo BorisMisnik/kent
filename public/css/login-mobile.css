@@ -1,3 +1,55 @@
+
+#login form {
+  width: 278px;
+}
+#login .control-group {
+  margin: 4px 0 0;
+}
+#login .control-group a {
+  display: block;
+  float: left;
+}
+#login .control-group + .control-group {
+  margin: 9px 0 0;
+}
+#login .labelContainer {
+  float: right;
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+}
+#login .linkRegistred {
+  position: relative;
+  top: 3px;
+  font-size: 16px;
+  font-family: Verdana, Geneva, sans-serif;
+}
+#login span.checkbox {
+  float: none;
+  margin: 0;
+}
+#login input[type="submit"] {
+  margin: 0;
+}
 /* Landscape phone to portrait tablet */
-#login form{width:278px}#login .control-group{margin:4px 0 0}#login .control-group a{display:block;float:left}#login .control-group+.control-group{margin:9px 0 0}#login .labelContainer{float:right;margin:0;padding:0;vertical-align:top}#login .linkRegistred{position:relative;top:3px;font-size:16px;font-family:Verdana,Geneva,sans-serif}#login span.checkbox{float:none;margin:0}#login input[type="submit"]{margin:0}@media (max-width: 767px){.row-fluid.footer{ height:90px}.container-fluid{min-width:600px}#login .form-horizontal{width:469px}#login .linkRegistred{font-size:28px;font-weight:100}#login .control-group{margin-top:24px}#login .control-group+.control-group{margin:30px 0 0}}
-/* This beautiful CSS-File has been crafted with LESS (lesscss.org) and compiled by simpLESS (wearekiss.com/simpless) */
+@media (max-width: 767px) {
+  .row-fluid.footer {
+    height: 90px;
+  }
+  .container-fluid {
+    min-width: 600px;
+  }
+  #login .form-horizontal {
+    width: 469px;
+  }
+  #login .linkRegistred {
+    font-size: 28px;
+    font-weight: 100;
+  }
+  #login .control-group {
+    margin-top: 24px;
+  }
+  #login .control-group + .control-group {
+    margin: 30px 0 0;
+  }
+}

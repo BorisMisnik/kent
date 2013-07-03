@@ -277,3 +277,19 @@
 #rulles li {
   color: #656e75;
 }
+@media (max-width: 767px) {
+  #rulles {
+    height: 100%;
+  }
+  #rulles p {
+    font-size: 16px;
+    color: #656e75;
+    line-height: 1.5;
+    margin-bottom: 0;
+    text-align: left;
+  }
+  #rulles h2,
+  #rulles ul {
+    font-size: 16px;
+  }
+}

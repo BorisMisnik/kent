@@ -28,29 +28,7 @@ define(
                 // custom form fields
                 form.init();
                 // init scroll and text
-                if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
 
-                    var $ = document; 
-                    var head  = $.getElementsByTagName('head')[0];
-                    var link  = $.createElement('link');
-                    link.rel  = 'stylesheet';
-                    link.type = 'text/css';
-                    link.href = '/css/feedback-mobile.css';
-                    head.appendChild(link);
-
-                    function script(filename){
-                        var fileref = $.createElement('script');
-                        fileref.type = 'text/javascript'
-                        fileref.src=  '/js/' + filename;
-                        head.appendChild(fileref);
-                    }
-
-                    script('iscroll-lite.js');
-                    script('jquery.hammer.min.js');
-                    script('background-mobile.js');
-                    script('mobile-js.js');
-
-                }
             },
 
             submit: function( e ) {

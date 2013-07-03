@@ -7,7 +7,8 @@
 
 html,body{
 	width:100%;
-	height:100%; 
+	height:100%;
+	overflow: hidden;
 }
 body{
 	background:url("../img/background.png") no-repeat center center #dfdfdf;
@@ -16,6 +17,7 @@ body{
 	font-size: 12px;
 	font-family: Verdana, Geneva, sans-serif;
 	position: relative;
+	overflow: hidden;
 }
 body > div{
 	width:100%;
@@ -23,7 +25,7 @@ body > div{
 }
 label, input, button, select, textarea{
 	font-size:12px;
-	border:1px solid transparent; 
+	border:1px solid transparent;
 	&:focus{
 
 	}
@@ -35,6 +37,9 @@ a{
 		color:@colorOne;
 	}
 }
+#scroll{
+	height: 100%;
+}
 .clear{
 	float:none;
 	clear:both;
@@ -44,6 +49,7 @@ a{
 	padding:0;
 	width:100%;
 	height:100%;
+	min-height: 600px;
 }
 .row-fluid{
 	height: 77%;
@@ -93,9 +99,10 @@ a{
 	line-height:1;
 }
 .row-fluid.footer{
-	position: fixed;
+	position: absolute;
 	bottom: 15%;
-	height: 72px;
+	height: auto;
+	z-index: 3;
 	p{
 		margin-bottom:10px;
 		color:@colorTwo;
@@ -106,7 +113,7 @@ a{
 	}
 }
 .row-fluid.xv{
-	position: fixed;
+	position: absolute;
 	bottom: 0;
 	-webkit-box-sizing:border-box;
 	-moz-box-sizing:border-box;
@@ -175,7 +182,7 @@ a{
 	box-shadow: 0 0 10px #6C6C6C;
 	box-shadow: 0 0 10px rgba(108, 108, 108, 0.5);
 	position:relative;
-	z-index:1;
+	z-index:4;
 }
 form .text,
 form .pass,
@@ -344,7 +351,7 @@ textarea{
 .succes{
 	display: block;
 	margin-top:8px;
-	padding-left: 30px;
+	padding-left: 30px; 
 	background-image: url("../img/icons.png");
 	background-position: -87px -100px;
 	background-repeat: no-repeat;
@@ -424,4 +431,105 @@ canvas{
 	font: 16px Verdana;
 	color: #6B747A;
 	text-align: center;
+}
+@media (max-width: 767px) {
+	body{
+		padding: 0;
+		font-size: 16px;
+
+		.submit{
+			width: 223px;
+			height: 38px;
+			font-size: 16px;
+			line-height: 38px;
+		}
+	}
+	label, 
+	input,
+	button, 
+	select, 
+	textarea{
+		font-size: 16px;
+		&:focus{
+			box-shadow: none !important;
+			border-color: #e0e0e0 !important;
+			color: #7d888f !important;
+		}
+	}
+	.error{
+		font-size: 16px;
+	}
+	.wrapper-form{
+		padding:0 29px;
+	}
+	
+	.container-fluid .row-fluid h1{
+		font-size: 23px;
+		margin: 15px 0;
+	}
+	
+	form {
+		.text,
+		.pass,
+		.input-append .text {
+			width: 470px;
+			height: 55px;
+			font-size: 24px;
+		}
+	}
+	span.checkbox{
+		width:19px;
+		height:19px;
+		background-image: url("../img/mobileCheckbox.png");
+		background-position: 0 -22px;
+	}
+	.row-fluid.footer footer{
+		padding: 9px 10px 6px;
+	}
+	.row-fluid.footer.no-text{
+		height: auto;
+	}
+	.footerNav{
+		width: 407px;
+		float:left;
+		text-align:left
+	}
+	.footerNav a{
+		font-size: 9px;
+		padding:0;
+		margin-right: 5px;
+	}
+	.footerNav a:last-child{
+		margin-right: 0;
+	}
+	.footerNav span + a{
+		padding: 0;
+	}
+	.infoLine{
+		font-size: 9px;
+		width: 100%;
+	}
+}
+/* Landscape phones and down */
+@media (max-width: 480px) {
+	.footerNav{
+		width: auto !important;
+		float:left;
+		text-align: left;
+	}
+	.footerNav a{
+		font-size: 9px !important;
+		padding: 0;
+		margin-right: 5px;
+	}
+	.footerNav a:last-child{
+		margin-right: 0;
+	}
+	.footerNav span + a{
+		padding: 0;
+	}
+	.infoLine{
+		font-size: 9px !important;
+		width: auto !important; 
+	}
 }
