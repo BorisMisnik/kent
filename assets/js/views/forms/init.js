@@ -311,9 +311,11 @@ define(
                     'height' : '100%',
                 })
                 $('#rules').find('.wrapper-form p:last').css('margin-bottom', '300px');
+                alert(navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile/))
                 if( navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile/) ) return;
-                alert(123)
-                $('.webcamButton').show(); 
+
+
+                // $('.webcamButton').show(); 
                 $('.button-photo').removeAttr('style');
 
                 if($('#rules').length){
