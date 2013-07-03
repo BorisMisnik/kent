@@ -14,9 +14,9 @@ $(function(){
 				return bottom;
 			}
 		});
-
 		$('article').css('height',container.height());
 		container.scrollTop(container.scrollTop() + $('section.now').offset().top);
+	
 	};
 
 	

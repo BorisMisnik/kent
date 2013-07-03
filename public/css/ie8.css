@@ -25,13 +25,16 @@
 	top: -38px;
 }
 .carousel .wrapeer > .switch{
-	background-image:url("../img/switch_ie8.png");
+	background-image: url("../img/c_switch_ie8.png");
 	background-position: 0 0;
 	position: relative;
 	left: 10px;
 }
 .carousel .wrapeer > .switch p{
 	bottom: 10px;
+}
+.carousel .wrapeer > .switch + p{
+	left: 26px;
 }
 .carousel .wrapeer[data-name="hds"]{
 	height: 254px !important;

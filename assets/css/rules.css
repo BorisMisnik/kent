@@ -1,12 +1,4 @@
 #rules {
-  /* horizontal scrollbar */
-
-  /* default scrollbar colors and backgrounds (default theme) */
-
-  /*scrollbar themes*/
-
-  /*dark (dark colored scrollbar)*/
-
   /*light-2*/
 
   /*dark-2*/
@@ -280,6 +272,7 @@
 @media (max-width: 767px) {
   #rulles {
     height: 100%;
+    margin-bottom: 60px;
   }
   #rulles p {
     font-size: 16px;
