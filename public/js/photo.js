@@ -1,6 +1,7 @@
 $(function(){
 
 	var start = 0;
+	var count = 7;
 	var carouselInner = $('#myCarousel .carousel-inner');
 	var carouselInnerSamll = $('#smallCarousel .carousel-inner');
 	var json = $.parseJSON( $('#allImg').val() );
@@ -9,9 +10,14 @@ $(function(){
 	var divSmall =  $('<div>',{
 			'class' : 'item active'
 		});
+
+	if( navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile/) ){
+		count = 3;
+	}
+
 	divSmall.appendTo(carouselInnerSamll);
 
-	for(var i = start; i < 7; i++){
+	for(var i = start; i < count; i++){
 		creatItem(json[i], start);
 		start++;
 	}
@@ -51,7 +57,7 @@ $(function(){
 			});
 		divSmall.appendTo(carouselInnerSamll);
 
-		for(var i = 0; i < 7; i++){
+		for(var i = 0; i < count; i++){
 			if( json[start] === undefined ) break;
 			creatItem(json[start], start);
 			start++;
@@ -71,9 +77,9 @@ $(function(){
 		if( !active.next().length ){
 			creatNewElements();
 		}
-		if(  active.index() % 7 === 0 ){
+		if(  active.index() % count === 0 ){
 
-		 	var itemScroll = active.index() / 7;
+		 	var itemScroll = active.index() / count;
 		 	itemScroll === 0 ? 1 : itemScroll;
 
 		 	$('#smallCarousel').carousel(itemScroll);
@@ -99,9 +105,9 @@ $(function(){
 
 	$('#myCarousel').on('click', '.left', function(){
 		var active = carouselInner.find('.active');
-		if(  active.index() % 7 === 0 ){
+		if(  active.index() % count === 0 ){
 
-			var itemScroll = active.index() / 7;
+			var itemScroll = active.index() / count;
 			itemScroll--;
 			$('#smallCarousel').carousel(itemScroll);
 

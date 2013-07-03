@@ -90,21 +90,21 @@
             <label class="checkbox">
                 <input type="checkbox" name="agree_age" id="agree_age" placeholder="ok18" class="hide" {{#values.agree_age}}checked{{/values.agree_age}} />
                 <span class="checkbox {{#values.agree_age}}check{{/values.agree_age}}"></span>
-                Я підтверджую, що я курю та мені виповнилось 18 років
+                <p>Я підтверджую, що я курю та мені виповнилось 18 років</p>
             </label>
 
             <label class="checkbox">
                 <input type="checkbox" name="agree_rules" id="agree_rules" placeholder="okRules" class="hide" {{#values.agree_rules}}checked{{/values.agree_rules}} />
                 <span class="checkbox {{#values.agree_rules}}check{{/values.agree_rules}}"></span>
-                Я погоджуюсь з <a href="#!/rules"><strong>умовами користування</strong></a> цим веб-сайтом
+                <p>Я погоджуюсь з <a href="#!/rules"><strong>умовами користування</strong></a> цим веб-сайтом</p>
             </label>
 
             <label class="checkbox">
                 <input type="checkbox" name="agree_info" id="agree_info" placeholder="okSite" class="hide" {{#values.agree_info}}checked{{/values.agree_info}} />
                 <span class="checkbox {{#values.agree_info}}check{{/values.agree_info}}"><!-- chekboxError --></span>
-                Я погоджуюсь з тим, щоб інформація про тютюнові вироби,<br/>
-                які випускаються під <strong>ТМ «KENT»</strong>, надавалася мені<br/>
-                за допомогою <strong>kent.com.ua</strong>
+                <p>Я погоджуюсь з тим, щоб інформація про тютюнові вироби,
+                які випускаються під <strong>ТМ «KENT»</strong>, надавалася мені
+                за допомогою <strong>kent.com.ua</strong></p>
             </label>
             {{#errors.not_agree}}
             <span class="error">Ти не погодився з усіма пунктами</span>

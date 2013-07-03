@@ -77,7 +77,13 @@ define(
                                 self.render();
                             }
                             else {
-                                window.location.href = '/main.html';
+                                if( navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile/) ){
+                                    window.location.href = '/main-mobile.html';
+                                }
+                                else{
+                                   window.location.href = '/main.html'; 
+                                }
+                                
                                 //router.navigate( '/main.html' );
                                 //self.log( 'goto: #!/main' );
                             }

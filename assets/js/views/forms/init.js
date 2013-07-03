@@ -13,20 +13,14 @@ define(
                 textarea = $('textarea'),
                 background = $('.background'),
                 device = (function(){
-                    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) return;
+                    if( navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile/) ) return false;
                 })();
-            // file input suport http://viljamis.com/blog/2012/file-upload-support-on-mobile/
-            var isFileInputSupported = (function () {
-                // Handle devices which falsely report support
-                if (navigator.userAgent.match(/(Android (1.0|1.1|1.5|1.6|2.0|2.1))|(Windows Phone (OS 7|8.0))|(XBLWP)|(ZuneWP)|(w(eb)?OSBrowser)|(webOS)|(Kindle\/(1.0|2.0|2.5|3.0))/)) {
-                    return false;
-                }
-                // Create test element
-                var el = document.createElement("input");
-                el.type = "file";
-                return !el.disabled;
-            })();
-
+                alert(navigator.userAgent)
+                var isFileInputSupported = (function () {
+                   if(navigator.userAgent.match(/(Android (1.0|1.1|1.5|1.6|2.0|2.1|2.3))|(Windows Phone (OS 7|8.0))|(XBLWP)|(ZuneWP)|(w(eb)?OSBrowser)|(webOS)|(Kindle\/(1.0|2.0|2.5|3.0))/)) {
+                        return false;
+                    }
+                })();
             if( !isFileInputSupported ){
                 $('.fileButton').hide();
                 $('.button-photo').css('text-align', 'center');
@@ -45,6 +39,8 @@ define(
                     'min-height': wrapperForm.height() + 230
                 })
             }
+     
+             
             $('#scroll').niceScroll();
             $('input')
                 .off( 'focus', inputFocus )
@@ -307,16 +303,26 @@ define(
         return {
             init: function() {
                 $( init );
+
                 $('.webcamButton').hide();
                 $('.button-photo').css({
                     'text-align': 'center'
                 });
-                if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) return;
+                $('#rulles').css({
+                    'height' : '100%',
+                })
+                $('#rules').find('.wrapper-form p:last').css('margin-bottom', '300px');
+                if( navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile/) ) return;
                 $('.webcamButton').show(); 
                 $('.button-photo').removeAttr('style');
 
                 if($('#rules').length){
-                    $('#rulles').mCustomScrollbar();
+                    $('#rules').find('.wrapper-form p:last').css('margin-bottom', '0');
+                    $('#rulles')
+                        .css({
+                            'height':'373px'
+                        })
+                        .mCustomScrollbar();
                 }
 
                 $('input[placeholder], textarea[placeholder]').placeholder();
