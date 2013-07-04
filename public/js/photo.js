@@ -210,33 +210,33 @@ $(function(){
 		// var url = '/putty/' + $this.data('name');
 		// $.getJSON(url, carousel);
 
-		var url = '/putty';
-		$.getJSON(url, { putty: $this.data('name') }, carousel);
-		function carousel(data){
+		// var url = '/putty';
+		// $.getJSON(url, { putty: $this.data('name') }, carousel);
+		// function carousel(data){
 
-			$('#allImg').val(data);
+		// 	$('#allImg').val(data);
 
-			carouselInner.find('.item').remove();
-			carouselInnerSamll.find('.item').remove();
-			start = 0;
-			json = $.parseJSON( $('#allImg').val() );
+		// 	carouselInner.find('.item').remove();
+		// 	carouselInnerSamll.find('.item').remove();
+		// 	start = 0;
+		// 	json = $.parseJSON( $('#allImg').val() );
 
-			var divSmall =  $('<div>',{
-				'class' : 'item active'
-			});
-			divSmall.appendTo(carouselInnerSamll);
+		// 	var divSmall =  $('<div>',{
+		// 		'class' : 'item active'
+		// 	});
+		// 	divSmall.appendTo(carouselInnerSamll);
 
-			for(var i = start; i < count; i++){
-				creatItem(json[i], start);
-				start++;
-			}
-			carouselInner.find('.item').eq(0).addClass('active');
-			carouselInnerSamll.find('.item').eq(0).addClass('active');
+		// 	for(var i = start; i < count; i++){
+		// 		creatItem(json[i], start);
+		// 		start++;
+		// 	}
+		// 	carouselInner.find('.item').eq(0).addClass('active');
+		// 	carouselInnerSamll.find('.item').eq(0).addClass('active');
 
-			$('.putty').removeClass('putty');
-			$this.addClass('putty');
+		// 	$('.putty').removeClass('putty');
+		// 	$this.addClass('putty');
 
-		}
+		// }
 
 	});
 
