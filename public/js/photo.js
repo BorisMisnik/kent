@@ -149,5 +149,13 @@ $(function(){
 		show:false
 	})
 
+    // (!)
+    // slide to photo section (for only #photo url hash)
+    var hash = document.URL.substr(document.URL.indexOf('#') + 1); // ie supported
+    if ( hash && 'gallery' == hash ) {
+        //$target.carousel({ slide: 'photo' });
+        // warning! imitate click on DOM element by its attribute
+        $( '[data-slide="photo"]' ).click();
+    }
 
 });
