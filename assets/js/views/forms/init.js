@@ -21,7 +21,7 @@ define(
                     }
                 })();
                 var isFileInputSupported = (function () {
-                    if(navigator.userAgent.match(/(Android (1.0|1.1|1.5|1.6|2.0|2.1|2.3))|(Windows Phone (OS 7|8.0))|(XBLWP)|(ZuneWP)|(w(eb)?OSBrowser)|(webOS)|(Kindle\/(1.0|2.0|2.5|3.0))/)) {
+                    if(navigator.userAgent.match(/(Android|(Windows Phone (OS 7|8.0))|(XBLWP)|(ZuneWP)|(w(eb)?OSBrowser)|(webOS)|(Kindle\/(1.0|2.0|2.5|3.0))/)) {
                         return false;
                     }
                     else{
