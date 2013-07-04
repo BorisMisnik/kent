@@ -116,14 +116,16 @@ html{
 		cursor:pointer;
 	}
 }
-.nav-scategory{
+.nav-scategory,
+.nav-photo{
 	position:fixed;
 	top:111px;
 	right:0;
 	z-index:11;
 	display:none;
 }
-.nav-scategory li{
+.nav-scategory li,
+.nav-photo li{
 	position: relative;
 	left: 104px;
 	margin-bottom:1px;
@@ -162,6 +164,13 @@ html{
 		background-position: center;
 		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAbCAMAAADf5/YYAAAAM1BMVEX////y8vL////////////6+vr////w8PD////////////////29vb///8AAADv7+/////0JV4TAAAAD3RSTlMg23BQj7MQ7qBgMEDHgACj5mRwAAAAz0lEQVR42pWT2w6EIAwF8QZCoT3//7Vri27cYLJ1HpB4xgI1BPYT8gu7Qdx2mQB3bRJIYaddABR22lGAlb32DoDUpnZAbFAbyZrJZTcctKtHIxbqI7+yq8/e+k4QLnsnY9d5qncEEObNJLXHhe8sAMhGSHy0q8Id6kWTJvOjDeVmI/Jse/xrL/1VhELDKS+7ddLZPIvWoYNmjz0s9pXHtt84ee1ds1XXCLkeZDbOef2hlW8l/72ctINem/DmponKTnsWpMJOuwBrZK8dNmLjA6elQmpMG2NhAAAAAElFTkSuQmCC);
 	}
+}
+.nav-photo li{
+	background-image: none;
+	width: auto;
+	text-indent: 0;
+	text-align: center;
+	padding: 0 10px;
 }
 .slide .span12{
 	height:100%;
@@ -1731,4 +1740,24 @@ section h1{
 .small-photo-wrapper .carousel-control.right{
 	height:59px;
 	margin-top: -29.5px;
+}
+// light-box
+.next-photo,
+.prev-photo{
+	width:12px;
+	height:23px;
+	top:50%;
+	margin-top: -11.5px;
+	position:absolute;
+}
+.next-photo{
+	background: url('../img/next-slide.png');
+	right:-29px;
+}
+.prev-photo{
+	background: url('../img/prev-slide.png');
+	left: -29px;
+}
+.nav-photo.hide{
+	display: none !important;
 }

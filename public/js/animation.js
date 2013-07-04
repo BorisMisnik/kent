@@ -830,7 +830,6 @@ $(document).ready(function(){
 
 
 			// all History button
-
 			var now = $('section.now');
 
 			if( now.data('slide') === 'history' && 
@@ -845,6 +844,38 @@ $(document).ready(function(){
 				$('.allHistory').fadeOut();
 
 			}
+
+			// nav photo
+			var liPhoto
+			if( $('section.now').attr('id') === 'photo' ){
+
+				$('.nav-photo').show();
+				var width = [];
+				liPhoto = $('.nav-photo li');
+				liPhoto.each(function(){
+					width.push($(this).outerWidth(true));
+				})
+
+				var maxWidth = Math.max.apply(Math, width); 
+				liPhoto.width(maxWidth);
+				liPhoto.css('left', maxWidth);
+
+				// show li
+				var left = maxWidth;
+				TweenMax.staggerTo(liPhoto.not('.putty'),0.3,{left:left},0.25);
+				TweenMax.staggerTo($('.nav-photo li.putty'),0.3,{left:0},0.25);
+			}
+			else{
+				var liPhoto = $('.nav-photo li');
+				var left = liPhoto.width();
+				TweenMax.staggerTo(liPhoto,0.3,{
+					left: left + 20,
+					onComplete : function(){
+						$('.nav-photo').fadeOut();
+					}
+				},0.25);
+			}
+
 
 		}
 
@@ -937,6 +968,33 @@ $(document).ready(function(){
 				clickboxe( $(this).attr('name') );
 			}
 		});
+	// navigatePhoto hover
+	$('.nav-photo')
+		.on({
+			mouseenter : function(){
+
+				var li = 
+					$(this)
+						.children('li');
+
+				$(this).addClass('mouseenter');
+
+				TweenMax.staggerTo(li,0.3,{'left' : 0},0.25);
+
+			},
+			mouseleave : function(){
+				$(this).removeClass('mouseenter');
+				var li = 
+					$(this)
+						.children('li')
+						.not('.putty');
+				var left = $(this).width() - 20;
+
+				TweenMax.staggerTo(li, 0.3, {'left' : left}, 0.25);
+
+			}
+		})
+
 
 	// navigate site click
 	$('.nav-site')
