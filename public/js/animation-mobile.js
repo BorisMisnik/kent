@@ -168,6 +168,36 @@ $(document).ready(function(){
 					}
 
 				});
+			// nav photo
+			var liPhoto
+			if( $('section.now').attr('id') === 'photo' ){
+
+				$('.nav-photo').show();
+				var width = [];
+				liPhoto = $('.nav-photo li');
+				liPhoto.each(function(){
+					width.push($(this).outerWidth(true));
+				})
+
+				var maxWidth = Math.max.apply(Math, width); 
+				liPhoto.width(maxWidth);
+				liPhoto.css('left', maxWidth);
+
+				// show li
+				var left = maxWidth;
+				TweenMax.staggerTo(liPhoto,0.3,{left:left},0.25);
+			}
+			else{
+				var liPhoto = $('.nav-photo li');
+				var left = liPhoto.width();
+				TweenMax.staggerTo(liPhoto,0.3,{
+					left: left + 20,
+					onComplete : function(){
+						$('.nav-photo').fadeOut();
+					}
+				},0.25);
+			}
+
 		}
 
 	});
@@ -208,13 +238,12 @@ $(document).ready(function(){
 
 	$('.nav-site')
 		.on({
-			mousemove : function(e){
-	
+			mouseenter : function(e){
 				if( $(this).find('li').width() != 67) return;
 
 				var x = e.pageX;
 				var li = $(this).find('li');
-
+				console.log( 123 );
 				if(x > 65) return;
 
 				TweenMax.staggerTo(li, 0.3, {width:'237px'}, 0.25);	
@@ -268,6 +297,31 @@ $(document).ready(function(){
 			}
 		});
 
+	// navigatePhoto hover
+	$('.nav-photo')
+		.on({
+			mouseenter : function(){
+
+				var li = 
+					$(this)
+						.children('li');
+
+				$(this).addClass('mouseenter');
+
+				TweenMax.staggerTo(li,0.3,{'left' : 0},0.25);
+
+			},
+			mouseleave : function(){
+				$(this).removeClass('mouseenter');
+				var li = 
+					$(this)
+						.children('li')
+				var left = $(this).width() - 20;
+
+				TweenMax.staggerTo(li, 0.3, {'left' : left}, 0.25);
+
+			}
+		})
 
 
 	$('.scrollButton')

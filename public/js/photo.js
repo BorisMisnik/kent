@@ -196,12 +196,6 @@ $(function(){
 		if( active.index() - 1 === 0 )
 			$('.prev-photo').hide();
 
-		// lightBox.css({
-		// 	'width' : lightBoxContent.width(),
-		// 	'height' : lightBoxContent.height(),
-		// 	'margin-left' : -lightBoxContent.width() / 2
-		// });
-
 	});
 
 	// donwload click
@@ -210,7 +204,7 @@ $(function(){
 	});
 
 	//  click category patty, refresh carousel
-	$('.nav-photo').on('click', 'li', function(){
+	$('.nav-photo').on('click vclick', 'li', function(){
 		$this = $(this);
 
 		// var url = '/putty/' + $this.data('name');

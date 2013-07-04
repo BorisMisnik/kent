@@ -13,11 +13,19 @@ define(
                 textarea = $('textarea'),
                 background = $('.background'),
                 device = (function(){
-                    if( navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile/) ) return false;
+                    if( navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile/) ){
+                        return false;
+                    }
+                    else{
+                        return true;
+                    }
                 })();
                 var isFileInputSupported = (function () {
-                   if(navigator.userAgent.match(/(Android (1.0|1.1|1.5|1.6|2.0|2.1|2.3))|(Windows Phone (OS 7|8.0))|(XBLWP)|(ZuneWP)|(w(eb)?OSBrowser)|(webOS)|(Kindle\/(1.0|2.0|2.5|3.0))/)) {
+                    if(navigator.userAgent.match(/(Android (1.0|1.1|1.5|1.6|2.0|2.1|2.3))|(Windows Phone (OS 7|8.0))|(XBLWP)|(ZuneWP)|(w(eb)?OSBrowser)|(webOS)|(Kindle\/(1.0|2.0|2.5|3.0))/)) {
                         return false;
+                    }
+                    else{
+                        return true;
                     }
                 })();
 
@@ -37,7 +45,6 @@ define(
                     'min-height': wrapperForm.height() + 230
                 })
             }
-
             if(!device){
 
                 $('.webcamButton').hide();

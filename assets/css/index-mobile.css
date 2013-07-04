@@ -1067,7 +1067,12 @@ section h1 {
 .small-photo-wrapper .carousel .item {
   line-height: 59px;
   height: 59px;
+}
+.small-photo-wrapper .carousel .item div {
   width: 60px;
+  height: 59px;
+  line-height: 59px;
+  text-align: center;
   display: inline-block;
 }
 .small-photo-wrapper .carousel .item img {
@@ -1078,6 +1083,39 @@ section h1 {
 .small-photo-wrapper .carousel-control.right {
   height: 59px;
   margin-top: -29.5px;
+}
+.nav-photo {
+  position: fixed;
+  top: 174px;
+  right: 0;
+  z-index: 11;
+  display: none;
+}
+.nav-photo li {
+  position: relative;
+  left: 104px;
+  margin-bottom: 1px;
+  width: 104px;
+  height: 44px;
+  background-color: #7d888f;
+  background-image: url("../img/icons.png");
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  color: #fff;
+  text-align: center;
+  text-indent: -9999px;
+  line-height: 44px;
+  -webkit-transition: background-color 500ms ease-in-out;
+  -moz-transition: background-color 500ms ease-in-out;
+  transition: background-color 500ms ease-in-out;
+  cursor: pointer;
+}
+.nav-photo li {
+  background-image: none;
+  width: auto;
+  text-indent: 0;
+  text-align: center;
+  padding: 0 10px;
 }
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
@@ -1223,8 +1261,9 @@ section h1 {
   .container-fluid article {
     margin-top: 0;
   }
-  .nav-site {
-    display: none;
+  .nav-site,
+  .nav-photo {
+    display: none !important;
   }
   .row-fluid.footer {
     z-index: 4;
