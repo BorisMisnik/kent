@@ -87,12 +87,14 @@ var action = function () {
 			case 'profile' : 
 				$('.title-block').html('<span>00.4 /</span> Профайл');
 				break;
+			case 'photo' :
+				$('.title-block').html('<span>00.5 /</span> ФОТОЗВІТ/TURBO PARTY Зелений театр 05.07.2013');
+				break;
 			default :
 				$('.title-block').html('');
 		}
 
 	};
-
 	return that;
 };
 
@@ -173,19 +175,21 @@ $(document).ready(function(){
 			if( $('section.now').attr('id') === 'photo' ){
 
 				$('.nav-photo').show();
-				var width = [];
+	
 				liPhoto = $('.nav-photo li');
-				liPhoto.each(function(){
-					width.push($(this).outerWidth(true));
-				})
-
-				var maxWidth = Math.max.apply(Math, width); 
-				liPhoto.width(maxWidth);
-				liPhoto.css('left', maxWidth);
+				liPhoto.css({
+					left : 0,
+					width: 100
+				});
 
 				// show li
-				var left = maxWidth;
-				TweenMax.staggerTo(liPhoto,0.3,{left:left},0.25);
+				// var left = maxWidth;
+				// TweenMax.staggerTo(liPhoto,0.3,{
+				// 	left:100,
+				// 	onComplete: function(){
+				// 		liPhoto.width(100)
+				// 	}
+				// },0.25);
 			}
 			else{
 				var liPhoto = $('.nav-photo li');
@@ -197,6 +201,7 @@ $(document).ready(function(){
 					}
 				},0.25);
 			}
+
 
 		}
 
@@ -301,13 +306,12 @@ $(document).ready(function(){
 	$('.nav-photo')
 		.on({
 			mouseenter : function(){
-
 				var li = 
 					$(this)
 						.children('li');
 
 				$(this).addClass('mouseenter');
-
+				li.css('width', 'auto');
 				TweenMax.staggerTo(li,0.3,{'left' : 0},0.25);
 
 			},
@@ -316,9 +320,18 @@ $(document).ready(function(){
 				var li = 
 					$(this)
 						.children('li')
-				var left = $(this).width() - 20;
 
-				TweenMax.staggerTo(li, 0.3, {'left' : left}, 0.25);
+				var left = $(this).width() - 20;
+				li.css({
+					left : 0,
+					width : 100
+ 				})
+				// TweenMax.staggerTo(li, 0.3, {
+				// 	'left' : 40,
+				// 	onComplete : function(){
+				// 		li.width(40);
+				// 	}
+				// }, 0.25);
 
 			}
 		})
