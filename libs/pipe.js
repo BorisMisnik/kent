@@ -11,7 +11,7 @@ var config = require( '../config.json' ),
     request = require( 'request' );
 
 module.exports =
-    function(  req, res, uri, params ) {
+    function( req, res, url ) {
         var args = [].slice.call( arguments ),
             method = ( req.method || '' ).toLowerCase(),
             action = request[ method ];
@@ -19,10 +19,17 @@ module.exports =
         if ( !action )
             throw new Error( 'No `request` action:' + action );
 
-        var x = action( config.service + uri, params || {} );
+//        var x = action( config.service + uri, params || {} );
+        // pass session and form
+        var x = action(
+            config.service + ( url || req.url ),
+            {
+                headers: req.headers,
+                form: req.body
+            });
+
         req.pipe( x );
         x.pipe( res );
-
         return x;
     };
 

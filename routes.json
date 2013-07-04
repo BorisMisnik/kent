@@ -1,11 +1,27 @@
 [
     {
+        "//": "redirect from index for authorized users",
+        "method": "get",
+        "url": "/",
+        "script": "./routes/main",
+        "handler": "index"
+    },
+    {
+        "//": "redirect from index for authorized users",
+        "method": "get",
+        "url": "/index.html",
+        "script": "./routes/main",
+        "handler": "index"
+    },
+    {
+        "//": "check main page access permissions",
         "method": "get",
         "url": "/main.html",
         "script": "./routes/main",
         "handler": "main"
     },
     {
+        "//": "redirect to index by user logout",
         "method": "get",
         "url": "/logout",
         "script": "./routes/account",
