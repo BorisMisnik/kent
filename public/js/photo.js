@@ -218,7 +218,7 @@ $(function(){
                 img = active.prev().find('img');
             }
 
-            console.log( active.prev().find('img') );
+            console.log( direction );
             var large = img.data('large');
             var bid = img.attr('src');
 
