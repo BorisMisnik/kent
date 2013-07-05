@@ -267,7 +267,7 @@ $(function(){
         });
         $('#smallCarousel').on('click', '.right', function(){
             var active = $('#smallCarousel').find('.active');
-
+            console.log( active.length );
             if( active.length === 1 ){
                  creatNewElements();
             }
