@@ -98,7 +98,7 @@ body{
 		right: 0;
 		z-index:2;
 		display:inline-block;
-		width:166px;
+		width:177px;
 		height:67px;
 		border-right:1px solid @bordeColor;
 		background-color:#fff;
@@ -1215,6 +1215,12 @@ section h1{
 }
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
+	.carousel .item{
+		line-height: 1;
+	}
+	#myCarousel{
+		height: auto;
+	}
 	.title-block{
 		line-height: 1;	
 		width: 80%;
@@ -1231,13 +1237,18 @@ section h1{
 		line-height: 1.4;
 		max-width: 503px;
 		margin: auto;
+		padding: 0 30px;
+	}
+	.block-text{
+		text-align: left;
 	}
 	.block-text p,
 	#question p,
 	#question h3{
 		padding-right: 60px;
 	}
-	.block-text .title{
+	.block-text .title,
+	.block-text h3{
 		padding-right: 60px;
 	}
 	.dateBirthday{
@@ -1285,41 +1296,25 @@ section h1{
 	}
 	.question-anaswer > div{
 		position: relative;
-		padding-top: 8px;
+		padding-top: 0;
 		width: 100%;
 		height: 50%;
 		overflow: hidden;
 		background-color: #FFF;
-		top: -23px;
+		top: 0;
 	}
 	.wrapperElements{
 		width: auto !important;
 		height: auto;
-		margin-top: 30px;
+		margin-top: 0;
+		text-align: center;
 		img{
-			max-width: 62%;
 			margin-top: 0 !important;
 		}
 		.block-text{
-			margin-bottom: 40px;
+			margin-bottom: 30px;
+			text-align: left;
 		}
-	}
-	#hd2012 img,
-	#switch2012 img,
-	#switch2010 img{
-		max-width: 30%;
-	}
-	#nanotek2012 img,
-	#nanotek2011 img,
-	#hd2010 img{
-		max-width: 27%;
-	}
-	#hds2012 img,
-	#hd2009 img,
-	#nanotek2007 img,
-	#hd2007 img
-	#hd2003 img{
-		max-width: 25%;
 	}
 	.mainHistory{
 		width: 100%;
@@ -1396,7 +1391,7 @@ section h1{
 		width: 100%;
 	}
 	.hello{
-		width: 100%;
+		padding: 0 35px;
 		text-align: center;
 	}
 	.hello{
@@ -1414,7 +1409,7 @@ section h1{
 	body .block-image{
 		text-align: center;
 		display: inline-block !important;
-		width: 100% !important;
+		width: auto !important;
 		float:none !important;
 		height: auto !important;
 		margin-top: 0;
@@ -1435,29 +1430,25 @@ section h1{
 	}
 	.hdiBlock{
 		width: auto;
-		margin-bottom: 40px;	
+		margin-bottom: 40px;
+		margin-top: 0;
+		text-align: center;	
 	}
 	.infoSwitch{
 		width: auto;
 		height: auto;
+		text-align: center;
 		.block-image{
-			margin-top: 36px;
-			img{
-				max-width: 32% !important;
-			}
-		}
-		.block-text{
-			margin-bottom: 50px;
+			margin-top: 0;
 		}
 	}
 	.infoNanotek{
 		width: auto;
 		height: auto;
-		img{
-			max-width: 80%;
-		}
+		text-align: center;
 		.block-image{
-			margin-top: 36px;
+			margin-top: 0;
+			
 		}
 		.block-text{
 			margin-bottom: 30px;
@@ -1474,28 +1465,35 @@ section h1{
 	.boxesHD{
 		width: auto;
 		height: auto;
+		text-align: center;
 		.block-image{
-			margin-top: 46px;
-		}
-		img{
-			max-width: 80%;
+			margin-top: 0;
+			
 		}
 		.block-text{
-			margin-bottom: 40px;
+			margin-bottom: 30px;
 		}
 	}
 	.hdsifno{
 		width: auto;
 		height: auto;
-		img{
-			max-height: 80%;
-		}
+		text-align: center;
 		.block-text{
 			margin-bottom: 30px;
 		}
 		.block-image{
 			margin-top: 0;
 		}
+	}
+	#photo{
+		img{
+			max-width: auto;
+			width:auto;
+			max-height: 100%;
+		}
+	}
+	.photo{
+		max-width: 400px;
 	}
 }
 /* Landscape phones and down */
@@ -1515,10 +1513,7 @@ section h1{
 	.block-text p,
 	#question p,
 	#question h3{
-		padding-right: 0;
-	}
-	.block-text .title{
-		padding-right: 0;
+		padding-right: 30px;
 	}
 	#carousel{
 		display: none;
@@ -1530,6 +1525,7 @@ section h1{
 		height: 53%;
 		padding-top: 8px;
 		overflow: hidden;
+		margin-bottom: 400px;
 	}
 	.title-block{
 		font-size: 15px;
@@ -1558,11 +1554,6 @@ section h1{
 		font-size: 9px !important;
 		width: auto !important; 
 	}
-	.hdiBlock{
-		img{
-			max-height: 200px;
-		}
-	}
 	.hdsifno{
 		img{
 			max-height: 220px;
@@ -1571,6 +1562,7 @@ section h1{
 	.scrollButton{
 		width: 34px;
 	}
-}
-.nav-photo{
+	.photo{
+		max-width: 250px !important;
+	}
 }

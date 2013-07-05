@@ -88,7 +88,7 @@ var action = function () {
 				$('.title-block').html('<span>00.4 /</span> Профайл');
 				break;
 			case 'photo' :
-				$('.title-block').html('<span>00.5 /</span> ФОТОЗВІТ/TURBO PARTY Зелений театр 05.07.2013');
+				$('.title-block').html('<span>00.5 /</span> ФОТОЗВІТ / TURBO PARTY Зелений театр 05.07.2013');
 				break;
 			default :
 				$('.title-block').html('');
@@ -248,10 +248,9 @@ $(document).ready(function(){
 
 				var x = e.pageX;
 				var li = $(this).find('li');
-				console.log( 123 );
 				if(x > 65) return;
 
-				TweenMax.staggerTo(li, 0.3, {width:'237px'}, 0.25);	
+				TweenMax.staggerTo(li, 0.3, {width:'247px'}, 0.25);	
 
 			},
 			mouseleave : function(){
@@ -398,17 +397,19 @@ $(document).ready(function(){
 	var footer = $('.footer');
 	var xv = $('.xv');
 	var w = $(window);
-	var img = $('.block-image img, .carousel img');
+	var img = $('.block-image img, .carousel img').not('#photo img');
 	function heightQuestion(){
 
-		question.height( w.height() - ( footer.height() +  xv.height() + 110 ) )
+		question.height( w.height() - ( footer.height() +  xv.height() + 50 ) )
 		if( question.height() > 314 )
 			question.height(314);
 	}
 	function sizePacks(){
 
-		var maxHeight = w.height() - ( footer.height() +  xv.height() + 50 )
+		var maxHeight = w.height() - ( footer.height() +  xv.height() + 10 )
 		img.css('max-height', maxHeight);
+		// if( w.height() <= 480 )
+		// $('#myCarousel').css('height', maxHeight);
 
 	}
 	heightQuestion();

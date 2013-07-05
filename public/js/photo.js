@@ -202,7 +202,6 @@ $(function(){
         $('#myCarousel').off('slid').on('slid', function(){  // big carousel
             var active = carouselInner.find('.active');
             var img;
-            console.log( 123 );
             if(  active.index() % count === 0 ){
 
                 var itemScroll = active.index() / count;
@@ -265,7 +264,6 @@ $(function(){
         //  small carousel
         $('#smallCarousel').off('slid').on('slid', function(){ // small carousel
             if( !carouselInnerSamll.find('.active').next().length ){
-                console.log('123' );
                 creatNewElements();
             }
 

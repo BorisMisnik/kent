@@ -1189,7 +1189,7 @@
             $( '#sku1' ).val(profile.sku1);
             $( '#brand2' ).val(profile.brand2);
             $( '#sku2' ).val(profile.sku2);
-            console.log('profile' +  profile );
+            console.log('profile', profile );
 		}
 
 		function errorsProfile( errors ) {
@@ -1225,7 +1225,7 @@
                 .fail( function() {
                     //console.log( 'profile fails', arguments );
                     // show system error
-                    $( '#formError' ).removeClass( 'hide').hide().fadeIn( 'slow' );
+                    $( '#formError' ).removeClass('hide').hide().fadeIn( 'slow' );
                 });
         }
 		function updateProfile() {

@@ -688,7 +688,7 @@ var action = function () {
 				$('.title-block').html('<span>00.4 /</span> Профайл');
 				break;
 			case 'photo' :
-				$('.title-block').html('<span>00.5 /</span> ФОТОЗВІТ/TURBO PARTY Зелений театр 05.07.2013');
+				$('.title-block').html('<span>00.5 /</span> ФОТОЗВІТ / TURBO PARTY Зелений театр 05.07.2013');
 				break;
 			default :
 				$('.title-block').html('');

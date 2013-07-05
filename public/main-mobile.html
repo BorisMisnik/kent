@@ -61,11 +61,6 @@
 	<!-- photo nav -->
 	<!-- add class hide -->
 	<ul class="nav-photo unstyled">
-		<li name="putty1" class="putty">TURBO PARTY ЗЕЛЕНИЙ ТЕАТР 05.07.2013</li>
-		<li name="putty3">putty3 putty3 putty3</li>
-		<li name="putty4">PUTTY4putty3</li>
-		<li name="putty5">PUTTY5 PUTTY5 PUTTY5PUTTY5</li>
-		<li name="putty6">PUTTY6PUTTY6PUTTY6 PUTTY6</li>
 	</ul>
 	
 	<div class="scrollButton">
@@ -897,8 +892,6 @@
 						<div class="photo-wrapper">
 							<div class="photo">
 								<!-- input -->
-								<input type="hidden" value='[{"large-photo":"img/photo/1.jpg","big-photo":"img/photo/1.jpg"},{"large-photo":"img/photo/2.jpg","big-photo":"img/photo/2.jpg"},{"large-photo":"img/photo/3.jpg","big-photo":"img/photo/3.jpg"},{"large-photo":"img/photo/4.jpg","big-photo":"img/photo/4.jpg"},{"large-photo":"img/photo/5.jpg","big-photo":"img/photo/5.jpg"},{"large-photo":"img/photo/6.jpg","big-photo":"img/photo/6.jpg"},{"large-photo":"img/photo/7.jpg","big-photo":"img/photo/7.jpg"},{"large-photo":"img/photo/8.jpg","big-photo":"img/photo/8.jpg"},{"large-photo":"img/photo/9.jpg","big-photo":"img/photo/9.jpg"},{"large-photo":"img/photo/1.jpg","big-photo":"img/photo/1.jpg"},{"large-photo":"img/photo/2.jpg","big-photo":"img/photo/2.jpg"},{"large-photo":"img/photo/3.jpg","big-photo":"img/photo/3.jpg"},{"large-photo":"img/photo/4.jpg","big-photo":"img/photo/4.jpg"},{"large-photo":"img/photo/5.jpg","big-photo":"img/photo/5.jpg"},{"large-photo":"img/photo/6.jpg","big-photo":"img/photo/6.jpg"},{"large-photo":"img/photo/7.jpg","big-photo":"img/photo/7.jpg"},{"large-photo":"img/photo/8.jpg","big-photo":"img/photo/8.jpg"},{"large-photo":"img/photo/9.jpg","big-photo":"img/photo/9.jpg"}]' id="allImg">
-
 								<div id="myCarousel" class="carousel slide">
 								  <!-- Carousel items -->
 								  <div class="carousel-inner">
@@ -930,46 +923,97 @@
 	</div>
 	<script>
 
-        $( document ).ready( function() {
+		$( document ).ready( function() {
 
-            $('.text h3').on('tap', function(){
-                var $this = $(this);
-                if(!$this.is('.open')){
+			var phone = $( '#mobilePhone' );
+            if ( phone.length )
+                phone.mask( '0 (99) 999-99-99' );
 
-                    $this.addClass('open');
-                    $this.next().slideDown();
-                    $this.next().next('ul').slideDown();
+            // field: day number
+            var date = $( '#date' );
+            if ( date.length ) {
+                $.mask.definitions[ '3' ] = '[0-3]';
+                date.mask( '39' );
+            }
 
-                }
-                else{
-                    $this.removeClass('open');
-                    $this.next().slideUp();
-                    $this.next().next('ul').slideUp();
-                }
-            });
+            var year = $( '#year' );
+            if ( year.length ) {
+                $.mask.definitions[ '2' ] = '[0-2]';
+                year.mask( '2999' );
+            }
+
+			$(".text-wrapper .text").mCustomScrollbar({
+				advanced:{
+					updateOnContentResize: true
+				},
+				mouseWheel : true
+			});
+
+			$('.text h3').click(function(){
+				var $this = $(this);
+				if(!$this.is('.open')){
+
+					$this.addClass('open');
+					$this.next().slideDown();
+					$this.next().next('ul').slideDown();
+
+				}
+				else{
+					$this.removeClass('open');
+					$this.next().slideUp();
+					$this.next().next('ul').slideUp();
+				}
+			});
 
 
-            // init profile editor
-            initProfile();
-        });
+			// init profile editor
+			initProfile();
+		});
 
 
-        // Profile Editor
+		// Profile Editor
 
-        /**
-         * Initialize Main page
-         */
-        function initProfile() {
-            getProfile();
-            // handle submit
-            $( '#submitProfile' )
-                .on('tap', function( e ) {
- 					e.preventDefault();
-                    	updateProfile();
-                });
-        }
+		/**
+		 * Initialize Main page
+		 */
+		function initProfile() {
+			getProfile();
+			// handle submit
+			$( '#submitProfile' )
+				.click( function( e ) {
+					e.preventDefault();
+	
+					if( $(this).is('.disable') ){
 
-       function populateProfile( profile )
+						$('#profile form')
+							.addClass('save')
+							.removeClass('disable');
+
+						$('select').prop('disabled',false);
+						$('select').selectpicker('refresh');
+
+						$('.dropdown-menu').mCustomScrollbar({
+							advanced:{
+								updateOnContentResize: true
+							},
+							mouseWheel : true
+						});
+
+						$(this)
+							.val('Зберегти')
+							.removeClass('disable');
+
+						return false;
+					}
+					else{
+
+						updateProfile();
+					}
+				   
+				});
+		}
+
+		function populateProfile( profile )
 		{
 			// hide old errors
 			$( '.error' ).addClass( 'hide' );
@@ -988,24 +1032,25 @@
             $( '#sku1' ).val(profile.sku1);
             $( '#brand2' ).val(profile.brand2);
             $( '#sku2' ).val(profile.sku2);
-            console.log( profile );
+            console.log('profile' +  profile );
 		}
 
-        function errorsProfile( errors ) {
-            var name,
-                error;
-            for ( name in errors ) {
-                error = errors[ name ];
-                if ( !error ) continue;
-                $( '.err_' + name ).removeClass( 'hide' );
-                // console.log( 'shown error:', name );
-            }
-        }
+		function errorsProfile( errors ) {
+			var name,
+				error;
+			console.log( 'errors', errors );
+			for ( name in errors ) {
+				error = errors[ name ];
+				if ( !error ) continue;
+				$( '.err_' + name ).removeClass( 'hide' );
+				// console.log( 'shown error:', name );
+			}
+		}
 
-        /**
-         * Profile code
-         */
-        function getProfile() {
+		/**
+		 * Profile code
+		 */
+		function getProfile() {
 
             // hide system error
             $( '#formError').addClass( 'hide' );
@@ -1026,8 +1071,8 @@
                     $( '#formError' ).removeClass( 'hide').hide().fadeIn( 'slow' );
                 });
         }
-        function updateProfile() {
-            var form = {
+		function updateProfile() {
+			var form = {
                 name: $( '#name' ).val(),
                 day: $( '#date' ).val(),
                 month: $( '#month' ).val(),
@@ -1040,7 +1085,7 @@
                 brand2: $( '#brand2' ).val(),
                 sku2: $( '#sku2' ).val()
             };
-            //console.log( 'form:', form );
+            console.log( 'form:', form );
 
             // hide system error
             $( '#formError').addClass( 'hide' );
@@ -1069,5 +1114,18 @@
         }
 	</script>
 	<script src="/js/libs/cigarettes_manage_mobile.js"></script>
+	<script type="text/javascript">
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-38313593-2']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+	</script>
 </body>
 </html>
