@@ -1,7 +1,7 @@
 $(function(){
 
     var direction = '';
-    var crate = false;
+
     // use global variables to access from other site modules
     window.gallery = {};
     window.currentAlbum = null;
@@ -167,9 +167,7 @@ $(function(){
 
 
         function creatNewElements(){
-            if ( !crate ) return;
             console.log( 'creatNewElements' );
-            crate = false;
             var divSmall =  $('<div>',{
                     'class' : 'item'
                 });
@@ -198,15 +196,13 @@ $(function(){
         $('#myCarousel').on('slid', function(){  // big carousel
             var active = carouselInner.find('.active');
             var img;
-
+            console.log( 123 );
             if(  active.index() % count === 0 ){
 
                 var itemScroll = active.index() / count;
                 itemScroll === 0 ? 1 : itemScroll;
 
                 $('#smallCarousel').carousel(itemScroll);
-
-                crate = true;
                 creatNewElements();
             }
 
@@ -264,7 +260,6 @@ $(function(){
 
         $('#smallCarousel').on('slid', function(){ // small carousel
             if( !carouselInnerSamll.find('.active').next().length ){
-                crate = true;
                 creatNewElements();
             }
 
@@ -274,8 +269,12 @@ $(function(){
             var active = $('#smallCarousel').find('.active');
             console.log( active.length );
             if( active.length === 1 ){
-                crate = true;
-                creatNewElements();
+                 creatNewElements();
+            }
+
+            if( active.length === 0){
+                console.log( 'stop sliding' );
+                return false;
             }
         });
         //
