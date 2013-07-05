@@ -167,7 +167,7 @@ $(function(){
 
 
         function creatNewElements(){
-
+            console.log( 123 );
             var divSmall =  $('<div>',{
                     'class' : 'item'
                 });
@@ -212,7 +212,7 @@ $(function(){
             if( direction === 'standart' || direction === '') {
                 img = active.find('img');
             }
-            
+
             if ( !img ) return;
             var large = img.data('large');
             var bid = img.attr('src');
