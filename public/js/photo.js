@@ -274,12 +274,8 @@ $(function(){
             var active = $('#smallCarousel').find('.active');
             console.log( active.length );
             if( active.length === 1 ){
-                 creatNewElements();
-            }
-
-            if( active.length === 0){
-                console.log( 'stop sliding' );
-                return false;
+                crate = true;
+                creatNewElements();
             }
         });
         //
