@@ -1832,7 +1832,8 @@
     }
 
   , next: function () {
-    console.log( 'sliding next' );
+      console.log( this.sliding );
+      this.sliding = false;
       if (this.sliding) return
       return this.slide('next')
     }
@@ -1844,6 +1845,7 @@
     }
 
   , slide: function (type, next) {
+    console.log( 'sliding next' );
       var $active = this.$element.find('.item.active')
         , $next = next || $active[type]()
         , isCycling = this.interval

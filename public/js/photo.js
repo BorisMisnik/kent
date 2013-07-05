@@ -167,7 +167,7 @@ $(function(){
 
 
         function creatNewElements(){
-            console.log( 'creatNewElements' );
+                console.log( 'creatNewElements function' );
             var divSmall =  $('<div>',{
                     'class' : 'item'
                 });
@@ -175,6 +175,7 @@ $(function(){
 
             for(var i = 0; i < count; i++){
                 if( json[start] === undefined ) break;
+
                 creatItem(json[start], start);
                 start++;
             }
@@ -259,20 +260,20 @@ $(function(){
         //  small carousel
         $('#smallCarousel').off('slid').on('slid', function(){ // small carousel
             if( !carouselInnerSamll.find('.active').next().length ){
+                console.log('123' );
                 creatNewElements();
             }
 
         });
 
-        $('#smallCarousel .right').on('click', function(e){
+        $('#smallCarousel .right').off('click').on('click', function(e){
             var item = $('#smallCarousel').find('.item');
-            console.log( 'item' );
-            if( item.length === 1 ){
+            if( !item.next().length){
                 console.log( 'crate new elements' );
                  creatNewElements();
             }
 
-            if( active.length === 0){
+            if( item.length === 0){
                 console.log( 'stop sliding' );
                 return false;
             }

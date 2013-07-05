@@ -1139,6 +1139,7 @@
 			$( '#submitProfile' )
 				.click( function( e ) {
 					e.preventDefault();
+	
 					if( $(this).is('.disable') ){
 
 						$('#profile form')
@@ -1188,16 +1189,17 @@
             $( '#sku1' ).val(profile.sku1);
             $( '#brand2' ).val(profile.brand2);
             $( '#sku2' ).val(profile.sku2);
-            console.log( profile );
+            console.log('profile' +  profile );
 		}
 
 		function errorsProfile( errors ) {
 			var name,
 				error;
+			console.log( 'errors', errors );
 			for ( name in errors ) {
 				error = errors[ name ];
 				if ( !error ) continue;
-				$( '.err_' + name ).removeClass( 'hide' );
+				$( '.err_' + name ).removeClaass( 'hide' );
 				// console.log( 'shown error:', name );
 			}
 		}
