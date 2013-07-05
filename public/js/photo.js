@@ -279,7 +279,7 @@ $(function(){
         $('.carousel-control.left').off('click').on('click', function(){
             var active = $(this).parent().find('.active');
             if( active.index() === 0 ){
-                return false;
+                return false; 
             }
 
         });
