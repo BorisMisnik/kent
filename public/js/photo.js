@@ -197,16 +197,14 @@ $(function(){
             var active = carouselInner.find('.active');
             var img;
 
-            if( !active.next().length ){
-                creatNewElements();
-            }
-
             if(  active.index() % count === 0 ){
 
                 var itemScroll = active.index() / count;
                 itemScroll === 0 ? 1 : itemScroll;
 
                 $('#smallCarousel').carousel(itemScroll);
+
+                creatNewElements();
             }
 
             if( direction === 'standart' || direction === '') {
@@ -232,6 +230,7 @@ $(function(){
             else if( direction === 'prev' ){
                 img = active.prev().find('img');
             }
+
             if( !img ) return;
             var large = img.data('large');
             var bid = img.attr('src');
@@ -267,7 +266,12 @@ $(function(){
 
         });
         $('#smallCarousel').on('click', '.right', function(){
-            var active = $(this).parent().find('.active');
+            var active = $('#smallCarousel').find('.active');
+
+            if( active.length === 1 ){
+                 creatNewElements();
+            }
+
             if( active.length === 0){
                 console.log( 'stop sliding' );
                 return false;
