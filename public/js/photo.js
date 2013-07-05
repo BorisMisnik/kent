@@ -265,6 +265,7 @@ $(function(){
         });
         $('#smallCarousel').on('click', '.right', function(e){
             var item = $('#smallCarousel').find('.item');
+            console.log( 'item' );
             if( item.length === 1 ){
                 console.log( 'crate new elements' );
                  creatNewElements();
