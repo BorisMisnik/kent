@@ -157,12 +157,6 @@ $(function(){
 
         carouselInner.find('.item').eq(0).addClass('active');
 
-        // init carousel
-        $('.carousel').carousel({
-            interval: false,
-            cycle: false
-        });
-
         var large = carouselInner.find('.active img').data('large');
         var bid = carouselInner.find('.active img').attr('src');
 
@@ -188,6 +182,14 @@ $(function(){
             }
 
         }
+
+        // init carousel
+        $('.carousel').each(function(){
+            $(this).carousel({
+                interval: false,
+                cycle: false
+            });
+        });
 
         // stop slide
         $('#myCarousel').on('slid', function(){  // big carousel
@@ -216,7 +218,7 @@ $(function(){
                 img = active.prev().find('img');
             }
 
-         
+
             var large = img.data('large');
             var bid = img.attr('src');
 
