@@ -48,7 +48,7 @@ exports.signupPromo =
         form.secret = config.promo_secret;
 
         request.post( config.service + '/account/signup/promo', { form: form },
-            function ( error, response, body) {
+            function ( error, response, body ) {
                 console.log( 'res', error, body );
                 var result;
                 try { result = JSON.parse( body ); }
