@@ -264,9 +264,9 @@ $(function(){
 
         });
         $('#smallCarousel').on('click', '.right', function(e){
-            e.preventDefault();
             var active = $('#smallCarousel').find('.active');
             if( active.length === 1 ){
+                console.log( 'crate new elements' );
                  creatNewElements();
             }
 
