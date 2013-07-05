@@ -20,6 +20,20 @@ exports.index = function( req, res, next ) {
 };
 
 /**
+ * Register by using promo-code
+ * @param req
+ * @param res
+ * @param next
+ */
+
+exports.promo =
+    function( req, res, next ) {
+        if ( !req.session.promo ) return res.send( 403 );
+        // show page
+        next();
+    };
+
+/**
  * `main.html` available only for logged users
  *
  * @param req

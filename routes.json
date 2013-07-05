@@ -3,22 +3,38 @@
         "//": "redirect from index for authorized users",
         "method": "get",
         "url": "/",
-        "script": "./routes/main",
+        "script": "./routes/pages",
         "handler": "index"
     },
     {
         "//": "redirect from index for authorized users",
         "method": "get",
         "url": "/index.html",
-        "script": "./routes/main",
+        "script": "./routes/pages",
         "handler": "index"
+    },
+    {
+        "//": "redirect from index for authorized users",
+        "method": "get",
+        "url": "/promo.html",
+        "script": "./routes/pages",
+        "handler": "promo"
     },
     {
         "//": "check main page access permissions",
         "method": "get",
         "url": "/main.html",
-        "script": "./routes/main",
+        "script": "./routes/pages",
         "handler": "main"
+    },
+
+
+    {
+        "//": "hook login for simple-promo registration",
+        "method": "post",
+        "url": "/login",
+        "script": "./routes/account",
+        "handler": "login"
     },
     {
         "//": "redirect to index by user logout",
