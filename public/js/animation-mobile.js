@@ -87,12 +87,14 @@ var action = function () {
 			case 'profile' : 
 				$('.title-block').html('<span>00.4 /</span> Профайл');
 				break;
+			case 'photo' :
+				$('.title-block').html('<span>00.5 /</span> ФОТОЗВІТ/TURBO PARTY Зелений театр 05.07.2013');
+				break;
 			default :
 				$('.title-block').html('');
 		}
 
 	};
-
 	return that;
 };
 
@@ -168,6 +170,39 @@ $(document).ready(function(){
 					}
 
 				});
+			// nav photo
+			var liPhoto
+			if( $('section.now').attr('id') === 'photo' ){
+
+				$('.nav-photo').show();
+	
+				liPhoto = $('.nav-photo li');
+				liPhoto.css({
+					left : 0,
+					width: 100
+				});
+
+				// show li
+				// var left = maxWidth;
+				// TweenMax.staggerTo(liPhoto,0.3,{
+				// 	left:100,
+				// 	onComplete: function(){
+				// 		liPhoto.width(100)
+				// 	}
+				// },0.25);
+			}
+			else{
+				var liPhoto = $('.nav-photo li');
+				var left = liPhoto.width();
+				TweenMax.staggerTo(liPhoto,0.3,{
+					left: left + 20,
+					onComplete : function(){
+						$('.nav-photo').fadeOut();
+					}
+				},0.25);
+			}
+
+
 		}
 
 	});
@@ -208,13 +243,12 @@ $(document).ready(function(){
 
 	$('.nav-site')
 		.on({
-			mousemove : function(e){
-	
+			mouseenter : function(e){
 				if( $(this).find('li').width() != 67) return;
 
 				var x = e.pageX;
 				var li = $(this).find('li');
-
+				console.log( 123 );
 				if(x > 65) return;
 
 				TweenMax.staggerTo(li, 0.3, {width:'237px'}, 0.25);	
@@ -268,6 +302,39 @@ $(document).ready(function(){
 			}
 		});
 
+	// navigatePhoto hover
+	$('.nav-photo')
+		.on({
+			mouseenter : function(){
+				var li = 
+					$(this)
+						.children('li');
+
+				$(this).addClass('mouseenter');
+				li.css('width', 'auto');
+				TweenMax.staggerTo(li,0.3,{'left' : 0},0.25);
+
+			},
+			mouseleave : function(){
+				$(this).removeClass('mouseenter');
+				var li = 
+					$(this)
+						.children('li')
+
+				var left = $(this).width() - 20;
+				li.css({
+					left : 0,
+					width : 100
+ 				})
+				// TweenMax.staggerTo(li, 0.3, {
+				// 	'left' : 40,
+				// 	onComplete : function(){
+				// 		li.width(40);
+				// 	}
+				// }, 0.25);
+
+			}
+		})
 
 
 	$('.scrollButton')

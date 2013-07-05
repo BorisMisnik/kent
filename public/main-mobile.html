@@ -55,9 +55,19 @@
 		<li><a href="#" data-slide="history">00.2</a><span>Історія КЕНТ </span></li>
 		<li><a href="#" data-slide="question">00.3</a><span>Запитання-відповіді</span></li>
 		<li><a href="#" data-slide="profile">00.4</a><span>Профайл</span></li>
-		<li><a href="#" data-slide="photo">00.5</a><span>Фото розділ</span></li>
+		<li><a href="#" data-slide="photo">00.5</a><span>Фотозвіти</span></li>
 	</ul>
 
+	<!-- photo nav -->
+	<!-- add class hide -->
+	<ul class="nav-photo unstyled">
+		<li name="putty1" class="putty">TURBO PARTY ЗЕЛЕНИЙ ТЕАТР 05.07.2013</li>
+		<li name="putty3">putty3 putty3 putty3</li>
+		<li name="putty4">PUTTY4putty3</li>
+		<li name="putty5">PUTTY5 PUTTY5 PUTTY5PUTTY5</li>
+		<li name="putty6">PUTTY6PUTTY6PUTTY6 PUTTY6</li>
+	</ul>
+	
 	<div class="scrollButton">
 		<a href="#" class="prev"></a>
 		<a href="#" class="next"></a>
@@ -826,45 +836,46 @@
 		    						<label class="control-label hidden-phone" for="password">Пароль</label>
 	                                <span class="error err_password">Пароль не відповідає вимогам</span>
 									<p class="control-label visible-phone">Марка сигарет, які ти куриш постійно</p>
+
 		    						<div class="controls">
-		    							<div class="smoke">
-		    								<select name="brand1" class="sku skuA1 skuA" linked=".skuB1">
+										<div class="smoke">
+											<select name="brand1" class="sku skuA1 skuA" linked=".skuB1" data-width="193px" disabled id="brand1">
 												<option value="Місяць" disabled>Місяць</option>
-						                        <option value="0">Січень</option>
-						                        <option value="1">Лютий</option>
-						                        <option value="2">Березень</option>
-		    								</select>
-		    								<select name="sku1" class="sku skuB1 skuB">
+												<option value="0">Січень</option>
+												<option value="1">Лютий</option>
+												<option value="2">Березень</option>
+											</select>
+											<select name="sku1" class="sku skuB1 skuB" data-width="193px" disabled id="sku1">
 												<option value="Місяць" disabled>Місяць</option>
-						                        <option value="0">Січень</option>
-						                        <option value="1">Лютий</option>
-						                        <option value="2">Березень Березень Березень Березень Березень Березень</option>
-		    								</select>
-		    							</div>
-		    						</div>
-		    						<label class="control-label hidden-phone" for="sigaretsOne">Марка сигарет, які ти куриш постійно</label>
-	                                <span class="error err_password">Треба вказати</span>
-									<p class="control-label visible-phone">Марка сигарет, які ти куриш час від часу</p>
-		    						<div class="controls">
-		    							<div class="smoke">
-		    								<select name="brand2" class="sku skuA2 skuA">
+												<option value="0">Січень</option>
+												<option value="1">Лютий</option>
+												<option value="2">Березень Березень Березень Березень Березень Березень</option>
+											</select>
+										</div>
+									</div>
+									<label class="control-label" for="sigaretsOne">Марка сигарет, які ти куриш постійно</label>
+									<span class="error err_password">Треба вказати</span>
+
+									<div class="controls">
+										<div class="smoke">
+											<select name="brand2" class="sku skuA2 skuA" linked=".skuB2" data-width="193px" disabled id="brand2">
 												<option value="Місяць" disabled>Місяць</option>
-						                        <option value="0">Січень</option>
-		    								</select>
-		    								<select name="sku2" class="sku skuB2 skuB">
+												<option value="0">Січень</option>
+											</select>
+											<select name="sku2" class="sku skuB2 skuB" data-width="193px" disabled id="sku2">
 												<option value="Місяць" disabled>Місяць</option>
-						                        <option value="0">Січень</option>
-						                        <option value="1">Лютий</option>
-						                        <option value="2">Березень</option>
-						                        <option value="0">Січень</option>
-						                        <option value="1">Лютий</option>
-						                        <option value="2">Березень</option>
-						                        <option value="0">Січень</option>
-						                        <option value="1">Лютий</option>
-						                        <option value="2">BOND STREET ORIGINAL SELECTION</option>
-		    								</select>
-		    							</div>
-		    						</div>
+												<option value="0">Січень</option>
+												<option value="1">Лютий</option>
+												<option value="2">Березень</option>
+												<option value="0">Січень</option>
+												<option value="1">Лютий</option>
+												<option value="2">Березень</option>
+												<option value="0">Січень</option>
+												<option value="1">Лютий</option>
+												<option value="2">BOND STREET ORIGINAL SELECTION</option>
+											</select>
+										</div>
+									</div>
 		    						<label class="control-label hidden-phone" for="sigaretsOne">Марка сигарет, які ти куриш час від часу</label>
 	                                <span class="error err_password">Треба вказати</span>
 	                                <span class="error err_password">Пoвинно відрізнятись</span>
@@ -958,23 +969,27 @@
                 });
         }
 
-        function populateProfile( profile )
-        {
-            // hide old errors
-            $( '.error' ).addClass( 'hide' );
-            // populate data
-            $( '#name' ).val( profile.name );
-            $( '#date' ).val( profile.day );
-            $( '#month' ).val( profile.month );
-            $( '#year' ).val( profile.year );
-            $( '#mobilePhone' ).val( profile.phone );
-            $( '#email' ).val( profile.email );
-            $( '#password' ).val( profile.password );
-            $( '#agree_age' ).prop( 'checked',  profile.agree_age );
-            $( '#agree_rules' ).prop( 'checked', profile.agree_rules );
-            $( '#agree_info' ).prop( 'checked', profile.agree_info );
-
-        }
+       function populateProfile( profile )
+		{
+			// hide old errors
+			$( '.error' ).addClass( 'hide' );
+			// populate data
+			$( '#name' ).val( profile.name );
+			$( '#date' ).val( profile.day );
+			$( '#month' ).val( profile.month );
+			$( '#year' ).val( profile.year );
+			$( '#mobilePhone' ).val( profile.phone );
+			$( '#email' ).val( profile.email );
+			$( '#password' ).val( profile.password );
+			$( '#agree_age' ).prop( 'checked',  profile.agree_age );
+			$( '#agree_rules' ).prop( 'checked', profile.agree_rules );
+			$( '#agree_info' ).prop( 'checked', profile.agree_info );
+			$( '#brand1' ).val(profile.brand1);
+            $( '#sku1' ).val(profile.sku1);
+            $( '#brand2' ).val(profile.brand2);
+            $( '#sku2' ).val(profile.sku2);
+            console.log( profile );
+		}
 
         function errorsProfile( errors ) {
             var name,

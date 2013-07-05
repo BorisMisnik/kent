@@ -87,14 +87,16 @@ html {
   line-height: 44px;
   cursor: pointer;
 }
-.nav-scategory {
+.nav-scategory,
+.nav-photo {
   position: fixed;
   top: 111px;
   right: 0;
   z-index: 11;
   display: none;
 }
-.nav-scategory li {
+.nav-scategory li,
+.nav-photo li {
   position: relative;
   left: 104px;
   margin-bottom: 1px;
@@ -113,29 +115,43 @@ html {
   transition: background-color 500ms ease-in-out;
   cursor: pointer;
 }
-.nav-scategory li.active {
+.nav-scategory li.active,
+.nav-photo li.active {
   background-color: #656e75;
 }
-.nav-scategory li:hover {
+.nav-scategory li:hover,
+.nav-photo li:hover {
   background-color: #656e75;
 }
-.nav-scategory li[name="hdi"] {
+.nav-scategory li[name="hdi"],
+.nav-photo li[name="hdi"] {
   background-position: -423px -60px;
 }
-.nav-scategory li[name="hd"] {
+.nav-scategory li[name="hd"],
+.nav-photo li[name="hd"] {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAPCAMAAABQgiZcAAAALVBMVEX////////////////////////y8vL////////29vb///////8AAADv7+////8N09LJAAAADXRSTlOPUGCgIDDbcBDHgEAAkEnQlwAAAGpJREFUeNqV0MsOwCAIRFHqE4T6/59biSw0sUbvds5qwBVNeqEscrEtQFUzx3UZxTNXXzxzNZvjXv5zZG6KZYh3jjTocONsu3JhcqXnR5e49SRzi1/MWVcun7mEJ+71KBBZM4esofAY6vIBloIcs5LOcmgAAAAASUVORK5CYII=);
   background-position: center;
 }
-.nav-scategory li[name="switch"] {
+.nav-scategory li[name="switch"],
+.nav-photo li[name="switch"] {
   background-position: -174px -60px;
 }
-.nav-scategory li[name="nanotek"] {
+.nav-scategory li[name="nanotek"],
+.nav-photo li[name="nanotek"] {
   background-position: center;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAICAMAAABZEogFAAAAM1BMVEX////////6+vrw8PDy8vL////////////////////////////29vb///8AAADv7+////9TCSoBAAAAD3RSTlNQcLPu248woCBgEIDHQABpSSJRAAABIklEQVR42jWSWxLFIAhDvdX6BMn+V3sTneYDguIpzDS5772nT8Zju3fGWmXHj8mv5k19nnvWjGpZP9Vi/NaPhwl4eQ+XVVwIdpjt/YKyiSu/aTnWngVtSy+kIZuCLqooGBdoESYgyhRwwdxP+KFxIpQzIYE1iyG1x/nWNF+E74FMYI6oArKzMS0UPAKW0FaGrhs65LWYHSXI+1TfzHYdv2diT7CKSCQ9GAONQH+wCIyyb8sHlPQSWTtcXAGiqVDPB+SkAe846gTOgjB+wLlJjq/5bKbC5pKXClpn+lb2iC3gboA3JHeOuMjpwdPKYNruA4ZR7yka2hkQV9vgQybSTqbdm1Vji8ywSoROa8vxJL2zwWhH7ynmY+cXW1d7rK5Cf9AfYb8e0kFVTkYAAAAASUVORK5CYII=);
 }
-.nav-scategory li[name="hds"] {
+.nav-scategory li[name="hds"],
+.nav-photo li[name="hds"] {
   background-position: center;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAbCAMAAADf5/YYAAAAM1BMVEX////y8vL////////////6+vr////w8PD////////////////29vb///8AAADv7+/////0JV4TAAAAD3RSTlMg23BQj7MQ7qBgMEDHgACj5mRwAAAAz0lEQVR42pWT2w6EIAwF8QZCoT3//7Vri27cYLJ1HpB4xgI1BPYT8gu7Qdx2mQB3bRJIYaddABR22lGAlb32DoDUpnZAbFAbyZrJZTcctKtHIxbqI7+yq8/e+k4QLnsnY9d5qncEEObNJLXHhe8sAMhGSHy0q8Id6kWTJvOjDeVmI/Jse/xrL/1VhELDKS+7ddLZPIvWoYNmjz0s9pXHtt84ee1ds1XXCLkeZDbOef2hlW8l/72ctINem/DmponKTnsWpMJOuwBrZK8dNmLjA6elQmpMG2NhAAAAAElFTkSuQmCC);
+}
+.nav-photo li {
+  background-image: none;
+  width: auto;
+  text-indent: 0;
+  text-align: center;
+  padding: 0 10px;
 }
 .slide .span12 {
   height: 100%;
@@ -1609,4 +1625,23 @@ section h1 {
 .small-photo-wrapper .carousel-control.right {
   height: 59px;
   margin-top: -29.5px;
+}
+.next-photo,
+.prev-photo {
+  width: 12px;
+  height: 23px;
+  top: 50%;
+  margin-top: -11.5px;
+  position: absolute;
+}
+.next-photo {
+  background: url('../img/next-slide.png');
+  right: -29px;
+}
+.prev-photo {
+  background: url('../img/prev-slide.png');
+  left: -29px;
+}
+.nav-photo.hide {
+  display: none !important;
 }
