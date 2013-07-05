@@ -257,16 +257,15 @@ $(function(){
 
 
         //  small carousel
-        $('#smallCarousel').off('slide').on('slid', function(){ // small carousel
+        $('#smallCarousel').off('slid').on('slid', function(){ // small carousel
             if( !carouselInnerSamll.find('.active').next().length ){
                 creatNewElements();
             }
 
         });
-        $('#smallCarousel').on('click', '.right', function(e){
+        $('#smallCarousel').off('click').on('click', '.right', function(e){
             e.preventDefault();
             var active = $('#smallCarousel').find('.active');
-            console.log( active.length );
             if( active.length === 1 ){
                  creatNewElements();
             }
