@@ -208,7 +208,7 @@ $(function(){
 
                 $('#smallCarousel').carousel(itemScroll);
             }
-             console.log( direction );
+
             if( direction === 'standart' || direction === '') {
                 img = active.find('img');
             }
@@ -231,7 +231,7 @@ $(function(){
             else if( direction === 'prev' ){
                 img = active.prev().find('img');
             }
-   
+            if( !img ) return;
             var large = img.data('large');
             var bid = img.attr('src');
 
