@@ -219,7 +219,7 @@ $(function(){
 
         });
 
-        $('#myCarousel').on('slide', function(){
+        $('#myCarousel').off('slide').on('slide', function(){
             var active = carouselInner.find('.active');
             var img;
            
@@ -257,8 +257,7 @@ $(function(){
 
 
         //  small carousel
-
-        $('#smallCarousel').on('slid', function(){ // small carousel
+        $('#smallCarousel').off('slide').on('slid', function(){ // small carousel
             if( !carouselInnerSamll.find('.active').next().length ){
                 creatNewElements();
             }
@@ -303,8 +302,13 @@ $(function(){
         lightBox.on('show', function(){
             var active = carouselInner.find('.active');
 
-            if( active.index() === 0 )
+            if( active.index() === 0 ){
                 $('.prev-photo').hide();
+            }
+            else{
+                $('.prev-show').hide();
+            }
+                
         });
 
         // next button lightBox
