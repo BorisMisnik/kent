@@ -203,14 +203,6 @@ $(function(){
 
                 $('#smallCarousel').carousel(itemScroll);
             }
-
-            var large = carouselInner.find('.active img').data('large');
-            var bid = carouselInner.find('.active img').attr('src');
-
-            $('#lightbox').find('img').attr('src', bid) // popup photo
-            $('#donwload').attr('href', large)  // button download
-
-
         });
 
         $('#myCarousel').on('slide', function(){
@@ -223,7 +215,14 @@ $(function(){
             else{
                 img = active.prev().find('img');
             }
-           
+
+         
+            var large = img.data('large');
+            var bid = img.attr('src');
+
+            $('#lightbox').find('img').attr('src', bid) // popup photo
+            $('#donwload').attr('href', large)  // button download
+
         });
 
         $('#smallCarousel').on('slid', function(){ // small carousel
