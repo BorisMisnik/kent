@@ -263,7 +263,8 @@ $(function(){
             }
 
         });
-        $('#smallCarousel').on('click', '.right', function(e){
+
+        $('#smallCarousel .right').on('click', function(e){
             var item = $('#smallCarousel').find('.item');
             console.log( 'item' );
             if( item.length === 1 ){
