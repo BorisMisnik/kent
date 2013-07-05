@@ -16,6 +16,7 @@ define(
                     '': 'login',
                     '!/login': 'login',
                     '!/register': 'register',
+                    '!/promo_register': 'promo_register',
                     '!/upload': 'upload',
                     '!/webcam': 'webcam',
                     '!/thanks': 'thanks',
@@ -33,6 +34,10 @@ define(
                 // registration form
                 register: function() {
                     registry.set({ state: 'register' });
+                },
+                // promo registration form
+                promo_register: function() {
+                    registry.set({ state: 'promo_register' });
                 },
                 // upload image form
                 upload: function() {

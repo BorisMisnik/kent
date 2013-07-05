@@ -5,6 +5,12 @@
     "__service": "http://kent.com.ua:8000",
     "pages": {
         "login": "/",
-        "main": "/main.html"
-    }
+        "main": "/main.html",
+        "promo": "/promo.html"
+    },
+    "promo": [
+        { "login": "1",  "password": "1" },
+        { "login": "TURBOPARTY",  "password": "TURBONIGHT" },
+        { "login": "turboparty",  "password": "turbonight" }
+    ]
 }

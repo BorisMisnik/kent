@@ -12,6 +12,7 @@ define(
     // windows
     'views/login',
     'views/register',
+    'views/promo_register',
     'views/upload',
     'views/webcam',
     'views/remind',
@@ -20,7 +21,7 @@ define(
     'views/feedback'
 ],
 function( registry, router,
-          Stripes, Login, Register, Upload, Webcam, Remind, Rules, Thanks, Feedback ) {
+          Stripes, Login, Register, PromoRegister, Upload, Webcam, Remind, Rules, Thanks, Feedback ) {
 
     Backbone.log( 'App', arguments );
 
@@ -33,6 +34,7 @@ function( registry, router,
             // todo: make some views invisible for unauthorized visitors
             login: Login,
             register: Register,
+            promo_register: PromoRegister,
             upload: Upload,
             webcam: Webcam,
             remind: Remind,
