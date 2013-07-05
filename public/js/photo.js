@@ -267,7 +267,6 @@ $(function(){
             e.preventDefault();
             var active = $('#smallCarousel').find('.active');
             if( active.length === 1 ){
-                console.log( 123 );
                  creatNewElements();
             }
 
