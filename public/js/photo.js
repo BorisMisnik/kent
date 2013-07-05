@@ -211,7 +211,7 @@ $(function(){
         $('#myCarousel').on('slide', function(){
             var active = carouselInner.find('.active');
             var img;
-
+            console.log( direction );
             if( direction === 'next' ){
                 img = active.next().find('img');
             }
@@ -263,7 +263,6 @@ $(function(){
         $('#smallCarousel').on('click', '.right', function(){
             var active = $(this).parent().find('.active');
             if( active.length === 0){
-                alert(123)
                 return false;
             }
         });
