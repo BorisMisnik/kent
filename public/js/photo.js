@@ -106,7 +106,7 @@ $(function(){
         var carouselInnerSamll = $('#smallCarousel .carousel-inner');
         //var json = $.parseJSON( $('#allImg').val() );
 
-        // clean old gallery
+        // clean old gallery content
         carouselInner.empty();
         carouselInnerSamll.empty();
 

@@ -8,26 +8,33 @@
  */
 
 var config = require( '../config.json' ),
-    request = require( 'request' );
+    request = require( 'request'),
+    colors = require( 'colors' );
 
 module.exports =
-    function( req, res, url ) {
+    function( req, res, url, params ) {
+        console.log( 'PIPE:'.green.bold, req.url, req.headers, req.body );
         var args = [].slice.call( arguments ),
             method = ( req.method || '' ).toLowerCase(),
-            action = request[ method ];
+            action = request[ method ],
+            params = params || {};
 
         if ( !action )
             throw new Error( 'No `request` action:' + action );
 
-//        var x = action( config.service + uri, params || {} );
         // pass session and form
         var x = action(
             config.service + ( url || req.url ),
             {
-                headers: req.headers,
-                form: req.body
+                headers: params.headers || req.headers,
+                form: params.form || req.body
             });
 
+        x.on( 'error', function( err ) {
+            console.log( 'Pipe error:'.red.bold, err );
+        });
+
+        //req.pipe( res );
         req.pipe( x );
         x.pipe( res );
         return x;
@@ -35,6 +42,7 @@ module.exports =
 
 module.exports.request =
     function( method, url ) {
+        console.log( 'PIPE REQUEST:'.green.bold, method, url );
         var args = [].slice.call( arguments, 2 ),
             action = request[ method ];
 

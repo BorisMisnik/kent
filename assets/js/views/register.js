@@ -140,9 +140,9 @@ define(
                             email: this.$( '#email' ).val(),
                             password: this.$( '#password' ).val(),
                             password2: this.$( '#passwordTwo' ).val(),
-                            agree_age: this.$( '#agree_age' ).prop( 'checked' ),
-                            agree_rules: this.$( '#agree_rules' ).prop( 'checked' ),
-                            agree_info: this.$( '#agree_info' ).prop( 'checked' ),
+                            agree_age: !! this.$( '#agree_age' ).attr( 'checked' ),
+                            agree_rules: !! this.$( '#agree_rules' ).attr( 'checked' ),
+                            agree_info: !! this.$( '#agree_info' ).attr( 'checked' ),
                             photo: this.photo.get( 'data' ) || ''
                         });
                 },

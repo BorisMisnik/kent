@@ -12,5 +12,6 @@
         { "login": "1",  "password": "1" },
         { "login": "TURBOPARTY",  "password": "TURBONIGHT" },
         { "login": "turboparty",  "password": "turbonight" }
-    ]
+    ],
+    "promo_secret": "M8235H27zo76065"
 }

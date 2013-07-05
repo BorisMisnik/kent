@@ -9,30 +9,15 @@
 
 var config = require( '../config.json' ),
     pipe = require( './../libs/pipe' ),
-    request = require( 'request' );
+    request = require( 'request');
 
 exports.login =
     function( req, res, next ) {
-        var found = null,
-            credentials = config.promo;
-
-        debugger;
-        // check for promo login
-        if ( credentials && credentials.length ) {
-            for ( var id in credentials ) {
-                if ( credentials[ id ]
-                    && credentials[ id ].login == req.body.username
-                    && credentials[ id ].password == req.body.password ) {
-                    found = true;
-                    break;
-                }
-            }
-        }
-        // make default login action
-        if ( !found ) return next();
-        // promo login
-        req.session.promo = true;
-        //res.redirect( config.pages.promo );
+        // check is promo-login used
+        var promo = isPromoLogin( req.body.username, req.body.password );
+        // otherwise make default login action
+        if ( !promo ) return next();
+        // use promo login
         res.send({ success: { promo: true }});
     };
 
@@ -41,7 +26,52 @@ exports.logout =
         console.log( 'Logout:', req.session );
         pipe.request( 'get', '/logout', { headers: req.headers },
             function ( error, response, body) {
-                req.session.destroy();
                 res.redirect( '/' );
             });
     };
+
+exports.signupPromo =
+    function( req, res ) {
+        console.log( 'Promo signup'.cyan.bold, req.body );
+        // check is promo-login used
+        var promo = isPromoLogin( req.body.promo_login, req.body.promo_password );
+        // return error if not
+        // because of signupPromo uses only for promo-logins
+        if ( !promo ) return res.send({ error: { promo: true }});
+
+        // make simple promo signup ( without photo upload needs )
+        // prepare form data
+        var form = req.body;
+        delete form.promo_login;
+        delete form.promo_password;
+        // secret used to prevent direct call of promo-signup from unregistered user
+        form.secret = config.promo_secret;
+
+        request.post( config.service + '/account/signup/promo', { form: form },
+            function ( error, response, body) {
+                console.log( 'res', error, body );
+                var result;
+                try { result = JSON.parse( body ); }
+                catch( e ) {}
+                res.send( result );
+            });
+    };
+
+// Helpers
+
+function isPromoLogin( login, password ) {
+    var found = null,
+        credentials = config.promo;
+    // check for promo login
+    if ( credentials && credentials.length ) {
+        for ( var id in credentials ) {
+            if ( credentials[ id ]
+                && credentials[ id ].login == login
+                && credentials[ id ].password == password ) {
+                found = true;
+                break;
+            }
+        }
+    }
+    return found;
+}

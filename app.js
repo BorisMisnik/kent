@@ -68,7 +68,6 @@ for ( var id in routes ) {
 
 // Pipe requests to the Backend
 app.use( function( req, res ) {
-    console.log( 'PIPE:'.green.bold, req.url, req.headers, req.body );
     pipe( req, res );
 });
 

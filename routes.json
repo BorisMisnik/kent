@@ -42,6 +42,12 @@
         "url": "/logout",
         "script": "./routes/account",
         "handler": "logout"
+    },
+    {
+        "//": "hook signup of simple-promo users",
+        "method": "post",
+        "url": "/account/signup/promo",
+        "script": "./routes/account",
+        "handler": "signupPromo"
     }
-
 ]

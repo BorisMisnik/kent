@@ -13,7 +13,10 @@ define(
                     authorized: false,
                     session: '',
                     user: '',
-                    role: 'visitor'     // user, admin
+                    role: 'visitor',    // user, admin
+                    // save entered credentials
+                    username: '',
+                    password: ''
                 },
 
                 // extend
@@ -34,6 +37,10 @@ define(
                         password: password
                     };
                     if ( remember ) request.remember_me = true;
+
+                    // save credentials
+                    this.set( 'username', username );
+                    this.set( 'password', password );
 
                     // ajax
                     $.post( '/login', request )
@@ -97,6 +104,20 @@ define(
                 signup: function( form, callback ) {
                     $.post(
                         '/account/signup',
+                        Object( form ))
+                        .fail( function( def, type, status ) {
+                            Backbone.log( 'signup: ajax fail', status );
+                            callback( new Error( status ));
+                        })
+                        .done( function( res ) {
+                            Backbone.log( 'signup: ajax done', res );
+                            callback( null, res );
+                        });
+                },
+
+                signupPromo: function( form, callback ) {
+                    $.post(
+                        '/account/signup/promo',
                         Object( form ))
                         .fail( function( def, type, status ) {
                             Backbone.log( 'signup: ajax fail', status );

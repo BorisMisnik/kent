@@ -5,6 +5,10 @@
         <h1>Реєcтрацiя користувача</h1>
         <form class="form-horizontal text-left" action=" " method=" ">
 
+            {{#errors.promo}}
+            <span class="error">Немає доступу. Використан невірний промо-логін!</span>
+            {{/errors.promo}}
+
             <label class="control-label hidden-phone" for="name">П. I. Б.</label>
             <div class="controls">
                 <input type="text" name="name" placeholder="П. I. Б." class="text" id="name" value="{{values.name}}">

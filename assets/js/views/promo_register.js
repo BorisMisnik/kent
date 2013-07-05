@@ -6,8 +6,6 @@ define(
         'models/person',
         'views/forms/init',
         // resources
-
-
         'js!jquery.selectbox-0.2.min.js',
         'js!swfobject!order',
         'js!libs/filereader/jquery.FileReader.min.js!order',
@@ -44,10 +42,21 @@ define(
                 afterRender: function() {
                     // custom form fields
                     form.init();
+
+                    // redirect to login
+                    var data = this.get();
+                    if ( !data.promo_login || !data.promo_password )
+                        window.location.href = '/'; // todo mobile
+                        // router.navigate( '#!/login' );
                 },
 
                 get: function() {
-                    return this.person.toJSON();
+                    return _.extend(
+                        this.person.toJSON(),
+                        {
+                            promo_login: user.get( 'username' ),
+                            promo_password: user.get( 'password' )
+                        });
                 },
                 save: function() {
                     this.model
@@ -63,10 +72,9 @@ define(
                             email: this.$( '#email' ).val(),
                             password: this.$( '#password' ).val(),
                             password2: this.$( '#passwordTwo' ).val(),
-                            agree_age: this.$( '#agree_age' ).prop( 'checked' ),
-                            agree_rules: this.$( '#agree_rules' ).prop( 'checked' ),
-                            agree_info: this.$( '#agree_info' ).prop( 'checked' ),
-                            photo: this.photo.get( 'data' ) || ''
+                            agree_age: !! this.$( '#agree_age' ).attr( 'checked' ),
+                            agree_rules: !! this.$( '#agree_rules' ).attr( 'checked' ),
+                            agree_info: !! this.$( '#agree_info' ).attr( 'checked' )
                         });
                 },
 
@@ -82,7 +90,7 @@ define(
                     self.log( 'signup form:', form );
 
                     // request
-                    user.signup(
+                    user.signupPromo(
                         form,
                         function( err, res, fail ) {
                             self.log( 'signup results:', arguments );
@@ -94,9 +102,30 @@ define(
                             }
                             else {
                                 self.model.clear({ silent: true });
-                                // todo: save filtered values ( returned from server )
-                                // show login
-                                router.navigate( '#!/thanks', true );
+                                self.render();
+
+                                // auto login then redirect
+                                user.login(
+                                    form.email, form.password, false,
+                                    function( err, res, fail ) {
+                                        if ( err ) return;
+                                        if ( fail
+                                            || !res
+                                            || !res.success ) {
+                                            // show error
+                                            self._errors = fail;
+                                            self.log( 'Bad auto login!' );
+                                            router.navigate( '#!/login' );
+                                        }
+                                        else {
+                                            if ( navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile/) ){
+                                                window.location.href = '/main-mobile.html';
+                                            }
+                                            else {
+                                                window.location.href = '/main.html';
+                                            }
+                                        }
+                                    });
                             }
                         });
                 },
