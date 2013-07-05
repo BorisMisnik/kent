@@ -218,8 +218,8 @@ $(function(){
             else if( direction === 'prev' ){
                 img = active.prev().find('img');
             }
-            else if( direction === 'standart' ) {
-                img.find('img');
+            else if( direction === 'standart' || direction === '') {
+                img = active.find('img');
             }
 
             var large = img.data('large');
@@ -263,6 +263,7 @@ $(function(){
         $('#smallCarousel').on('click', '.right', function(){
             var active = $(this).parent().find('.active');
             if( active.length === 0){
+                alert(123)
                 return false;
             }
         });
@@ -276,6 +277,7 @@ $(function(){
         });
 
         $('#smallCarousel').on('click', 'img', function(){
+            direction = 'standart';
             $('#myCarousel').carousel( $(this).data('item') );
         });
 

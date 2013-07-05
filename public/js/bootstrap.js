@@ -1855,7 +1855,7 @@
       isCycling && this.pause()
 
       $next = $next.length ? $next : this.$element.find('.item')[fallback]()
-
+      console.log(  $next );
       e = $.Event('slide', {
         relatedTarget: $next[0]
       , direction: direction
@@ -1888,9 +1888,7 @@
               that.sliding = false
               that.$element.trigger('slid')
           }, 100);
-            
-            
-            setTimeout(function () {  }, 0)
+          
           })
         
       } else {
