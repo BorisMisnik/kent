@@ -49,5 +49,12 @@
         "url": "/account/signup/promo",
         "script": "./routes/account",
         "handler": "signupPromo"
+    },
+    {
+        "//": "redirect over site-application routes, see /assets",
+        "method": "get",
+        "url": "/go/",
+        "script": "./routes/pages",
+        "handler": "go"
     }
 ]
