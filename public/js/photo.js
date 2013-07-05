@@ -239,7 +239,7 @@ $(function(){
 
         });
 
-        $('#myCarousel').on('click', '.left', function(){
+        $('#myCarousel').off('click').on('click', '.left', function(){
             var active = carouselInner.find('.active');
             direction = 'standart';
             if(  active.index() % count === 0 ){
@@ -251,7 +251,7 @@ $(function(){
             }
         });
 
-        $('#myCarousel').on('click', '.right', function(){
+        $('#myCarousel').off('click').on('click', '.right', function(){
             direction = 'standart';
         });
 
@@ -276,7 +276,7 @@ $(function(){
             }
         });
         //
-        $('.carousel-control.left').on('click', function(){
+        $('.carousel-control.left').off('click').on('click', function(){
             var active = $(this).parent().find('.active');
             if( active.index() === 0 ){
                 return false;
@@ -284,7 +284,7 @@ $(function(){
 
         });
 
-        $('#smallCarousel').on('click', 'img', function(){
+        $('#smallCarousel').off('click').on('click', 'img', function(){
             direction = 'standart';
             $('#myCarousel').carousel( $(this).data('item') );
         });
