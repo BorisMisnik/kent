@@ -119,10 +119,10 @@ define(
                                         }
                                         else {
                                             if ( navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile/) ){
-                                                window.location.href = '/main-mobile.html';
+                                                window.location.href = '/main-mobile.html#gallery';
                                             }
                                             else {
-                                                window.location.href = '/main.html';
+                                                window.location.href = '/main.html#gallery';
                                             }
                                         }
                                     });
