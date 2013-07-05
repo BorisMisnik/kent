@@ -265,7 +265,9 @@ $(function(){
             }
 
         });
-        $('#smallCarousel').on('click', '.right', function(){
+        $('#smallCarousel').on('click', '.right', function(e){
+            e.preventDefault();
+            alert(123)
             var active = $('#smallCarousel').find('.active');
             console.log( active.length );
             if( active.length === 1 ){
