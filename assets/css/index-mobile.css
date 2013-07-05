@@ -1116,9 +1116,20 @@ section h1 {
   text-indent: 0;
   text-align: center;
   padding: 0 10px;
+  overflow: hidden;
+}
+.nav-photo li.active {
+  background-color: #656e75;
+}
+.nav-photo li:hover {
+  background-color: #656e75;
 }
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
+  .title-block {
+    line-height: 1;
+    width: 80%;
+  }
   #question article {
     margin: 0;
   }

@@ -365,7 +365,7 @@ textarea:focus {
   font-size: 12px;
 }
 .row-fluid.footer.no-text {
-  height: 42px;
+  height: auto;
 }
 .hide {
   display: none;
