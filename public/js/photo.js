@@ -1,7 +1,7 @@
 $(function(){
 
     var direction = '';
-    
+
     // use global variables to access from other site modules
     window.gallery = {};
     window.currentAlbum = null;
@@ -218,6 +218,9 @@ $(function(){
             else if( direction === 'prev' ){
                 img = active.prev().find('img');
             }
+            else if( direction === 'standart' ) {
+                img.find('img');
+            }
 
             var large = img.data('large');
             var bid = img.attr('src');
@@ -227,22 +230,9 @@ $(function(){
 
         });
 
-        $('#smallCarousel').on('slid', function(){ // small carousel
-            if( !carouselInnerSamll.find('.active').next().length ){
-                creatNewElements();
-            }
-
-        });
-
-        //  small carousel
-        $('#smallCarousel').on('click', '.right', function(){
-            if( $('#smallCarousel .item').length === 1 ){
-                creatNewElements();
-            }
-        });
-
         $('#myCarousel').on('click', '.left', function(){
             var active = carouselInner.find('.active');
+            direction = 'standart';
             if(  active.index() % count === 0 ){
 
                 var itemScroll = active.index() / count;
@@ -252,7 +242,30 @@ $(function(){
             }
         });
 
+        $('#myCarousel').on('click', '.right', function(){
+            direction = 'standart';
+        });
 
+
+        //  small carousel
+        $('#smallCarousel').on('click', '.right', function(){
+            if( $('#smallCarousel .item').length === 1 ){
+                creatNewElements();
+            }
+        });
+
+        $('#smallCarousel').on('slid', function(){ // small carousel
+            if( !carouselInnerSamll.find('.active').next().length ){
+                creatNewElements();
+            }
+
+        });
+        $('#smallCarousel').on('click', '.right', function(){
+            var active = $(this).parent().find('.active');
+            if( active.length === 0){
+                return false;
+            }
+        });
         //
         $('.carousel-control.left').on('click', function(){
             var active = $(this).parent().find('.active');
