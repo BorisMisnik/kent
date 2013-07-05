@@ -263,11 +263,11 @@ $(function(){
             }
 
         });
-        $('#smallCarousel').off('click').on('click', '.right', function(e){
+        $('#smallCarousel').on('click', '.right', function(e){
             e.preventDefault();
             var active = $('#smallCarousel').find('.active');
             if( active.length === 1 ){
-                alert(123)
+                console.log( 123 );
                  creatNewElements();
             }
 
