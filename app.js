@@ -21,15 +21,9 @@ var app = express(),
 app.configure( function() {
     app.set( 'port', port );
     app.use( express.favicon() );
-    // app.use( express.logger( 'default' ));
+    app.use( express.logger( 'default' ));
     app.use( express.bodyParser() );
     app.use( express.methodOverride() );
-    // session
-//    app.use( express.cookieParser() );
-//    app.use( express.session({
-//        secret: 'qwerty',
-//        age: 60 * 60 * 1000     // 1 hour
-//    }));
     // routes and static
     app.use( app.router );
     app.use( express.static( path.join( __dirname, 'assets' )));
