@@ -8,7 +8,8 @@
  */
 
 var config = require( '../config.json' ),
-    request = require( 'request' );
+    request = require( 'request'),
+    fs = require( 'fs' );
 
 exports.index = function( req, res, next ) {
     isUserLogged( req,
@@ -58,6 +59,24 @@ exports.main = function( req, res, next ) {
 //            else next();
         });
 };
+
+/**
+ * Redirect over site-application routes, see `/assets`
+ * @param req
+ * @param res
+ * @param next
+ */
+exports.go = function( req, res, next ) {
+    console.log( 'path:', __dirname + '../assets/index.html' );
+    fs.readFile( __dirname + '/../assets/index.html',
+        function( err, body ) {
+            console.log( arguments );
+            //if ( err ) return res.redirect( '/' );
+            res.send( body.toString( 'utf-8' ));
+        })
+};
+
+// Helpers
 
 function isUserLogged( req, callback ) {
     // pass user headers ( cookies and others )

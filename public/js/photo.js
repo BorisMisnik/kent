@@ -3,8 +3,11 @@ $(function(){
     var direction = '';
 
     // use global variables to access from other site modules
+    window.galleryEl = $( '#galleryEl' );
+    window.galleryClosedEl = $( '#galleryClosedEl' );
     window.gallery = {};
     window.currentAlbum = null;
+    // pha
     // photos list
     var json = [];
 
@@ -16,6 +19,7 @@ $(function(){
             // settings
             var albums = [],
                 url = '/photos/',
+                urlDownload = '/download/photo/',
                 sep = ' &nbsp; ';
 
             // parse and normalize albums
@@ -28,7 +32,8 @@ $(function(){
                     photos.push({
                         'large-photo': url + photo.name + '.' + photo.ext,
                         'big-photo': url + photo.name + '_middle.' + photo.ext,
-                        'medium-photo': url + photo.name + '_small.' + photo.ext
+                        'medium-photo': url + photo.name + '_small.' + photo.ext,
+                        'download': urlDownload + photo.name + '.' + photo.ext
                     });
                 });
 
@@ -67,7 +72,18 @@ $(function(){
         if ( undefined === albumIndex ) return;
         var list = gallery[ albumIndex ]
             && gallery[ albumIndex ].photos;
-        if ( !list || !list.length ) return;
+        // visual
+        if ( !list || !list.length ) {
+            // hide gallery element
+            galleryEl.hide();
+            galleryClosedEl.show();
+            // todo: update title when albums switch
+            galleryClosedEl.find( 'h3' ).text( 'todo' );
+        } else {
+            // show gallery element
+            galleryEl.show();
+            galleryClosedEl.hide();
+        }
         // update photos list
         json = list;
         // set album as current
@@ -145,7 +161,8 @@ $(function(){
             var img = $('<img>',{
                 'src' : obj['big-photo'],
                 'data-medium' : obj['medium-photo'],
-                'data-large' : obj['large-photo']
+                'data-large' : obj['large-photo'],
+                'data-download': obj.download
             });
 
             var div = $('<div>')
@@ -163,10 +180,11 @@ $(function(){
 
         carouselInner.find('.item').eq(0).addClass('active');
 
-        var large = carouselInner.find('.active img').data('large');
+        //var large = carouselInner.find('.active img').data('large');
+        var download = carouselInner.find( '.active img').attr( 'data-download' );
         var bid = carouselInner.find('.active img').attr('src');
 
-        $('#donwload').attr('href', large);
+        $('#donwload').attr('href', /*large*/ download );
         $('#lightbox').find('img').attr('src', bid);
 
 
@@ -220,7 +238,7 @@ $(function(){
             var bid = img.attr('src');
 
             $('#lightbox').find('img').attr('src', bid) // popup photo
-            $('#donwload').attr('href', large)  // button download
+            $('#donwload').attr('href', img.data('download'))  // button download
 
         });
 
@@ -240,7 +258,7 @@ $(function(){
             var bid = img.attr('src');
 
             $('#lightbox').find('img').attr('src', bid) // popup photo
-            $('#donwload').attr('href', large)  // button download
+            $('#donwload').attr('href', img.data('download'))  // button download
 
         });
 

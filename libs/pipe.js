@@ -26,18 +26,18 @@ module.exports =
         var x = action(
             config.service + ( url || req.url ),
             {
-                headers: params.headers || req.headers,
+                headers: params.headers || { cookie: req.headers.cookie },
                 form: params.form || req.body
-            });
+            }).pipe( res );
 
         x.on( 'error', function( err ) {
             console.log( 'Pipe error:'.red.bold, err );
         });
 
         //req.pipe( res );
-        req.pipe( x );
-        x.pipe( res );
-        return x;
+//        req.pipe( x );
+//        x.pipe( res );
+//        return x;
     };
 
 module.exports.request =
