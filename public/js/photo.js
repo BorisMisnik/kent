@@ -1,5 +1,7 @@
 $(function(){
 
+    var direction = '';
+    
     // use global variables to access from other site modules
     window.gallery = {};
     window.currentAlbum = null;
@@ -102,7 +104,6 @@ $(function(){
 
         var start = 0;
         var count = 7;
-        var direction = '';
         var carouselInner = $('#myCarousel .carousel-inner');
         var carouselInnerSamll = $('#smallCarousel .carousel-inner');
         //var json = $.parseJSON( $('#allImg').val() );
@@ -218,7 +219,6 @@ $(function(){
                 img = active.prev().find('img');
             }
 
-            console.log( direction );
             var large = img.data('large');
             var bid = img.attr('src');
 
@@ -287,7 +287,6 @@ $(function(){
             e.preventDefault();
 
             direction = 'next';
-            console.log( direction );
             $('.carousel').carousel('next');
             $('.prev-photo').show();
             lightBox.lightbox('preloadSize');
