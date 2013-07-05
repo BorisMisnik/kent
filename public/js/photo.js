@@ -214,11 +214,11 @@ $(function(){
             if( direction === 'next' ){
                 img = active.next().find('img');
             }
-            else{
+            else if( direction === 'prev' ){
                 img = active.prev().find('img');
             }
 
-
+            console.log( active.prev().find('img') );
             var large = img.data('large');
             var bid = img.attr('src');
 
