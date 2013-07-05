@@ -1,15 +1,103 @@
 $(function(){
 
+    // use global variables to access from other site modules
+    window.gallery = {};
+    window.currentAlbum = null;
+    // photos list
     var json = [];
-    $.get( '/gallery/all' )
+
+    // get gallery albums list from server
+    $.get( '/gallery' )
         .done( function( res ) {
             if ( !res || !res.success || !res.success.length ) return;
-            json = res.success;
-            console.log( 'photos:', json );
+
+            // settings
+            var albums = [],
+                url = '/photos/',
+                sep = ' &nbsp; ';
+
+            // parse and normalize albums
+            res.success.forEach( function( album )
+            {
+                // parse photos
+                var photos = [];
+                album.photos &&
+                album.photos.forEach( function( photo ) {
+                    photos.push({
+                        'large-photo': url + photo.name + '.' + photo.ext,
+                        'big-photo': url + photo.name + '_middle.' + photo.ext,
+                        'medium-photo': url + photo.name + '_small.' + photo.ext
+                    });
+                });
+
+                // add album
+                albums.push({
+                    // id: album._id,
+                    short: album.date || album.club,
+                    full: sep+ album.date +sep+ album.club +sep+ album.city +sep,
+                    photos: photos
+                });
+            });
+
+            // prepare variables ( locals and globals )
+
+            // global gallery
+            window.gallery = albums;
             // fill gallery
-            init();
+            json = null !== currentAlbum
+                && gallery[ currentAlbum ]
+                && gallery[ currentAlbum ].photos;
+
+            // init album titles ( right menu )
+            initTitlesMenu( albums );
+            // open first album
+            window.currentAlbum = albums.length && 0;
+            if ( albums.length )
+                updateGallery( currentAlbum );
         });
 
+    /**
+     * Refresh gallery with updated content ( other album photos )
+     * @param {Integer} albumIndex
+     */
+    function updateGallery( albumIndex ) {
+        // checks
+        if ( undefined === albumIndex ) return;
+        var list = gallery[ albumIndex ]
+            && gallery[ albumIndex ].photos;
+        if ( !list || !list.length ) return;
+        // update photos list
+        json = list;
+        // set album as current
+        currentAlbum = albumIndex;
+        // init gallery viewer
+        init();
+    }
+
+    /**
+     * Fill album titles menu ( right menu list )
+     * @param {Array} albums
+     */
+    function initTitlesMenu( albums ) {
+        if ( !albums || !albums.length ) return;
+
+        // parse each album and create menu items
+        albums.forEach( function( album, index ) {
+            var item = $( '<li name="putty'+ ( index + 1) +'" class="putty" data-album="'+ index +'">'+ album.full +'</li>' );
+            $( '#albumTitles' ).append( item );
+
+            // show album in gallery viewer ( on click )
+            item.click( function( e ) {
+                e.preventDefault();
+                var index = $( e.target ).attr( 'data-album' );
+                updateGallery( index );
+            })
+        });
+    }
+
+    /**
+     * Initialize gallery viewer
+     */
     function init() {
         var start = 0;
         var count = 7;
@@ -18,6 +106,9 @@ $(function(){
         var carouselInnerSamll = $('#smallCarousel .carousel-inner');
         //var json = $.parseJSON( $('#allImg').val() );
 
+        // clean old gallery
+        carouselInner.empty();
+        carouselInnerSamll.empty();
 
         if( navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile/) ){
             count = 3;
@@ -35,6 +126,8 @@ $(function(){
         }
 
         function creatItem(obj, start){
+
+            if ( !obj ) return; // :(
 
             var a = $('<a>',{
                 'class' : 'item',
@@ -250,6 +343,15 @@ $(function(){
             // }
 
         });
+    }
+
+    // (!)
+    // slide to photo section (for only #photo url hash)
+    var hash = document.URL.substr(document.URL.indexOf('#') + 1); // ie supported
+    if ( hash && 'gallery' == hash ) {
+        //$target.carousel({ slide: 'photo' });
+        // warning! imitate click on DOM element by its attribute
+        $( '[data-slide="photo"]' ).click();
     }
 
 });
