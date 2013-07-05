@@ -1,7 +1,7 @@
 $(function(){
 
     var direction = '';
-
+    var crate = false;
     // use global variables to access from other site modules
     window.gallery = {};
     window.currentAlbum = null;
@@ -167,7 +167,9 @@ $(function(){
 
 
         function creatNewElements(){
+            if ( !crate ) return;
             console.log( 'creatNewElements' );
+            crate = false;
             var divSmall =  $('<div>',{
                     'class' : 'item'
                 });
@@ -204,6 +206,7 @@ $(function(){
 
                 $('#smallCarousel').carousel(itemScroll);
 
+                crate = true;
                 creatNewElements();
             }
 
@@ -261,13 +264,13 @@ $(function(){
 
         $('#smallCarousel').on('slid', function(){ // small carousel
             if( !carouselInnerSamll.find('.active').next().length ){
+                crate = true;
                 creatNewElements();
             }
 
         });
         $('#smallCarousel').on('click', '.right', function(e){
             e.preventDefault();
-            alert(123)
             var active = $('#smallCarousel').find('.active');
             console.log( active.length );
             if( active.length === 1 ){
