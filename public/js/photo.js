@@ -186,7 +186,7 @@ $(function(){
             if( !carouselInnerSamll.find('.item:last').children().length ){
                 carouselInnerSamll.find('.item:last').remove();
             }
-            
+
         }
 
         // stop slide
@@ -215,9 +215,11 @@ $(function(){
             else{
                 img = active.prev().find('img');
             }
+            var large = carouselInner.find('.active img').data('large');
+            var bid = carouselInner.find('.active img').attr('src');
 
-            $('#lightbox').find('img').attr('src', img.data('medium')) // popup photo
-            $('#donwload').attr('href', img.data('large'))  // button download
+            $('#lightbox').find('img').attr('src', bid) // popup photo
+            $('#donwload').attr('href', large)  // button download
 
         });
 
