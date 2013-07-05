@@ -193,7 +193,7 @@ $(function(){
         });
 
         // stop slide
-        $('#myCarousel').on('slid', function(){  // big carousel
+        $('#myCarousel').off('slid').on('slid', function(){  // big carousel
             var active = carouselInner.find('.active');
             var img;
             console.log( 123 );
