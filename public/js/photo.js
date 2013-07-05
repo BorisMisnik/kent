@@ -287,6 +287,7 @@ $(function(){
             e.preventDefault();
 
             direction = 'next';
+            console.log( direction );
             $('.carousel').carousel('next');
             $('.prev-photo').show();
             lightBox.lightbox('preloadSize');
@@ -300,6 +301,7 @@ $(function(){
             var active = carouselInner.find('.active');
 
             direction = 'prev';
+
             $('.carousel').carousel('prev');
             lightBox.lightbox('preloadSize');
 
