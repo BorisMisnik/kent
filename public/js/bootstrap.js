@@ -1832,11 +1832,13 @@
     }
 
   , next: function () {
+    console.log( 'sliding next' );
       if (this.sliding) return
       return this.slide('next')
     }
 
   , prev: function () {
+     console.log( 'sliding prev' );
       if (this.sliding) return
       return this.slide('prev')
     }

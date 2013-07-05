@@ -195,6 +195,8 @@ $(function(){
         // stop slide
         $('#myCarousel').on('slid', function(){  // big carousel
             var active = carouselInner.find('.active');
+            var img;
+
             if( !active.next().length ){
                 creatNewElements();
             }
@@ -206,22 +208,30 @@ $(function(){
 
                 $('#smallCarousel').carousel(itemScroll);
             }
+             console.log( direction );
+            if( direction === 'standart' || direction === '') {
+                img = active.find('img');
+            }
+
+            var large = img.data('large');
+            var bid = img.attr('src');
+
+            $('#lightbox').find('img').attr('src', bid) // popup photo
+            $('#donwload').attr('href', large)  // button download
+
         });
 
         $('#myCarousel').on('slide', function(){
             var active = carouselInner.find('.active');
             var img;
-            console.log( direction );
+           
             if( direction === 'next' ){
                 img = active.next().find('img');
             }
             else if( direction === 'prev' ){
                 img = active.prev().find('img');
             }
-            else if( direction === 'standart' || direction === '') {
-                img = active.find('img');
-            }
-
+   
             var large = img.data('large');
             var bid = img.attr('src');
 
