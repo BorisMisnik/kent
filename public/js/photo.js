@@ -93,6 +93,7 @@ $(function(){
                 e.preventDefault();
                 var index = $( e.target ).attr( 'data-album' );
                 $( e.target ).addClass('putty');
+                $('.nav-photo li').removeClass('putty');
                 updateGallery( index );
             })
         });
