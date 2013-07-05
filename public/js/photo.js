@@ -85,16 +85,20 @@ $(function(){
 
         // parse each album and create menu items
         albums.forEach( function( album, index ) {
-            var item = $( '<li name="putty'+ ( index + 1) +'" class="putty" data-album="'+ index +'">'+ album.full +'</li>' );
+            var item = $( '<li name="putty'+ ( index + 1) +'" data-album="'+ index +'">'+ album.full +'</li>' );
             $( '#albumTitles' ).append( item );
 
             // show album in gallery viewer ( on click )
             item.click( function( e ) {
                 e.preventDefault();
                 var index = $( e.target ).attr( 'data-album' );
+                $( e.target ).addClass('putty');
                 updateGallery( index );
             })
         });
+
+        $('.nav-photo li:first').addClass('putty');
+
     }
 
     /**
