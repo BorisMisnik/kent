@@ -1177,7 +1177,7 @@
 			// populate data
 			$( '#name' ).val( profile.name );
 			$( '#date' ).val( profile.day );
-			$( '#month' ).val( profile.month );
+			$( '#month' ).selectpicker( 'val', profile.month );
 			$( '#year' ).val( profile.year );
 			$( '#mobilePhone' ).val( profile.phone );
 			$( '#email' ).val( profile.email );
@@ -1185,10 +1185,11 @@
 			$( '#agree_age' ).prop( 'checked',  profile.agree_age );
 			$( '#agree_rules' ).prop( 'checked', profile.agree_rules );
 			$( '#agree_info' ).prop( 'checked', profile.agree_info );
-			$( '#brand1' ).val(profile.brand1);
-            $( '#sku1' ).val(profile.sku1);
-            $( '#brand2' ).val(profile.brand2);
-            $( '#sku2' ).val(profile.sku2);
+			$( '#brand1' ).selectpicker('val', profile.brand1);
+            $( '#sku1' ).selectpicker('val', profile.sku1);
+            $( '#brand2' ).selectpicker('val', profile.brand2);
+            $( '#sku2' ).selectpicker('val', profile.sku2);
+
             console.log('profile', profile );
 		}
 
@@ -1214,7 +1215,7 @@
 
             $.get( '/account' )
                 .done( function( res ) {
-                    //console.log( 'profile done', arguments );
+                    console.log( 'profile done', res );
 
                     // action
                     if ( res.errors )
