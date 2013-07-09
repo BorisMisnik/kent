@@ -15,10 +15,10 @@
 	<script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
 	<script src="js/jquery.mobile.custom.min.js"></script>
 	<script src="js/bootstrap.js"></script>
-	<script src="js/bootstrap-select.min.js"></script>
 	<script src="js/bootstrap-lightbox.min.js"></script>
 	<script src="js/less-1.3.3.min.js"></script>
 	<script src="js/TweenMax.min.js"></script>	 
+	<script src="js/jquery.maskedinput.min.js"></script>
 	<script src="js/animation-mobile.js"></script>
 	<script src="js/index-mobile.js"></script>
 	
@@ -34,8 +34,8 @@
 			<footer>
 				<span class="infoLine">Інформаційна лінія: 0 800 50 84 15 </span>
 				<nav class="footerNav">
-					<a href="/#!/feedback">Зворотний зв’язок</a><span class="hidden-phone">|</span>
-					<a href="/#!/rules">Правила користування сайтом</a><span class="hidden-phone">|</span>
+					<a href="/go/#!/feedback">Зворотний зв’язок</a><span class="hidden-phone">|</span>
+					<a href="/go/#!/rules">Правила користування сайтом</a><span class="hidden-phone">|</span>
 					<a href="/logout">Вийти</a>
 				</nav>
 			</footer>
@@ -60,7 +60,7 @@
 
 	<!-- photo nav -->
 	<!-- add class hide -->
-	<ul class="nav-photo unstyled">
+	<ul class="nav-photo unstyled" id="albumTitles">
 	</ul>
 	
 	<div class="scrollButton">
@@ -772,119 +772,119 @@
 			</section>
 			<!-- profile -->
 			<section id="profile" data-slide="profile">
-				<article class="profile-article">
-					<div>
-						<div class="profile-wrapper">
-							<div class="profile no-sweep">
-								<form  class="form-horizontal text-left" action=" " method=" " >
+			<article class="profile-article">
+				<div>
+					<div class="profile-wrapper">
+						<div class="profile">
+							<form  class="form-horizontal text-left disable" action=" " method=" " >
 
-	                                <span id="formError" class="error hide">Виникла помилка</span>
-	   						 		<div class="controls">
-		     							<input type="text" name="name" placeholder="П. I. Б." class="text" id="name" value="" />
-	    							</div>
+								<span id="formError" class="error hide">Виникла помилка</span>
+								<div class="controls">
+									<input type="text" name="name" placeholder="П. I. Б." class="text" id="name" value="" />
+								</div>
 
-	    							<label class="control-label hidden-phone" for="name">П. I. Б.</label>
-	                                <span class="error err_name">Неправильно вказано дані (П. І. Б.)</span>
+								<label class="control-label hidden-phone" for="name">П. I. Б.</label>
+								<span class="error err_name">Неправильно вказано дані (П. І. Б.)</span>
 
-									<div class="controls">
-										<div class="dateBirthday">
-											<input type="text" name="date" placeholder="День" class="text" id="date"value=""/>
-											<select name="month" id="month">
-													<option value="Місяць" disabled>Місяць</option>
-							                        <option value="0">Січень</option>
-							                        <option value="1">Лютий</option>
-							                        <option value="2">Березень</option>
-							                        <option value="3">Квітень</option>
-							                        <option value="4">Травень</option>
-							                        <option value="5">Червень</option>
-							                        <option value="6">Липень</option>
-							                        <option value="7">Серпень</option>
-							                        <option value="8">Вересень</option>
-							                        <option value="9">Жовтень</option>
-							                        <option value="10">Листопад</option>
-							                        <option value="11">Грудень</option>
-		                                	</select>
-											<input type="text" id="year" name="year" placeholder="Рік" class="text" value="" />
-											<label class="control-label visible-phone" for="date" >Дата народження</label>
-										</div>
-									</div>
-									<label class="control-label hidden-phone" for="date">Дата народження</label>
-	                                <span class="error err_day">Невірні дані</span>
-	                                <span class="error err_age">Тобі ще не виповнилося 18 років</span>
-
-									<div class="controls">
-		     							<input type="text" name="mobilePhone" placeholder="0 (96) 938-15-17" class="text" id="mobilePhone" value="" />
-		    						</div>
-		    						<label class="control-label hidden-phone" for="mobilePhone">Мобiльний телефон</label>
-	                                <span class="error err_phone">Неправильний формат номера</span>
-
-									<div class="controls">
-		     							<input type="text" name="email" placeholder="E-mail" class="text" id="email" value="" />
-		    						</div>
-		    						<label class="control-label hidden-phone" for="email">E-mail</label>
-	                                <span class="error err_email">Неправильний формат e-mail</span>
-	                                <span class="error err_already_used_email" >Такий e-mail вже зареестровано</span>
-
-									<div class="controls">
-		     							<input type="password" name="password" placeholder="Пароль" class="text" id="password" value="" />
-		    						</div>
-		    						<label class="control-label hidden-phone" for="password">Пароль</label>
-	                                <span class="error err_password">Пароль не відповідає вимогам</span>
-									<p class="control-label visible-phone">Марка сигарет, які ти куриш постійно</p>
-
-		    						<div class="controls">
-										<div class="smoke">
-											<select name="brand1" class="sku skuA1 skuA" linked=".skuB1" data-width="193px" disabled id="brand1">
+								<div class="controls">
+									<div class="dateBirthday">
+										<input type="text" name="date" placeholder="День" class="text" id="date"value=""/>
+										<div class="wrapper-month">
+											<select name="month" id="month" data-width="116px" data-size="4" disabled>
 												<option value="Місяць" disabled>Місяць</option>
 												<option value="0">Січень</option>
 												<option value="1">Лютий</option>
 												<option value="2">Березень</option>
-											</select>
-											<select name="sku1" class="sku skuB1 skuB" data-width="193px" disabled id="sku1">
-												<option value="Місяць" disabled>Місяць</option>
-												<option value="0">Січень</option>
-												<option value="1">Лютий</option>
-												<option value="2">Березень Березень Березень Березень Березень Березень</option>
-											</select>
-										</div>
-									</div>
-									<label class="control-label" for="sigaretsOne">Марка сигарет, які ти куриш постійно</label>
-									<span class="error err_password">Треба вказати</span>
-
-									<div class="controls">
-										<div class="smoke">
-											<select name="brand2" class="sku skuA2 skuA" linked=".skuB2" data-width="193px" disabled id="brand2">
-												<option value="Місяць" disabled>Місяць</option>
-												<option value="0">Січень</option>
-											</select>
-											<select name="sku2" class="sku skuB2 skuB" data-width="193px" disabled id="sku2">
-												<option value="Місяць" disabled>Місяць</option>
-												<option value="0">Січень</option>
-												<option value="1">Лютий</option>
-												<option value="2">Березень</option>
-												<option value="0">Січень</option>
-												<option value="1">Лютий</option>
-												<option value="2">Березень</option>
-												<option value="0">Січень</option>
-												<option value="1">Лютий</option>
-												<option value="2">BOND STREET ORIGINAL SELECTION</option>
+												<option value="3">Квітень</option>
+												<option value="4">Травень</option>
+												<option value="5">Червень</option>
+												<option value="6">Липень</option>
+												<option value="7">Серпень</option>
+												<option value="8">Вересень</option>
+												<option value="9">Жовтень</option>
+												<option value="10">Листопад</option>
+												<option value="11">Грудень</option>
 											</select>
 										</div>
+										<input type="text" id="year" name="year" placeholder="Рік" class="text" value="" />
 									</div>
-		    						<label class="control-label hidden-phone" for="sigaretsOne">Марка сигарет, які ти куриш час від часу</label>
-	                                <span class="error err_password">Треба вказати</span>
-	                                <span class="error err_password">Пoвинно відрізнятись</span>
+								</div>
+								<label class="control-label hidden-phone" for="date">Дата народження</label>
+								<span class="error err_day">Невірні дані</span>
+								<span class="error err_age">Тобі ще не виповнилося 18 років</span>
 
-									<div class="clear"></div>
-	                                <span id="profileSuccess" class="succes hide">Відкореговані дані успішно збережено.</span>
+								<div class="controls">
+									<input type="text" name="mobilePhone" placeholder="0 (96) 938-15-17" class="text" id="mobilePhone" value="" />
+								</div>
+								<label class="control-label hidden-phone" for="mobilePhone">Мобiльний телефон</label>
+								<span class="error err_phone">Неправильний формат номера</span>
 
-		    						<input id="submitProfile" type="submit" class="submit disable" value="Зберегти" />
-								</form>
-							</div>
+								<div class="controls">
+									<input type="text" name="email" placeholder="E-mail" class="text" id="email" value="" />
+								</div>
+								<label class="control-label hidden-phone" for="email">E-mail</label>
+								<span class="error err_email">Неправильний формат e-mail</span>
+								<span class="error err_already_used_email" >Такий e-mail вже зареестровано</span>
+
+								<div class="controls">
+									<input type="password" name="password" placeholder="Пароль" class="text" id="password" value="" />
+								</div>
+								<label class="control-label hidden-phone" for="password">Пароль</label>
+								<span class="error err_password">Пароль не відповідає вимогам</span>
+
+								<div class="controls">
+									<div class="smoke">
+										<select name="brand1" class="sku skuA1 skuA" linked=".skuB1" data-width="193px" disabled id="brand1">
+											<option value="Місяць" disabled>Місяць</option>
+											<option value="0">Січень</option>
+											<option value="1">Лютий</option>
+											<option value="2">Березень</option>
+										</select>
+										<select name="sku1" class="sku skuB1 skuB" data-width="193px" disabled id="sku1">
+											<option value="Місяць" disabled>Місяць</option>
+											<option value="0">Січень</option>
+											<option value="1">Лютий</option>
+											<option value="2">Березень Березень Березень Березень Березень Березень</option>
+										</select>
+									</div>
+								</div>
+								<label class="control-label hidden-phone" for="sigaretsOne">Марка сигарет, які ти куриш постійно</label>
+								<span class="error err_password">Треба вказати</span>
+
+								<div class="controls">
+									<div class="smoke">
+										<select name="brand2" class="sku skuA2 skuA" linked=".skuB2" data-width="193px" disabled id="brand2">
+											<option value="Місяць" disabled>Місяць</option>
+											<option value="0">Січень</option>
+										</select>
+										<select name="sku2" class="sku skuB2 skuB" data-width="193px" disabled id="sku2">
+											<option value="Місяць" disabled>Місяць</option>
+											<option value="0">Січень</option>
+											<option value="1">Лютий</option>
+											<option value="2">Березень</option>
+											<option value="0">Січень</option>
+											<option value="1">Лютий</option>
+											<option value="2">Березень</option>
+											<option value="0">Січень</option>
+											<option value="1">Лютий</option>
+											<option value="2">BOND STREET ORIGINAL SELECTION</option>
+										</select>
+									</div>
+								</div>
+								<label class="control-label hidden-phone" for="sigaretsOne">Марка сигарет, які ти куриш час від часу</label>
+								<span class="error err_password">Треба вказати</span>
+								<span class="error err_password">Пoвинно відрізнятись</span>
+
+								<div class="clear"></div>
+								<span id="profileSuccess" class="succes hide">Відкореговані дані успішно збережено.</span>
+
+								<input id="submitProfile" type="submit" class="submit disable" value="Редагувати" />
+							</form>
 						</div>
 					</div>
-				</article>
-			</section>
+				</div>
+			</article>
+		</section>
 			<!-- photo -->
 			<section id="photo" data-slide="photo">
 				<article class="last photo-article">
@@ -949,13 +949,6 @@
                 year.mask( '2999' );
             }
 
-			$(".text-wrapper .text").mCustomScrollbar({
-				advanced:{
-					updateOnContentResize: true
-				},
-				mouseWheel : true
-			});
-
 			$('.text h3').click(function(){
 				var $this = $(this);
 				if(!$this.is('.open')){
@@ -997,14 +990,6 @@
 							.removeClass('disable');
 
 						$('select').prop('disabled',false);
-						$('select').selectpicker('refresh');
-
-						$('.dropdown-menu').mCustomScrollbar({
-							advanced:{
-								updateOnContentResize: true
-							},
-							mouseWheel : true
-						});
 
 						$(this)
 							.val('Зберегти')
@@ -1027,7 +1012,7 @@
 			// populate data
 			$( '#name' ).val( profile.name );
 			$( '#date' ).val( profile.day );
-			$( '#month' ).val( profile.month );
+			$( '#month').val( profile.month );
 			$( '#year' ).val( profile.year );
 			$( '#mobilePhone' ).val( profile.phone );
 			$( '#email' ).val( profile.email );
@@ -1039,7 +1024,8 @@
             $( '#sku1' ).val(profile.sku1);
             $( '#brand2' ).val(profile.brand2);
             $( '#sku2' ).val(profile.sku2);
-            console.log('profile' +  profile );
+
+            console.log('profile', profile );
 		}
 
 		function errorsProfile( errors ) {
@@ -1064,7 +1050,7 @@
 
             $.get( '/account' )
                 .done( function( res ) {
-                    //console.log( 'profile done', arguments );
+                    console.log( 'profile done', res );
 
                     // action
                     if ( res.errors )
@@ -1075,7 +1061,7 @@
                 .fail( function() {
                     //console.log( 'profile fails', arguments );
                     // show system error
-                    $( '#formError' ).removeClass( 'hide').hide().fadeIn( 'slow' );
+                    $( '#formError' ).removeClass('hide').hide().fadeIn( 'slow' );
                 });
         }
 		function updateProfile() {
@@ -1121,6 +1107,7 @@
         }
 	</script>
 	<script src="/js/libs/cigarettes_manage_mobile.js"></script>
+	<script src="js/packs.min.js"></script>
 	<script type="text/javascript">
 
 	  var _gaq = _gaq || [];
