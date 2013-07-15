@@ -438,6 +438,7 @@ section h1{
 	text-transform: uppercase;
 	font-weight: 100;
 	font-size: 28px;
+	width: 80%;
 	span{
 		color:#fff;
 	}
@@ -959,7 +960,7 @@ section h1{
 		color: #555;
 		background-color: #e0e0e0;
 		border-radius: 0;
-		width: 143px;
+		width: 100%;
 		-webkit-transition: background-color 500ms ease-in-out;
 		transition: background-color 500ms ease-in-out;
 		outline: none;
@@ -987,7 +988,7 @@ section h1{
 }
 .wrapper-month{
 	display:inline-block;
-	width:115px;
+	width:143px;
 	vertical-align:top;
 }
 .mainHistory{
@@ -1141,6 +1142,7 @@ section h1{
 .carousel .item img{
 	vertical-align: middle;
 	display: inline;
+	max-height: 100%;
 }
 // small
 .small-photo-wrapper .carousel-inner{
@@ -1206,12 +1208,18 @@ section h1{
 	text-align: center;
 	padding: 0 10px;
 	overflow: hidden;
-	&.active{
+	&.putty{
 		background-color:#656e75;
 	}
 	&:hover{
 		background-color:#656e75;
 	}
+}
+.row-fluid.footer{
+	z-index: 4;
+}
+#profile select{
+	width: 141px;
 }
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
@@ -1223,7 +1231,6 @@ section h1{
 	}
 	.title-block{
 		line-height: 1;	
-		width: 80%;
 	}
 	#question article{
 		margin:0;
@@ -1363,9 +1370,6 @@ section h1{
 	.nav-site,
 	.nav-photo{
 		display: none !important;
-	}
-	.row-fluid.footer{
-		z-index: 4;
 	}
 	.row-fluid.footer footer{
 		padding: 9px 10px 6px;

@@ -102,7 +102,7 @@ $(document).ready(function(){
 
 	var animation = action();
 	var container = $('.container-fluid');
-	$.event.special.swipe.verticalDistanceThreshold = 35;
+	// $.event.special.swipe.verticalDistanceThreshold = 35;
 	// $.event.special.swipe.handleSwipe = function( start, stop ) {
 	// 	var element = $( start.origin[0] );
 
@@ -254,7 +254,6 @@ $(document).ready(function(){
 
 			},
 			mouseleave : function(){
-
 				var li = $(this).find('li');
 
 				TweenMax.staggerTo(li, 0.3, {
@@ -263,7 +262,6 @@ $(document).ready(function(){
 
 			}
 		});
-
 
 	// navigate site click
 	$('.nav-site')
@@ -324,18 +322,19 @@ $(document).ready(function(){
 				li.css({
 					left : 0,
 					width : 100
- 				})
-				// TweenMax.staggerTo(li, 0.3, {
-				// 	'left' : 40,
-				// 	onComplete : function(){
-				// 		li.width(40);
-				// 	}
-				// }, 0.25);
+ 				});
 
 			}
 		})
 
+	$('section').on('tap', function(){
+		if( $('.nav-site li').width() === 247 )
+			$('.nav-site').trigger('mouseleave');
 
+		if( $('.nav-photo li').css('width') === 'auto' )
+			$('.nav-photo').trigger('mouseleave');
+
+	});
 	$('.scrollButton')
 		.find('a')
 		.on({
