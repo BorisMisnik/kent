@@ -1832,20 +1832,17 @@
     }
 
   , next: function () {
-      console.log( this.sliding );
       this.sliding = false;
       if (this.sliding) return
       return this.slide('next')
     }
 
   , prev: function () {
-     console.log( 'sliding prev' );
       if (this.sliding) return
       return this.slide('prev')
     }
 
   , slide: function (type, next) {
-    console.log( 'sliding next' );
       var $active = this.$element.find('.item.active')
         , $next = next || $active[type]()
         , isCycling = this.interval
@@ -1859,7 +1856,6 @@
       isCycling && this.pause()
 
       $next = $next.length ? $next : this.$element.find('.item')[fallback]()
-      console.log(  $next );
       e = $.Event('slide', {
         relatedTarget: $next[0]
       , direction: direction
