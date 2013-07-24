@@ -13,7 +13,8 @@ var config = require( '../config.json' ),
 
 module.exports =
     function( req, res, url, params ) {
-        console.log( 'PIPE:'.green.bold, req.url, req.headers, req.body );
+
+        //console.log( 'PIPE:'.green.bold, req.url, req.headers, req.body, params );
         var args = [].slice.call( arguments ),
             method = ( req.method || '' ).toLowerCase(),
             action = request[ method ],
@@ -22,11 +23,20 @@ module.exports =
         if ( !action )
             throw new Error( 'No `request` action:' + action );
 
+        var j = request.jar();
+        var cakes = String( req.headers.cookie ).split( '; ' );
+        // add each client cookie
+        cakes.forEach( function( cake ) {
+            var cookie = request.cookie( cake );
+            j.add( cookie );
+        });
+
         // pass session and form
         var x = action(
             config.service + ( url || req.url ),
             {
-                headers: params.headers || { cookie: req.headers.cookie },
+                headers: params.headers, // || { cookie: req.headers.cookie },
+                jar: j,
                 form: params.form || req.body
             }).pipe( res );
 
@@ -41,14 +51,46 @@ module.exports =
     };
 
 module.exports.request =
-    function( method, url ) {
-        console.log( 'PIPE REQUEST:'.green.bold, method, url );
+    function( method, url, params, callback ) {
+
+        console.log( 'PIPE REQUEST:'.green.bold, method, config.service + url );
         var args = [].slice.call( arguments, 2 ),
-            action = request[ method ];
+            action = request[ String( method ).toLowerCase() ];
 
         if ( !action )
             throw new Error( 'No `request` action:' + action );
 
-        return action.apply( this,
-            [ config.service + url ].concat( args ));
+        // clear cookies
+        var j = request.jar();
+
+        // add custom cookies
+        if ( params.cookie ) {
+            var cakes = String( params.cookie ).split( '; ' );
+            // add each client cookie
+            cakes.forEach( function( cake ) {
+                var cookie = request.cookie( cake );
+                j.add( cookie );
+            });
+        }
+
+        // make request
+        var x = action.call( this,
+            config.service + url,
+            {
+                jar: j,
+                headers: params.headers,
+                form: params.form
+            },
+            callback );
+
+        // handle errors
+        x.on( 'error', function( err ) {
+            console.log( 'Request error:'.red.bold, err );
+        });
+
+        // return request object
+        return x;
+
+//        return action.apply( this,
+//            [ config.service + url ].concat( args ));
     };

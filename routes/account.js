@@ -24,7 +24,8 @@ exports.login =
 exports.logout =
     function( req, res ) {
         console.log( 'Logout:', req.session );
-        pipe.request( 'get', '/logout', { headers: req.headers },
+        pipe.request( 'GET', '/logout',
+            { cookie: req.headers.cookie },
             function ( error, response, body) {
                 res.redirect( '/' );
             });
@@ -47,7 +48,11 @@ exports.signupPromo =
         // secret used to prevent direct call of promo-signup from unregistered user
         form.secret = config.promo_secret;
 
-        request.post( config.service + '/account/signup/promo', { form: form },
+        pipe.request( 'POST', '/account/signup/promo',
+            {
+                form: form,
+                cookie: req.header.cookie
+            },
             function ( error, response, body ) {
                 console.log( 'res', error, body );
                 var result;

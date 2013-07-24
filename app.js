@@ -21,7 +21,7 @@ var app = express(),
 app.configure( function() {
     app.set( 'port', port );
     app.use( express.favicon() );
-    app.use( express.logger( 'default' ));
+    //app.use( express.logger( 'default' ));
     app.use( express.bodyParser() );
     app.use( express.methodOverride() );
     // routes and static

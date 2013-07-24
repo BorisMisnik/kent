@@ -8,7 +8,8 @@
  */
 
 var config = require( '../config.json' ),
-    request = require( 'request'),
+    //request = require( 'request'),
+    pipe = require( '../libs/pipe' ),
     fs = require( 'fs' );
 
 exports.index = function( req, res, next ) {
@@ -80,12 +81,34 @@ exports.go = function( req, res, next ) {
 
 function isUserLogged( req, callback ) {
     // pass user headers ( cookies and others )
-    request.get(
+    console.log( 'isUserLogged', config.service + '/user', req.headers );
+
+    // pipe with cookies
+
+//    var j = request.jar();
+//    var cakes = String( req.headers.cookie ).split( '; ' );
+//    // add each client cookie
+//    cakes.forEach( function( cake ) {
+//        var cookie = request.cookie( cake );
+//        j.add( cookie );
+//    });
+//
+//    // make request
+//
+//    request(
+//        {
+//            method: 'GET',
+//            url: config.service + '/user',
+//            jar: j
+//        },
+
+    pipe.request(
+        'GET', '/user',
         {
-            url: config.service + '/user',
-            headers: req.headers
+            cookie: req.headers.cookie
         },
         function( err, responce, body ) {
+            console.log( 'isUserLogged result', body );
             // parse body
             var result;
             try { result = JSON.parse( body ); }
