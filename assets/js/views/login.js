@@ -80,13 +80,16 @@ define(
                                 if ( res.success.promo ) {
                                     // window.location.href = '/promo.html';
                                     router.navigate( '#!/promo_register', true );
-                                } else
-                                if ( navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile/) ){
-                                    window.location.href = '/main-mobile.html';
+                                } 
+                                else{
+                                    if ( navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|IEMobile/) ){
+                                        window.location.href = '/main-mobile.html';
+                                    }
+                                    else {
+                                        window.location.href = '/main.html';
+                                    }
                                 }
-                                else {
-                                    window.location.href = '/main.html';
-                                }
+                                   
                                 
                                 //router.navigate( '/main.html' );
                                 //self.log( 'goto: #!/main' );

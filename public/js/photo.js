@@ -21,7 +21,7 @@ $(function(){
                 url = '/photos/',
                 urlDownload = '/download/photo/',
                 sep = ' &nbsp; ';
-
+            // console.log( res )
             // parse and normalize albums
             res.success.forEach( function( album )
             {
@@ -108,14 +108,17 @@ $(function(){
             item.click( function( e ) {
                 e.preventDefault();
                 var index = $( e.target ).attr( 'data-album' );
-                $( e.target ).addClass('putty');
                 $('.nav-photo li').removeClass('putty');
+                $( e.target ).addClass('putty');
+                var title = '<span>00.5 / ФОТОЗВІТ /</span>' + ($('.putty').text()).replace(/\//g,'.');
+                
+                $('.title-block').html(title);
+
                 updateGallery( index );
             })
         });
 
         $('.nav-photo li:first').addClass('putty');
-
     }
 
     /**
@@ -190,7 +193,7 @@ $(function(){
 
 
         function creatNewElements(){
-                console.log( 'creatNewElements function' );
+                // console.log( 'creatNewElements function' );
             var divSmall =  $('<div>',{
                     'class' : 'item'
                 });
@@ -220,12 +223,13 @@ $(function(){
         $('#myCarousel').off('slid').on('slid', function(){  // big carousel
             var active = carouselInner.find('.active');
             var img;
-            if(  active.index() % count === 0 ){
+            if(  active.index() % count === 0 || !active.next().next().length ){
 
                 var itemScroll = active.index() / count;
                 itemScroll === 0 ? 1 : itemScroll;
 
                 $('#smallCarousel').carousel(itemScroll);
+
                 creatNewElements();
             }
 
@@ -281,7 +285,7 @@ $(function(){
 
         //  small carousel
         $('#smallCarousel').off('slid').on('slid', function(){ // small carousel
-            if( !carouselInnerSamll.find('.active').next().length ){
+            if( !carouselInnerSamll.find('.active').next().length){
                 creatNewElements();
             }
 
@@ -290,12 +294,11 @@ $(function(){
         $('#smallCarousel .right').off('click').on('click', function(e){
             var item = $('#smallCarousel').find('.item');
             if( !item.next().length){
-                console.log( 'crate new elements' );
                  creatNewElements();
             }
 
             if( item.length === 0){
-                console.log( 'stop sliding' );
+                // console.log( 'stop sliding' );
                 return false;
             }
         });
@@ -366,42 +369,7 @@ $(function(){
             window.location = $(this).attr('href');
         });
 
-        //  click category patty, refresh carousel
-        $('.nav-photo').on('click vclick', 'li', function(){
-            $this = $(this);
 
-            // var url = '/putty/' + $this.data('name');
-            // $.getJSON(url, carousel);
-
-            // var url = '/putty';
-            // $.getJSON(url, { putty: $this.data('name') }, carousel);
-            // function carousel(data){
-
-            // 	$('#allImg').val(data);
-
-            // 	carouselInner.find('.item').remove();
-            // 	carouselInnerSamll.find('.item').remove();
-            // 	start = 0;
-            // 	json = $.parseJSON( $('#allImg').val() );
-
-            // 	var divSmall =  $('<div>',{
-            // 		'class' : 'item active'
-            // 	});
-            // 	divSmall.appendTo(carouselInnerSamll);
-
-            // 	for(var i = start; i < count; i++){
-            // 		creatItem(json[i], start);
-            // 		start++;
-            // 	}
-            // 	carouselInner.find('.item').eq(0).addClass('active');
-            // 	carouselInnerSamll.find('.item').eq(0).addClass('active');
-
-            // 	$('.putty').removeClass('putty');
-            // 	$this.addClass('putty');
-
-            // }
-
-        });
     }
 
     // (!)
