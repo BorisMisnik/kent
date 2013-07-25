@@ -58,7 +58,7 @@ $(function(){
             // init album titles ( right menu )
             initTitlesMenu( albums );
             // open first album
-            window.currentAlbum = albums.length && 0;
+            window.currentAlbum = albums.length - 1;
             if ( albums.length )
                 updateGallery( currentAlbum );
         });
@@ -111,14 +111,13 @@ $(function(){
                 $('.nav-photo li').removeClass('putty');
                 $( e.target ).addClass('putty');
                 var title = '<span>00.5 / ФОТОЗВІТ /</span>' + ($('.putty').text()).replace(/\//g,'.');
-                
                 $('.title-block').html(title);
 
                 updateGallery( index );
             })
         });
 
-        $('.nav-photo li:first').addClass('putty');
+        $('.nav-photo li:last').addClass('putty');
     }
 
     /**
@@ -369,8 +368,7 @@ $(function(){
             window.location = $(this).attr('href');
         });
 
-
-    }
+    }   
 
     // (!)
     // slide to photo section (for only #photo url hash)

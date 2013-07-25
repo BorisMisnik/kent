@@ -772,7 +772,11 @@ $(document).ready(function(){
 		},	
 
 		scrollStart : function(){
-
+			// photo
+            if( $('#photo').is( '.now' ) ){
+	            var title = '<span>00.5 / ФОТОЗВІТ /</span>' + ($('.putty').text()).replace(/\//g,'.');
+	            $('.title-block').html(title);
+            }
 		},
 
 		scrollEnd : function(){
