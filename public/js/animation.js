@@ -19,6 +19,7 @@ var action = function () {
 	that.newHd = function(){
 		var img = $('#new_hd').find('img');
 
+		img.removeClass('animated shake');
 		img.eq(0).css('left', '-100%');
 		img.eq(1).css('left', '-100%');
 		img.eq(2).css('right', '-100%');
@@ -31,8 +32,13 @@ var action = function () {
 
 		TweenMax.staggerTo( [img.eq(2), img.eq(3)], 1, {
 			right:0,
-			ease:Circ.easeOut
+			ease:Circ.easeOut,
+			onComplete : complete
 		}, 0.3);
+
+		function complete(){
+			img.addClass('animated shake');
+		}
 	}
 
 	that.boxes = function(){
