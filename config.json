@@ -1,8 +1,8 @@
 {
     "host": "0.0.0.0",
     "port": "8081",
-    "__service": "http://localhost:8000",
-    "service": "http://kent.com.ua:8000",
+    "service": "http://localhost:8000",
+    "__service": "http://kent.com.ua:8000",
     "pages": {
         "login": "/",
         "main": "/main.html",
