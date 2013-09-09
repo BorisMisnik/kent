@@ -48,6 +48,12 @@
 	top: 42px;
 	left: 38px;
 }
+.carousel .hd *{
+	display: none;
+}
+.carousel .hd img{
+	display: inline;
+}
 .imageSwitch > div{background-image:url("../img/switchbox.png");}
 #switch2012 .img div{background-image:url("../img/switch2012.png");}
 #hds2012 .img div{background-image:url("../img/hds2012.png");}

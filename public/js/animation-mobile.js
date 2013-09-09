@@ -399,7 +399,7 @@ $(document).ready(function(){
 	var footer = $('.footer');
 	var xv = $('.xv');
 	var w = $(window);
-	var img = $('.block-image img, .carousel img').not('#photo img');
+	var img = $('.block-image img, .carousel img, #new_hd img').not('#photo img');
 	function heightQuestion(){
 
 		question.height( w.height() - ( footer.height() +  xv.height() + 50 ) )
