@@ -543,6 +543,54 @@ section h1 {
   width: 167px;
   background-position: -206px 0px;
 }
+.carousel .hd img{
+    position: absolute;
+    top: -39px;
+    left:0;
+    display: none;
+    z-index: 0;
+}
+.carousel .hd span{
+    position: absolute;
+    top: -23px;
+    left: 15px;
+    width: 2px;
+    height: 44px;
+    background-color: #7D888F;
+    z-index: 0;
+}
+.carousel .hd .circle{
+    position: absolute;
+    top: -53px;
+    left: -1px;
+    border-radius: 50%;
+    height: 23px;
+    width: 23px;
+    border: 6px solid #7D888F;
+
+}
+.carousel .hd .smallCircle{
+    position: absolute;
+    border-radius: 50%;
+    background-color: #7d888f;
+    width:6px;
+    height: 6px;
+    top: -38px;
+    left: 13px;
+}
+.carousel .hd p{
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #7D888F;
+    position: absolute;
+    top: -50px;
+    left: 47px;
+    text-indent: 0;
+    text-align: left;
+    line-height: 1.2;
+    margin: 0;
+    height: auto;
+}
 .carousel .hd + p {
   left: 54px;
   width: 44px;
@@ -1651,4 +1699,22 @@ section h1 {
 }
 .nav-photo.hide {
   display: none !important;
+}
+#new_hd h2{
+  color:#5d6870;
+  font-size: 28px;
+  font-weight: 100;
+  text-transform: uppercase;
+  text-align: center;
+}
+#new_hd .box{
+    width:547px;
+    margin: auto;
+}
+#new_hd .box img{
+    margin-right: 14px;
+    position:relative;
+}
+#new_hd .box .last{
+    margin-right:0;
 }
