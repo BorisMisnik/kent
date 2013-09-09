@@ -1709,7 +1709,10 @@ section h1 {
 }
 #new_hd .box{
     width:547px;
-    margin: auto;
+    margin:49px auto;
+}
+#new_hd h2:first-child{
+    font-size: 39px;
 }
 #new_hd .box img{
     margin-right: 14px;
