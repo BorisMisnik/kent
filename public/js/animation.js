@@ -16,79 +16,15 @@ var action = function () {
 		return that;	
 	};
 
-	that.newHd = function(){
-		var img = $('#new_hd').find('img');
-
-		img.removeClass('animated shake');
-		img.eq(0).css('left', '-100%');
-		img.eq(1).css('left', '-100%');
-		img.eq(2).css('right', '-100%');
-		img.eq(3).css('right', '-100%');
-
-		TweenMax.staggerTo( [img.eq(1), img.eq(0)], 1, {
-			left:0,
-			ease:Circ.easeOut
-		}, 0.3);
-
-		TweenMax.staggerTo( [img.eq(2), img.eq(3)], 1, {
-			right:0,
-			ease:Circ.easeOut,
-			onComplete : complete
-		}, 0.3);
-
-		function complete(){
-			img.addClass('animated shake');
-		}
-	}
-
 	that.boxes = function(){
 		var div = $('.wrapeer');
 		var counter = 0;
-		var line = $('.hd .line');
-		var circle = $('.hd .circle');
-		var smallCircle = $('.hd .smallCircle');
-		var text = $('.hd p');
-
-		line.css('height', 0);
-		circle.css({height:0,width:0,opacity:0});
-		smallCircle.css({height:0,width:0, opacity:0});
-		text.css({opacity:0, left:30});
-
 		div.css({ 'top' : function(){
 			return div.parents('section').height()  + div.height();
 		} })
 		TweenMax.staggerTo( div, 0.6, {
-			top:184.5,
-			onComplete : complete
+			top:184.5
 		}, 0.2);	
-
-		function complete(){
-			counter++;
-			if( counter === 2 ){
-				TweenMax.to(line, .3, {height:44});
-				TweenMax.to(circle, .3, {
-					height:23,
-					width:23,
-					opacity:1,
-					delay : .3,
-					ease:Circ.easeOut
-				});
-				TweenMax.to(smallCircle, .3, {
-					height:6,
-					width:6,
-					opacity:1,
-					delay : .6,
-					ease:Circ.easeOut
-				});
-				TweenMax.to(text, .3, {
-					opacity:1,
-					left:47,
-					delay : .9,
-					ease:Circ.easeOut
-				});
-			}
-		}
-
 	};
 
 	that.siteHdi = function(){
@@ -592,6 +528,24 @@ var action = function () {
 		}, 0.25);
 	};
 
+	that.hd2013 = function(){
+		var $divs = $('.img div');
+		var $text = $('.info *');
+		var $height = $(window).height() / 2;
+		var $width = $(window).width() / 2;
+		$divs.css('top', -$height - 100);
+		$text.css('right', -$width - 100)
+
+		TweenMax.staggerTo( $divs, 0.7, {
+			top : 0,
+			ease:Circ.easeOut
+		}, 0.25);		
+		TweenMax.staggerTo( $text, 0.7, {
+			right : 0,
+			ease:Circ.easeOut
+		}, 0.25);
+	}
+
 	that.historyAll = function(){
 
 		var box = 
@@ -665,9 +619,6 @@ var action = function () {
 			case 'first' :
 				// console.log('Start first animation');
 				break;
-			case 'new_hd' :
-				this.newHd();
-				break;
 			case 'second' :
 				this.boxes();
 				break;
@@ -731,6 +682,9 @@ var action = function () {
 			case 'tweentyThree' :
 				this.historyAll();
 				break;
+			case 'tweentyFour' :
+				this.hd2013();
+				break;
 		}
 
 	};
@@ -749,11 +703,14 @@ var action = function () {
 			case 'question' :
 				$('.title-block').html('<span>00.3 /</span> Запитання та відповіді');
 				break;
+			case 'feedback' :
+				$('.title-block').html('<span>00.4 /</span> Ваш відгук про Kent HD');
+				break;
 			case 'profile' : 
-				$('.title-block').html('<span>00.4 /</span> Профайл');
+				$('.title-block').html('<span>00.5 /</span> Профайл');
 				break;
 			case 'photo' :
-				$('.title-block').html('<span>00.5 /</span> ФОТОЗВІТ / TURBO PARTY Зелений театр 05.07.2013');
+				$('.title-block').html('<span>00.6 /</span> ФОТОЗВІТ / TURBO PARTY Зелений театр 05.07.2013');
 				break;
 			default :
 				$('.title-block').html('');
@@ -925,15 +882,6 @@ $(document).ready(function(){
 					left : 0,
 					width: 100
 				});
-
-				// show li
-				// var left = maxWidth;
-				// TweenMax.staggerTo(liPhoto,0.3,{
-				// 	left:100,
-				// 	onComplete: function(){
-				// 		liPhoto.width(100)
-				// 	}
-				// },0.25);
 			}
 			else{
 				var liPhoto = $('.nav-photo li');
@@ -945,7 +893,11 @@ $(document).ready(function(){
 					}
 				},0.25);
 			}
-
+			// feedback button
+			if( $('section.now').attr('id') === 'site-hd' )
+				$('.container-feedback').addClass('active');
+			else
+				$('.container-feedback').removeClass('active');
 
 		}
 
@@ -979,8 +931,12 @@ $(document).ready(function(){
 
 	}; 
 
-	//  navigate site hover
+	// feeback click
+	$('.container-feedback').on('click', function(e){
+		$('a[data-slide="feedback"]').parent().click();
+	});
 
+	//  navigate site hover
 	$('.nav-site')
 		.on({
 			mousemove : function(e){

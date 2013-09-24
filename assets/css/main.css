@@ -1,17 +1,17 @@
 html,
 body {
+  overflow: hidden;
   width: 100%;
   height: 100%;
-  overflow: hidden;
 }
 body {
+  position: relative;
+  overflow: hidden;
   background: url("../img/background.png") no-repeat center center #dfdfdf;
   background-attachment: fixed;
   font-weight: 100;
   font-size: 12px;
   font-family: Verdana, Geneva, sans-serif;
-  position: relative;
-  overflow: hidden;
 }
 body > div {
   width: 100%;
@@ -22,8 +22,8 @@ input,
 button,
 select,
 textarea {
-  font-size: 12px;
   border: 1px solid transparent;
+  font-size: 12px;
 }
 label {
   color: #656e75;
@@ -44,9 +44,9 @@ a:hover {
 .container-fluid {
   position: relative;
   padding: 0;
+  min-height: 600px;
   width: 100%;
   height: 100%;
-  min-height: 600px;
 }
 .row-fluid {
   height: 77%;
@@ -98,8 +98,8 @@ a:hover {
 .row-fluid.footer {
   position: absolute;
   bottom: 15%;
-  height: auto;
   z-index: 3;
+  height: auto;
 }
 .row-fluid.footer p {
   margin-bottom: 10px;
@@ -112,13 +112,13 @@ a:hover {
 .row-fluid.xv {
   position: absolute;
   bottom: 0;
+  z-index: 100;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding: 0;
   height: 15%;
   background-color: white;
-  z-index: 100;
 }
 .row-fluid.xv .span12 {
   min-height: 100%;
@@ -168,6 +168,8 @@ a:hover {
   height: 100%;
 }
 .wrapper-form {
+  position: relative;
+  z-index: 4;
   display: inline-block;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -176,8 +178,6 @@ a:hover {
   background-color: white;
   box-shadow: 0 0 10px #6C6C6C;
   box-shadow: 0 0 10px rgba(108, 108, 108, 0.5);
-  position: relative;
-  z-index: 4;
 }
 form .text,
 form .pass,
@@ -206,22 +206,22 @@ form .pass,
 form .text:focus,
 form .pass:focus,
 .input-append .text:focus {
-  box-shadow: none;
-  background-color: #fff;
   border-color: #e0e0e0;
+  background-color: #fff;
+  box-shadow: none;
 }
 .save form .pass,
 .save form .text,
 .save .input-append .text,
 .save input {
-  background-color: #fff;
   border-color: #e0e0e0;
+  background-color: #fff;
 }
 .save .dateBirthday .ik_select_link,
 .save .smoke .ik_select_link {
-  background-color: #fff;
-  border: 1px solid #e0e0e0;
   height: 26px;
+  border: 1px solid #e0e0e0;
+  background-color: #fff;
   -webkit-transition: background-color 500ms ease-in-out;
   -moz-transition: background-color 500ms ease-in-out;
   transition: background-color 500ms ease-in-out;
@@ -303,15 +303,15 @@ textarea {
   background-color: #e0e0e0;
   box-shadow: none;
   color: #7d888f;
+  font-weight: 100;
   font-size: 14px;
   font-family: Verdana, Geneva;
-  font-weight: 100;
   resize: none;
   transition: background-color 500ms ease-in-out;
 }
 textarea:focus {
-  background-color: #fff;
   border-color: #e0e0e0;
+  background-color: #fff;
   box-shadow: none;
 }
 .dateBirthday,
@@ -383,19 +383,19 @@ textarea:focus {
   display: inline-block;
   width: 86px;
   height: 28px;
+  border: 0;
   background-color: #E0E0E0;
   text-align: left;
   font-size: 12px;
   font-family: Verdana, Geneva, sans-serif;
-  border: 0;
 }
 .dateBirthday .ik_select_link_text {
   padding-top: 7px;
   color: #7D888F;
 }
 .ik_select_block {
-  height: auto;
   margin-top: 13px;
+  height: auto;
 }
 .ik_select_list li {
   left: -3px;
@@ -408,18 +408,18 @@ canvas {
   top: -90px;
 }
 #filter .title {
-  font-size: 30px;
   color: #6B747A;
+  font-size: 30px;
 }
 .aboute-filter {
-  width: 800px;
   margin: auto;
+  width: 800px;
   text-align: left;
 }
 .aboute-filter > div {
-  width: 244px;
-  margin-top: 40px;
   display: inline-block;
+  margin-top: 40px;
+  width: 244px;
 }
 .aboute-filter > div + div {
   margin-left: 50px;
@@ -430,14 +430,14 @@ canvas {
   margin-left: 0;
 }
 .aboute-filter h4 {
-  font: 24px Verdana;
   color: #6B747A;
   text-align: center;
+  font: 24px Verdana;
 }
 .aboute-filter p {
-  font: 16px Verdana;
   color: #6B747A;
   text-align: center;
+  font: 16px Verdana;
 }
 @media (max-width: 767px) {
   body {
@@ -462,8 +462,8 @@ canvas {
   button:focus,
   select:focus,
   textarea:focus {
-    box-shadow: none !important;
     border-color: #e0e0e0 !important;
+    box-shadow: none !important;
     color: #7d888f !important;
   }
   .error {
@@ -473,8 +473,8 @@ canvas {
     padding: 0 29px;
   }
   .container-fluid .row-fluid h1 {
-    font-size: 23px;
     margin: 15px 0;
+    font-size: 23px;
   }
   form .text,
   form .pass,
@@ -496,14 +496,14 @@ canvas {
     height: auto;
   }
   .footerNav {
-    width: 407px;
     float: left;
+    width: 407px;
     text-align: left;
   }
   .footerNav a {
-    font-size: 9px;
-    padding: 0;
     margin-right: 5px;
+    padding: 0;
+    font-size: 9px;
   }
   .footerNav a:last-child {
     margin-right: 0;
@@ -512,21 +512,21 @@ canvas {
     padding: 0;
   }
   .infoLine {
-    font-size: 9px;
     width: 100%;
+    font-size: 9px;
   }
 }
 /* Landscape phones and down */
 @media (max-width: 480px) {
   .footerNav {
-    width: auto !important;
     float: left;
+    width: auto !important;
     text-align: left;
   }
   .footerNav a {
-    font-size: 9px !important;
-    padding: 0;
     margin-right: 5px;
+    padding: 0;
+    font-size: 9px !important;
   }
   .footerNav a:last-child {
     margin-right: 0;
@@ -535,7 +535,7 @@ canvas {
     padding: 0;
   }
   .infoLine {
-    font-size: 9px !important;
     width: auto !important;
+    font-size: 9px !important;
   }
 }

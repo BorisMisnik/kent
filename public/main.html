@@ -14,6 +14,7 @@
 	<link rel="shortcut icon" href="img/fav.png" type="image/png">
 	
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://code.createjs.com/createjs-2013.05.14.min.js"></script>
 	<script src="js/TweenMax.min.js"></script>
 	<script src="js/less-1.3.3.min.js"></script>
 	<script src="js/jScrollPane.js"></script>
@@ -43,8 +44,9 @@
 		<li class="active"><a href="#" data-slide="sigarets">00.1</a><span>Сигарети КЕНТ</span></li>
 		<li><a href="#" data-slide="history">00.2</a><span>Історія КЕНТ </span></li>
 		<li><a href="#" data-slide="question">00.3</a><span>Запитання-відповіді</span></li>
-		<li><a href="#" data-slide="profile">00.4</a><span>Профайл</span></li>
-		<li><a href="#" data-slide="photo">00.5</a><span>Фотозвіти</span></li>
+		<li><a href="#" data-slide="feedback">00.4</a><span>Ваш відгук про Kent HD</span></li>
+		<li><a href="#" data-slide="profile">00.5</a><span>Профайл</span></li>
+		<li><a href="#" data-slide="photo">00.6</a><span>Фотозвіти</span></li>
 	</ul>
 
 	<div class="scrollButton">
@@ -59,24 +61,22 @@
 		<li name="hd">HD</li>
 		<li name="hds">HDS</li>
 	</ul>
-	
+		
 	<!-- photo nav -->
 	<!-- add class hide -->
 	<ul class="nav-photo unstyled" id="albumTitles">
-        <!--<li name="putty1" class="putty">05.07.13 TURBO PARTY ЗЕЛЕНИЙ ТЕАТР </li>
-        <li name="putty3">05.07.13 putty3 putty3 putty3</li>
-        <li name="putty4">05.07.13 PUTTY4putty3</li>
-        <li name="putty5"> 05.07.13 PUTTY5 PUTTY5 PUTTY5PUTTY5</li>
-        <li name="putty6"> 05.07.13 PUTTY6PUTTY6PUTTY6 PUTTY6</li>-->
 	</ul>
-
+	<!-- feedback -->
+	<div class="container-feedback">
+		<img src="img/fedback-logo.png">
+		<p>Ваша думка про КЕНТ HD</p>
+	</div>
 	<a href="#" class="allHistory">ІСТОРІЯ</a>
 
 	<h2 class="title-block"> </h2>
 
 	<div id="svg"></div>
 	<div class="container-fluid">
-
 		<!-- Hello -->
 		<section id="main" class="now" data-animation="first">
 			<article>
@@ -89,17 +89,12 @@
 				</div>
 			</article>
 		</section>
-		<!-- new hd -->
-		<section id="new_hd" data-animation="new_hd">
+		<!-- Зустрічай оновлення Kent HD -->
+		<section id="newHD">
 			<article>
 				<div>
-					<h2>Очікуй оновленя KENT HD</h2>
-					<div class="box">
-						<img src="img/new_hd_one.png" alt="">
-						<img src="img/new_hd_2.png" alt="">
-						<img src="img/new_hd_3.png" alt="">
-						<img src="img/new_hd_4.png" alt="" class="last">
-					</div>
+					<canvas id="canvasHD" width="1000" height="600"></canvas>
+					<h3 class="preloader"></h3>
 				</div>
 			</article>
 		</section>
@@ -113,19 +108,12 @@
 							</div>
 							<p>nanotek</p>
 						</div>
-						<div class="wrapeer" data-name="hd">
-							<div class="hd" id="first">
-								<img src="img/new_hd_text_ie8.png" class="ie8_text_new_hd">
-								<span class="line"></span>
-								<div class="circle"></div>
-								<div class="smallCircle"></div>
-								<p>Очікуй <br> оновлення</p>
-							</div>
-							<p>nanotek</p>
-						</div>
 						<div class="wrapeer" data-name="hdi">
+							<div class="hd" id="first">
+							</div>
+						</div>
+						<div class="wrapeer" data-name="hd">
 							<div class="hdi" id="second"></div>
-							<p>nanotek</p>
 						</div>
 						<div class="wrapeer" data-name="switch">
 							<div class="switch" id="third"></div>
@@ -135,6 +123,26 @@
 							<div class="hds" id="fourth"></div>
 							<p>nanotek</p>
 						</div>
+					</div>
+				</div>
+			</article>
+		</section>
+		<!-- siteHD -->
+		<section id="site-hd" data-animation="fiveth" data-name="hd" data-slide="sigarets">
+			<article>
+				<div>
+					<div class="boxesHD">
+						<div class="wrapper-box">
+							<div name="one"></div>
+							<div name="two"></div>
+							<div name="three"></div>
+							<div name="four"></div>
+						</div>
+						<h3 class="hdTitle">Kent HD із новим унікальним трисекційним фільтром у чотирьох варіантах із новою назвою. </h3>
+						<p>FUTURA стає NAVY BLUE (смол – 8МГ, нікотину 0,7)</p>
+						<p>SPECTRA стає BLUE (смол – 6мг, нікотину 0,5МГ)</p>
+						<p>NEO стає SILVER (смол – 4мг, нікотину 0,3МГ)</p>
+						<p>INFINA стає WHITE (смол – 1мг, нікотину 0,1МГ)</p>
 					</div>
 				</div>
 			</article>
@@ -284,25 +292,6 @@
 				</div>
 			</article>
 		</section>
-		<!-- siteHD -->
-		<section id="site-hd" data-animation="fiveth" data-name="hd" data-slide="sigarets">
-			<article>
-				<div>
-					<div class="boxesHD">
-						<div class="wrapper-box">
-							<div name="one"></div>
-							<div name="two"></div>
-							<div name="three"></div>
-							<div name="four"></div>
-						</div>
-						<h3 class="hdTitle">KENT HD – це сигарети у форматі King Size. </h3>
-						<p>Вони мають систему фільтрації, яка містить 2 вугільні мембрани та потрійний фільтр. 
-							Усе це робить смак KENT HD чітким та виразним. </p>
-						<p class="description">Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину): </p>
-					</div>
-				</div>
-			</article>
-		</section>
 		<!-- sitehds -->
 		<section  id="site-hds" data-animation="eighth" data-name="hds" data-slide="sigarets">
 			<article>
@@ -384,7 +373,7 @@
 								<td><div class="box ten" data-scroll="hd2010"></div></td>
 								<td><div class="box eleven none"></div></td>
 								<td><div class="box twelve" data-scroll="hd2012"></div></td>
-								<td><div class="box thirteen none"></div></td>
+								<td><div class="box thirteen" data-scroll="hd2013"></div></td>
 							</tr>
 							<tr class="boxes hds">
 								<td><div name="kentHDS"></div></td>
@@ -427,6 +416,28 @@
 								<td><div class="box thirteen" data-scroll="hdi2013"></div></td>
 							</tr>
 						</table>
+					</div>
+				</div>
+			</article>
+		</section>
+		<section id="hd2013" data-animation="tweentyFour" data-slide="history" data-history="hd">
+			<article>
+				<div>
+					<div class="wrapperElements">
+						<div class="img">
+							<div name="one"></div>
+							<div name="two"></div>
+							<div name="three"></div>
+							<div name="four"></div>
+						</div>
+						<div class="info">
+							<h3>2013</h3>
+							<p>
+								KENT HD завжди на крок попереду у технологіях передачі смаку. <br/>
+								Оновлений КЕНТ HD – це ще більше задоволення від улюбленого смаку та зручного користування пачкою. Відтепер KENT HD випускається з унікальним турбо-фільтром.  Він миттєво передає всю повноту улюбленого смаку KENT від першої до останньої затяжки і захищає фільтр сигарети від деформації під час куріння. Оновлений дизайн пачки з технологією «легкого відкривання» дозволяє зручно та швидко відкривати пачку рухом навіть одного пальця.
+							</p>
+							<p class="description">Чотири варіанти смаку залишилися незмінними, але отримали нові назви: NAVY BLUE (смол – 8 МГ, нікотину – 0,7 МГ), BLUE (смол – 6 МГ, нікотину – 0,5 МГ), SILVER (смол – 4 МГ, нікотину – 0,3 МГ), WHITE (смол – 1 МГ, нікотину – 0,1 МГ).</p>
+						</div>
 					</div>
 				</div>
 			</article>
@@ -915,6 +926,191 @@
 				</div>
 			</article>
 		</section>
+		<!-- question -->
+		<section id="feedback" data-slide="feedback">
+			<article class="">
+				<div>
+					<div class="profile-wrapper">
+						<div class="profile">
+							<form>
+								<div class="group">
+									<label>Які сигарети ви завжди курите? </label>
+									<div class="block">
+										<div class="group-block">
+											<span class="status" style="visibility:hidden"></span>
+											<input type="text" name="Які сигарети ви завжди курите? (інше)" placeholder="Які сигарети ви завжди курите?" class="text">
+										</div>
+									</div>
+								</div>
+								<div class="group">
+									<label>Ви вже пробували новий Kent HD?</label>
+									<div class="block">
+										<div class="group-block">
+											<span class="status"></span>
+											<select name="Ви вже пробували новий Kent HD?" data-width="278px">
+												<option value="Ні">Ні</option>
+												<option value="Ні, але хочу">Ні, але хочу</option>
+												<option value="Так">Так</option>
+												<option value="Не хочу">Не хочу</option>
+											</select>
+										</div>
+										<div class="group-block">
+											<span class="status"></span>
+											<input type="text" name="Ви вже пробували новий Kent HD? (інше)" placeholder="Інше" class="text">
+										</div>
+									</div>
+								</div>
+								<div class="group extra">
+									<label>Що вам найбільше сподобалося в оновленому Kent HD? </label>
+									<div class="block">
+										<div class="group-block">
+											<span class="status"></span>
+											<select name="Що вам найбільше сподобалося в оновленому Kent HD?" data-width="278px">
+												<option value="Фільтр">Фільтр</option>
+												<option value="Дизайн пачки">Дизайн пачки</option>
+												<option value="Дизайн сигарети">Дизайн сигарети</option>
+												<option value="Нічого">Нічого</option>
+											</select>
+										</div>
+										<div class="group-block">
+											<span class="status"></span>
+											<input type="text" name="Що вам найбільше сподобалося в оновленому Kent HD? (інше)" placeholder="Інше" class="text">
+										</div>
+									</div>
+								</div>
+								<div class="group extra">
+									<label>Як ви оцінюєте новий турбо - фільтр?</label>
+									<div class="block">
+										<div class="group-block">
+											<span class="status"></span>
+											<select name="Як ви оцінюєте новий фільтр?" data-width="278px">
+												<option value="Дуже подобається">Дуже подобається</option>
+												<option value="Подобається">Подобається</option>
+												<option value="Не дуже подобається">Не дуже подобається</option>
+												<option value="Старий був краще">Старий був краще</option>
+											</select>
+										</div>
+										<div class="group-block extra">
+											<span class="status"></span>
+											<input type="text" name="Як ви оцінюєте новий турбо - фільтр?" placeholder="Інше" class="text">
+										</div>
+									</div>
+								</div>
+								<div class="group extra">
+									<label>На вашу думку, у чому перевага турбо-фільтра?</label>
+									<div class="block">
+										<div class="group-block">
+											<span class="status"></span>
+											<select name="На вашу думку, у чому перевага турбо-фільтра?" data-width="278px">
+												<option value="Миттєво передає більш насичений та рівномірний смак">Миттєво передає більш насичений та рівномірний смак</option>
+												<option value="Фільтр не деформується під час куріння">Фільтр не деформується під час куріння</option>
+												<option value="Подовжує час куріння">Подовжує час куріння</option>
+												<option value="Ні в чому">Ні в чому</option>
+											</select>
+										</div>
+										<div class="group-block">
+											<span class="status"></span>
+											<input type="text" name="На вашу думку, у чому перевага турбо-фільтра? (інше)" placeholder="Інше" class="text">
+										</div>
+									</div>
+								</div>
+								<div class="group extra">
+									<label>Як ви оцінюєте новий дизайн пачки?</label>
+									<div class="block">
+										<div class="group-block">
+											<span class="status"></span>
+											<select name="Як ви оцінюєте новий дизайн пачки?" data-width="278px">
+												<option value="Дуже зручний та інноваційний">Дуже зручний та інноваційний</option>
+												<option value="Зручний, сучасний">Зручний, сучасний</option>
+												<option value="Незручний/непривабливий">Незручний/непривабливий</option>
+												<option value="Старий дизайн був краще">Старий дизайн був краще</option>
+											</select>
+										</div>
+										<div class="group-block">
+											<span class="status"></span>
+											<input type="text" name="Як ви оцінюєте новий дизайн пачки? (інше)" placeholder="Інше" class="text">
+										</div>
+									</div>
+								</div>
+								<div class="group extra">
+									<label>Ваша думка</label>
+									<div class="block">
+										<div class="group-block">
+											<span class="status" style="visibility:hidden"></span>
+											<textarea name="Ваша думка" placeholder="Ваша думка"></textarea>
+										</div>
+									</div>
+								</div>
+							</form>
+							<button class="send" disabled>Надіслати</button>
+							<script>
+								var $send = $('.send');
+								var $form = $('#feedback form');
+								var $extra = $('.extra');
+								if(	$send.prop('disabled') )
+									$send.css('opacity', .5);
+
+								$('#feedback form').mCustomScrollbar({
+									advanced:{
+										updateOnContentResize: true,
+										autoScrollOnFocus: false
+									},
+									mouseWheel : true
+								});
+
+								$('.group label').on('click', function(){
+									var $this = $(this);
+									$this.toggleClass('open');
+									$this.siblings('.block').slideToggle();
+									$this.parent().toggleClass('padding');
+								});
+
+								$('.group-block').on('click', function(){
+									var $this = $(this);
+									var $parent = $(this).parent();
+
+									$parent.find('.status').removeClass('check');
+									$this.children('.status').addClass('check');
+								});
+								
+
+								$form.on('change', function(){
+									var form = $form.serializeArray();
+									// get values Які сигарети ви завжди курите?
+									if( (!form[0].value.length || form[1].value === 'Ні') && 
+										(!form[2].value.length || !form[0].value.length ) ){
+										hideForm();
+										$('#feedback .mCSB_container').css('min-height', 0);
+									}
+									else{
+										$('#feedback .mCSB_container').css('min-height', 540);
+										showForm();
+									}
+								})
+
+								function hideForm(){
+									$extra.hide();
+									$send
+										.attr('disabled', true)
+										.css('opacity',.5)
+										.removeClass('ok')
+								};
+
+								function showForm(){
+									$form.css('min-height', '300px');
+									$extra.show();
+									$send
+										.removeAttr('disabled')
+										.css('opacity',1)
+										.addClass('ok')
+								}
+
+							</script>
+						</div>
+					</div>
+				</div>
+			</article>
+		</section>
 		<!-- profile -->
 		<section id="profile" data-slide="profile">
 			<article class="profile-article">
@@ -1293,7 +1489,8 @@
         }
 	</script>
 	<script src="/js/libs/cigarettes_manage.js"></script>
-	<script src="js/packs.min.js"></script>
+	<!-- // <script src="js/packs.min.js"></script> -->
+	<script src="js/canvasHD.js"></script>
 	<script type="text/javascript">
 
 	  var _gaq = _gaq || [];
