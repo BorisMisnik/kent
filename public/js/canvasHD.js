@@ -232,9 +232,9 @@
 				var text_one_bottom = 
 					new createjs.Text("Забезпечує м'який смак".toUpperCase(),"12px Verdana","#6B747A");
 
-				text_one.x = 120;
+				text_one.x = 225;
    				text_one.y = 600/2 + 20;
-   				text_one_bottom.x = 117;
+   				text_one_bottom.x = 222;
    				text_one_bottom.y = 600/2 + 50;
 
    				this.stage.addChild(text_one);
@@ -257,9 +257,9 @@
 				var text_one_bottom = 
 					new createjs.Text("Робить смак рівномірним".toUpperCase(),"12px Verdana","#6B747A");
 
-				text_one.x = 410;
+				text_one.x = 415;
    				text_one.y = 600/2 + 20;
-   				text_one_bottom.x = 408;
+   				text_one_bottom.x = 413;
    				text_one_bottom.y = 600/2 + 50;
 
    				this.stage.addChild(text_one);
@@ -281,9 +281,9 @@
 				var text_one_bottom = 
 					new createjs.Text("Миттєва передача смаку".toUpperCase(),"12px Verdana","#6B747A");
 
-				text_one.x = 735;
+				text_one.x = 633;
    				text_one.y = 600/2 + 20;
-   				text_one_bottom.x = 715;
+   				text_one_bottom.x = 613;
    				text_one_bottom.y = 600/2 + 50;
 
    				this.stage.addChild(text_one);
