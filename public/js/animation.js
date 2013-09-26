@@ -576,7 +576,7 @@ var action = function () {
 	};
 	
 	that.scrollBotom = function(){
-		
+		if( window.stopScroll && $('#newHD').hasClass('now') ) return;
 		if( $('#photo').is('.now') || container.is(':animated') ) return;
 
 		var yScrol = container.scrollTop() + container.height();
@@ -767,7 +767,6 @@ $(document).ready(function(){
 	var t,l = new Date().getTime();
 	container.on({
 		mousewheel : function(event, delta){
-				
 			if(delta > 0){
 	    		animation.scrolTop();
 		    }

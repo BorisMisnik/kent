@@ -106,3 +106,25 @@ canvas{
 	position: relative;
 	top: 0;
 }
+#newHD .preloader{
+	display: none !important;
+}
+#canvasHD{
+	width:1000px;
+	margin: auto;
+	display: block;
+	text-align: center;
+}
+#canvasHD h3{
+	font-size: 34px;
+	font-family: Verdana;
+	color:#6B747A;
+	text-align: center;
+	width
+	text-transform: uppercase;
+}
+#canvasHD img{
+	max-width: 800px;
+	position: relative;
+	top:-35px;
+}
