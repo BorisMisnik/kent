@@ -125,7 +125,7 @@
 		},
 		crateImages : function(){
 			var _this = this;
-			var scale=.85;
+			var scale=.6;
 			var ss = new createjs.SpriteSheet({ // crate Sprite Sheet
 				images : _this.manifest,
 				frames : _this.frames,
@@ -160,10 +160,10 @@
 		crateTitle : function(){
 			var topText = this.topText = new createjs.Text("Зустрічай оновлення КЕНТ HD".toUpperCase(), "32px Verdana", "#5d6870");
 			topText.x = 1000/2 - topText.getMeasuredWidth()/2;
-			topText.y = 10;
+			topText.y = 45;
 			var bottomText = this.bottomText = new createjs.Text("".toUpperCase(), "32px Verdana", "#5d6870");
 			bottomText.x = 1000/2 - bottomText.getMeasuredWidth()/2;
-			bottomText.y = 600 - 90;
+			bottomText.y = 600 - 160;
 			this.stage.addChild(bottomText); // add text to stage
 			this.stage.addChild(topText); // add text to stage
 		},
@@ -178,7 +178,7 @@
 			var arrow = this.arrow = new createjs.Bitmap("img/arrow-hd.png");
 			var x = 486;
 			arrow.x = 486;
-			arrow.y = 180;
+			arrow.y = 200;
 			arrow.scaleX = .9;
 			arrow.scaleY = .9;
 			arrow.cursor = 'pointer';
@@ -228,14 +228,14 @@
 			this.showAllHd();
 			this.showTextFilterOne = function(){
 				var text_one =
-					new createjs.Text("Вугільний фільтр".toUpperCase(),"22px Verdana","#6B747A");
+					new createjs.Text("Вугільний фільтр".toUpperCase(),"16px Verdana","#6B747A");
 				var text_one_bottom = 
-					new createjs.Text("Забезпечує м'який смак".toUpperCase(),"14px Verdana","#6B747A");
+					new createjs.Text("Забезпечує м'який смак".toUpperCase(),"12px Verdana","#6B747A");
 
 				text_one.x = 120;
-   				text_one.y = 600/2 + 50;
-   				text_one_bottom.x = 130;
-   				text_one_bottom.y = 600/2 + 80;
+   				text_one.y = 600/2 + 20;
+   				text_one_bottom.x = 117;
+   				text_one_bottom.y = 600/2 + 50;
 
    				this.stage.addChild(text_one);
    				this.stage.addChild(text_one_bottom);
@@ -253,14 +253,14 @@
 			this.showAllHd();
 			this.showTextFilterTwo = function(){
 				var text_one =
-					new createjs.Text("Надтонке волокно".toUpperCase(),"22px Verdana","#6B747A");
+					new createjs.Text("Надтонке волокно".toUpperCase(),"16px Verdana","#6B747A");
 				var text_one_bottom = 
-					new createjs.Text("Робить смак рівномірним".toUpperCase(),"14px Verdana","#6B747A");
+					new createjs.Text("Робить смак рівномірним".toUpperCase(),"12px Verdana","#6B747A");
 
-				text_one.x = 380;
-   				text_one.y = 600/2 + 50;
-   				text_one_bottom.x = 395;
-   				text_one_bottom.y = 600/2 + 80;
+				text_one.x = 410;
+   				text_one.y = 600/2 + 20;
+   				text_one_bottom.x = 408;
+   				text_one_bottom.y = 600/2 + 50;
 
    				this.stage.addChild(text_one);
    				this.stage.addChild(text_one_bottom);
@@ -277,14 +277,14 @@
 			this.showAllHd();
 			this.showTextFilterThree = function(){
 				var text_one =
-					new createjs.Text("Турбо-фільтр".toUpperCase(),"22px Verdana","#6B747A");
+					new createjs.Text("Турбо-фільтр".toUpperCase(),"16px Verdana","#6B747A");
 				var text_one_bottom = 
-					new createjs.Text("Миттєва передача смаку".toUpperCase(),"14px Verdana","#6B747A");
+					new createjs.Text("Миттєва передача смаку".toUpperCase(),"12px Verdana","#6B747A");
 
-				text_one.x = 690;
-   				text_one.y = 600/2 + 50;
-   				text_one_bottom.x = 675;
-   				text_one_bottom.y = 600/2 + 80;
+				text_one.x = 735;
+   				text_one.y = 600/2 + 20;
+   				text_one_bottom.x = 715;
+   				text_one_bottom.y = 600/2 + 50;
 
    				this.stage.addChild(text_one);
    				this.stage.addChild(text_one_bottom);
