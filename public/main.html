@@ -1068,9 +1068,12 @@
 										else
 											showForm();
 
+										$send
+											.removeAttr('disabled')
+											.css('opacity',1);
+
 									});
 									$form.on('change',function(){
-										console.log('o');
 										$send
 											.removeAttr('disabled')
 											.css('opacity',1);
@@ -1078,7 +1081,7 @@
 
 									$('#selectHD').on('change', function(){
 										var val = $(this).val();
-										if( val.toLowerCase().search('ні') >= 0 || val.toLowerCase().search('Не хочу') >= 0 )
+										if( val.toLowerCase().search('ні') >= 0 || val.toLowerCase().search('не хочу') >= 0 )
 											hideForm();
 										else
 											showForm();
