@@ -1024,7 +1024,8 @@
 										$form = $('#feedback').find('form'),
 										$mCSB = $('#feedback .mCSB_container'),
 										formValues = {},
-										markerSend = false;
+										markerSend = false,
+										marker = true;
 
 									if(	$send.prop('disabled') )
 										$send.css('opacity', .5);
@@ -1065,7 +1066,7 @@
 									});
 
 									$send.on('click', function(){
-										if( !markerSend ) return;
+										if( !markerSend || !marker) return;
 
 										$('.status.check').each(function(){
 											var $this = $(this);
@@ -1084,7 +1085,9 @@
 										$.post('/think', formValues)
 											.done(function(respond){
 												if( respond === 'ok' )
-													$send.text('Ваше повідомлення надісланно');	
+													$send.text('Ваше повідомлення надісланно');
+
+												marker = false;
 											})
 											.fail(function(){
 												$send.text('Виникла помилка');	
