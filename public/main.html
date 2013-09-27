@@ -95,7 +95,7 @@
 			<article>
 				<div>
 					<div class="arrow-wrapper">
-						<div class="arrow-start"></div>
+						<div class="arrow-start canvasArrow"></div>
 					</div>
 					<canvas id="canvasHD" width="1000" height="600">
 						<h3>Зустрічай оновлення KENT HD</h3>
@@ -1034,9 +1034,6 @@
 										formValues = {},
 										markerSend = false,
 										marker = true;
-
-									if(	$send.prop('disabled') )
-										$send.css('opacity', .5);
 									
 									$('#feedback form').mCustomScrollbar({
 										advanced:{
@@ -1045,6 +1042,8 @@
 										},
 										mouseWheel : true
 									});
+
+									$send.css('opacity',.5);
 
 									$('.group label').on('click', function(){
 										var $this = $(this);
@@ -1070,7 +1069,12 @@
 											showForm();
 
 									});
-									
+									$form.on('change',function(){
+										console.log('o');
+										$send
+											.removeAttr('disabled')
+											.css('opacity',1);
+									})
 
 									$('#selectHD').on('change', function(){
 										var val = $(this).val();
@@ -1085,7 +1089,6 @@
 										var $parent = $this.parent().next();
 										var $allparent = $(this).parents('.block')
 										var val = $this.val();
-										console.log( val );
 										if( val === 'Інше' ){
 											$parent.show();
 											$parent.find('input').focus();
@@ -1099,8 +1102,7 @@
 									})
 
 									$send.on('click', function(){
-										if( !markerSend || !marker) return;
-
+										if( !marker ) return;
 										$('.status.check').each(function(){
 											var $this = $(this);
 											formValues[$this.next().attr('name')] = $this.next().val();
@@ -1133,11 +1135,7 @@
 										$extra.addClass('extra').removeClass('padding');
 										$extra.find('.block').hide();
 										$extra.find('label').removeClass('open');
-										$extra.find('.status').removeClass('check');
-
-										$send
-											.attr('disabled', true)
-											.css('opacity',.5)
+										$extra.find('.status').removeClass('check')
 
 										$mCSB.css('min-height', 0);
 									};
@@ -1146,9 +1144,6 @@
 										markerSend = true;
 										$extra.removeClass('extra');
 										$form.css('min-height', '300px');
-										$send
-											.removeAttr('disabled')
-											.css('opacity',1);
 
 										$mCSB.css('min-height', 540);
 									}

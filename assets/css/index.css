@@ -1878,6 +1878,7 @@ section h1 {
   width: 100%;
   background-position: 87% center;
   /*position: absolute;*/
+  cursor: default !important;
 }
 #newHD .arrow-wrapper{
   position: absolute;
@@ -1886,4 +1887,7 @@ section h1 {
   top:50%;
   margin-top: -97.5px;
   display: none;
+}
+#newHD .arrow-start .arrow-start{
+  cursor: default;
 }

@@ -91,29 +91,26 @@
 
 			var tween = this.tween = createjs.Tween 
 					.get(oldHD, {loop : true})
-					.wait(3000)
-					.to({scaleX : .97, scaleY : .97}, 400)
-					.to({scaleX : 1, scaleY : 1}, 400)
-					.to({scaleX : .97, scaleY : .97}, 400)
-					.to({scaleX : 1, scaleY : 1}, 400)
-					.to({scaleX : .97, scaleY : .97}, 400)
-					.to({scaleX : 1, scaleY : 1}, 400)
+					.to({x : x-2}, 50)
+					.to({x : x}, 50)
+					.to({x : x + 2}, 50)
+					.to({x : x - 2}, 50)
 					.call(function(){
 						marker = true;
 					})
 
 
 			this.timer_1 = setInterval(function(){
-				// if( marker ){
-				// 	tween.setPaused(true);
-				// 	marker = false;
-				// }
-			}, 3000);
+				 if( marker ){
+					tween.setPaused(true);
+					marker = false;
+				}
+			}, 2500);
 
 			this.timer_2 = setInterval(function(){
-				// tween.setPaused(false);
-				// marker = true;
-			}, 1500);
+				tween.setPaused(false);
+				marker = true;
+			}, 4000);
 
 			var light = this.light = new createjs.Bitmap("img/light.png");
 			light.x = 1000/2 - 678/2;
