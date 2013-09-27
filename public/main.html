@@ -94,6 +94,9 @@
 		<section id="newHD">
 			<article>
 				<div>
+					<div class="arrow-wrapper">
+						<div class="arrow-start"></div>
+					</div>
 					<canvas id="canvasHD" width="1000" height="600">
 						<h3>Зустрічай оновлення KENT HD</h3>
 						<img src="img/hd/KENT_HD0050.png">
@@ -921,11 +924,12 @@
 									<div class="block">
 										<div class="group-block">
 											<span class="status"></span>
-											<select name="Ви вже пробували новий Kent HD?" data-width="278px">
+											<select name="Ви вже пробували новий Kent HD?" data-width="278px" id="selectHD">
 												<option value="Так">Так</option>
 												<option value="Ні">Ні</option>
 												<option value="Ні, але хочу">Ні, але хочу</option>
 												<option value="Не хочу">Не хочу</option>
+												<option value="Інше">Інше</option>
 											</select>
 										</div>
 										<div class="group-block">
@@ -944,6 +948,7 @@
 												<option value="Дизайн пачки">Дизайн пачки</option>
 												<option value="Дизайн сигарети">Дизайн сигарети</option>
 												<option value="Нічого">Нічого</option>
+												<option value="Інше">Інше</option>
 											</select>
 										</div>
 										<div class="group-block">
@@ -962,6 +967,7 @@
 												<option value="Подобається">Подобається</option>
 												<option value="Не дуже подобається">Не дуже подобається</option>
 												<option value="Старий був краще">Старий був краще</option>
+												<option value="Інше">Інше</option>
 											</select>
 										</div>
 										<div class="group-block extra">
@@ -980,6 +986,7 @@
 												<option value="Фільтр не деформується під час куріння">Фільтр не деформується під час куріння</option>
 												<option value="Подовжує час куріння">Подовжує час куріння</option>
 												<option value="Ні в чому">Ні в чому</option>
+												<option value="Інше">Інше</option>
 											</select>
 										</div>
 										<div class="group-block">
@@ -998,6 +1005,7 @@
 												<option value="Зручний, сучасний">Зручний, сучасний</option>
 												<option value="Незручний/непривабливий">Незручний/непривабливий</option>
 												<option value="Старий дизайн був краще">Старий дизайн був краще</option>
+												<option value="Інше">Інше</option>
 											</select>
 										</div>
 										<div class="group-block">
@@ -1052,18 +1060,43 @@
 
 										$parent.find('.status').removeClass('check');
 										$this.children('.status').addClass('check');
+
+
+										var val = $this.find('select').val()
+										if( $this.find('select').attr('id') !== 'selectHD') return;
+										if( val.toLowerCase().search('ні') >= 0 || val.toLowerCase().search('Не хочу') >= 0 )
+											hideForm();
+										else
+											showForm();
+
 									});
 									
 
-									$form.on('change', function(){
-										var form = $form.serializeArray();
-										// get values Які сигарети ви завжди курите?
-										if( (!form[0].value.length || form[1].value.toLowerCase().search('ні') >= 0) && 
-											(!form[2].value.length || !form[0].value.length ) )
+									$('#selectHD').on('change', function(){
+										var val = $(this).val();
+										if( val.toLowerCase().search('ні') >= 0 || val.toLowerCase().search('Не хочу') >= 0 )
 											hideForm();
 										else
 											showForm();
 									});
+
+									$form.find('select').on('change', function(){
+										var $this = $(this);
+										var $parent = $this.parent().next();
+										var $allparent = $(this).parents('.block')
+										var val = $this.val();
+										console.log( val );
+										if( val === 'Інше' ){
+											$parent.show();
+											$parent.find('input').focus();
+											setTimeout(function(){
+												$allparent.find('.status').removeClass('check');
+												$parent.find('.status').addClass('check')	
+											}, 0);
+										} else {
+											$parent.hide();
+										}
+									})
 
 									$send.on('click', function(){
 										if( !markerSend || !marker) return;
@@ -1097,7 +1130,11 @@
 
 									function hideForm(){
 										markerSend = false;
-										$extra.addClass('extra');
+										$extra.addClass('extra').removeClass('padding');
+										$extra.find('.block').hide();
+										$extra.find('label').removeClass('open');
+										$extra.find('.status').removeClass('check');
+
 										$send
 											.attr('disabled', true)
 											.css('opacity',.5)

@@ -7,6 +7,7 @@
 		two : false,
 		three : false,
 		section : $('#newHD'),
+		scrollImg : $('#newHD .arrow-wrapper'),
 		preload : function(){  // upload all images
 
 			var preload = new createjs.LoadQueue(false);
@@ -52,6 +53,7 @@
 					if( marker && delta < 0){
 						marker = false;
 						_this.showNewHD();
+						_this.scrollImg.hide();
 					}
 				});
 				// show canvas
@@ -80,37 +82,45 @@
 		crateOldHd : function(){
 			var oldHD = this.oldHD = new createjs.Bitmap("img/old_hd.png"); 
 			var x = 1000/2 - 171/2;
-			var marker = true;
+			var marker = false;
 			oldHD.x = 1000/2 - 171/2;
 			oldHD.y = (600/2 - 265/2) - 40;
 			oldHD.scaleX = 1;
 			oldHD.scaleY = 1;
 			this.stage.addChild(oldHD);
 
-			var tween = createjs.Tween 
+			var tween = this.tween = createjs.Tween 
 					.get(oldHD, {loop : true})
-					.to({x : x-2}, 50)
-					.to({x : x}, 50)
-					.to({x : x + 2}, 50)
-					.to({x : x - 2}, 50)
+					.wait(3000)
+					.to({scaleX : .97, scaleY : .97}, 400)
+					.to({scaleX : 1, scaleY : 1}, 400)
+					.to({scaleX : .97, scaleY : .97}, 400)
+					.to({scaleX : 1, scaleY : 1}, 400)
+					.to({scaleX : .97, scaleY : .97}, 400)
+					.to({scaleX : 1, scaleY : 1}, 400)
+					.call(function(){
+						marker = true;
+					})
+
 
 			this.timer_1 = setInterval(function(){
-				if( marker ){
-					tween.setPaused(true);
-					marker = false;
-				}
-			}, 2500);
+				// if( marker ){
+				// 	tween.setPaused(true);
+				// 	marker = false;
+				// }
+			}, 3000);
 
 			this.timer_2 = setInterval(function(){
-				tween.setPaused(false);
-				marker = true;
-			}, 4000);
+				// tween.setPaused(false);
+				// marker = true;
+			}, 1500);
 
 			var light = this.light = new createjs.Bitmap("img/light.png");
 			light.x = 1000/2 - 678/2;
 			light.y = 600/2 - 599/2;
 			light.alpha = 0;
 			this.stage.addChild(light);
+			this.scrollImg.show();
 		},
 		showNewHD : function(){
 			var _this = this;
@@ -125,6 +135,7 @@
 				.call(showNewHd);
 				
 			function stopInterval(){
+				_this.tween.setPaused(true);
 				clearInterval(_this.timer_1);
 				clearInterval(_this.timer_2);
 			}	
@@ -142,6 +153,7 @@
 
 			function runAnimation(){
 				var marker = true;
+				_this.scrollImg.show();
 				_this.section.off();
 				_this.topText.text = 'Новий та сучасний дизайн KENT HD'.toUpperCase();
 				_this.topText.x = 1000/2 - _this.topText.getMeasuredWidth()/2;
@@ -151,6 +163,7 @@
 						marker = false;
 						window.stopAllScroll = true;
 						_this.img.gotoAndPlay('rotate');
+						_this.scrollImg.hide();
 					}
 				});
 				
@@ -239,6 +252,7 @@
 					window.stopAllScroll = true;
 					_this.img.gotoAndPlay('sigaret');
 					marker = false;
+					_this.scrollImg.hide();
 				}
 			});
 		},
@@ -251,6 +265,7 @@
 					window.stopAllScroll = true;
 					_this.img.gotoAndPlay('filter');
 					marker = false;
+					_this.scrollImg.hide();
 				}
 			});
 		},
@@ -415,6 +430,7 @@
 		},
 		animation : function(){
 			var animationName = this.img.currentAnimation;
+			console.log( 'animation end' );
 			// window.stopAllScroll = false;
 			switch ( animationName ){
 				case 'rotate' : 
@@ -424,10 +440,12 @@
 				case 'open' : 
 					this.img.paused = true;
 					this.rotateSigaret();
+					this.scrollImg.show();
 					break;
 				case 'sigaret' :
 					this.img.paused = true;
 					this.runFilter();
+					this.scrollImg.show();
 					break;
 				case 'filter' : 
 					this.img.paused = true;
