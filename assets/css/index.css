@@ -1813,14 +1813,15 @@ section h1 {
   margin: 0;
 }
 #feedback .extra{
-   display: none;
+   opacity: 0.5;
 }
 #feedback .mCSB_container{
   min-height: 290px;
 }
 .profile .send{
-  width:193px;
+  min-width: 198px;
   height:38px;
+  padding: 0 20px;
   background-color: #7d888f;
   text-align: center;
   line-height: 34px;

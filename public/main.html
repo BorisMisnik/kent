@@ -908,11 +908,11 @@
 						<div class="profile">
 							<form>
 								<div class="group">
-									<label>Які сигарети ви завжди курите?</label>
+									<label>Які сигарети ви курите? </label>
 									<div class="block">
 										<div class="group-block">
 											<span class="status" style="visibility:hidden"></span>
-											<input type="text" name="Які сигарети ви завжди курите? (інше)" placeholder="Які сигарети ви завжди курите?" class="text">
+											<input type="text" name="Які сигарети ви курите?" placeholder="Які сигарети ви курите?" class="text">
 										</div>
 									</div>
 								</div>
@@ -922,9 +922,9 @@
 										<div class="group-block">
 											<span class="status"></span>
 											<select name="Ви вже пробували новий Kent HD?" data-width="278px">
+												<option value="Так">Так</option>
 												<option value="Ні">Ні</option>
 												<option value="Ні, але хочу">Ні, але хочу</option>
-												<option value="Так">Так</option>
 												<option value="Не хочу">Не хочу</option>
 											</select>
 										</div>
@@ -1018,67 +1018,101 @@
 							</form>
 							<button class="send" disabled>Надіслати</button>
 							<script>
-								var $send = $('.send');
-								var $form = $('#feedback form');
-								var $extra = $('.extra');
-								if(	$send.prop('disabled') )
-									$send.css('opacity', .5);
+								(function(){
+									var $send = $('.send'),
+										$extra = $('.extra'),
+										$form = $('#feedback').find('form'),
+										$mCSB = $('#feedback .mCSB_container'),
+										formValues = {},
+										markerSend = false;
 
-								$('#feedback form').mCustomScrollbar({
-									advanced:{
-										updateOnContentResize: true,
-										autoScrollOnFocus: false
-									},
-									mouseWheel : true
-								});
+									if(	$send.prop('disabled') )
+										$send.css('opacity', .5);
+									
+									$('#feedback form').mCustomScrollbar({
+										advanced:{
+											updateOnContentResize: true,
+											autoScrollOnFocus: false
+										},
+										mouseWheel : true
+									});
 
-								$('.group label').on('click', function(){
-									var $this = $(this);
-									$this.toggleClass('open');
-									$this.siblings('.block').slideToggle();
-									$this.parent().toggleClass('padding');
-								});
+									$('.group label').on('click', function(){
+										var $this = $(this);
+										if( $this.parent().hasClass('extra') &&  !markerSend ) return;
+										$this.toggleClass('open');
+										$this.siblings('.block').slideToggle();
+										$this.parent().toggleClass('padding');
+									});
 
-								$('.group-block').on('click', function(){
-									var $this = $(this);
-									var $parent = $(this).parent();
+									$('.group-block').on('click', function(){
+										var $this = $(this);
+										var $parent = $(this).parent();
 
-									$parent.find('.status').removeClass('check');
-									$this.children('.status').addClass('check');
-								});
-								
+										$parent.find('.status').removeClass('check');
+										$this.children('.status').addClass('check');
+									});
+									
 
-								$form.on('change', function(){
-									var form = $form.serializeArray();
-									// get values Які сигарети ви завжди курите?
-									if( (!form[0].value.length || form[1].value === 'Ні') && 
-										(!form[2].value.length || !form[0].value.length ) ){
-										hideForm();
-										$('#feedback .mCSB_container').css('min-height', 0);
+									$form.on('change', function(){
+										var form = $form.serializeArray();
+										// get values Які сигарети ви завжди курите?
+										if( (!form[0].value.length || form[1].value.toLowerCase().search('ні') >= 0) && 
+											(!form[2].value.length || !form[0].value.length ) )
+											hideForm();
+										else
+											showForm();
+									});
+
+									$send.on('click', function(){
+										if( !markerSend ) return;
+
+										$('.status.check').each(function(){
+											var $this = $(this);
+											formValues[$this.next().attr('name')] = $this.next().val();
+										});
+
+										formValues.user = {
+											"account_id" : $('#profile_id').val(),
+											"name" : $('#name').val(),
+											"data" : $('#date').val() + '/' + $( '#month' ).val() + '/' + $('#year').val(),
+											"mobile" : $('#mobilePhone').val(),
+											'email' : $('#email').val()
+										}
+									
+										// save feedback
+										$.post('/think', formValues)
+											.done(function(respond){
+												if( respond === 'ok' )
+													$send.text('Ваше повідомлення надісланно');	
+											})
+											.fail(function(){
+												$send.text('Виникла помилка');	
+											})
+
+									});
+
+									function hideForm(){
+										markerSend = false;
+										$extra.addClass('extra');
+										$send
+											.attr('disabled', true)
+											.css('opacity',.5)
+
+										$mCSB.css('min-height', 0);
+									};
+
+									function showForm(){
+										markerSend = true;
+										$extra.removeClass('extra');
+										$form.css('min-height', '300px');
+										$send
+											.removeAttr('disabled')
+											.css('opacity',1);
+
+										$mCSB.css('min-height', 540);
 									}
-									else{
-										$('#feedback .mCSB_container').css('min-height', 540);
-										showForm();
-									}
-								})
-
-								function hideForm(){
-									$extra.hide();
-									$send
-										.attr('disabled', true)
-										.css('opacity',.5)
-										.removeClass('ok')
-								};
-
-								function showForm(){
-									$form.css('min-height', '300px');
-									$extra.show();
-									$send
-										.removeAttr('disabled')
-										.css('opacity',1)
-										.addClass('ok')
-								}
-
+								})();
 							</script>
 						</div>
 					</div>
@@ -1194,6 +1228,9 @@
 								<span id="profileSuccess" class="succes hide">Відкореговані дані успішно збережено.</span>
 
 								<input id="submitProfile" type="submit" class="submit disable" value="Редагувати" />
+
+								<!-- profile id -->
+								<input type="hide" name="profile_id" value="" id="profile_id">
 							</form>
 						</div>
 					</div>
@@ -1227,10 +1264,10 @@
 					
 							<div class="small-photo-wrapper">
 								<div id="smallCarousel" class="carousel slide">
-							 	<!-- Carousel items -->
+								<!-- Carousel items -->
 									  <div class="carousel-inner">
 									  </div>
-							  	<!-- Carousel nav -->
+								<!-- Carousel nav -->
 									<a class="carousel-control left" href="#smallCarousel" data-slide="prev"></a>
 									<a class="carousel-control right" href="#smallCarousel" data-slide="next"></a>
 								</div>
@@ -1274,21 +1311,21 @@
 		$( document ).ready( function() {
 
 			var phone = $( '#mobilePhone' );
-            if ( phone.length )
-                phone.mask( '0 (99) 999-99-99' );
+			if ( phone.length )
+				phone.mask( '0 (99) 999-99-99' );
 
-            // field: day number
-            var date = $( '#date' );
-            if ( date.length ) {
-                $.mask.definitions[ '3' ] = '[0-3]';
-                date.mask( '39' );
-            }
+			// field: day number
+			var date = $( '#date' );
+			if ( date.length ) {
+				$.mask.definitions[ '3' ] = '[0-3]';
+				date.mask( '39' );
+			}
 
-            var year = $( '#year' );
-            if ( year.length ) {
-                $.mask.definitions[ '2' ] = '[0-2]';
-                year.mask( '2999' );
-            }
+			var year = $( '#year' );
+			if ( year.length ) {
+				$.mask.definitions[ '2' ] = '[0-2]';
+				year.mask( '2999' );
+			}
 
 			$(".text-wrapper .text").mCustomScrollbar({
 				advanced:{
@@ -1377,11 +1414,11 @@
 			$( '#agree_rules' ).prop( 'checked', profile.agree_rules );
 			$( '#agree_info' ).prop( 'checked', profile.agree_info );
 			$( '#brand1' ).selectpicker('val', profile.brand1);
-            $( '#sku1' ).selectpicker('val', profile.sku1);
-            $( '#brand2' ).selectpicker('val', profile.brand2);
-            $( '#sku2' ).selectpicker('val', profile.sku2);
-
-            console.log('profile', profile );
+			$( '#sku1' ).selectpicker('val', profile.sku1);
+			$( '#brand2' ).selectpicker('val', profile.brand2);
+			$( '#sku2' ).selectpicker('val', profile.sku2);
+			$('#profile_id').val(profile.account_id);
+			console.log('profile', profile );
 		}
 
 		function errorsProfile( errors ) {
@@ -1401,66 +1438,66 @@
 		 */
 		function getProfile() {
 
-            // hide system error
-            $( '#formError').addClass( 'hide' );
+			// hide system error
+			$( '#formError').addClass( 'hide' );
 
-            $.get( '/account' )
-                .done( function( res ) {
-                    console.log( 'profile done', res );
+			$.get( '/account' )
+				.done( function( res ) {
+					console.log( 'profile done', res );
 
-                    // action
-                    if ( res.errors )
-                        errorsProfile( res.errors );
-                    else
-                        populateProfile( res.profile );
-                })
-                .fail( function() {
-                    //console.log( 'profile fails', arguments );
-                    // show system error
-                    $( '#formError' ).removeClass('hide').hide().fadeIn( 'slow' );
-                });
-        }
+					// action
+					if ( res.errors )
+						errorsProfile( res.errors );
+					else
+						populateProfile( res.profile );
+				})
+				.fail( function() {
+					//console.log( 'profile fails', arguments );
+					// show system error
+					$( '#formError' ).removeClass('hide').hide().fadeIn( 'slow' );
+				});
+		}
 		function updateProfile() {
 			var form = {
-                name: $( '#name' ).val(),
-                day: $( '#date' ).val(),
-                month: $( '#month' ).val(),
-                year: $( '#year' ).val(),
-                phone: $( '#mobilePhone' ).val(),
-                email: $( '#email' ).val(),
-                password: $( '#password' ).val(),
-                brand1: $( '#brand1' ).val(),
-                sku1: $( '#sku1' ).val(),
-                brand2: $( '#brand2' ).val(),
-                sku2: $( '#sku2' ).val()
-            };
-            console.log( 'form:', form );
+				name: $( '#name' ).val(),
+				day: $( '#date' ).val(),
+				month: $( '#month' ).val(),
+				year: $( '#year' ).val(),
+				phone: $( '#mobilePhone' ).val(),
+				email: $( '#email' ).val(),
+				password: $( '#password' ).val(),
+				brand1: $( '#brand1' ).val(),
+				sku1: $( '#sku1' ).val(),
+				brand2: $( '#brand2' ).val(),
+				sku2: $( '#sku2' ).val()
+			};
+			console.log( 'form:', form );
 
-            // hide system error
-            $( '#formError').addClass( 'hide' );
-            // hide old success
-            $( '#profileSuccess' ).addClass( 'hide' );
+			// hide system error
+			$( '#formError').addClass( 'hide' );
+			// hide old success
+			$( '#profileSuccess' ).addClass( 'hide' );
 
-            $.post( '/account/profile', form )
-                .done( function( res ) {
-                    //console.log( 'save done', arguments );
-                    if ( res.error ) {
-                        // errors
-                        //$( '#formError' ).hide().removeClass( 'hide' ).fadeIn( 'slow' );
-                        errorsProfile( res );
-                    }
-                    else {
-                        // success message
-                        $( '#profileSuccess' ).hide().removeClass( 'hide' ).fadeIn( 'slow' );
-                        populateProfile( res.profile );
-                    }
-                })
-                .fail( function() {
-                    //console.log( 'save fails', arguments );
-                    // show system error
-                    $( '#formError' ).removeClass( 'hide').hide().fadeIn( 'slow' );
-                })
-        }
+			$.post( '/account/profile', form )
+				.done( function( res ) {
+					//console.log( 'save done', arguments );
+					if ( res.error ) {
+						// errors
+						//$( '#formError' ).hide().removeClass( 'hide' ).fadeIn( 'slow' );
+						errorsProfile( res );
+					}
+					else {
+						// success message
+						$( '#profileSuccess' ).hide().removeClass( 'hide' ).fadeIn( 'slow' );
+						populateProfile( res.profile );
+					}
+				})
+				.fail( function() {
+					//console.log( 'save fails', arguments );
+					// show system error
+					$( '#formError' ).removeClass( 'hide').hide().fadeIn( 'slow' );
+				})
+		}
 	</script>
 	<script src="/js/libs/cigarettes_manage.js"></script>
 	<script src="js/canvasHD.js"></script>
@@ -1471,9 +1508,9 @@
 	  _gaq.push(['_trackPageview']);
 
 	  (function() {
-	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	  })();
 
 	</script>

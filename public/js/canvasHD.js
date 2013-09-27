@@ -46,9 +46,10 @@
 			};
 			function handleComplete(){ // upload complete
 				var marker = true;
-				window.stopScroll = true; // disable scroll
-				_this.section.on('mousewheel' , function(){
-					if( marker ){
+				window.stopScrollAll = true; // disable scroll
+				_this.section.off();
+				_this.section.on('mousewheel' , function(event, delta){
+					if( marker && delta < 0){
 						marker = false;
 						_this.showNewHD();
 					}
@@ -57,7 +58,6 @@
 				_this.preloader.style.display = 'none';
 				_this.canvas.style.display = 'block';
 				_this.crateStage(); // init stage
-				_this.resetAll(); // init stage
 			};
 
 		},
@@ -79,11 +79,32 @@
 		},
 		crateOldHd : function(){
 			var oldHD = this.oldHD = new createjs.Bitmap("img/old_hd.png"); 
-			oldHD.x = 1000/2 - 158/2;
-			oldHD.y = 600/2 - 245/2;
+			var x = 1000/2 - 171/2;
+			var marker = true;
+			oldHD.x = 1000/2 - 171/2;
+			oldHD.y = (600/2 - 265/2) - 40;
 			oldHD.scaleX = 1;
 			oldHD.scaleY = 1;
 			this.stage.addChild(oldHD);
+
+			var tween = createjs.Tween 
+					.get(oldHD, {loop : true})
+					.to({x : x-2}, 50)
+					.to({x : x}, 50)
+					.to({x : x + 2}, 50)
+					.to({x : x - 2}, 50)
+
+			this.timer_1 = setInterval(function(){
+				if( marker ){
+					tween.setPaused(true);
+					marker = false;
+				}
+			}, 2500);
+
+			this.timer_2 = setInterval(function(){
+				tween.setPaused(false);
+				marker = true;
+			}, 4000);
 
 			var light = this.light = new createjs.Bitmap("img/light.png");
 			light.x = 1000/2 - 678/2;
@@ -95,13 +116,19 @@
 			var _this = this;
 			createjs.Tween 
 				.get(this.oldHD)
-				.to({alpha : 0}, 2000, Ease.getElasticIn);
+				.to({alpha : 0}, 2000, Ease.getElasticIn)
+				.call(stopInterval);
 
 			createjs.Tween 
 				.get(this.light)
 				.to({alpha : 1}, 3000, Ease.getElasticIn)
 				.call(showNewHd);
-		
+				
+			function stopInterval(){
+				clearInterval(_this.timer_1);
+				clearInterval(_this.timer_2);
+			}	
+
 			function showNewHd(){
 				createjs.Tween 
 					.get(_this.light)
@@ -114,12 +141,19 @@
 			};
 
 			function runAnimation(){
+				var marker = true;
 				_this.section.off();
 				_this.topText.text = 'Новий та сучасний дизайн KENT HD'.toUpperCase();
 				_this.topText.x = 1000/2 - _this.topText.getMeasuredWidth()/2;
-				setTimeout(function(){
-					_this.img.gotoAndPlay('rotate');
-				},0)
+				_this.section.off();
+				_this.section.on('mousewheel' , function(event, delta){
+					if( marker && delta < 0){
+						marker = false;
+						window.stopAllScroll = true;
+						_this.img.gotoAndPlay('rotate');
+					}
+				});
+				
 			}
 
 		},
@@ -144,8 +178,8 @@
 			});
 			
 			var img = this.img = new createjs.BitmapAnimation(ss); // crate new SpriteSheet animation
-			ss.getAnimation('open').next = 'sigaret';
-			ss.getAnimation('sigaret').next = 'filter';
+			// ss.getAnimation('open').next = 'sigaret';
+			// ss.getAnimation('sigaret').next = 'filter';
 			// aline center
 			img.scaleX = scale;
 			img.scaleY = scale;
@@ -176,13 +210,14 @@
 			this.bottomText.x = 1000/2 - this.bottomText.getMeasuredWidth()/2;
 			// crate arrow 	
 			var arrow = this.arrow = new createjs.Bitmap("img/arrow-hd.png");
-			var x = 486;
+			var y = 200;
 			arrow.x = 486;
 			arrow.y = 200;
 			arrow.scaleX = .9;
 			arrow.scaleY = .9;
 			arrow.cursor = 'pointer';
 			arrow.addEventListener('click', function(){
+				window.stopAllScroll = true;
 				_this.img.gotoAndPlay('open');
 				_this.topText.text = '';
 				_this.bottomText.text = '';
@@ -191,9 +226,33 @@
 			this.stage.addChild(arrow);	
 			var tween = this.arrowTween = createjs.Tween 
 				.get(arrow,{loop : true})
-				.to({x : x - 5}, 600)
-				.to({x : x}, 600)
-				.to({x : x + 5}, 600)
+				.to({y : y - 5}, 600)
+				.to({y : y}, 600)
+				.to({y : y + 5}, 600)
+		},
+		rotateSigaret : function(){
+			var _this = this;
+			var marker = true;
+			this.section.off();
+			this.section.on('mousewheel', function(event, delta){
+				if( marker && delta < 0 ){
+					window.stopAllScroll = true;
+					_this.img.gotoAndPlay('sigaret');
+					marker = false;
+				}
+			});
+		},
+		runFilter : function(){
+			var _this = this;
+			var marker = true;
+			this.section.off();
+			this.section.on('mousewheel', function(event, delta){
+				if( marker && delta < 0 ){
+					window.stopAllScroll = true;
+					_this.img.gotoAndPlay('filter');
+					marker = false;
+				}
+			});
 		},
 		showFilter : function(){
 			// this.arrow.removeEventListener('click');
@@ -226,74 +285,69 @@
 			this.one = true;
 			this.img.gotoAndPlay('filterOne');
 			this.showAllHd();
-			this.showTextFilterOne = function(){
-				var text_one =
-					new createjs.Text("Вугільний фільтр".toUpperCase(),"16px Verdana","#6B747A");
-				var text_one_bottom = 
-					new createjs.Text("Забезпечує м'який смак".toUpperCase(),"12px Verdana","#6B747A");
+			// this.showTextFilterOne = function(){
+			var text_one =
+				new createjs.Text("Вугільний фільтр".toUpperCase(),"16px Verdana","#6B747A");
+			var text_one_bottom = 
+				new createjs.Text("Забезпечує м'який смак".toUpperCase(),"12px Verdana","#6B747A");
 
-				text_one.x = 225;
-   				text_one.y = 600/2 + 20;
-   				text_one_bottom.x = 222;
-   				text_one_bottom.y = 600/2 + 50;
+			text_one.x = 225;
+   			text_one.y = 600/2 + 20;
+   			text_one_bottom.x = 222;
+   			text_one_bottom.y = 600/2 + 50;
 
-   				this.stage.addChild(text_one);
-   				this.stage.addChild(text_one_bottom);
+   			this.stage.addChild(text_one);
+   			this.stage.addChild(text_one_bottom);
 
-				_this.shape_1.addEventListener('mouseout', function(){
-					_this.img.gotoAndPlay('filterOneRest');
-					_this.shape_1.removeAllEventListeners('mouseout');
-				});
-			}
+			_this.shape_1.addEventListener('mouseout', function(){
+				_this.img.gotoAndPlay('filterOneRest');
+				_this.shape_1.removeAllEventListeners('mouseout');
+			});
 		},
 		filterTwo : function(){
 			var _this = this;
 			this.two = true;
 			this.img.gotoAndPlay('filterTwo');
 			this.showAllHd();
-			this.showTextFilterTwo = function(){
-				var text_one =
-					new createjs.Text("Надтонке волокно".toUpperCase(),"16px Verdana","#6B747A");
-				var text_one_bottom = 
-					new createjs.Text("Робить смак рівномірним".toUpperCase(),"12px Verdana","#6B747A");
+			var text_one =
+				new createjs.Text("Надтонке волокно".toUpperCase(),"16px Verdana","#6B747A");
+			var text_one_bottom = 
+				new createjs.Text("Робить смак рівномірним".toUpperCase(),"12px Verdana","#6B747A");
 
-				text_one.x = 415;
-   				text_one.y = 600/2 + 20;
-   				text_one_bottom.x = 413;
-   				text_one_bottom.y = 600/2 + 50;
+			text_one.x = 415;
+   			text_one.y = 600/2 + 20;
+   			text_one_bottom.x = 413;
+   			text_one_bottom.y = 600/2 + 50;
 
-   				this.stage.addChild(text_one);
-   				this.stage.addChild(text_one_bottom);
-				_this.shape_2.addEventListener('mouseout', function(){
-					_this.img.gotoAndPlay('filterTwoRest');
-					_this.shape_2.removeAllEventListeners('mouseout');
-				});
-			}
+   			this.stage.addChild(text_one);
+   			this.stage.addChild(text_one_bottom);
+			_this.shape_2.addEventListener('mouseout', function(){
+				_this.img.gotoAndPlay('filterTwoRest');
+				_this.shape_2.removeAllEventListeners('mouseout');
+			});
 		},
 		filterThree : function(){
 			var _this = this;
 			this.three = true;
 			this.img.gotoAndPlay('filterThree');
 			this.showAllHd();
-			this.showTextFilterThree = function(){
-				var text_one =
-					new createjs.Text("Турбо-фільтр".toUpperCase(),"16px Verdana","#6B747A");
-				var text_one_bottom = 
-					new createjs.Text("Миттєва передача смаку".toUpperCase(),"12px Verdana","#6B747A");
+			var text_one =
+				new createjs.Text("Турбо-фільтр".toUpperCase(),"16px Verdana","#6B747A");
+			var text_one_bottom = 
+				new createjs.Text("МИТТЄВО ПЕРЕДАЄ СМАК".toUpperCase(),"12px Verdana","#6B747A");
 
-				text_one.x = 633;
-   				text_one.y = 600/2 + 20;
-   				text_one_bottom.x = 613;
-   				text_one_bottom.y = 600/2 + 50;
+			text_one.x = 633;
+   			text_one.y = 600/2 + 20;
+   			text_one_bottom.x = 616;
+   			text_one_bottom.y = 600/2 + 50;
 
-   				this.stage.addChild(text_one);
-   				this.stage.addChild(text_one_bottom);
+   			this.stage.addChild(text_one);
+   			this.stage.addChild(text_one_bottom);
 
-				_this.shape_3.addEventListener('mouseout', function(){
-					_this.img.gotoAndPlay('filterThreeRest');
-					_this.shape_3.removeAllEventListeners('mouseout');
-				});
-			}
+			_this.shape_3.addEventListener('mouseout', function(){
+				_this.img.gotoAndPlay('filterThreeRest');
+				_this.shape_3.removeAllEventListeners('mouseout');
+			});
 		},
 		showAllHd : function(){
 			if( !this.three || !this.two || !this.one) return;
@@ -352,7 +406,7 @@
 						.wait(3000)
 						.to({x : 150}, 1000, createjs.Ease.circOut)
 						.call(function(){
-							_this.section.addClass('reset');
+							_this.enableScroll();
 						})
 
 					
@@ -361,11 +415,19 @@
 		},
 		animation : function(){
 			var animationName = this.img.currentAnimation;
+			// window.stopAllScroll = false;
 			switch ( animationName ){
 				case 'rotate' : 
 					this.img.paused = true;
 					this.showSigaret();
-					window.stopScroll = false;
+					break;
+				case 'open' : 
+					this.img.paused = true;
+					this.rotateSigaret();
+					break;
+				case 'sigaret' :
+					this.img.paused = true;
+					this.runFilter();
 					break;
 				case 'filter' : 
 					this.img.paused = true;
@@ -373,15 +435,12 @@
 					break;
 				case 'filterOne' :
 					this.img.paused = true;
-					this.showTextFilterOne();
 					break;
 				case 'filterTwo' :
 					this.img.paused = true;
-					this.showTextFilterTwo();
 					break;
 				case 'filterThree' :
 					this.img.paused = true;
-					this.showTextFilterThree();
 					break;
 				case 'filterOneRest' :
 				case 'filterTwoRest' :
@@ -393,8 +452,8 @@
 		tick : function(event){
 			this.stage.update(event);
 		},
-		resetAll : function(){
-			var _this = this;
+		enableScroll : function(){
+			window.stopScrollAll = false;
 		}
 	};
 	app.preload();
