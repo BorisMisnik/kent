@@ -13,6 +13,7 @@
 	<link rel="shortcut icon" href="img/fav.png" type="image/png">
 	
 	<script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+	<script src="http://code.createjs.com/createjs-2013.09.25.min.js"></script>
 	<script src="js/jquery.mobile.custom.min.js"></script>
 	<script src="js/bootstrap.js"></script>
 	<script src="js/bootstrap-lightbox.min.js"></script>
@@ -83,6 +84,21 @@
 						   прогрес бренда та останні досягнення.</p>
 						<!-- <p class="hello">Для початку використовуй скрол</p> -->
 						<div class="arrow-start"></div>
+					</div>
+				</article>
+			</section>
+			<!-- Зустрічай оновлення Kent HD -->
+			<section id="newHD">
+				<article>
+					<div>
+						<div class="arrow-wrapper">
+							<div class="arrow-start canvasArrow"></div>
+						</div>
+						<canvas id="canvasHD" width="1000" height="600">
+							<h3>Зустрічай оновлення KENT HD</h3>
+							<img src="img/hd/KENT_HD0050.png">
+						</canvas>
+						<h3 class="preloader"></h3>
 					</div>
 				</article>
 			</section>
@@ -1126,7 +1142,7 @@
         }
 	</script>
 	<script src="/js/libs/cigarettes_manage_mobile.js"></script>
-	<script src="js/packs.min.js"></script>
+	<script src="js/canvasHD.js"></script>
 	<script type="text/javascript">
 
 	  var _gaq = _gaq || [];
