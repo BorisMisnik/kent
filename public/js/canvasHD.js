@@ -56,6 +56,14 @@
 						_this.scrollImg.hide();
 					}
 				});
+
+				if(typeof window.orientation !== 'undefined'){
+					$('.hiddenArrow').off();
+					$('.hiddenArrow').on('tap', function(){
+						_this.showNewHD();
+						_this.scrollImg.hide();
+					})
+				}
 				// show canvas
 				_this.preloader.style.display = 'none';
 				_this.canvas.style.display = 'block';
@@ -163,7 +171,13 @@
 						_this.scrollImg.hide();
 					}
 				});
-				
+				if(typeof window.orientation !== 'undefined'){
+					$('.hiddenArrow').off();
+					$('.hiddenArrow').on('tap', function(){
+						_this.img.gotoAndPlay('rotate');
+						_this.scrollImg.hide()
+					})
+				}
 			}
 
 		},
@@ -251,6 +265,14 @@
 					marker = false;
 					_this.scrollImg.hide();
 				}
+				if(typeof window.orientation !== 'undefined'){
+					$('.hiddenArrow').off();
+					$('.hiddenArrow').on('tap', function(){
+						_this.img.gotoAndPlay('sigaret');
+						marker = false;
+						_this.scrollImg.hide();
+					})
+				}
 			});
 		},
 		runFilter : function(){
@@ -263,6 +285,14 @@
 					_this.img.gotoAndPlay('filter');
 					marker = false;
 					_this.scrollImg.hide();
+				}
+				if(typeof window.orientation !== 'undefined'){
+					$('.hiddenArrow').off();
+					$('.hiddenArrow').on('tap', function(){
+						_this.img.gotoAndPlay('sigaret');
+						marker = false;
+						_this.scrollImg.hide();
+					})
 				}
 			});
 		},

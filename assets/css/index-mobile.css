@@ -1470,3 +1470,29 @@ section h1 {
     max-width: 250px !important;
   }
 }
+#canvasHD{
+  width:1000px;
+  height: 600px;
+  margin: auto;
+  top:0;
+}
+.group-block + .group-block{
+  display: none;
+}
+#newHD .arrow-start{
+  width: 100%;
+  background-position: 87% center;
+  /*position: absolute;*/
+  cursor: default !important;
+}
+#newHD .arrow-wrapper{
+  position: absolute;
+  height: 25px;
+  width:100%;
+  top:50%;
+  margin-top: -97.5px;
+  display: none;
+}
+#newHD .arrow-start .arrow-start{
+  cursor: default;
+}
