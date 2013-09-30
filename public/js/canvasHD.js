@@ -80,6 +80,7 @@
 			this.stage = new createjs.Stage(this.canvas); // init stage
 			this.stage.enableMouseOver(10);
 			this.stage.mouseMoveOutside = true;
+			createjs.Touch.enable(this.stage);
 			this.crateOldHd(); // 
 			this.crateImages(); // crate sprites
 			this.crateTitle(); // crate Title
@@ -289,7 +290,7 @@
 				if(typeof window.orientation !== 'undefined'){
 					$('.hiddenArrow').off();
 					$('.hiddenArrow').on('tap', function(){
-						_this.img.gotoAndPlay('sigaret');
+						_this.img.gotoAndPlay('filter');
 						marker = false;
 						_this.scrollImg.hide();
 					})
