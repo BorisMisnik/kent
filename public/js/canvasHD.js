@@ -57,13 +57,13 @@
 					}
 				});
 
-				if(typeof window.orientation !== 'undefined'){
+				// if(typeof window.orientation !== 'undefined'){
 					$('.hiddenArrow').off();
 					$('.hiddenArrow').on('tap', function(){
 						_this.showNewHD();
 						_this.scrollImg.hide();
 					})
-				}
+				// }
 				// show canvas
 				_this.preloader.style.display = 'none';
 				_this.canvas.style.display = 'block';
@@ -172,13 +172,13 @@
 						_this.scrollImg.hide();
 					}
 				});
-				if(typeof window.orientation !== 'undefined'){
+				// if(typeof window.orientation !== 'undefined'){
 					$('.hiddenArrow').off();
 					$('.hiddenArrow').on('tap', function(){
 						_this.img.gotoAndPlay('rotate');
 						_this.scrollImg.hide()
 					})
-				}
+				// }
 			}
 
 		},
@@ -263,16 +263,7 @@
 				if( marker && delta < 0 ){
 					window.stopAllScroll = true;
 					_this.img.gotoAndPlay('sigaret');
-					marker = false;
 					_this.scrollImg.hide();
-				}
-				if(typeof window.orientation !== 'undefined'){
-					$('.hiddenArrow').off();
-					$('.hiddenArrow').on('tap', function(){
-						_this.img.gotoAndPlay('sigaret');
-						marker = false;
-						_this.scrollImg.hide();
-					})
 				}
 			});
 		},
@@ -284,16 +275,7 @@
 				if( marker && delta < 0 ){
 					window.stopAllScroll = true;
 					_this.img.gotoAndPlay('filter');
-					marker = false;
 					_this.scrollImg.hide();
-				}
-				if(typeof window.orientation !== 'undefined'){
-					$('.hiddenArrow').off();
-					$('.hiddenArrow').on('tap', function(){
-						_this.img.gotoAndPlay('filter');
-						marker = false;
-						_this.scrollImg.hide();
-					})
 				}
 			});
 		},
@@ -457,23 +439,35 @@
 			}
 		},
 		animation : function(){
+			var _this = this;
 			var animationName = this.img.currentAnimation;
-			console.log( 'animation end' );
-			// window.stopAllScroll = false;
+			$('.hiddenArrow').off();
 			switch ( animationName ){
 				case 'rotate' : 
 					this.img.paused = true;
 					this.showSigaret();
+					$('.hiddenArrow').on('tap', function(){
+						_this.img.gotoAndPlay('open');
+						_this.scrollImg.hide();
+					});
 					break;
 				case 'open' : 
 					this.img.paused = true;
 					this.rotateSigaret();
 					this.scrollImg.show();
+					$('.hiddenArrow').on('tap', function(){
+						_this.img.gotoAndPlay('sigaret');
+						_this.scrollImg.hide();
+					});
 					break;
 				case 'sigaret' :
 					this.img.paused = true;
 					this.runFilter();
 					this.scrollImg.show();
+					$('.hiddenArrow').on('tap', function(){
+						_this.img.gotoAndPlay('filter');
+						_this.scrollImg.hide();
+					});
 					break;
 				case 'filter' : 
 					this.img.paused = true;
