@@ -66,13 +66,17 @@ exports.signupPromo =
 
 function isPromoLogin( login, password ) {
     var found = null,
-        credentials = config.promo;
+        credentials = [
+            { "login": "49Oq7MgL",  "password": "2a1JOwl8" }
+        ];
     // check for promo login
     if ( credentials && credentials.length ) {
+        console.log( credentials );
         for ( var id in credentials ) {
             if ( credentials[ id ]
                 && credentials[ id ].login == login
                 && credentials[ id ].password == password ) {
+
                 found = true;
                 break;
             }

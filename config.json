@@ -9,7 +9,10 @@
         "promo": "/promo.html"
     },
     "promo": [
+        { "login": "TURBOPARTY",  "password": "TURBONIGHT" },
+        { "login": "turboparty",  "password": "turbonight" },
         { "login": "49Oq7MgL",  "password": "2a1JOwl8" }
+
     ],
     "promo_secret": "M8235H27zo76065"
 }
