@@ -8,6 +8,7 @@
 		three : false,
 		section : $('#newHD'),
 		scrollImg : $('#newHD .arrow-wrapper'),
+		mobileArrow : $('.hiddenArrow'),
 		preload : function(){  // upload all images
 
 			var preload = new createjs.LoadQueue(false);
@@ -57,13 +58,13 @@
 					}
 				});
 
-				// if(typeof window.orientation !== 'undefined'){
+				if(typeof window.orientation !== 'undefined'){
 					$('.hiddenArrow').off();
 					$('.hiddenArrow').on('tap', function(){
 						_this.showNewHD();
 						_this.scrollImg.hide();
 					})
-				// }
+				}
 				// show canvas
 				_this.preloader.style.display = 'none';
 				_this.canvas.style.display = 'block';
@@ -172,13 +173,13 @@
 						_this.scrollImg.hide();
 					}
 				});
-				// if(typeof window.orientation !== 'undefined'){
+				if(typeof window.orientation !== 'undefined'){
 					$('.hiddenArrow').off();
 					$('.hiddenArrow').on('tap', function(){
 						_this.img.gotoAndPlay('rotate');
 						_this.scrollImg.hide()
 					})
-				// }
+				}
 			}
 
 		},
@@ -261,6 +262,7 @@
 			this.section.off();
 			this.section.on('mousewheel', function(event, delta){
 				if( marker && delta < 0 ){
+					marker = false;
 					window.stopAllScroll = true;
 					_this.img.gotoAndPlay('sigaret');
 					_this.scrollImg.hide();
@@ -273,6 +275,7 @@
 			this.section.off();
 			this.section.on('mousewheel', function(event, delta){
 				if( marker && delta < 0 ){
+					marker = false;
 					window.stopAllScroll = true;
 					_this.img.gotoAndPlay('filter');
 					_this.scrollImg.hide();
@@ -446,6 +449,7 @@
 				case 'rotate' : 
 					this.img.paused = true;
 					this.showSigaret();
+					if(typeof window.orientation === 'undefined') return;
 					$('.hiddenArrow').on('tap', function(){
 						_this.img.gotoAndPlay('open');
 						_this.scrollImg.hide();
@@ -455,6 +459,7 @@
 					this.img.paused = true;
 					this.rotateSigaret();
 					this.scrollImg.show();
+					if(typeof window.orientation === 'undefined') return;
 					$('.hiddenArrow').on('tap', function(){
 						_this.img.gotoAndPlay('sigaret');
 						_this.scrollImg.hide();
@@ -464,6 +469,7 @@
 					this.img.paused = true;
 					this.runFilter();
 					this.scrollImg.show();
+					if(typeof window.orientation === 'undefined') return;
 					$('.hiddenArrow').on('tap', function(){
 						_this.img.gotoAndPlay('filter');
 						_this.scrollImg.hide();
