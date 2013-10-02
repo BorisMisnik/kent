@@ -22,7 +22,8 @@ define(
                     '!/thanks': 'thanks',
                     '!/remind': 'remind',
                     '!/rules': 'rules',
-                    '!/feedback': 'feedback'
+                    '!/feedback': 'feedback',
+                    '!/unsibscriber' : 'unsibscriber'
                 },
 
                 // handlers
@@ -62,6 +63,10 @@ define(
                 // feedback form
                 feedback: function() {
                     registry.set({ state: 'feedback' });
+                },
+                // unsibscriber
+                unsibscriber: function(){
+                    registry.set({state : 'unsibscriber'});
                 }
             }),
             router = new Router();

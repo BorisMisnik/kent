@@ -18,10 +18,11 @@ define(
     'views/remind',
     'views/rules',
     'views/thanks',
-    'views/feedback'
+    'views/feedback',
+    'views/unsibscriber'
 ],
 function( registry, router,
-          Stripes, Login, Register, PromoRegister, Upload, Webcam, Remind, Rules, Thanks, Feedback ) {
+          Stripes, Login, Register, PromoRegister, Upload, Webcam, Remind, Rules, Thanks, Feedback, Unsibscriber ) {
 
     Backbone.log( 'App', arguments );
 
@@ -40,7 +41,8 @@ function( registry, router,
             remind: Remind,
             rules: Rules,
             thanks: Thanks,
-            feedback: Feedback
+            feedback: Feedback,
+            unsibscriber : Unsibscriber
         };
 
 
