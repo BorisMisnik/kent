@@ -10,13 +10,14 @@
 var config = require( '../config.json' ),
     //request = require( 'request'),
     pipe = require( '../libs/pipe' ),
-    fs = require( 'fs' );
+    fs = require( 'fs' ),
+    unsibscriber = false;
 
 exports.index = function( req, res, next ) {
     isUserLogged( req,
         function( err, logged ) {
             // redirect logged users to the main page
-            if ( logged ) res.redirect( config.pages.main );
+            if ( logged && !unsibscriber ) res.redirect( config.pages.main );
             else next();
         });
 };
@@ -77,12 +78,18 @@ exports.go = function( req, res, next ) {
         })
 };
 
+exports.unsibscriber = function(req, res){
+    unsibscriber = true;
+    res.redirect('/#!/unsibscriber');
+}
+
 // Helpers
 
 function isUserLogged( req, callback ) {
     // pass user headers ( cookies and others )
     console.log( 'isUserLogged', config.service + '/user', req.headers );
-
+    console.log( config.service );
+    console.log( req.headers );
     // pipe with cookies
 
 //    var j = request.jar();

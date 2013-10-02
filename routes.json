@@ -56,5 +56,12 @@
         "url": "/go/",
         "script": "./routes/pages",
         "handler": "go"
+    },
+    {
+        "//": "redirect over site-application routes, see /assets",
+        "method": "get",
+        "url": "/unsibscriber",
+        "script": "./routes/pages",
+        "handler": "unsibscriber"
     }
 ]

@@ -1,6 +1,6 @@
 define(
     [
-        'views/forms/init',
+        // 'views/forms/init',
     ],
     function( form ) {
         Backbone.log( 'app.unsibscriber' );
@@ -31,36 +31,36 @@ define(
             submit: function( e ) {
                 e.preventDefault();
 
-                // values
-                var self = this,
-                    form = {
-                        email: this.$( '#email' ).val(),
-                        name: this.$( '#name' ).val(),
-                        message: this.$( '#massege' ).val()
-                    };
+                // // values
+                // var self = this,
+                //     form = {
+                //         email: this.$( '#email' ).val(),
+                //         name: this.$( '#name' ).val(),
+                //         message: this.$( '#massege' ).val()
+                //     };
 
-                self.model
-                    .clear({ silent: true })
-                    .set( form );
-                self.log( 'feedback form:', form );
+                // self.model
+                //     .clear({ silent: true })
+                //     .set( form );
+                // self.log( 'feedback form:', form );
 
-                $.post(
-                    '/feedback', form )
-                    .done( function( res ) {
-                        self.log( 'feedback. ajax results:', res);
-                        if ( res.error ) {
-                            // show error
-                            self.model.set( 'errors', res );
-                            self.render();
-                        } else {
-                            self.model.clear({ silent: true });
-                            // go back
-                            history.back();
-                        }
-                    })
-                    .fail( function( def, type, status ) {
-                        self.log( 'feedback. ajax error:', status );
-                    });
+                // $.post(
+                //     '/feedback', form )
+                //     .done( function( res ) {
+                //         self.log( 'feedback. ajax results:', res);
+                //         if ( res.error ) {
+                //             // show error
+                //             self.model.set( 'errors', res );
+                //             self.render();
+                //         } else {
+                //             self.model.clear({ silent: true });
+                //             // go back
+                //             history.back();
+                //         }
+                //     })
+                //     .fail( function( def, type, status ) {
+                //         self.log( 'feedback. ajax error:', status );
+                //     });
             }
         }),
         unsibscriber = new Unsibscriber();
