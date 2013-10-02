@@ -184,10 +184,10 @@
 			this.stage.addChild(img);	
 		},
 		crateTitle : function(){
-			var topText = this.topText = new createjs.Text("Зустрічай оновлення КЕНТ HD".toUpperCase(), "32px Verdana", "#5d6870");
+			var topText = this.topText = new createjs.Text("Зустрічай оновлення КЕНТ HD".toUpperCase(), "28px Verdana", "#5d6870");
 			topText.x = 1000/2 - topText.getMeasuredWidth()/2;
 			topText.y = 45;
-			var bottomText = this.bottomText = new createjs.Text("".toUpperCase(), "32px Verdana", "#5d6870");
+			var bottomText = this.bottomText = new createjs.Text("".toUpperCase(), "28px Verdana", "#5d6870");
 			bottomText.x = 1000/2 - bottomText.getMeasuredWidth()/2;
 			bottomText.y = 600 - 160;
 			this.stage.addChild(bottomText); // add text to stage
@@ -350,7 +350,7 @@
 					_this.crateTitle();
 					_this.topText.text = '';
 
-					_this.topText.text = 'Миттєве насичення смаком'.toUpperCase();
+					_this.topText.text = 'Миттєве насичення смаком КENT HD'.toUpperCase();
 					_this.topText.x = 1000/2 - _this.topText.getMeasuredWidth()/2;
 					_this.stage.addChild(pack_1);
 					_this.stage.addChild(pack_2);
@@ -411,6 +411,7 @@
 			this.stage.update(event);
 		},
 		enableScroll : function(){
+			this.scrollImg.show();
 			window.stopScrollAll = false;
 		}
 	};

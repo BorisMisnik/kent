@@ -1093,7 +1093,7 @@ $(document).ready(function(){
 			}	
 		});
 
-	$('.arrow-start').not('.canvasArrow').on({
+	$('.arrow-start').on({
 		click : function(){
 			animation.scrollBotom();
 		}
