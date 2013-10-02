@@ -1496,3 +1496,10 @@ section h1 {
 #newHD .arrow-start .arrow-start{
   cursor: default;
 }
+.hiddenArrow{
+  position: absolute;
+  top: -11px;
+  left: 84.5%;
+  width: 70px;
+  height: 47px;
+}

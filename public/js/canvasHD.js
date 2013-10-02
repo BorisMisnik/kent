@@ -49,22 +49,20 @@
 			function handleComplete(){ // upload complete
 				var marker = true;
 				window.stopScrollAll = true; // disable scroll
-				_this.section.off();
 				_this.section.on('mousewheel' , function(event, delta){
-					if( marker && delta < 0){
+					console.log( delta );
+					if( marker && delta <= 0 ){
 						marker = false;
 						_this.showNewHD();
 						_this.scrollImg.hide();
 					}
 				});
 
-				if(typeof window.orientation !== 'undefined'){
-					$('.hiddenArrow').off();
-					$('.hiddenArrow').on('tap', function(){
-						_this.showNewHD();
-						_this.scrollImg.hide();
-					})
-				}
+				_this.mobileArrow.off();
+				_this.mobileArrow.on('tap click click', function(){
+					_this.showNewHD();
+					_this.scrollImg.hide();
+				});
 				// show canvas
 				_this.preloader.style.display = 'none';
 				_this.canvas.style.display = 'block';
@@ -161,25 +159,22 @@
 			function runAnimation(){
 				var marker = true;
 				_this.scrollImg.show();
-				_this.section.off();
 				_this.topText.text = 'Новий та сучасний дизайн KENT HD'.toUpperCase();
 				_this.topText.x = 1000/2 - _this.topText.getMeasuredWidth()/2;
 				_this.section.off();
 				_this.section.on('mousewheel' , function(event, delta){
-					if( marker && delta < 0){
+					if( marker && delta <= 0){
 						marker = false;
 						window.stopAllScroll = true;
 						_this.img.gotoAndPlay('rotate');
 						_this.scrollImg.hide();
 					}
 				});
-				if(typeof window.orientation !== 'undefined'){
-					$('.hiddenArrow').off();
-					$('.hiddenArrow').on('tap', function(){
-						_this.img.gotoAndPlay('rotate');
-						_this.scrollImg.hide()
-					})
-				}
+				_this.mobileArrow.off();
+				_this.mobileArrow.on('tap click', function(){
+					_this.img.gotoAndPlay('rotate');
+					_this.scrollImg.hide()
+				});
 			}
 
 		},
@@ -259,9 +254,8 @@
 		rotateSigaret : function(){
 			var _this = this;
 			var marker = true;
-			this.section.off();
 			this.section.on('mousewheel', function(event, delta){
-				if( marker && delta < 0 ){
+				if( marker && delta <= 0 ){
 					marker = false;
 					window.stopAllScroll = true;
 					_this.img.gotoAndPlay('sigaret');
@@ -272,9 +266,8 @@
 		runFilter : function(){
 			var _this = this;
 			var marker = true;
-			this.section.off();
 			this.section.on('mousewheel', function(event, delta){
-				if( marker && delta < 0 ){
+				if( marker && delta <= 0 ){
 					marker = false;
 					window.stopAllScroll = true;
 					_this.img.gotoAndPlay('filter');
@@ -309,6 +302,7 @@
  			this.stage.addChild(shape_3);
 		},
 		filterOne : function(){
+			if( this.one ) return;
 			var _this = this;
 			this.one = true;
 			this.img.gotoAndPlay('filterOne');
@@ -333,6 +327,7 @@
 			});
 		},
 		filterTwo : function(){
+			if( this.two ) return;
 			var _this = this;
 			this.two = true;
 			this.img.gotoAndPlay('filterTwo');
@@ -355,6 +350,7 @@
 			});
 		},
 		filterThree : function(){
+			if( this.three ) return;
 			var _this = this;
 			this.three = true;
 			this.img.gotoAndPlay('filterThree');
@@ -444,13 +440,13 @@
 		animation : function(){
 			var _this = this;
 			var animationName = this.img.currentAnimation;
-			$('.hiddenArrow').off();
+			this.mobileArrow.off();
+			this.section.off();
 			switch ( animationName ){
 				case 'rotate' : 
 					this.img.paused = true;
 					this.showSigaret();
-					if(typeof window.orientation === 'undefined') return;
-					$('.hiddenArrow').on('tap', function(){
+					this.mobileArrow.on('tap click', function(){
 						_this.img.gotoAndPlay('open');
 						_this.scrollImg.hide();
 					});
@@ -459,8 +455,7 @@
 					this.img.paused = true;
 					this.rotateSigaret();
 					this.scrollImg.show();
-					if(typeof window.orientation === 'undefined') return;
-					$('.hiddenArrow').on('tap', function(){
+					this.mobileArrow.on('tap click', function(){
 						_this.img.gotoAndPlay('sigaret');
 						_this.scrollImg.hide();
 					});
@@ -469,8 +464,7 @@
 					this.img.paused = true;
 					this.runFilter();
 					this.scrollImg.show();
-					if(typeof window.orientation === 'undefined') return;
-					$('.hiddenArrow').on('tap', function(){
+					this.mobileArrow.on('tap click', function(){
 						_this.img.gotoAndPlay('filter');
 						_this.scrollImg.hide();
 					});
