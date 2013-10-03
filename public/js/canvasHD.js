@@ -130,11 +130,11 @@
 			function showNewHd(){
 				createjs.Tween 
 					.get(_this.light)
-					.to({alpha : 0}, 1800, Ease.getElasticIn);
+					.to({alpha : 0}, 4000, Ease.getElasticIn);
 
 				createjs.Tween 
 					.get(app.img)
-					.to({alpha : 1}, 3000, Ease.getElasticIn)
+					.to({alpha : 1}, 4000, Ease.getElasticIn)
 					.call(runAnimation);
 			};
 
@@ -211,8 +211,8 @@
 			arrow.addEventListener('click', gotoFilter);
 			// crate shape
 			var arrow_shape = new createjs.Shape();
- 			arrow_shape.graphics.beginFill(createjs.Graphics.getRGB(0,0,0,0)).drawRect(x,y-5,52,53);
- 			arrow_shape.hitArea = new createjs.Shape(new createjs.Graphics().beginFill("#000").drawRect(x,y-5,52,53))
+ 			arrow_shape.graphics.beginFill(createjs.Graphics.getRGB(0,0,0,0)).drawRect(x-2,y,52,53);
+ 			arrow_shape.hitArea = new createjs.Shape(new createjs.Graphics().beginFill("#000").drawRect(x-2,y,52,53))
  			arrow_shape.addEventListener('click', gotoFilter);
 
  			this.stage.addChild(arrow_shape);
