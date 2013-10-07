@@ -93,7 +93,7 @@
 					.to({x : x - 2}, 50)
 					.call(function(){
 						count++;
-						if( count >= 5 ){
+						if( count >= 15 ){
 							tween.setPaused(true);
 							_this.showNewHD();
 						}
@@ -118,7 +118,7 @@
 
 			createjs.Tween 
 				.get(this.light)
-				.to({alpha : 1}, 3000, Ease.getElasticIn)
+				.to({alpha : 1}, 2000, Ease.getElasticIn)
 				.call(showNewHd);
 				
 			function stopInterval(){
@@ -130,11 +130,11 @@
 			function showNewHd(){
 				createjs.Tween 
 					.get(_this.light)
-					.to({alpha : 0}, 2500, Ease.getElasticIn);
+					.to({alpha : 0}, 1500, Ease.getElasticIn);
 
 				createjs.Tween 
 					.get(app.img)
-					.to({alpha : 1}, 2500, Ease.getElasticIn)
+					.to({alpha : 1}, 1500, Ease.getElasticIn)
 					.call(runAnimation);
 			};
 
@@ -203,8 +203,8 @@
 			// crate arrow 	
 			var arrow = this.arrow = new createjs.Bitmap("img/iOpen.png");
 			var y = 190;
-			var x = 416;
-			arrow.x = 416;
+			var x = 406;
+			arrow.x = 406;
 			arrow.y = 190;
 			arrow.scaleX = .9;
 			arrow.scaleY = .9;
@@ -236,6 +236,10 @@
 		showFilter : function(){
 			this.topText.text = 'Унікальний турбо-фільтр з трьома секціями'.toUpperCase();
 			this.topText.x = 1000/2 - this.topText.getMeasuredWidth()/2;
+
+			this.bottomText.text = "Для миттєвої передачі\n насиченого та рівномірного смаку".toUpperCase();
+			this.bottomText.textAlign = 'center';
+			this.bottomText.x = 1000/2;
 		},
 		filterOne : function(){
 			if( this.one ) return;
@@ -350,8 +354,9 @@
 					_this.crateTitle();
 					_this.topText.text = '';
 
-					_this.topText.text = 'Миттєве насичення смаком КENT HD'.toUpperCase();
-					_this.topText.x = 1000/2 - _this.topText.getMeasuredWidth()/2;
+					_this.topText.text = 'Ще більше смаку KENT,\n завдяки унікальному турбо-фільтру. '.toUpperCase();
+					_this.topText.textAlign = 'center';
+					_this.topText.x = 1000/2;
 					_this.stage.addChild(pack_1);
 					_this.stage.addChild(pack_2);
 					_this.stage.addChild(pack_3);
