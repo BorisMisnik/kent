@@ -184,10 +184,10 @@
 			this.stage.addChild(img);	
 		},
 		crateTitle : function(){
-			var topText = this.topText = new createjs.Text("Зустрічай оновлення КЕНТ HD".toUpperCase(), "28px Verdana", "#5d6870");
+			var topText = this.topText = new createjs.Text("Зустрічай оновлення КЕНТ HD".toUpperCase(), "25px Verdana", "#5d6870");
 			topText.x = 1000/2 - topText.getMeasuredWidth()/2;
 			topText.y = 45;
-			var bottomText = this.bottomText = new createjs.Text("".toUpperCase(), "28px Verdana", "#5d6870");
+			var bottomText = this.bottomText = new createjs.Text("".toUpperCase(), "25px Verdana", "#5d6870");
 			bottomText.x = 1000/2 - bottomText.getMeasuredWidth()/2;
 			bottomText.y = 600 - 160;
 			this.stage.addChild(bottomText); // add text to stage
@@ -195,23 +195,23 @@
 		},
 		showSigaret : function(){
 			var _this = this;
-			this.topText.text = 'Технологія легкого відкривання'.toUpperCase();
+			this.topText.text = 'Технологія легкого відкривання '.toUpperCase();
 			this.topText.x = 1000/2 - this.topText.getMeasuredWidth()/2;
 			this.stage.addChild(arrow);
 			this.bottomText.text = 'Для БІЛЬШ  зручного користування пачкою'.toUpperCase();
 			this.bottomText.x = 1000/2 - this.bottomText.getMeasuredWidth()/2;
 			// crate arrow 	
-			var arrow = this.arrow = new createjs.Bitmap("img/iOpen.png");
+			var arrow = this.arrow = new createjs.Bitmap("img/arrow-hd_2.png");
 			var y = 190;
-			var x = 406;
-			arrow.x = 406;
+			var x = 426;
+			arrow.x = 426;
 			arrow.y = 190;
 			arrow.scaleX = .9;
 			arrow.scaleY = .9;
 			arrow.addEventListener('click', gotoFilter);
 			// crate shape
 			var arrow_shape = new createjs.Shape();
- 			arrow_shape.graphics.beginFill(createjs.Graphics.getRGB(0,0,0,0)).drawRect(x-2,y,52,53);
+ 			arrow_shape.graphics.beginFill(createjs.Graphics.getRGB(0,0,0,0)).drawRect(x-2,y,26,56);
  			arrow_shape.hitArea = new createjs.Shape(new createjs.Graphics().beginFill("#000").drawRect(x-2,y,52,53))
  			arrow_shape.addEventListener('click', gotoFilter);
 
@@ -237,7 +237,7 @@
 			this.topText.text = 'Унікальний турбо-фільтр з трьома секціями'.toUpperCase();
 			this.topText.x = 1000/2 - this.topText.getMeasuredWidth()/2;
 
-			this.bottomText.text = "Для миттєвої передачі\n насиченого та рівномірного смаку".toUpperCase();
+			this.bottomText.text =  "Для миттєвої передачі насиченого та рівномірного смаку".toUpperCase();
 			this.bottomText.textAlign = 'center';
 			this.bottomText.x = 1000/2;
 		},
@@ -338,10 +338,10 @@
 				var pack_2 = new createjs.Bitmap("img/canvas_hd_2.png");
 				var pack_3 = new createjs.Bitmap("img/canvas_hd_3.png");
 				var pack_4 = new createjs.Bitmap("img/canvas_hd_4.png");
-				pack_1.y = 150;
-				pack_2.y = 150;
-				pack_3.y = 150;
-				pack_4.y = 150;
+				pack_1.y = 128;
+				pack_2.y = 128;
+				pack_3.y = 128;
+				pack_4.y = 128;
 				pack_1.x = -200;
 				pack_2.x = -200;
 				pack_3.x = -200;
@@ -354,9 +354,14 @@
 					_this.crateTitle();
 					_this.topText.text = '';
 
-					_this.topText.text = 'Ще більше смаку KENT,\n завдяки унікальному турбо-фільтру'.toUpperCase();
+					_this.topText.text = 'Ще більше смаку KENT'.toUpperCase();
 					_this.topText.textAlign = 'center';
 					_this.topText.x = 1000/2;
+
+					_this.bottomText.text = 'завдяки унікальному турбо-фільтру'.toUpperCase();
+					_this.bottomText.textAlign = 'center';
+					_this.bottomText.x = 1000/2;
+					
 					_this.stage.addChild(pack_1);
 					_this.stage.addChild(pack_2);
 					_this.stage.addChild(pack_3);
