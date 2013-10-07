@@ -354,7 +354,7 @@
 					_this.crateTitle();
 					_this.topText.text = '';
 
-					_this.topText.text = 'Ще більше смаку KENT,\n завдяки унікальному турбо-фільтру. '.toUpperCase();
+					_this.topText.text = 'Ще більше смаку KENT,\n завдяки унікальному турбо-фільтру'.toUpperCase();
 					_this.topText.textAlign = 'center';
 					_this.topText.x = 1000/2;
 					_this.stage.addChild(pack_1);
