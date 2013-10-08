@@ -98,7 +98,10 @@
 							_this.showNewHD();
 						}
 					})
-
+			oldHD.addEventListener('click', function(){
+				tween.setPaused(true);
+				_this.showNewHD();
+			});
 			var light = this.light = new createjs.Bitmap("img/light.png");
 			var scale = 1;
 			light.scaleX = scale;
