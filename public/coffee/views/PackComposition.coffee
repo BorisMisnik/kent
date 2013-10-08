@@ -1,6 +1,8 @@
+<<<<<<< HEAD
 kent.packs.assetsManager.addAssetURL('i_360', 'img/i360.png')
 kent.packs.assetsManager.addAssetURL('i_open', 'img/iOpen.png')
 kent.packs.assetsManager.addAssetURL('i_sig', 'img/iSig.png')
+
 
 class PackComposition extends createjs.Container
 
@@ -20,28 +22,20 @@ class PackComposition extends createjs.Container
 
     kent.packs.app.pss2 = @pss2
 
-
+    @addChild @pss, @pss2
 
     @pack_rotator = new createjs.Shape()
-    @pack_rotator.graphics.beginFill(createjs.Graphics.getRGB(0,255,0,0.0)).drawRect(0,0,220,280)
+    @pack_rotator.graphics.beginFill(createjs.Graphics.getRGB(0,255,0,0)).drawRect(0,0,220,280)
     @pack_rotator.hitArea = new createjs.Shape(new createjs.Graphics().beginFill("#000").drawRect(0,0,220,280))
     @pack_rotator.x = -110
     @pack_rotator.y = -60
 
     @pack_opener = new createjs.Shape()
-    @pack_opener.graphics.beginFill(createjs.Graphics.getRGB(255,0,0,0.0)).drawRect(0,0,220,140)
+
+    @pack_opener.graphics.beginFill(createjs.Graphics.getRGB(255,0,0,0)).drawRect(0,0,220,140)
     @pack_opener.hitArea = new createjs.Shape(new createjs.Graphics().beginFill("#000").drawRect(0,0,220,140))
     @pack_opener.x = -110
     @pack_opener.y = -200
-
-
-    @pack_closr = new createjs.Shape()
-    @pack_closr.graphics.beginFill(createjs.Graphics.getRGB(0,0,255,0.0)).drawRect(0,0,220,70)
-    @pack_closr.hitArea = new createjs.Shape(new createjs.Graphics().beginFill("#000").drawRect(0,0,220,70))
-    @pack_closr.x = -110
-    @pack_closr.y = -270
-    @pack_closr.visible=false
-
 
     @fltr_btn_1 = new createjs.Shape()
     @fltr_btn_1.graphics.beginFill(createjs.Graphics.getRGB(0,255,0,.0)).drawRect(-100,-75,200,150)
@@ -117,10 +111,6 @@ class PackComposition extends createjs.Container
         frame:fltr_btn_1_trgt,
         useFrames : true
 
-      TweenMax.to @title_fltr_sbt_2, 1,
-        alpha:1
-        ease:Sine.easeOut
-
 #      TweenMax.to @title_fltr_2, fltr_btn_1_trgt-fltr_btn_1_src,
 #        alpha:1
 #        useFrames:true
@@ -137,9 +127,6 @@ class PackComposition extends createjs.Container
       ,
         frame:fltr_btn_1_src
         useFrames : true
-
-
-
 #      TweenMax.to @title_fltr_2, fltr_btn_1_trgt-fltr_btn_1_src,
 #        alpha:0
 #        useFrames:true
@@ -155,10 +142,6 @@ class PackComposition extends createjs.Container
       ,
         frame:fltr_btn_2_trgt,
         useFrames : true
-
-      TweenMax.to @title_fltr_sbt_1, 1,
-        alpha:1
-        ease:Sine.easeOut
 
 #      TweenMax.to @title_fltr_1, fltr_btn_2_trgt-fltr_btn_2_src,
 #        alpha:1
@@ -191,10 +174,6 @@ class PackComposition extends createjs.Container
         frame:fltr_btn_3_trgt,
         useFrames : true
 
-      TweenMax.to @title_fltr_sbt_3, 1,
-        alpha:1
-        ease:Sine.easeOut
-
 #      TweenMax.to @title_fltr_3, fltr_btn_3_trgt-fltr_btn_3_src,
 #        alpha:1
 #        useFrames:true
@@ -224,7 +203,6 @@ class PackComposition extends createjs.Container
 
     #@pack_opener.cursor = @pss.cursor="pointer"
 
-
     @i_360 = new createjs.Bitmap(kent.packs.assetsManager.getAssetURL('i_360'))
     @i_360.x=-324/2
     @i_360.y = 170
@@ -251,7 +229,7 @@ class PackComposition extends createjs.Container
       inital: 'none'
       events : [
         name: 'rotate'
-        from: '*'
+        from: 'none'
         to  : 'rotation'
       ,
         name: 'open'
@@ -278,16 +256,9 @@ class PackComposition extends createjs.Container
       callbacks:
         onenterrotation :()=>
 
-          console.log "enter rotation"
-
-          @pack_closr.visible=false
-
           @pack_rotator.addEventListener "mousedown",(e)=>
 
             @pack_opener.visible = false
-
-            TweenMax.to @i_open_1,.5,
-              alpha:0
 
             prevX = e.stageX
             prevY = e.stageY
@@ -301,7 +272,7 @@ class PackComposition extends createjs.Container
               prevX = e.stageX
               prevY = e.stageY
 
-              nuFrame =  @pss.frame+deltaX/4
+              nuFrame =  @pss.frame+deltaX/2
               nuFrame = (if (nuFrame < 0) then 106 + nuFrame else (if (nuFrame > 106) then nuFrame - 106 else nuFrame))
               @pss.frame = nuFrame
 
@@ -320,14 +291,7 @@ class PackComposition extends createjs.Container
                 onComplete : ()=>
                   @pack_opener.visible = true
 
-                  TweenMax.to @i_open_1,.5,
-                    alpha:1
-
           @pack_opener.addEventListener "mousedown",(e)=>
-
-
-            TweenMax.to @i_open_1,.5,
-              alpha:0
 
             @pack_rotator.visible = false
 
@@ -382,23 +346,16 @@ class PackComposition extends createjs.Container
 
           TweenMax.to @i_360, .5,
             alpha:0
-
           @pack_opener.visible = false;
           @pack_rotator.visible = false;
           @pack_opener.removeAllEventListeners "mousedown"
           @pack_rotator.removeAllEventListeners "mousedown"
 
         onenteropen :()=>
-
-          console.log "enter open"
-
           console.log('on enter open')
 
         onentersig : ()=>
-
-          console.log "enter sig"
-
-          @pss2.y=6
+          @pss2.y+=6
           @pss2.frame = 121
           @pss2.visible=true
           @pss2.rotation=-90
@@ -406,64 +363,12 @@ class PackComposition extends createjs.Container
           @pss2.maskLeft=690
 
           @pack_opener.visible=true
-
-          @pack_closr.visible=true
-
-
-          @pack_closr.addEventListener "mousedown",(e)=>
-            @pss2.visible  = false
-            @pack_rotator.visible = false
-
-            prevX = e.stageX
-            prevY = e.stageY
-
-            @pack_closr.getStage().addEventListener "stagemousemove",(e)=>
-              deltaX =  prevX-e.stageX
-              deltaY =  prevY-e.stageY
-
-              prevX = e.stageX
-              prevY = e.stageY
-
-              nuFrame =  @pss.frame+deltaY/4
-              nuFrame = (if (nuFrame < 107) then 107 else (if (nuFrame > 120) then 120 else nuFrame))
-              @pss.frame = nuFrame
-              console.log nuFrame
-
-            @pack_closr.getStage().addEventListener "stagemouseup",(e)=>
-              console.log "@@pack_closr close pack"
-              @pack_opener.getStage().removeAllEventListeners "stagemousemove"
-              @pack_opener.getStage().removeAllEventListeners "stagemouseup"
-
-              if(@pss.frame>115)
-                time = 120-@pss.frame
-                TweenMax.to @pss, time,
-                  frame:120
-                  ease:Linear.easeNone
-                  useFrames:true
-                  onComplete:()=>
-                    @state_machine.getsig()
-              else
-                TweenMax.to @pss, time,
-                  frame:107
-                  ease:Linear.easeNone
-                  useFrames:true
-                  onComplete:()=>
-                    @state_machine.rotate()
-                    @pack_rotator.visible = true
-
-
-
           @pack_opener.addEventListener "mousedown",(e)=>
-
-
 
             prevX = e.stageX
             prevY = e.stageY
 
             @pack_opener.getStage().addEventListener "stagemousemove",(e)=>
-
-              console.log("@pack_opener : sig")
-
               deltaX =  prevX-e.stageX
               deltaY =  prevY-e.stageY
 
@@ -488,13 +393,12 @@ class PackComposition extends createjs.Container
               @pack_opener.getStage().removeAllEventListeners "stagemousemove"
               @pack_opener.getStage().removeAllEventListeners "stagemouseup"
 
-              if @pss2.y>-50
+              if @pss2.y>-70
                 TweenMax.to @pss2, .5,
                   y : 6
                   maskLeft:690
               else
                 @pack_opener.visible = false
-                @pack_closr.visible = false
                 @pack_opener.removeAllEventListeners "mousedown"
                 @pack_opener.getStage().removeAllEventListeners "stagemousemove"
 
@@ -507,35 +411,15 @@ class PackComposition extends createjs.Container
                   onComplete : ()=>
                     @state_machine.rotatesig()
 
-                TweenMax.to @i_open_2,.5,
-                  alpha:0
 
                   #maskLeft:690
               #@pss.getStage().removeAllEventListeners "stagemouseup"
-
-
-          TweenMax.to @i_open_2,.5,
-            alpha:1
-
-        onleavesig :()=>
-
-          console.log "leave sig"
-
-          @pack_closr.removeAllEventListeners "mousedown"
-          @pack_opener.removeAllEventListeners "mousedown"
-          @pack_opener.getStage().removeAllEventListeners "stagemousemove"
-          @pack_opener.getStage().removeAllEventListeners "stagemouseup"
-
-
 
         onenterrotatedsig : ()=>
           TweenMax.to @pss2, .5,
             scaleX:1
             scaleY:1
             rotation:0
-            onComplete : ()=>
-              TweenMax.to @i_sig,.5,
-                alpha:1
 
 
           @pack_opener.getStage().addEventListener "click", ()=>
@@ -543,10 +427,6 @@ class PackComposition extends createjs.Container
 
 
         onenteropenedfilter : ()=>
-
-          TweenMax.to @i_sig,.5,
-            alpha:0
-
           @pack_opener.getStage().removeAllEventListeners "click"
 
           console.log @pss2.frame
@@ -575,6 +455,22 @@ class PackComposition extends createjs.Container
             alpha:1
             delay: 4
             ease:Sine.easeOut
+
+          TweenMax.to @title_fltr_sbt_1, 1,
+            alpha:1
+            delay: 3
+            ease:Sine.easeOut
+
+          TweenMax.to @title_fltr_sbt_2, 1,
+            alpha:1
+            delay: 3.5
+            ease:Sine.easeOut
+
+          TweenMax.to @title_fltr_sbt_3, 1,
+            alpha:1
+            delay: 4
+            ease:Sine.easeOut
+
 
 
 

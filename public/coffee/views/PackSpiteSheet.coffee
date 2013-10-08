@@ -102,16 +102,8 @@ class PackSpiteSheet extends createjs.Container
     )
 
     @img = new createjs.BitmapAnimation @spriteSheet
-
-    scale=.95
-
-    @img.scaleX=scale
-    @img.scaleY=scale
-
-    @img.x = -978*scale / 2
-    @img.y = -550*scale / 2
-
-
+    @img.x = -978 / 2
+    @img.y = -550 / 2
     @img.gotoAndStop(0);
 
     @maskWidth  = 1000
