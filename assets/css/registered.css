@@ -140,9 +140,9 @@ input[type="submit"] {
 /* basic scrollbar styling */
 /* vertical scrollbar */
 .mCSB_container {
-  width: auto;
-  margin-right: 135px;
   overflow: hidden;
+  margin-right: 135px;
+  width: auto;
 }
 .mCSB_container.mCS_no_scrollbar {
   margin-right: 0;
@@ -152,36 +152,36 @@ input[type="submit"] {
   margin-right: 30px;
 }
 .mCustomScrollBox > .mCSB_scrollTools {
-  width: 16px;
-  height: 100%;
   top: 0;
   right: 0;
+  width: 16px;
+  height: 100%;
 }
 .mCSB_scrollTools .mCSB_draggerContainer {
   position: absolute;
   top: 0;
-  left: 0;
-  bottom: 0;
   right: 0;
+  bottom: 0;
+  left: 0;
   height: auto;
 }
 .mCSB_scrollTools a + .mCSB_draggerContainer {
   margin: 20px 0;
 }
 .mCSB_scrollTools .mCSB_draggerRail {
+  margin: 0 auto;
   width: 8px;
   height: 100%;
-  margin: 0 auto;
 }
 .mCSB_scrollTools .mCSB_dragger {
-  cursor: pointer;
   width: 100%;
   height: 30px;
+  cursor: pointer;
 }
 .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+  margin: 0 auto;
   width: 8px;
   height: 100%;
-  margin: 0 auto;
 }
 .mCSB_scrollTools .mCSB_buttonDown {
   top: 100%;
@@ -222,44 +222,44 @@ input[type="submit"] {
 /*light-2*/
 .mCS-light-2 > .mCSB_scrollTools .mCSB_draggerRail {
   width: 4px;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
   background: #fff;
   /* rgba fallback */
 
   background: rgba(255, 255, 255, 0.1);
-  -webkit-border-radius: 1px;
-  -moz-border-radius: 1px;
-  border-radius: 1px;
 }
 .mCS-light-2 > .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
   width: 4px;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
   background: #fff;
   /* rgba fallback */
 
   background: rgba(255, 255, 255, 0.75);
-  -webkit-border-radius: 1px;
-  -moz-border-radius: 1px;
-  border-radius: 1px;
 }
 /*dark-2*/
 .mCS-dark-2 > .mCSB_scrollTools .mCSB_draggerRail {
   width: 4px;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
   background: #000;
   /* rgba fallback */
 
   background: rgba(0, 0, 0, 0.1);
-  -webkit-border-radius: 1px;
-  -moz-border-radius: 1px;
-  border-radius: 1px;
 }
 .mCS-dark-2 > .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
   width: 4px;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
   background: #000;
   /* rgba fallback */
 
   background: rgba(0, 0, 0, 0.75);
-  -webkit-border-radius: 1px;
-  -moz-border-radius: 1px;
-  border-radius: 1px;
 }
 /*light-thick*/
 .mCS-light-thick > .mCSB_scrollTools .mCSB_draggerRail {
@@ -315,8 +315,8 @@ input[type="submit"] {
 /* custom styling */
 /* content_1 scrollbar */
 .content_1 > .mCustomScrollBox > .mCSB_scrollTools {
-  height: 96%;
   top: 2%;
+  height: 96%;
 }
 /* content_2 scrollbar */
 .content_2 .mCSB_scrollTools .mCSB_draggerRail {
@@ -328,8 +328,8 @@ input[type="submit"] {
 }
 /* content_3 scrollbar */
 .content_3 > .mCustomScrollBox > .mCSB_scrollTools {
-  height: 94%;
   top: 3%;
+  height: 94%;
 }
 .content_3 .mCSB_scrollTools .mCSB_draggerRail {
   width: 0;
@@ -347,8 +347,8 @@ input[type="submit"] {
 }
 /* content_4 scrollbar */
 .content_4 > .mCustomScrollBox > .mCSB_scrollTools {
-  height: 94%;
   top: 3%;
+  height: 94%;
 }
 .content_4 .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
   width: 8px;
@@ -362,34 +362,34 @@ input[type="submit"] {
 }
 /* content_5 scrollbar */
 .content_5 > .mCustomScrollBox > .mCSB_scrollTools {
-  width: 98%;
   margin: 0 1%;
+  width: 98%;
 }
 /* content_6 scrollbar */
 .content_6 > .mCustomScrollBox > .mCSB_scrollTools {
-  width: 88%;
   margin: 0 6%;
+  width: 88%;
 }
 /* content_8 scrollbar */
 .content_8 .mCSB_scrollTools .mCSB_draggerRail {
   width: 0px;
-  border-left: 1px solid rgba(0, 0, 0, 0.8);
   border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 1px solid rgba(0, 0, 0, 0.8);
 }
 .ik_select {
-  display: inline-block;
-  *display: inline;
-  vertical-align: middle;
   position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  *display: inline;
   *zoom: 1;
 }
 .ik_select_link {
-  height: 16px;
-  padding: 0 22px 0 7px;
   overflow: hidden;
+  padding: 0 22px 0 7px;
+  height: 16px;
   border: 1px solid #999;
-  cursor: default;
   white-space: nowrap;
+  cursor: default;
   *zoom: 1;
 }
 .ik_select_link_text {
@@ -398,13 +398,13 @@ input[type="submit"] {
   text-overflow: ellipsis;
 }
 .ik_select_block {
-  display: none;
   position: absolute;
+  top: 0;
+  left: 0;
   z-index: 9999;
+  display: none;
   width: 100%;
   height: auto;
-  left: 0;
-  top: 0;
   cursor: default;
 }
 .ik_select_list {
@@ -422,8 +422,8 @@ input[type="submit"] {
 }
 .ik_select_list li {
   position: relative;
-  padding: 0 7px;
   overflow: hidden;
+  padding: 0 7px;
 }
 .ik_select_list li.ik_select_optgroup {
   padding-left: 0;
@@ -447,24 +447,24 @@ input[type="submit"] {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
 }
 select {
-  vertical-align: top !important;
-  width: 113px;
-  height: 32px;
   position: relative;
   top: -2px;
+  width: 113px;
+  height: 32px;
+  vertical-align: top !important;
 }
 @media (max-width: 767px) {
   .selectMonth {
+    width: 145px;
     height: 28px;
+    outline: none;
+    border-radius: 0;
+    background-color: #e0e0e0;
+    color: #555;
     vertical-align: top !important;
     font-size: 12px;
-    color: #555;
-    background-color: #e0e0e0;
-    border-radius: 0;
-    width: 145px;
     -webkit-transition: background-color 500ms ease-in-out;
     transition: background-color 500ms ease-in-out;
-    outline: none;
   }
   select {
     top: 0;
@@ -488,8 +488,8 @@ select {
     margin-right: 2px;
   }
   .text {
-    font-size: 17px;
     color: #656e75 !important;
+    font-size: 17px;
   }
   .link.submit {
     line-height: 37px;
@@ -513,11 +513,11 @@ select {
     width: 83px;
   }
   .dateBirthday label {
-    float: right;
-    width: 121px !important;
-    display: inline-block;
     position: relative;
     top: 11px;
+    display: inline-block;
+    float: right;
+    width: 121px !important;
     font-size: 13px !important;
   }
   .button-photo {
@@ -549,4 +549,36 @@ select {
     height: 55px;
     font-size: 24px;
   }
+}
+#registered.promo .wrapper-form{
+  padding: 0;
+}
+#registered.promo .bg{
+  margin-top:10px;
+  width:100%;
+  height: 74px;
+  background-color: #dfdfdf;
+}
+#registered.promo .bg p{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: auto;
+  padding-top: 5px;
+  padding-left: 29px;
+  width: 446px;
+  color: #656E75;
+  text-align: left;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 1.4;
+  position: relative;
+}
+#registered.promo .bg img{
+  position: absolute;
+  top: 7px;
+  left:0;
+}
+#registered.promo form{
+  padding: 0 20px;
 }
