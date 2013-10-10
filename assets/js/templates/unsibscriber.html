@@ -1,33 +1,20 @@
 <section id="unsibscriber">
 
-    {{! Добавить класс `compleat` если новый пароль был отправлен }}
-    <div class="wrapper-form {{#success}}compleat{{/success}}">
+    <div class="wrapper-form">
 
         <h1>Відписка <a href="/" class="leave"></a></h1>
 
         <p class="text hide" style="display:block;">Для того щоб відписатися від новин введи свій e-mail,<br/>
            на який тобі приходять листи.</p>
 
-        {{#errors}}
-            {{#not_valid}}
-            <span class="error">Необхідно вказати e-mail адресу.</span>
-            {{/not_valid}}
-        {{/errors}}
-
-        {{#success}}
-            {{! Добавить класс `comp` если новый пароль был отправлен }}
-            <p class="text comp">На твій e-mail було надіслано дані для відновлення пароля.</p>
-        {{/success}}
-
-        {{#messages}}
-        {{/messages}}
+        <span class="error">Необхідно вказати e-mail адресу.</span>
 
         <form action="" method="" class="text-center">
-            <input type="text" id="email" name="email" value="{{email}}" placeholder="E-mail:" class="text">
+            <input type="text" id="email" name="email" value="{{email}}" placeholder="E-mail:" class="text" style="width: 367px;">
             <br />
-            <input type="submit" value="надіслати" class="submit send">
+            <input type="submit" value="надіслати" class="submit send" style="width:auto;padding:0 15px;">
         </form>
 
-        <a href="#" class="submit ok">ok</a>
+        <!-- <a href="#" class="submit ok">ok</a> -->
     </div>
 </section>
