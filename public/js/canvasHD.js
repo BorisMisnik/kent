@@ -22,6 +22,18 @@
 			preload.addEventListener('progress', handleOverallProgress);
 			preload.addEventListener('complete', handleComplete);
 			// fill manifets
+			this.smallImages = [];
+			this.smallImages.push('img/old_hd.png');
+			this.smallImages.push('img/light.png');
+			this.smallImages.push('img/arrow-hd_2.png');
+			this.smallImages.push("img/canvas_hd_1.png");
+			this.smallImages.push("img/canvas_hd_2.png");
+			this.smallImages.push("img/canvas_hd_3.png");
+			this.smallImages.push("img/canvas_hd_4.png");
+			var max = this.smallImages.length;
+			for (var i = 0; i < max; i++) {
+				preload.loadFile(this.smallImages[i]);
+			};
 			var n = 0; // 
 			for (var i = 0; i <= 50 ; i++) {	// rotate 0-50
 				this.manifest.push(this.nameImage(i));	
@@ -31,16 +43,20 @@
 			for (var i = 51; i <= 101 ; i++) { // opening 51-101
 				this.manifest.push(this.nameImage(i));
 				this.frames.push([0, 0, 1000, 600, i, 0, 0]);
-				preload.loadFile(this.manifest[i]);
+				// preload.loadFile(this.manifest[i]);
 			};
 			for (var i = 102; i <= 127 ; i++) { // cig 102-127
 				this.manifest.push(this.nameImage(i));
 				this.frames.push([0, 0, 1000, 600, i, 0, 0]);
-				preload.loadFile(this.manifest[i]);
+				// preload.loadFile(this.manifest[i]);
 			};
 			for (var i = 128; i <= 299 ; i++) { // filter 128-299
 				this.manifest.push(this.nameImage(i));
 				this.frames.push([0, 0, 1000, 600, i, 0, 0]);
+				// preload.loadFile(this.manifest[i]);
+			};
+			var max = this.manifest.length;
+			for (var i = 0; i < max; i++) {
 				preload.loadFile(this.manifest[i]);
 			};
 			function handleOverallProgress(event){ // allProgress images upload

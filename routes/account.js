@@ -13,12 +13,18 @@ var config = require( '../config.json' ),
 
 exports.login =
 	function( req, res, next ) {
-		// check is promo-login used
-		var promo = isPromoLogin( req.body.username, req.body.password );
-		// otherwise make default login action
-		if ( !promo ) return next();
-		// use promo login
-		res.send({ success: { promo: true }});
+		var username = req.body.username;
+		// check is promo-login used	
+		if( username !== 'sms' && username !== 'email')
+			return next();
+
+		isPromoLogin( req, res, function(result){
+			// use promo login
+			if( !result )
+				return next();
+				
+			res.send({ success: { promo: true }});
+		});
 	};
 
 exports.logout =
@@ -35,52 +41,66 @@ exports.signupPromo =
 	function( req, res ) {
 		console.log( 'Promo signup'.cyan.bold, req.body );
 		// check is promo-login used
-		var promo = isPromoLogin( req.body.promo_login, req.body.promo_password );
+		var username = req.body.promo_login;
 		// return error if not
 		// because of signupPromo uses only for promo-logins
-		if ( !promo ) return res.send({ error: { promo: true }});
+		if(( username !== 'sms' && username !== 'email' ) ){
+			delete req.body.promo_login;
+			delete req.body.promo_password;
+			return;
+		} 
+		isPromoLogin(req, res, function(result){
+			console.log( result );
+			if( !result ){
+				delete req.body.promo_login;
+				delete req.body.promo_password;
+				return;
+			};
 
-		// make simple promo signup ( without photo upload needs )
-		// prepare form data
-		var form = req.body;
-		delete form.promo_login;
-		delete form.promo_password;
-		// secret used to prevent direct call of promo-signup from unregistered user
-		form.secret = config.promo_secret;
+			// make simple promo signup ( without photo upload needs )
+			// prepare form data
 
-		pipe.request( 'POST', '/account/signup/promo',
-			{
-				form: form,
-				cookie: req.header.cookie
-			},
-			function ( error, response, body ) {
-				console.log( 'res', error, body );
-				var result;
-				try { result = JSON.parse( body ); }
-				catch( e ) {}
-				res.send( result );
+			var form = req.body;
+			// secret used to prevent direct call of promo-signup from unregistered user
+			form.secret = config.promo_secret;
+			pipe.request( 'POST', '/account/signup/promo',
+				{
+					form: form,
+					cookie: req.header.cookie
+				},
+				function ( error, response, body ) {
+					console.log( 'res', error, body );
+					var result;
+					try { result = JSON.parse( body ); }
+					catch( e ) {}
+					res.send( result );
+				});
+
 			});
+		
 	};
 
 // Helpers
 
-function isPromoLogin( login, password ) {
-	var found = null,
-		credentials = [
-	        { "login": "TURBOPARTY",  "password": "TURBONIGHT" },
-	        { "login": "turboparty",  "password": "turbonight" }
-    	],
-		max = credentials.length,
-		i = 0;
-	// check for promo login
-	if ( credentials && max ) {
-		for (; i < max; i++) {
-			var promo = credentials[i];
-			if( promo.login === login && promo.password === password ){
-				found = true;
-				break;
+function isPromoLogin( req, res, callback ) {
+	// promo resgestartion
+	var form = req.body;
+	pipe.request('GET', '/auth/promo' , {
+		form : form
+	}, function(err, res, result){
+		try{
+			var body = JSON.parse(result);
+			if( body.error ){
+				callback(false);
+			} 
+			else if( body.success.promo && body.user ) {
+				req.body.promoUser = body.user;
+				callback(true);
 			}
-		};
-	}
-	return found;
+		} catch ( e ) {
+			callback(false);
+		}
+		
+	});
+
 }
