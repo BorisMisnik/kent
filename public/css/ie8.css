@@ -35,6 +35,7 @@
 }
 .carousel .wrapeer > .switch + p{
 	left: 26px;
+	bottom: 25px;
 }
 .carousel .wrapeer[data-name="hds"]{
 	height: 254px !important;
