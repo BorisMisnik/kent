@@ -102,22 +102,12 @@ $(document).ready(function(){
 
 	var animation = action();
 	var container = $('.container-fluid');
-	// $.event.special.swipe.verticalDistanceThreshold = 35;
-	// $.event.special.swipe.handleSwipe = function( start, stop ) {
-	// 	var element = $( start.origin[0] );
 
-	// 	if ( stop.time - start.time < $.event.special.swipe.durationThreshold && 
-	// 		!element.is( 'p' ) &&  !element.is( 'span' ) 
-	// 		&& !element.is( 'h3' ) && !element.is( 'button' ) && !element.is( 'img' )
-	// 		&& !element.is('.block-text') && !element.is('.sigaret') && !element.is('.text-wrapper') 
-	// 		&& !element.is( '.no-sweep' ) ) {
-
-	// 	    start.origin
-	// 		  .trigger('swipe')
-	// 	      .trigger( start.coords[1] > stop.coords[ 1 ] ? "swipeup" : "swipedwon" )
-
-	//   	}
-	// }
+	// feeback click
+	$('.container-feedback').on('click tap', function(e){
+		console.log( $('a[data-slide="feedback"]').parent().find('span') );
+		$('a[data-slide="feedback"]').parent().find('span').trigger('tap');
+	});
 	$('.container-fluid').on({
 		swipedwon : function(){
 			animation.scrollBotom();
@@ -205,7 +195,11 @@ $(document).ready(function(){
 				},0.25);
 			}
 
-
+			// 
+			if( $('section.now').attr('id') === 'site-hd' )
+				$('.container-feedback').addClass('active');
+			else
+				$('.container-feedback').removeClass('active');
 		}
 
 	});
@@ -399,7 +393,7 @@ $(document).ready(function(){
 	var footer = $('.footer');
 	var xv = $('.xv');
 	var w = $(window);
-	var img = $('.block-image img, .carousel img, #new_hd img').not('#photo img');
+	var img = $('.block-image img, .carousel img, #new_hd img, #newHD img').not('#photo img');
 	function heightQuestion(){
 
 		question.height( w.height() - ( footer.height() +  xv.height() + 50 ) )
