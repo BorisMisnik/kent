@@ -51,12 +51,18 @@
 		</div>
 	</div>
 
+	<div class="container-feedback">
+		<img src="img/fedback-logo.png">
+		<p>Ваша думка про КЕНТ HD</p>
+	</div>
+
 	<ul class="nav-site unstyled">
 		<li class="active"><a href="#" data-slide="sigarets">00.1</a><span>Сигарети КЕНТ</span></li>
 		<li><a href="#" data-slide="history">00.2</a><span>Історія КЕНТ </span></li>
 		<li><a href="#" data-slide="question">00.3</a><span>Запитання-відповіді</span></li>
-		<li><a href="#" data-slide="profile">00.4</a><span>Профайл</span></li>
-		<li><a href="#" data-slide="photo">00.5</a><span>Фотозвіти</span></li>
+		<li><a href="#" data-slide="feedback">00.4</a><span>Ваш відгук про Kent HD</span></li>
+		<li><a href="#" data-slide="profile">00.5</a><span>Профайл</span></li>
+		<li><a href="#" data-slide="photo">00.6</a><span>Фотозвіти</span></li>
 	</ul>
 
 	<!-- photo nav -->
@@ -87,6 +93,14 @@
 					</div>
 				</article>
 			</section>
+			<!-- new hd -->
+			<section id="newHD" class="newHD_mobile">
+				<article>
+					<div>
+						<h3>Зустрічай оновлення KENT HD</h3>
+						<img src="img/hd/KENT_HD0050.png">
+					</div>
+			</section>
 			<!-- carousel boxes -->
 			<section id="carousel" data-animation="second" data-slide="sigarets">
 				<article>
@@ -97,6 +111,25 @@
 							<img src="img/hd-new.png" alt=" " data-name="hd">
 							<img src="img/switchStart.png" alt=" " data-name="switch">
 							<img src="img/hdsStart.png" alt=" " data-name="hds">
+						</div>
+					</div>
+				</article>
+			</section>
+			<!-- siteHD -->
+			<section id="site-hd" data-animation="fiveth" data-name="hd" data-slide="sigarets">
+				<article>
+					<div>
+						<div class="boxesHD">
+							<div class="wrapper-box block-image">
+								<img src="img/boxeshd.png" alt=" "/>
+							</div>
+							<div class="block-text">
+								<h3 class="hdTitle">Kent HD із новим унікальним трисекційним фільтром у чотирьох варіантах із новою назвою. </h3>
+								<p>FUTURA стає NAVY BLUE (смол – 8МГ, нікотину 0,7МГ)</p>
+								<p>SPECTRA стає BLUE (смол – 6МГ, нікотину 0,5МГ)</p>
+								<p>NEO стає SILVER (смол – 4МГ, нікотину 0,3МГ)</p>
+								<p>INFINA стає WHITE (смол – 1МГ, нікотину 0,1МГ)</p>
+							</div>
 						</div>
 					</div>
 				</article>
@@ -208,24 +241,6 @@
 									</p>
 									<button class="submit shortDetail">повернутись назад</button>
 								</div>
-							</div>
-						</div>
-					</div>
-				</article>
-			</section>
-			<!-- siteHD -->
-			<section id="site-hd" data-animation="fiveth" data-name="hd" data-slide="sigarets">
-				<article>
-					<div>
-						<div class="boxesHD">
-							<div class="wrapper-box block-image">
-								<img src="img/boxeshd.png" alt=" "/>
-							</div>
-							<div class="block-text">
-								<h3 class="hdTitle">KENT HD – це сигарети у форматі King Size. </h3>
-								<p>Вони мають систему фільтрації, яка містить 2 вугільні мембрани та потрійний фільтр. 
-									Усе це робить смак KENT HD чітким та виразним. </p>
-								<p class="description">Вміст смол і нікотину в димі однієї сигарети (мг смол / мг нікотину): </p>
 							</div>
 						</div>
 					</div>
@@ -790,121 +805,368 @@
 					</div>
 				</article>
 			</section>
+			<!-- question -->
+			<section id="feedback" data-slide="feedback">
+				<article class="">
+					<div>
+						<div class="question-anaswer">
+							<button class="send" disabled>Надіслати</button>
+							<div>
+								<div class="text-wrapper no-sweep">
+									<div class="text">
+										<form>
+											<div class="group">
+												<label>Які сигарети ви курите? </label>
+												<div class="block">
+													<div class="group-block">
+														<span class="status" style="visibility:hidden"></span>
+														<input type="text" name="Які сигарети ви курите?" placeholder="Які сигарети ви курите?" class="text">
+													</div>
+												</div>
+											</div>
+											<div class="group">
+												<label>Ви вже пробували новий Kent HD?</label>
+												<div class="block">
+													<div class="group-block">
+														<span class="status"></span>
+														<select name="Ви вже пробували новий Kent HD?" data-width="278px" id="selectHD">
+															<option value="Так">Так</option>
+															<option value="Ні">Ні</option>
+															<option value="Ні, але хочу">Ні, але хочу</option>
+															<option value="Не хочу">Не хочу</option>
+															<option value="Інше">Інше</option>
+														</select>
+													</div>
+													<div class="group-block">
+														<span class="status"></span>
+														<input type="text" name="Ви вже пробували новий Kent HD? (інше)" placeholder="Інше" class="text">
+													</div>
+												</div>
+											</div>
+											<div class="group extra">
+												<label>Що вам найбільше сподобалося в оновленому Kent HD? </label>
+												<div class="block">
+													<div class="group-block">
+														<span class="status"></span>
+														<select name="Що вам найбільше сподобалося в оновленому Kent HD?" data-width="278px">
+															<option value="Фільтр">Фільтр</option>
+															<option value="Дизайн пачки">Дизайн пачки</option>
+															<option value="Дизайн сигарети">Дизайн сигарети</option>
+															<option value="Нічого">Нічого</option>
+															<option value="Інше">Інше</option>
+														</select>
+													</div>
+													<div class="group-block">
+														<span class="status"></span>
+														<input type="text" name="Що вам найбільше сподобалося в оновленому Kent HD? (інше)" placeholder="Інше" class="text">
+													</div>
+												</div>
+											</div>
+											<div class="group extra">
+												<label>Як ви оцінюєте новий турбо - фільтр?</label>
+												<div class="block">
+													<div class="group-block">
+														<span class="status"></span>
+														<select name="Як ви оцінюєте новий фільтр?" data-width="278px">
+															<option value="Дуже подобається">Дуже подобається</option>
+															<option value="Подобається">Подобається</option>
+															<option value="Не дуже подобається">Не дуже подобається</option>
+															<option value="Старий був краще">Старий був краще</option>
+															<option value="Інше">Інше</option>
+														</select>
+													</div>
+													<div class="group-block extra">
+														<span class="status"></span>
+														<input type="text" name="Як ви оцінюєте новий турбо - фільтр? (Інше)" placeholder="Інше" class="text">
+													</div>
+												</div>
+											</div>
+											<div class="group extra">
+												<label>На вашу думку, у чому перевага турбо-фільтра?</label>
+												<div class="block">
+													<div class="group-block">
+														<span class="status"></span>
+														<select name="На вашу думку, у чому перевага турбо-фільтра?" data-width="278px">
+															<option value="Миттєво передає більш насичений та рівномірний смак">Миттєво передає більш насичений та рівномірний смак</option>
+															<option value="Фільтр не деформується під час куріння">Фільтр не деформується під час куріння</option>
+															<option value="Подовжує час куріння">Подовжує час куріння</option>
+															<option value="Ні в чому">Ні в чому</option>
+															<option value="Інше">Інше</option>
+														</select>
+													</div>
+													<div class="group-block">
+														<span class="status"></span>
+														<input type="text" name="На вашу думку, у чому перевага турбо-фільтра? (інше)" placeholder="Інше" class="text">
+													</div>
+												</div>
+											</div>
+											<div class="group extra">
+												<label>Як ви оцінюєте новий дизайн пачки?</label>
+												<div class="block">
+													<div class="group-block">
+														<span class="status"></span>
+														<select name="Як ви оцінюєте новий дизайн пачки?" data-width="278px">
+															<option value="Дуже зручний та інноваційний">Дуже зручний та інноваційний</option>
+															<option value="Зручний, сучасний">Зручний, сучасний</option>
+															<option value="Незручний/непривабливий">Незручний/непривабливий</option>
+															<option value="Старий дизайн був краще">Старий дизайн був краще</option>
+															<option value="Інше">Інше</option>
+														</select>
+													</div>
+													<div class="group-block">
+														<span class="status"></span>
+														<input type="text" name="Як ви оцінюєте новий дизайн пачки? (інше)" placeholder="Інше" class="text">
+													</div>
+												</div>
+											</div>
+											<div class="group extra">
+												<label>Ваша думка</label>
+												<div class="block">
+													<div class="group-block">
+														<span class="status" style="visibility:hidden"></span>
+														<textarea name="Ваша думка" placeholder="Ваша думка"></textarea>
+													</div>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+								<script>
+									(function(){
+										var $send = $('.send'),
+											$extra = $('.extra'),
+											$form = $('#feedback').find('form'),
+											$mCSB = $('#feedback .mCSB_container'),
+											formValues = {},
+											markerSend = false,
+											marker = true;
+								
+										$send.css('opacity',.5);
+
+										$('.group label').on('click', function(){
+											var $this = $(this);
+											if( $this.parent().hasClass('extra') &&  !markerSend ) return;
+											$this.toggleClass('open');
+											$this.siblings('.block').slideToggle();
+											$this.parent().toggleClass('padding');
+										});
+
+										$('.group-block').on('click', function(){
+											var $this = $(this);
+											var $parent = $(this).parent();
+
+											$parent.find('.status').removeClass('check');
+											$this.children('.status').addClass('check');
+
+
+											var val = $this.find('select').val()
+											if( $this.find('select').attr('id') !== 'selectHD') return;
+											if( val.toLowerCase().search('ні') >= 0 || val.toLowerCase().search('не хочу') >= 0 )
+												hideForm();
+											else
+												showForm();
+
+											$send
+												.removeAttr('disabled')
+												.css('opacity',1);
+
+										});
+										$form.on('change',function(){
+											$send
+												.removeAttr('disabled')
+												.css('opacity',1);
+										})
+
+										$('#selectHD').on('change', function(){
+											var val = $(this).val();
+											if( val.toLowerCase().search('ні') >= 0 || val.toLowerCase().search('не хочу') >= 0 )
+												hideForm();
+											else
+												showForm();
+										});
+
+										$form.find('select').on('change', function(){
+											var $this = $(this);
+											var $parent = $this.parent().next();
+											var $allparent = $(this).parents('.block')
+											var val = $this.val();
+											if( val === 'Інше' ){
+												$parent.show();
+												$parent.find('input').focus();
+												setTimeout(function(){
+													$allparent.find('.status').removeClass('check');
+													$parent.find('.status').addClass('check')	
+												}, 0);
+											} else {
+												$parent.hide();
+											}
+										})
+
+										$send.on('click', function(){
+											if( !marker ) return;
+											$('.status.check').each(function(){
+												var $this = $(this);
+												formValues[$this.next().attr('name')] = $this.next().val();
+											});
+
+											formValues.user = {
+												"account_id" : $('#profile_id').val(),
+												"name" : $('#name').val(),
+												"data" : $('#date').val() + '/' + $( '#month' ).val() + '/' + $('#year').val(),
+												"mobile" : $('#mobilePhone').val(),
+												'email' : $('#email').val()
+											}
+										
+											// save feedback
+											$.post('/think', formValues)
+												.done(function(respond){
+													if( respond === 'ok' )
+														$send.text('Ваше повідомлення надісланно');
+
+													marker = false;
+												})
+												.fail(function(){
+													$send.text('Виникла помилка');	
+												})
+
+										});
+
+										function hideForm(){
+											markerSend = false;
+											$extra.addClass('extra').removeClass('padding');
+											$extra.find('.block').hide();
+											$extra.find('label').removeClass('open');
+											$extra.find('.status').removeClass('check')
+										};
+
+										function showForm(){
+											markerSend = true;
+											$extra.removeClass('extra');
+											$form.css('min-height', '300px');
+
+										}
+									})();
+								</script>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
 			<!-- profile -->
 			<section id="profile" data-slide="profile">
-			<article class="profile-article">
-				<div>
-					<div class="profile-wrapper">
-						<div class="profile">
-							<form  class="form-horizontal text-left disable" action=" " method=" " >
+				<article class="profile-article">
+					<div>
+						<div class="profile-wrapper">
+							<div class="profile">
+								<form  class="form-horizontal text-left disable" action=" " method=" " >
 
-								<span id="formError" class="error hide">Виникла помилка</span>
-								<div class="controls">
-									<input type="text" name="name" placeholder="П. I. Б." class="text" id="name" value="" />
-								</div>
+									<span id="formError" class="error hide">Виникла помилка</span>
+									<div class="controls">
+										<input type="text" name="name" placeholder="П. I. Б." class="text" id="name" value="" />
+									</div>
 
-								<label class="control-label hidden-phone" for="name">П. I. Б.</label>
-								<span class="error err_name">Неправильно вказано дані (П. І. Б.)</span>
+									<label class="control-label hidden-phone" for="name">П. I. Б.</label>
+									<span class="error err_name">Неправильно вказано дані (П. І. Б.)</span>
 
-								<div class="controls">
-									<div class="dateBirthday">
-										<input type="text" name="date" placeholder="День" class="text" id="date"value=""/>
-										<div class="wrapper-month">
-											<select name="month" id="month" data-width="116px" data-size="4" disabled>
+									<div class="controls">
+										<div class="dateBirthday">
+											<input type="text" name="date" placeholder="День" class="text" id="date"value=""/>
+											<div class="wrapper-month">
+												<select name="month" id="month" data-width="116px" data-size="4" disabled>
+													<option value="Місяць" disabled>Місяць</option>
+													<option value="0">Січень</option>
+													<option value="1">Лютий</option>
+													<option value="2">Березень</option>
+													<option value="3">Квітень</option>
+													<option value="4">Травень</option>
+													<option value="5">Червень</option>
+													<option value="6">Липень</option>
+													<option value="7">Серпень</option>
+													<option value="8">Вересень</option>
+													<option value="9">Жовтень</option>
+													<option value="10">Листопад</option>
+													<option value="11">Грудень</option>
+												</select>
+											</div>
+											<input type="text" id="year" name="year" placeholder="Рік" class="text" value="" />
+										</div>
+									</div>
+									<label class="control-label hidden-phone" for="date">Дата народження</label>
+									<span class="error err_day">Невірні дані</span>
+									<span class="error err_age">Тобі ще не виповнилося 18 років</span>
+
+									<div class="controls">
+										<input type="text" name="mobilePhone" placeholder="0 (96) 938-15-17" class="text" id="mobilePhone" value="" />
+									</div>
+									<label class="control-label hidden-phone" for="mobilePhone">Мобiльний телефон</label>
+									<span class="error err_phone">Неправильний формат номера</span>
+
+									<div class="controls">
+										<input type="text" name="email" placeholder="E-mail" class="text" id="email" value="" />
+									</div>
+									<label class="control-label hidden-phone" for="email">E-mail</label>
+									<span class="error err_email">Неправильний формат e-mail</span>
+									<span class="error err_already_used_email" >Такий e-mail вже зареестровано</span>
+
+									<div class="controls">
+										<input type="password" name="password" placeholder="Пароль" class="text" id="password" value="" />
+									</div>
+									<label class="control-label hidden-phone" for="password">Пароль</label>
+									<span class="error err_password">Пароль не відповідає вимогам</span>
+
+									<div class="controls">
+										<div class="smoke">
+											<select name="brand1" class="sku skuA1 skuA" linked=".skuB1" data-width="193px" disabled id="brand1">
 												<option value="Місяць" disabled>Місяць</option>
 												<option value="0">Січень</option>
 												<option value="1">Лютий</option>
 												<option value="2">Березень</option>
-												<option value="3">Квітень</option>
-												<option value="4">Травень</option>
-												<option value="5">Червень</option>
-												<option value="6">Липень</option>
-												<option value="7">Серпень</option>
-												<option value="8">Вересень</option>
-												<option value="9">Жовтень</option>
-												<option value="10">Листопад</option>
-												<option value="11">Грудень</option>
+											</select>
+											<select name="sku1" class="sku skuB1 skuB" data-width="193px" disabled id="sku1">
+												<option value="Місяць" disabled>Місяць</option>
+												<option value="0">Січень</option>
+												<option value="1">Лютий</option>
+												<option value="2">Березень Березень Березень Березень Березень Березень</option>
 											</select>
 										</div>
-										<input type="text" id="year" name="year" placeholder="Рік" class="text" value="" />
 									</div>
-								</div>
-								<label class="control-label hidden-phone" for="date">Дата народження</label>
-								<span class="error err_day">Невірні дані</span>
-								<span class="error err_age">Тобі ще не виповнилося 18 років</span>
+									<label class="control-label hidden-phone" for="sigaretsOne">Марка сигарет, які ти куриш постійно</label>
+									<span class="error err_password">Треба вказати</span>
 
-								<div class="controls">
-									<input type="text" name="mobilePhone" placeholder="0 (96) 938-15-17" class="text" id="mobilePhone" value="" />
-								</div>
-								<label class="control-label hidden-phone" for="mobilePhone">Мобiльний телефон</label>
-								<span class="error err_phone">Неправильний формат номера</span>
-
-								<div class="controls">
-									<input type="text" name="email" placeholder="E-mail" class="text" id="email" value="" />
-								</div>
-								<label class="control-label hidden-phone" for="email">E-mail</label>
-								<span class="error err_email">Неправильний формат e-mail</span>
-								<span class="error err_already_used_email" >Такий e-mail вже зареестровано</span>
-
-								<div class="controls">
-									<input type="password" name="password" placeholder="Пароль" class="text" id="password" value="" />
-								</div>
-								<label class="control-label hidden-phone" for="password">Пароль</label>
-								<span class="error err_password">Пароль не відповідає вимогам</span>
-
-								<div class="controls">
-									<div class="smoke">
-										<select name="brand1" class="sku skuA1 skuA" linked=".skuB1" data-width="193px" disabled id="brand1">
-											<option value="Місяць" disabled>Місяць</option>
-											<option value="0">Січень</option>
-											<option value="1">Лютий</option>
-											<option value="2">Березень</option>
-										</select>
-										<select name="sku1" class="sku skuB1 skuB" data-width="193px" disabled id="sku1">
-											<option value="Місяць" disabled>Місяць</option>
-											<option value="0">Січень</option>
-											<option value="1">Лютий</option>
-											<option value="2">Березень Березень Березень Березень Березень Березень</option>
-										</select>
+									<div class="controls">
+										<div class="smoke">
+											<select name="brand2" class="sku skuA2 skuA" linked=".skuB2" data-width="193px" disabled id="brand2">
+												<option value="Місяць" disabled>Місяць</option>
+												<option value="0">Січень</option>
+											</select>
+											<select name="sku2" class="sku skuB2 skuB" data-width="193px" disabled id="sku2">
+												<option value="Місяць" disabled>Місяць</option>
+												<option value="0">Січень</option>
+												<option value="1">Лютий</option>
+												<option value="2">Березень</option>
+												<option value="0">Січень</option>
+												<option value="1">Лютий</option>
+												<option value="2">Березень</option>
+												<option value="0">Січень</option>
+												<option value="1">Лютий</option>
+												<option value="2">BOND STREET ORIGINAL SELECTION</option>
+											</select>
+										</div>
 									</div>
-								</div>
-								<label class="control-label hidden-phone" for="sigaretsOne">Марка сигарет, які ти куриш постійно</label>
-								<span class="error err_password">Треба вказати</span>
+									<label class="control-label hidden-phone" for="sigaretsOne">Марка сигарет, які ти куриш час від часу</label>
+									<span class="error err_password">Треба вказати</span>
+									<span class="error err_password">Пoвинно відрізнятись</span>
 
-								<div class="controls">
-									<div class="smoke">
-										<select name="brand2" class="sku skuA2 skuA" linked=".skuB2" data-width="193px" disabled id="brand2">
-											<option value="Місяць" disabled>Місяць</option>
-											<option value="0">Січень</option>
-										</select>
-										<select name="sku2" class="sku skuB2 skuB" data-width="193px" disabled id="sku2">
-											<option value="Місяць" disabled>Місяць</option>
-											<option value="0">Січень</option>
-											<option value="1">Лютий</option>
-											<option value="2">Березень</option>
-											<option value="0">Січень</option>
-											<option value="1">Лютий</option>
-											<option value="2">Березень</option>
-											<option value="0">Січень</option>
-											<option value="1">Лютий</option>
-											<option value="2">BOND STREET ORIGINAL SELECTION</option>
-										</select>
-									</div>
-								</div>
-								<label class="control-label hidden-phone" for="sigaretsOne">Марка сигарет, які ти куриш час від часу</label>
-								<span class="error err_password">Треба вказати</span>
-								<span class="error err_password">Пoвинно відрізнятись</span>
+									<div class="clear"></div>
+									<span id="profileSuccess" class="succes hide">Відкореговані дані успішно збережено.</span>
 
-								<div class="clear"></div>
-								<span id="profileSuccess" class="succes hide">Відкореговані дані успішно збережено.</span>
-
-								<input id="submitProfile" type="submit" class="submit disable" value="Редагувати" />
-							</form>
+									<input id="submitProfile" type="submit" class="submit disable" value="Редагувати" />
+								</form>
+							</div>
 						</div>
 					</div>
-				</div>
-			</article>
-		</section>
+				</article>
+			</section>
 			<!-- photo -->
 			<section id="photo" data-slide="photo">
 				<article class="last photo-article">
