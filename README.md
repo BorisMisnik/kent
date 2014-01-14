@@ -1,8 +1,8 @@
 kent.com.ua
 ====================
 
-Configure apache
-Enable two modules mod_proxy and mod_proxy_http. After add virtual host:
+Configure apache:
+Enable two modules `mod_proxy` and `mod_proxy_http`. After add virtual host:
 
 ```
 Example:
@@ -33,4 +33,4 @@ npm install
 node app.js
 
 ```
-browse kent.com.ua
+browse `kent.com.ua`
