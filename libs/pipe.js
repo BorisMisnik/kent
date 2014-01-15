@@ -70,7 +70,7 @@ module.exports.request =
             cakes.forEach( function( cake ) {
                 var cookie = request.cookie( cake );
                 // if(  j.hasOwnProperty('add') )
-                    j.setCookie( cookie );
+                    j.add( cookie );
             });
         }
 
