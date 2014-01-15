@@ -28,8 +28,7 @@ module.exports =
         // add each client cookie
         cakes.forEach( function( cake ) {
             var cookie = request.cookie( cake );
-            console.log( j );
-            // j.add( cookie );
+            j.add( cookie );
         });
 
         // pass session and form
@@ -71,7 +70,7 @@ module.exports.request =
             cakes.forEach( function( cake ) {
                 var cookie = request.cookie( cake );
                 // if(  j.hasOwnProperty('add') )
-                //     j.setCookie( cookie );
+                    j.setCookie( cookie );
             });
         }
 

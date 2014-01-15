@@ -9,7 +9,7 @@
     "express": "3.0.6",
     "colors": "*",
     "validator": "*",
-    "request": "*"
+    "request": "2.16.6"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
