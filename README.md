@@ -1,26 +1,36 @@
-kent.com.ua (client)
+kent.com.ua
 ====================
 
-Basic usage how-to:
+Configure apache:
+Enable two modules `mod_proxy` and `mod_proxy_http`. After add virtual host:
 
 ```
-git clone git@github.com:piezo/kent.com.ua.git
-cd kent.com.ua
+Example:
+
+<VirtualHost 127.0.0.1>
+    ServerAdmin admin@admin.com
+    ServerName kent.com.ua
+    ServerAlias www.kent.com.ua
+ 
+    ProxyRequests off
+ 
+    <Proxy *>
+        Order deny,allow
+        Allow from all
+    </Proxy>
+ 
+    <Location />
+        ProxyPass http://localhost:8081/
+        ProxyPassReverse http://localhost:8081/
+    </Location>
+</VirtualHost>
+
+```
+Run kent-admin in ./config.json service must be "http://localhost:8000". After run nodejs
+
+```
 npm install
 node app.js
+
 ```
-
-browse `localhost:8081`
-
-Build assets
-------------
-
-If any .less file was changed, use `grunt` to generate `assets/css` files.
-How-to:
-
-Uninstall old grunt if exists
-`npm uninstall -g grunt`
-Then install CLI version
-`npm install -g grunt-cli`
-Then go to current project folder, and update dependencies
-`npm install` (in the project folder!)
+browse `kent.com.ua`

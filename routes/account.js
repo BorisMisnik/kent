@@ -15,7 +15,7 @@ exports.login =
 	function( req, res, next ) {
 		var username = req.body.username;
 		// check is promo-login used	
-		if( username !== 'sms' && username !== 'email')
+		if( username !== 'sms' && username !== 'email' && username !== 'ahead' )
 			return next();
 
 		isPromoLogin( req, res, function(result){
@@ -44,13 +44,13 @@ exports.signupPromo =
 		var username = req.body.promo_login;
 		// return error if not
 		// because of signupPromo uses only for promo-logins
-		if(( username !== 'sms' && username !== 'email' ) ){
+		if(( username !== 'sms' && username !== 'email' && username !== 'ahead' ) ){
 			delete req.body.promo_login;
 			delete req.body.promo_password;
 			return;
 		} 
 		isPromoLogin(req, res, function(result){
-			console.log( result );
+			console.log('Promo Singup');
 			if( !result ){
 				delete req.body.promo_login;
 				delete req.body.promo_password;
