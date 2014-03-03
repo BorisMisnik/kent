@@ -1,6 +1,6 @@
 {
     "host": "0.0.0.0",
-    "port": "8081",
+    "port": "80",
     "service": "http://localhost:8000",
     "__service": "http://kent.com.ua:8000",
     "pages": {
@@ -9,7 +9,6 @@
         "promo": "/promo.html"
     },
     "promo": [
-        { "login": "49Oq7MgL",  "password": "2a1JOwl8" },
         { "login": "TURBOPARTY",  "password": "TURBONIGHT" },
         { "login": "turboparty",  "password": "turbonight" }
     ],
