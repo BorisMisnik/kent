@@ -439,6 +439,28 @@ canvas {
   text-align: center;
   font: 16px Verdana;
 }
+.photo-wrapper{
+  position: relative;
+}
+.desclaimer{
+  position: absolute;
+  top: 22px;
+  left: 8%;
+  width: 235px;
+  margin: auto;
+  font-family: Arial;
+  font-size: 18px;
+  color: #7D888F;
+  line-height: 24px;
+  font-weight: 100;
+}
+.desclaimer a{
+  color:#5d6870;
+  text-decoration: underline;
+}
+.desclaimer a:hover{
+  text-decoration: none;
+}
 @media (max-width: 767px) {
   body {
     padding: 0;
@@ -515,7 +537,13 @@ canvas {
     width: 100%;
     font-size: 9px;
   }
+  .desclaimer a{
+    display: none;
+    color:#5d6870;
+    text-decoration: underline;
+  }
 }
+
 /* Landscape phones and down */
 @media (max-width: 480px) {
   .footerNav {
