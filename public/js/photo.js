@@ -58,7 +58,7 @@ $(function(){
             // init album titles ( right menu )
             initTitlesMenu( albums );
             // open first album
-            window.currentAlbum = albums.length - 1;
+            window.currentAlbum = 0;
             if ( albums.length )
                 updateGallery( currentAlbum );
         });
@@ -118,7 +118,6 @@ $(function(){
         });
 
         $('.nav-photo li:first').addClass('putty');
-        $('.putty').trigger('click');
 
         // create slider();
         slider();
@@ -398,6 +397,8 @@ $(function(){
         $('#donwload').on('click', function(){
             window.location = $(this).attr('href');
         });
+
+        // $('.putty').trigger('click');
 
     }   
 
