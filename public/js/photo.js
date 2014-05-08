@@ -135,16 +135,24 @@ $(function(){
 
         next.on('click', function(e){
             e.preventDefault();
-            if( count + 2> allLi || nav.is(':animated')) return;
+            if( count + 2> allLi || nav.is(':animated')){
+                next.css('opacity',.5);
+                return;
+            };
             count++;
+            prev.css('opacity',1);
             nav.animate({'marginTop': '-=' + height + 'px'}, 300);
 
         });
 
         prev.on('click', function(e){
             e.preventDefault();
-            if( count <= 4 || nav.is(':animated') ) return;
+            if( count <= 4 || nav.is(':animated') ){
+                prev.css('opacity',.5);
+                return;
+            };
             count--;
+            next.css('opacity',1)
             nav.animate({'marginTop': '+=' + height + 'px'}, 300);
         });
 
