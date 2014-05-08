@@ -874,8 +874,10 @@ $(document).ready(function(){
 			// nav photo
 			var liPhoto
 			if( $('section.now').attr('id') === 'photo' ){
+				setTimeout(function(){
 
-				$('.nav-photo, .nav-photo_wrapper, .prev_gellery, .next_gellery').show();
+					$('.nav-photo, .nav-photo_wrapper, .prev_gellery, .next_gellery').show();
+				}, 100)
 	
 				liPhoto = $('.nav-photo li');
 				liPhoto.css({
@@ -886,10 +888,11 @@ $(document).ready(function(){
 			else{
 				var liPhoto = $('.nav-photo li');
 				var left = liPhoto.width();
+				$('.nav-photo, .nav-photo_wrapper, .prev_gellery, .next_gellery').fadeOut();
 				TweenMax.staggerTo(liPhoto,0.3,{
 					left: left + 20,
 					onComplete : function(){
-						$('.nav-photo, .nav-photo_wrapper, .prev_gellery, .next_gellery').fadeOut();
+						
 					}
 				},0.25);
 			}
