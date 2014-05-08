@@ -9,7 +9,6 @@
         "promo": "/promo.html"
     },
     "promo": [
-        { "login": "49Oq7MgL",  "password": "2a1JOwl8" },
         { "login": "TURBOPARTY",  "password": "TURBONIGHT" },
         { "login": "turboparty",  "password": "turbonight" }
     ],
