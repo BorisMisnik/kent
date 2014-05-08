@@ -875,7 +875,7 @@ $(document).ready(function(){
 			var liPhoto
 			if( $('section.now').attr('id') === 'photo' ){
 
-				$('.nav-photo, .nav-photo_wrapper').show();
+				$('.nav-photo_wrapper').show();
 	
 				liPhoto = $('.nav-photo li');
 				liPhoto.css({
@@ -889,7 +889,7 @@ $(document).ready(function(){
 				TweenMax.staggerTo(liPhoto,0.3,{
 					left: left + 20,
 					onComplete : function(){
-						$('.nav-photo').fadeOut();
+						$('.nav-photo_wrapper').fadeOut();
 					}
 				},0.25);
 			}
