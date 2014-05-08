@@ -132,7 +132,7 @@ $(function(){
         var next = $('.next_gellery');
         var prev = $('.prev_gellery');
 
-
+        prev.css('opacity',.5);
         next.on('click', function(e){
             e.preventDefault();
             if( count + 2> allLi || nav.is(':animated')){
