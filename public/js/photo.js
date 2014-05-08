@@ -117,8 +117,39 @@ $(function(){
             })
         });
 
-        $('.nav-photo li:last').addClass('putty');
+        $('.nav-photo li:first').addClass('putty');
+        $('.putty').trigger('click');
+
+        // create slider();
+        slider();
     }
+
+    function slider(){
+        var nav = $('.nav-photo');
+        var li = $('.nav-photo li');
+        var allLi = li.length;
+        var count = 4;
+        var height = li.first().outerHeight(true);
+        var next = $('.next_gellery');
+        var prev = $('.prev_gellery');
+
+
+        next.on('click', function(e){
+            e.preventDefault();
+            if( count + 2> allLi || nav.is(':animated')) return;
+            count++;
+            nav.animate({'marginTop': '-=' + height + 'px'}, 300);
+
+        });
+
+        prev.on('click', function(e){
+            e.preventDefault();
+            if( count <= 4 || nav.is(':animated') ) return;
+            count--;
+            nav.animate({'marginTop': '+=' + height + 'px'}, 300);
+        });
+
+    };
 
     /**
      * Initialize gallery viewer

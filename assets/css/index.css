@@ -95,6 +95,55 @@ html {
   z-index: 11;
   display: none;
 }
+.nav-photo_wrapper{
+ top: 38%;
+  height: 290px;
+  margin-top: -150px;
+  position: fixed;
+  display: none;
+  z-index: 11;
+  width: 300px;
+  right: 0;
+}
+.wrapper_gelleries{
+  height: 225px;
+  overflow: hidden;
+  top: 50%;
+  margin-top: -112.5px;
+  width:300px;
+  position: absolute;
+}
+.nav-photo_wrapper a{
+  display: block;
+  width:60px;
+  height: 27px;
+  position: absolute;
+  right: 22px;
+  background-color: #7D888F;
+  background-repeat: no-repeat;
+   background-position: center;
+ -webkit-transition: background-color 500ms ease-in-out;
+-moz-transition: background-color 500ms ease-in-out;
+transition: background-color 500ms ease-in-out;
+}
+.nav-photo_wrapper a:hover{
+  background-color: #656e75;
+}
+.nav-photo_wrapper .next_gellery{
+  bottom:0;
+  background-image:url("../img/next.png");
+}
+.nav-photo_wrapper .prev_gellery{
+  top:0;
+  background-image:url("../img/prev.png");
+}
+.nav-photo{
+  top:0;
+  right:0;
+  overflow: hidden;
+  position: absolute;
+  /*transition:margin-top 500ms ease-in-out;*/
+}
 .nav-scategory li,
 .nav-photo li {
   position: relative;

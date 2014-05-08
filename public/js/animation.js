@@ -875,7 +875,7 @@ $(document).ready(function(){
 			var liPhoto
 			if( $('section.now').attr('id') === 'photo' ){
 
-				$('.nav-photo').show();
+				$('.nav-photo, .nav-photo_wrapper').show();
 	
 				liPhoto = $('.nav-photo li');
 				liPhoto.css({
