@@ -17,18 +17,71 @@ html {
 .row-fluid.xv {
   position: fixed;
 }
+
+.top-row{
+    border-bottom: 1px solid #b0bfc9;
+    height:45px;
+    background-color:#ffffff;
+    color:#5c666f;
+    position:fixed;
+    z-index:11;
+}
+
+.logo{
+    background:url('../img/kent-logo.png');
+    margin-top:13px;
+    margin-left:27px;
+    height:17px;
+    width: 72px;
+    float:left;
+}
 .nav-site {
-  position: fixed;
-  top: 111px;
-  z-index: 11;
+  display:block;
+  float:right;
+  height: 19px;
+  position: relative;
+  /*top: 111px;*/
+  /*z-index: 11;*/
   font-size: 11px;
   font-family: Verdana, Geneva, sans-serif;
 }
-.nav-site li {
-  position: relative;
-  width: 42px;
+
+.nav-site:after{
+    display: block;
+	content: ' ';
+	clear: both;
+	float: none;
 }
-.nav-site li.active a {
+.nav-site> li {
+  padding-top:13px;
+  padding-bottom:13px;
+  padding-right:25px;
+  position: relative;
+  display: inline-block;
+  height:19px;
+}
+
+.arrowed{
+    background: url('../img/light_down.png') left 20px no-repeat;
+    padding-left:13px;
+}
+
+.arrowed:hover{
+    background: url('../img/light_up.png') left 20px no-repeat;
+    padding-left:13px;
+}
+
+.dark_arrowed{
+    background: #3c4144 url('../img/dark_down.png') 22px 20px no-repeat;
+    padding-left:35px;
+}
+.dark_arrowed a{color:#fff;}
+
+.dark_arrowed:hover{
+    background: #3c4144 url('../img/dark_up.png') 22px 20px no-repeat;
+    padding-left:35px;
+}
+/*.nav-site li.active a {
   background-color: #656e75;
 }
 .nav-site li.active a:after {
@@ -44,49 +97,65 @@ html {
 }
 .nav-site li.active span {
   border-right: 3px solid #656e75;
-}
-.nav-site li:hover a {
+}*/
+/*.nav-site li:hover a {
   background-color: #656e75;
+}*/
+.nav-site> li:hover ul {
+  display:block;
 }
-.nav-site li:hover span {
-  border-right: 3px solid #656e75;
-}
-.nav-site li span {
-  border-right: 3px solid transparent;
-}
+
 .nav-site a {
+  text-transform:uppercase;
   position: relative;
   z-index: 3;
   display: inline-block;
-  width: 42px;
-  height: 44px;
-  border-right: 1px solid #e1e1e1;
-  border-bottom: 1px solid #e1e1e1;
-  background-color: #7d888f;
-  color: #fff;
+  height:17px;
+  line-height:17px;
   text-align: center;
   text-decoration: none;
-  line-height: 44px;
+  cursor: pointer;
   -webkit-transition: background-color 500ms ease-in-out;
   -moz-transition: background-color 500ms ease-in-out;
   transition: background-color 500ms ease-in-out;
 }
-.nav-site span {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 2;
-  display: inline-block;
-  width: 166px;
-  height: 44px;
-  border-right: 1px solid #e1e1e1;
+.nav-sigs{
+    display: none;
+	position: absolute;
+	width: 120px;
+	top: 46px;
+	left: 0;
+	background-color: white;
+}
+
+.nav-sigs li{
+  position: relative;
+  border-bottom: 1px solid #b0bfc9;
+  width: 120px;
+  height: 40px;
   background-color: #fff;
-  color: #5d6870;
-  text-indent: 12px;
-  text-transform: uppercase;
-  line-height: 44px;
+  color: #fff;
+  text-align: center;
+  text-indent: -9999px;
+  line-height: 35px;
   cursor: pointer;
 }
+.nav-sigs li[name="hdi"]{
+  background: url('../img/hdi.png') center no-repeat;
+}
+.nav-sigs li[name="hd"]{
+  background: url('../img/hd.png') center no-repeat;
+}
+.nav-sigs li[name="switch"]{
+  background: url('../img/switch.png') center no-repeat;
+}
+.nav-sigs li[name="nanotek"] {
+  background: url('../img/nanotek.png') center no-repeat;
+}
+.nav-sigs li[name="hds"]{
+  background: url('../img/hds.png') center no-repeat;
+}
+
 .nav-scategory,
 .nav-photo {
   position: fixed;
@@ -94,6 +163,7 @@ html {
   right: 0;
   z-index: 11;
   display: none;
+  cursor: pointer;
 }
 .nav-photo_wrapper{
  top: 38%;
@@ -147,7 +217,7 @@ transition: background-color 500ms ease-in-out;
 .nav-scategory li,
 .nav-photo li {
   position: relative;
-  left: 104px;
+  left:104px;
   margin-bottom: 1px;
   width: 104px;
   height: 44px;
@@ -165,10 +235,12 @@ transition: background-color 500ms ease-in-out;
   cursor: pointer;
 }
 .nav-scategory li.active,
+.nav-sigs li.active,
 .nav-photo li.active {
   background-color: #656e75;
 }
 .nav-scategory li:hover,
+.nav-sigs li:hover,
 .nav-photo li:hover {
   background-color: #656e75;
 }
@@ -220,7 +292,7 @@ section {
 }
 section article {
   display: table;
-  margin: 0;
+  margin: 15px 0 0 0;
   width: 100%;
   height: 100%;
 }
@@ -242,7 +314,7 @@ section h1 {
 .scrollButton {
   position: fixed;
   right: 0;
-  bottom: 350px;
+  top: 40%;
   z-index: 11;
   width: 28px;
   height: 61px;
@@ -519,7 +591,7 @@ section h1 {
 }
 .title-block {
   position: fixed;
-  top: 0.141321%;
+  top: 50px;
   z-index: 15;
   padding-left: 11.041666666666666%;
   color: #5D6870;
@@ -985,7 +1057,7 @@ section h1 {
   margin: auto;
   width: 90.20833333333333%;
   height: 394px;
-  margin-top: -84px;
+ /* margin-top: -84px;*/
 }
 #history-all .wrapper-table table {
   margin-bottom: 0;
