@@ -41,43 +41,25 @@
 	<![endif]-->
 </head>
 <body>
-<<<<<<< HEAD
-
-	<ul class="nav-site unstyled">
-		<li class="active"><a href="#" data-slide="sigarets">00.1</a><span>Сигарети КЕНТ</span></li>
-		<li><a href="#" data-slide="history">00.2</a><span>Історія КЕНТ </span></li>
-		<li><a href="#" data-slide="question">00.3</a><span>Запитання-відповіді</span></li>
-		<li><a href="#" data-slide="feedback">00.4</a><span>Ваш відгук про Kent HD</span></li>
-		<li><a href="#" data-slide="profile">00.5</a><span>Профайл</span></li>
-		<li style="display: none"><a href="#" data-slide="collage">00.5</a><span>Мої колажі</span></li>
-		<li><a href="#" data-slide="photo">00.6</a><span>Фотозвіти</span></li>		
-	</ul>
-=======
     <div class="top-row">
         <div class="logo">&nbsp;</div>
 	    <ul class="nav-site unstyled">
-		    <li class="arrowed"><a href="#" data-slide="sigarets">Сигарети КЕНТ</a>
+		    <li class="arrowed"><a href="#">Сигарети КЕНТ</a>
                 <ul class="nav-sigs unstyled">
-		            <li name="hdi">hdi</li>
-		            <li name="switch">SWITCH</li>
-		            <li name="nanotek">Nanotek</li>
-		            <li name="hd">HD</li>
-		            <li name="hds">HDS</li>
+		            <li name="hd" data-slide="site-hd">HD</li>
+		            <li name="hdi" data-slide="site-hdi">hdi</li>
+		            <li name="switch" data-slide="site-switch">SWITCH</li>
+		            <li name="nanotek" data-slide="site-nanotek">Nanotek</li>
+		            <li name="hds" data-slide="site-hds">HDS</li>
 	            </ul>
             </li>
-		    <li class="arrowed"><a href="#"data-slide="history">Історія КЕНТ</a></li>
+		    <li><a href="#" data-slide="history">Історія КЕНТ</a></li>
 		    <li><a href="#" data-slide="question">Запитання-відповіді</a></li>
 		    <li><a href="#" data-slide="feedback">Ваш відгук про Kent</a></li>
 		    <li><a href="#" data-slide="profile">Профайл</a></li>
 		    <li class="dark_arrowed"><a href="#" data-slide="photo">Фотозвіти</a></li>
 	    </ul>
     </div>
->>>>>>> 92fb7fd9a556d303ebfb0457bf2413a117b5c1a8
-
-	<div class="scrollButton">
-		<a href="#" class="prev"></a>
-		<a href="#" class="next"></a>
-	</div>
 
 <!--	<ul class="nav-scategory unstyled">
 		<li name="hdi">hdi</li>
@@ -89,8 +71,14 @@
 		-->
 	<!-- photo nav -->
 	<!-- add class hide -->
-	<ul class="nav-photo unstyled" id="albumTitles">
-	</ul>
+	<div class="nav-photo_wrapper">
+		<a href="#" class="prev_gellery"></a>
+		<a href="#" class="next_gellery"></a>
+		<div class="wrapper_gelleries">
+			<ul class="nav-photo unstyled" id="albumTitles">
+			</ul>
+		</div>
+	</div>
 	<!-- feedback -->
 <!--	<div class="container-feedback">
 		<img src="img/fedback-logo.png">
@@ -162,7 +150,7 @@
 			</article>
 		</section>
 		<!-- siteHD -->
-		<section id="site-hd" data-animation="fiveth" data-name="hd" data-slide="sigarets">
+		<section id="site-hd" data-animation="fiveth" data-name="hd" data-slide="site-hd">
 			<article>
 				<div>
 					<div class="boxesHD">
@@ -182,7 +170,7 @@
 			</article>
 		</section>
 		<!-- hdi-info -->
-		<section id="site-hdi" data-name="hdi" data-animation="third" data-slide="sigarets">
+		<section id="site-hdi" data-name="hdi" data-animation="third" data-slide="site-hdi">
 			<article class="hdi">
 				<div>
 					<!-- hdi short info -->
@@ -232,7 +220,7 @@
 			</article>
 		</section>
 		<!-- siteSwitch -->
-		<section id="site-hd" data-animation="sixeth" data-name="switch" data-slide="sigarets">
+		<section id="site-switch" data-animation="sixeth" data-name="switch" data-slide="site-switch">
 			<article>
 				<div>
 					<div class="infoSwitch">
@@ -250,7 +238,7 @@
 			</article>
 		</section>
 		<!-- sitenanotek -->
-		<section id="site-nanotek" data-animation="seventh" data-name="nanotek" data-slide="sigarets">
+		<section id="site-nanotek" data-animation="seventh" data-name="nanotek" data-slide="site-nanotek">
 			<article>
 				<div>
 					<div class="infoNanotek">
@@ -297,7 +285,7 @@
 			</article>
 		</section>
 		<!-- sitehds -->
-		<section  id="site-hds" data-animation="eighth" data-name="hds" data-slide="sigarets">
+		<section  id="site-hds" data-animation="eighth" data-name="hds" data-slide="site-hds">
 			<article>
 				<div>
 					<div class="hdsifno">
@@ -1303,128 +1291,6 @@
 			</article>
 		</section>
 		
-		<style>
-		#collage-list {
-    		width: 475px;
-            height: 304px;
-            margin: auto;
-            overflow: hidden;
-            position: relative;   
-        }
-        
-        #collage-list ul {
-            position: absolute;
-            width: 2000em;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        #collage-list li {
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            line-height: 297px;
-            float: left;
-            width: 475px;
-        }
-        
-         #collage-list li img {
-            max-width: 475px;
-            max-height: 297px;
-            vertical-align: middle;
-            display: inline;
-            width: 70%;
-        }
-        
-        .collages-wrapper {
-            display: table-cell;
-            width: 100%;
-            height: 100%;
-            vertical-align: middle;
-        }
-        #donwload_collage {
-            display: block;
-            width: 115px;
-            height: 31px;
-            margin: 9px auto;
-            text-align: center;
-            text-transform: uppercase;
-            color: #fff;
-            font-size: 11px;
-            line-height: 31px;
-            background-color: #7d888f;
-            -webkit-transition: background-color 500ms ease-in-out;
-            -moz-transition: background-color 500ms ease-in-out;
-            transition: background-color 500ms ease-in-out;
-        }
-        
-        
-        #collage-list a {
-            position: absolute;
-            margin-top: -20px;
-            font-size: 60px;
-            font-weight: 100;
-            line-height: 30px;
-            color: #fff;
-            text-align: center;
-            background: #222;
-        }
-
-        #collage-list a.left {
-            left: 0;
-            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAPCAMAAAABFhU/AAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAACRJREFUeNqNzTEKAAAIw8Dm/592kSJYxEy3RR0GCRiceHM8NlUNVAAtSVep6wAAAABJRU5ErkJggg==');
-        }
-        
-        #collage-list a.left, #collage-list a.right {
-            width: 27px;
-            height: 60px;
-            background-color: #7d888f;
-            background-repeat: no-repeat;
-            background-position: center;
-            border: 0;
-            border-radius: 0;
-            top: 50%;
-            opacity: 1;
-            filter: alpha(opacity=100);
-            -webkit-transition: background-color 500ms ease-in-out;
-            -moz-transition: background-color 500ms ease-in-out;
-            transition: background-color 500ms ease-in-out;
-        }
-        
-        #collage-list a.right {
-            right: 0;
-            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAPCAMAAAABFhU/AAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAACNJREFUeNqNxrENAAAIw7Dk/6eZ6AJCeDJIc9bUX++QsIVOAQ2gAC1FHh8KAAAAAElFTkSuQmCC);
-            left: auto;
-        }
-        
-        #collage-list a:hover {
-            text-decoration: none;
-            background-color: #656e75;
-        }
-        
-        #donwload_collage:hover {
-            background-color: #656e75;
-            text-decoration: none;
-        }
-		</style>
-		
-		<script>
-		$(function(){
-    		            
-    		$('#collage-list .left').click(function(e){
-                e.preventDefault();
-                
-                $('#collage-list').jcarousel('scroll', '-=1')
-            });
-            
-            $('#collage-list .right').click(function(e){
-                e.preventDefault();
-                
-                $('#collage-list').jcarousel('scroll', '+=1')
-            });
-		});
-		</script>
 		<section id="collage" data-slide="collage">
 <!-- 				<h3 style="font-size:27px;">ТУТ ДОЛЖЕН БЫТЬ КОЛЛАЖ</h3> -->
         <article style="display: table; margin: 0; width: 100%;">
@@ -1507,9 +1373,9 @@
 								<a class="carousel-control left" href="#myCarousel" data-slide="prev"></a>
 								<a class="carousel-control right" href="#myCarousel" data-slide="next"></a>
 							</div>
-						
+
 							<a href="#" id="donwload">СКАЧАТИ В HD</a>
-					
+
 							<div class="small-photo-wrapper">
 								<div id="smallCarousel" class="carousel slide">
 								<!-- Carousel items -->
@@ -1538,9 +1404,29 @@
 		
 		
 	</div>
+	<script>
+			$(function(){
+	    		            
+	    		$('#collage-list .left').click(function(e){
+	                e.preventDefault();
+	                
+	                $('#collage-list').jcarousel('scroll', '-=1')
+	            });
+	            
+	            $('#collage-list .right').click(function(e){
+	                e.preventDefault();
+	                
+	                $('#collage-list').jcarousel('scroll', '+=1')
+	            });
+			});
+		</script>
 	<div class="row-fluid footer no-text">
 			<div class="span12">
 				<footer>
+					<div class="scrollButton">
+						<a href="#" class="prev"></a>
+						<a href="#" class="next"></a>
+					</div>
 					<span class="infoLine">Інформаційна лінія: 0 800 50 84 15 </span>
 					<nav class="footerNav">
 						<a href="/go/#!/feedback">Зворотний зв’язок</a>|
