@@ -34,6 +34,7 @@
 	<script src="js/background-site.js"></script>
 	<script src="js/index.js"></script>
 	<script src="js/photo.js"></script>
+	<script src="js/jquery.jcarousel.min.js"></script>
 	<!--[if lt IE 9]>
 		<link rel="stylesheet" href="css/ie8.css">
 		<script src="js/html5shiv.js"></script>
@@ -47,7 +48,8 @@
 		<li><a href="#" data-slide="question">00.3</a><span>Запитання-відповіді</span></li>
 		<li><a href="#" data-slide="feedback">00.4</a><span>Ваш відгук про Kent HD</span></li>
 		<li><a href="#" data-slide="profile">00.5</a><span>Профайл</span></li>
-		<li><a href="#" data-slide="photo">00.6</a><span>Фотозвіти</span></li>
+		<li style="display: none"><a href="#" data-slide="collage">00.5</a><span>Мої колажі</span></li>
+		<li><a href="#" data-slide="photo">00.6</a><span>Фотозвіти</span></li>		
 	</ul>
 
 	<div class="scrollButton">
@@ -65,16 +67,8 @@
 		
 	<!-- photo nav -->
 	<!-- add class hide -->
-	
-	<div class="nav-photo_wrapper">
-		<a href="#" class="prev_gellery"></a>
-		<a href="#" class="next_gellery"></a>
-		<div class="wrapper_gelleries">
-			<ul class="nav-photo unstyled" id="albumTitles">
-			</ul>
-		</div>
-	</div>
-	
+	<ul class="nav-photo unstyled" id="albumTitles">
+	</ul>
 	<!-- feedback -->
 	<div class="container-feedback">
 		<img src="img/fedback-logo.png">
@@ -1286,6 +1280,186 @@
 				</div>
 			</article>
 		</section>
+		
+		<style>
+		#collage-list {
+    		width: 475px;
+            height: 304px;
+            margin: auto;
+            overflow: hidden;
+            position: relative;   
+        }
+        
+        #collage-list ul {
+            position: absolute;
+            width: 2000em;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        #collage-list li {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            line-height: 297px;
+            float: left;
+            width: 475px;
+        }
+        
+         #collage-list li img {
+            max-width: 475px;
+            max-height: 297px;
+            vertical-align: middle;
+            display: inline;
+            width: 70%;
+        }
+        
+        .collages-wrapper {
+            display: table-cell;
+            width: 100%;
+            height: 100%;
+            vertical-align: middle;
+        }
+        #donwload_collage {
+            display: block;
+            width: 115px;
+            height: 31px;
+            margin: 9px auto;
+            text-align: center;
+            text-transform: uppercase;
+            color: #fff;
+            font-size: 11px;
+            line-height: 31px;
+            background-color: #7d888f;
+            -webkit-transition: background-color 500ms ease-in-out;
+            -moz-transition: background-color 500ms ease-in-out;
+            transition: background-color 500ms ease-in-out;
+        }
+        
+        
+        #collage-list a {
+            position: absolute;
+            margin-top: -20px;
+            font-size: 60px;
+            font-weight: 100;
+            line-height: 30px;
+            color: #fff;
+            text-align: center;
+            background: #222;
+        }
+
+        #collage-list a.left {
+            left: 0;
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAPCAMAAAABFhU/AAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAACRJREFUeNqNzTEKAAAIw8Dm/592kSJYxEy3RR0GCRiceHM8NlUNVAAtSVep6wAAAABJRU5ErkJggg==');
+        }
+        
+        #collage-list a.left, #collage-list a.right {
+            width: 27px;
+            height: 60px;
+            background-color: #7d888f;
+            background-repeat: no-repeat;
+            background-position: center;
+            border: 0;
+            border-radius: 0;
+            top: 50%;
+            opacity: 1;
+            filter: alpha(opacity=100);
+            -webkit-transition: background-color 500ms ease-in-out;
+            -moz-transition: background-color 500ms ease-in-out;
+            transition: background-color 500ms ease-in-out;
+        }
+        
+        #collage-list a.right {
+            right: 0;
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAPCAMAAAABFhU/AAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAACNJREFUeNqNxrENAAAIw7Dk/6eZ6AJCeDJIc9bUX++QsIVOAQ2gAC1FHh8KAAAAAElFTkSuQmCC);
+            left: auto;
+        }
+        
+        #collage-list a:hover {
+            text-decoration: none;
+            background-color: #656e75;
+        }
+        
+        #donwload_collage:hover {
+            background-color: #656e75;
+            text-decoration: none;
+        }
+		</style>
+		
+		<script>
+		$(function(){
+    		            
+    		$('#collage-list .left').click(function(e){
+                e.preventDefault();
+                
+                $('#collage-list').jcarousel('scroll', '-=1')
+            });
+            
+            $('#collage-list .right').click(function(e){
+                e.preventDefault();
+                
+                $('#collage-list').jcarousel('scroll', '+=1')
+            });
+		});
+		</script>
+		<section id="collage" data-slide="collage">
+<!-- 				<h3 style="font-size:27px;">ТУТ ДОЛЖЕН БЫТЬ КОЛЛАЖ</h3> -->
+        <article style="display: table; margin: 0; width: 100%;">
+				<div class="collages-wrapper">
+				    <div>
+    				<div id="collage-list">
+                        <ul>
+                            <li>
+                                <img src="/photos/95f62fa3cd19d27fa8416c2ffea12d2c_middle.jpeg">
+                            </li>
+                            <li>
+                                <img src="/photos/95f62fa3cd19d27fa8416c2ffea12d2c_middle.jpeg">
+                            </li>
+                            <li>
+                                <img src="/photos/95f62fa3cd19d27fa8416c2ffea12d2c_middle.jpeg">
+                            </li>
+                            <li>
+                                <img src="/photos/95f62fa3cd19d27fa8416c2ffea12d2c_middle.jpeg">
+                            </li>
+                            <li>
+                                <img src="/photos/95f62fa3cd19d27fa8416c2ffea12d2c_middle.jpeg">
+                            </li>
+                            <li>
+                                <img src="/photos/95f62fa3cd19d27fa8416c2ffea12d2c_middle.jpeg">
+                            </li>   
+                            <li>
+                                <img src="/photos/95f62fa3cd19d27fa8416c2ffea12d2c_middle.jpeg">
+                            </li> 
+                            <li>
+                                <img src="/photos/95f62fa3cd19d27fa8416c2ffea12d2c_middle.jpeg">
+                            </li> 
+                            <li>
+                                <img src="/photos/95f62fa3cd19d27fa8416c2ffea12d2c_middle.jpeg">
+                            </li> 
+                            <li>
+                                <img src="/photos/95f62fa3cd19d27fa8416c2ffea12d2c_middle.jpeg">
+                            </li> 
+                            <li>
+                                <img src="/photos/95f62fa3cd19d27fa8416c2ffea12d2c_middle.jpeg">
+                            </li> 
+                            <li>
+                                <img src="/photos/95f62fa3cd19d27fa8416c2ffea12d2c_middle.jpeg">
+                            </li>                  
+                        </ul>
+                        
+                        <a class="left" href="#">&nbsp;</a>
+                        <a class="right" href="#">&nbsp;</a>
+                    </div>
+                    <a href="" id="donwload_collage" target="_blank">СКАЧАТИ В HD</a>
+				    </div>
+				</div>
+				</article>
+		</section>
+
+		
+		
+		
 		<!-- photo -->
 		<section id="photo" data-slide="photo">
 			<article class="last photo-article">
@@ -1330,6 +1504,17 @@
 				</div>
 			</article>
 		</section>
+		
+		
+		
+		
+		
+				
+		
+		
+		
+		
+		
 	</div>
 	<div class="row-fluid footer no-text">
 			<div class="span12">
@@ -1454,23 +1639,28 @@
 		{
 			// hide old errors
 			$( '.error' ).addClass( 'hide' );
+			
 			// populate data
-			$( '#name' ).val( profile.name );
-			$( '#date' ).val( profile.day );
-			$( '#month' ).selectpicker( 'val', profile.month );
-			$( '#year' ).val( profile.year );
-			$( '#mobilePhone' ).val( profile.phone );
-			$( '#email' ).val( profile.email );
-			$( '#password' ).val( profile.password );
-			$( '#agree_age' ).prop( 'checked',  profile.agree_age );
-			$( '#agree_rules' ).prop( 'checked', profile.agree_rules );
-			$( '#agree_info' ).prop( 'checked', profile.agree_info );
-			$( '#brand1' ).selectpicker('val', profile.brand1);
-			$( '#sku1' ).selectpicker('val', profile.sku1);
-			$( '#brand2' ).selectpicker('val', profile.brand2);
-			$( '#sku2' ).selectpicker('val', profile.sku2);
-			$('#profile_id').val(profile.account_id);
-			console.log('profile', profile );
+			try {
+    			$( '#name' ).val( profile.name );
+    			$( '#date' ).val( profile.day );
+    			$( '#month' ).selectpicker( 'val', profile.month );
+    			$( '#year' ).val( profile.year );
+    			$( '#mobilePhone' ).val( profile.phone );
+    			$( '#email' ).val( profile.email );
+    			$( '#password' ).val( profile.password );
+    			$( '#agree_age' ).prop( 'checked',  profile.agree_age );
+    			$( '#agree_rules' ).prop( 'checked', profile.agree_rules );
+    			$( '#agree_info' ).prop( 'checked', profile.agree_info );
+    			$( '#brand1' ).selectpicker('val', profile.brand1);
+    			$( '#sku1' ).selectpicker('val', profile.sku1);
+    			$( '#brand2' ).selectpicker('val', profile.brand2);
+    			$( '#sku2' ).selectpicker('val', profile.sku2);
+    			$('#profile_id').val(profile.account_id);
+			}
+			catch(e) {
+    			
+			}
 		}
 
 		function errorsProfile( errors ) {
@@ -1496,6 +1686,50 @@
 			$.get( '/account' )
 				.done( function( res ) {
 					console.log( 'profile done', res );
+
+        		    if (res.user.collage) {
+            			
+            			$('a[data-slide="profile"]').parent().hide();
+            			$('a[data-slide="collage"]').parent().show();
+            			
+            			$('section[data-slide="profile"]').remove();
+            			
+            			
+            			
+            			if (res.collages) {
+                			$('#collage-list ul').children().remove();
+                			
+                			for(var i in res.collages) {
+                    			
+                    			var img = res.collages[i];
+                    			
+                    			$('#collage-list ul').append('<li data-img="download/collage/' + img.filename + '"><img src="/collages/thumbs/' + img.filename + '"</li>');
+                			}
+                			
+                			$('#donwload_collage').click(function(){
+                    			
+                    			window.open(this.href);
+                    			
+                			});
+                			
+                			$('#collage-list').jcarousel({}).on('jcarousel:targetin', 'li', function(event, carousel) {
+               
+                               $('#donwload_collage').attr('href', 'http://' + window.location.host + '/' + $(this).data('img'));
+                               
+                            });
+                            
+                            
+                            $('#collage-list li:first').trigger('jcarousel:targetin');
+
+                			
+            			}
+            			
+        			} else {
+            			
+            			$('section[data-slide="collage"]').remove()
+            			
+            			
+        			}
 
 					// action
 					if ( res.errors )

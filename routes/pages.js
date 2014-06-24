@@ -44,6 +44,7 @@ exports.promo =
  * @param next
  */
 exports.main = function( req, res, next ) {
+
     isUserLogged( req,
         function( err, logged ) {
 
@@ -51,7 +52,7 @@ exports.main = function( req, res, next ) {
             if ( logged ) return next();
             // redirect unauthorized users to the login page
             res.redirect( config.pages.login );
-
+            
 //            // unauthorized session
 //            if ( err
 //                || '404' == responce.statusCode

@@ -706,6 +706,9 @@ var action = function () {
 			case 'feedback' :
 				$('.title-block').html('<span>00.4 /</span> Ваш відгук про Kent HD');
 				break;
+            case 'collage' :
+				$('.title-block').html('<span>00.5 /</span> Вашi колажи');
+				break;
 			case 'profile' : 
 				$('.title-block').html('<span>00.5 /</span> Профайл');
 				break;
@@ -796,7 +799,7 @@ $(document).ready(function(){
 		scrollStart : function(){
 			// photo
             if( $('#photo').is( '.now' ) ){
-	            var title = '<span>00.5 / ФОТОЗВІТ /</span>' + ($('.putty').text()).replace(/\//g,'.');
+	            var title = '<span>00.6 / ФОТОЗВІТ /</span>' + ($('.putty').text()).replace(/\//g,'.');
 	            $('.title-block').html(title);
             }
 		},
@@ -874,7 +877,8 @@ $(document).ready(function(){
 			// nav photo
 			var liPhoto
 			if( $('section.now').attr('id') === 'photo' ){
-				$('.nav-photo, .nav-photo_wrapper, .prev_gellery, .next_gellery').show();
+
+				$('.nav-photo').show();
 	
 				liPhoto = $('.nav-photo li');
 				liPhoto.css({
@@ -885,10 +889,12 @@ $(document).ready(function(){
 			else{
 				var liPhoto = $('.nav-photo li');
 				var left = liPhoto.width();
-				$('.nav-photo, .nav-photo_wrapper, .prev_gellery, .next_gellery').fadeOut();
-				liPhoto.css({
-					left : left + 20
-				})
+				TweenMax.staggerTo(liPhoto,0.3,{
+					left: left + 20,
+					onComplete : function(){
+						$('.nav-photo').fadeOut();
+					}
+				},0.25);
 			}
 			// feedback button
 			if( $('section.now').attr('id') === 'site-hd' )
