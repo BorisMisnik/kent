@@ -57,6 +57,7 @@
 		    <li><a href="#" data-slide="question">Запитання-відповіді</a></li>
 		    <li><a href="#" data-slide="feedback">Ваш відгук про Kent</a></li>
 		    <li><a href="#" data-slide="profile">Профайл</a></li>
+		    <li><a href="#" data-slide="collage">Ваші колажи</a></li>
 		    <li class="dark_arrowed"><a href="#" data-slide="photo">Фотозвіти</a></li>
 	    </ul>
     </div>
@@ -1596,7 +1597,6 @@
 					console.log( 'profile done', res );
 
         		    if (res.user.collage) {
-            			
             			$('a[data-slide="profile"]').parent().hide();
             			$('a[data-slide="collage"]').parent().show();
             			
@@ -1633,7 +1633,8 @@
             			}
             			
         			} else {
-            			
+            			$('a[data-slide="profile"]').parent().show();
+            			$('a[data-slide="collage"]').parent().hide();
             			$('section[data-slide="collage"]').remove()
             			
             			
