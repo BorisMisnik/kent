@@ -940,7 +940,7 @@ $(document).ready(function(){
 	});
 
 	//  navigate site hover
-	$('.nav-site')
+	/*$('.nav-site')
 		.on({
 			mousemove : function(e){
 	
@@ -963,7 +963,7 @@ $(document).ready(function(){
 				}, 0.25);
 
 			}
-		});
+		});*/
 
 	// navigate category hover and click
 	$('.nav-scategory')
