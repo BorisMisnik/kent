@@ -34,6 +34,7 @@
 	<script src="js/background-site.js"></script>
 	<script src="js/index.js"></script>
 	<script src="js/photo.js"></script>
+	<script src="js/jquery.jcarousel.min.js"></script>
 	<!--[if lt IE 9]>
 		<link rel="stylesheet" href="css/ie8.css">
 		<script src="js/html5shiv.js"></script>
@@ -43,27 +44,22 @@
     <div class="top-row">
         <div class="logo">&nbsp;</div>
 	    <ul class="nav-site unstyled">
-		    <li class="arrowed"><a href="#" data-slide="sigarets">Сигарети КЕНТ</a>
+		    <li class="arrowed"><a href="#">Сигарети КЕНТ</a>
                 <ul class="nav-sigs unstyled">
-		            <li name="hdi">hdi</li>
-		            <li name="switch">SWITCH</li>
-		            <li name="nanotek">Nanotek</li>
-		            <li name="hd">HD</li>
-		            <li name="hds">HDS</li>
+		            <li name="hd" data-slide="site-hd">HD</li>
+		            <li name="hdi" data-slide="site-hdi">hdi</li>
+		            <li name="switch" data-slide="site-switch">SWITCH</li>
+		            <li name="nanotek" data-slide="site-nanotek">Nanotek</li>
+		            <li name="hds" data-slide="site-hds">HDS</li>
 	            </ul>
             </li>
-		    <li class="arrowed"><a href="#"data-slide="history">Історія КЕНТ</a></li>
+		    <li><a href="#" data-slide="history">Історія КЕНТ</a></li>
 		    <li><a href="#" data-slide="question">Запитання-відповіді</a></li>
 		    <li><a href="#" data-slide="feedback">Ваш відгук про Kent</a></li>
 		    <li><a href="#" data-slide="profile">Профайл</a></li>
 		    <li class="dark_arrowed"><a href="#" data-slide="photo">Фотозвіти</a></li>
 	    </ul>
     </div>
-
-	<div class="scrollButton">
-		<a href="#" class="prev"></a>
-		<a href="#" class="next"></a>
-	</div>
 
 <!--	<ul class="nav-scategory unstyled">
 		<li name="hdi">hdi</li>
@@ -75,7 +71,6 @@
 		-->
 	<!-- photo nav -->
 	<!-- add class hide -->
-	
 	<div class="nav-photo_wrapper">
 		<a href="#" class="prev_gellery"></a>
 		<a href="#" class="next_gellery"></a>
@@ -84,7 +79,6 @@
 			</ul>
 		</div>
 	</div>
-	
 	<!-- feedback -->
 <!--	<div class="container-feedback">
 		<img src="img/fedback-logo.png">
@@ -156,7 +150,7 @@
 			</article>
 		</section>
 		<!-- siteHD -->
-		<section id="site-hd" data-animation="fiveth" data-name="hd" data-slide="sigarets">
+		<section id="site-hd" data-animation="fiveth" data-name="hd" data-slide="site-hd">
 			<article>
 				<div>
 					<div class="boxesHD">
@@ -176,7 +170,7 @@
 			</article>
 		</section>
 		<!-- hdi-info -->
-		<section id="site-hdi" data-name="hdi" data-animation="third" data-slide="sigarets">
+		<section id="site-hdi" data-name="hdi" data-animation="third" data-slide="site-hdi">
 			<article class="hdi">
 				<div>
 					<!-- hdi short info -->
@@ -226,7 +220,7 @@
 			</article>
 		</section>
 		<!-- siteSwitch -->
-		<section id="site-hd" data-animation="sixeth" data-name="switch" data-slide="sigarets">
+		<section id="site-switch" data-animation="sixeth" data-name="switch" data-slide="site-switch">
 			<article>
 				<div>
 					<div class="infoSwitch">
@@ -244,7 +238,7 @@
 			</article>
 		</section>
 		<!-- sitenanotek -->
-		<section id="site-nanotek" data-animation="seventh" data-name="nanotek" data-slide="sigarets">
+		<section id="site-nanotek" data-animation="seventh" data-name="nanotek" data-slide="site-nanotek">
 			<article>
 				<div>
 					<div class="infoNanotek">
@@ -291,7 +285,7 @@
 			</article>
 		</section>
 		<!-- sitehds -->
-		<section  id="site-hds" data-animation="eighth" data-name="hds" data-slide="sigarets">
+		<section  id="site-hds" data-animation="eighth" data-name="hds" data-slide="site-hds">
 			<article>
 				<div>
 					<div class="hdsifno">
@@ -1296,6 +1290,64 @@
 				</div>
 			</article>
 		</section>
+		
+		<section id="collage" data-slide="collage">
+<!-- 				<h3 style="font-size:27px;">ТУТ ДОЛЖЕН БЫТЬ КОЛЛАЖ</h3> -->
+        <article style="display: table; margin: 0; width: 100%;">
+				<div class="collages-wrapper">
+				    <div>
+    				<div id="collage-list">
+                        <ul>
+                            <li>
+                                <img src="/photos/95f62fa3cd19d27fa8416c2ffea12d2c_middle.jpeg">
+                            </li>
+                            <li>
+                                <img src="/photos/95f62fa3cd19d27fa8416c2ffea12d2c_middle.jpeg">
+                            </li>
+                            <li>
+                                <img src="/photos/95f62fa3cd19d27fa8416c2ffea12d2c_middle.jpeg">
+                            </li>
+                            <li>
+                                <img src="/photos/95f62fa3cd19d27fa8416c2ffea12d2c_middle.jpeg">
+                            </li>
+                            <li>
+                                <img src="/photos/95f62fa3cd19d27fa8416c2ffea12d2c_middle.jpeg">
+                            </li>
+                            <li>
+                                <img src="/photos/95f62fa3cd19d27fa8416c2ffea12d2c_middle.jpeg">
+                            </li>   
+                            <li>
+                                <img src="/photos/95f62fa3cd19d27fa8416c2ffea12d2c_middle.jpeg">
+                            </li> 
+                            <li>
+                                <img src="/photos/95f62fa3cd19d27fa8416c2ffea12d2c_middle.jpeg">
+                            </li> 
+                            <li>
+                                <img src="/photos/95f62fa3cd19d27fa8416c2ffea12d2c_middle.jpeg">
+                            </li> 
+                            <li>
+                                <img src="/photos/95f62fa3cd19d27fa8416c2ffea12d2c_middle.jpeg">
+                            </li> 
+                            <li>
+                                <img src="/photos/95f62fa3cd19d27fa8416c2ffea12d2c_middle.jpeg">
+                            </li> 
+                            <li>
+                                <img src="/photos/95f62fa3cd19d27fa8416c2ffea12d2c_middle.jpeg">
+                            </li>                  
+                        </ul>
+                        
+                        <a class="left" href="#">&nbsp;</a>
+                        <a class="right" href="#">&nbsp;</a>
+                    </div>
+                    <a href="" id="donwload_collage" target="_blank">СКАЧАТИ В HD</a>
+				    </div>
+				</div>
+				</article>
+		</section>
+
+		
+		
+		
 		<!-- photo -->
 		<section id="photo" data-slide="photo">
 			<article class="last photo-article">
@@ -1321,9 +1373,9 @@
 								<a class="carousel-control left" href="#myCarousel" data-slide="prev"></a>
 								<a class="carousel-control right" href="#myCarousel" data-slide="next"></a>
 							</div>
-						
+
 							<a href="#" id="donwload">СКАЧАТИ В HD</a>
-					
+
 							<div class="small-photo-wrapper">
 								<div id="smallCarousel" class="carousel slide">
 								<!-- Carousel items -->
@@ -1340,10 +1392,41 @@
 				</div>
 			</article>
 		</section>
+		
+		
+		
+		
+		
+				
+		
+		
+		
+		
+		
 	</div>
+	<script>
+			$(function(){
+	    		            
+	    		$('#collage-list .left').click(function(e){
+	                e.preventDefault();
+	                
+	                $('#collage-list').jcarousel('scroll', '-=1')
+	            });
+	            
+	            $('#collage-list .right').click(function(e){
+	                e.preventDefault();
+	                
+	                $('#collage-list').jcarousel('scroll', '+=1')
+	            });
+			});
+		</script>
 	<div class="row-fluid footer no-text">
 			<div class="span12">
 				<footer>
+					<div class="scrollButton">
+						<a href="#" class="prev"></a>
+						<a href="#" class="next"></a>
+					</div>
 					<span class="infoLine">Інформаційна лінія: 0 800 50 84 15 </span>
 					<nav class="footerNav">
 						<a href="/go/#!/feedback">Зворотний зв’язок</a>|
@@ -1464,23 +1547,28 @@
 		{
 			// hide old errors
 			$( '.error' ).addClass( 'hide' );
+			
 			// populate data
-			$( '#name' ).val( profile.name );
-			$( '#date' ).val( profile.day );
-			$( '#month' ).selectpicker( 'val', profile.month );
-			$( '#year' ).val( profile.year );
-			$( '#mobilePhone' ).val( profile.phone );
-			$( '#email' ).val( profile.email );
-			$( '#password' ).val( profile.password );
-			$( '#agree_age' ).prop( 'checked',  profile.agree_age );
-			$( '#agree_rules' ).prop( 'checked', profile.agree_rules );
-			$( '#agree_info' ).prop( 'checked', profile.agree_info );
-			$( '#brand1' ).selectpicker('val', profile.brand1);
-			$( '#sku1' ).selectpicker('val', profile.sku1);
-			$( '#brand2' ).selectpicker('val', profile.brand2);
-			$( '#sku2' ).selectpicker('val', profile.sku2);
-			$('#profile_id').val(profile.account_id);
-			console.log('profile', profile );
+			try {
+    			$( '#name' ).val( profile.name );
+    			$( '#date' ).val( profile.day );
+    			$( '#month' ).selectpicker( 'val', profile.month );
+    			$( '#year' ).val( profile.year );
+    			$( '#mobilePhone' ).val( profile.phone );
+    			$( '#email' ).val( profile.email );
+    			$( '#password' ).val( profile.password );
+    			$( '#agree_age' ).prop( 'checked',  profile.agree_age );
+    			$( '#agree_rules' ).prop( 'checked', profile.agree_rules );
+    			$( '#agree_info' ).prop( 'checked', profile.agree_info );
+    			$( '#brand1' ).selectpicker('val', profile.brand1);
+    			$( '#sku1' ).selectpicker('val', profile.sku1);
+    			$( '#brand2' ).selectpicker('val', profile.brand2);
+    			$( '#sku2' ).selectpicker('val', profile.sku2);
+    			$('#profile_id').val(profile.account_id);
+			}
+			catch(e) {
+    			
+			}
 		}
 
 		function errorsProfile( errors ) {
@@ -1506,6 +1594,50 @@
 			$.get( '/account' )
 				.done( function( res ) {
 					console.log( 'profile done', res );
+
+        		    if (res.user.collage) {
+            			
+            			$('a[data-slide="profile"]').parent().hide();
+            			$('a[data-slide="collage"]').parent().show();
+            			
+            			$('section[data-slide="profile"]').remove();
+            			
+            			
+            			
+            			if (res.collages) {
+                			$('#collage-list ul').children().remove();
+                			
+                			for(var i in res.collages) {
+                    			
+                    			var img = res.collages[i];
+                    			
+                    			$('#collage-list ul').append('<li data-img="download/collage/' + img.filename + '"><img src="/collages/thumbs/' + img.filename + '"</li>');
+                			}
+                			
+                			$('#donwload_collage').click(function(){
+                    			
+                    			window.open(this.href);
+                    			
+                			});
+                			
+                			$('#collage-list').jcarousel({}).on('jcarousel:targetin', 'li', function(event, carousel) {
+               
+                               $('#donwload_collage').attr('href', 'http://' + window.location.host + '/' + $(this).data('img'));
+                               
+                            });
+                            
+                            
+                            $('#collage-list li:first').trigger('jcarousel:targetin');
+
+                			
+            			}
+            			
+        			} else {
+            			
+            			$('section[data-slide="collage"]').remove()
+            			
+            			
+        			}
 
 					// action
 					if ( res.errors )

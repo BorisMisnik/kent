@@ -24,7 +24,7 @@ html {
     background-color:#ffffff;
     color:#5c666f;
     position:fixed;
-    z-index:11;
+    z-index:20;
 }
 
 .logo{
@@ -72,14 +72,13 @@ html {
 }
 
 .dark_arrowed{
-    background: #3c4144 url('../img/dark_down.png') 22px 20px no-repeat;
-    padding-left:35px;
+    background: #3c4144;
+    padding-left:24px;
 }
 .dark_arrowed a{color:#fff;}
 
 .dark_arrowed:hover{
-    background: #3c4144 url('../img/dark_up.png') 22px 20px no-repeat;
-    padding-left:35px;
+    background: #3c4144 ;
 }
 /*.nav-site li.active a {
   background-color: #656e75;
@@ -126,6 +125,7 @@ html {
 	top: 46px;
 	left: 0;
 	background-color: white;
+  z-index: 20;
 }
 
 .nav-sigs li{

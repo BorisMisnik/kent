@@ -561,13 +561,15 @@ var action = function () {
 	}
 
 	that.scrolTop = function(){
-
+		var self = this;
 		if( $('#main').is('.now') || container.is(':animated') ) return;
 
 		var yScrol = container.scrollTop() - container.height();
 		var scroll = yScrol > 0 ? yScrol : 0;
 
-		container.animate({'scrollTop' : scroll},1000);
+		container.stop(true, true, true).animate({'scrollTop' : scroll},1000, function(){
+			self.titlePage();
+		});
 
 		this.top = true;
 		this.bottom = false;
@@ -576,11 +578,14 @@ var action = function () {
 	};
 	
 	that.scrollBotom = function(){
+		var self = this;
 		// if( window.stopScroll && $('#newHD').hasClass('now') ) return;
 		if( $('#photo').is('.now') || container.is(':animated') ) return;
 
 		var yScrol = container.scrollTop() + container.height();
-		container.animate({'scrollTop' : yScrol},1000);
+		container.stop(true, true, true).animate({'scrollTop' : yScrol},1000, function(){
+			self.titlePage();
+		});
 
 		this.top = false;
 		this.bottom = true;
@@ -695,6 +700,11 @@ var action = function () {
 
 		switch (slide) {
 			case 'sigarets' : 
+			case 'site-hd' :
+			case 'site-hdi' :
+			case 'site-switch' :
+			case 'site-nanotek' :
+			case 'site-hds' :
 				$('.title-block').html('<span>00.1 /</span> СИГАРЕТИ KENT');
 				break;
 			case 'history' :
@@ -705,6 +715,9 @@ var action = function () {
 				break;
 			case 'feedback' :
 				$('.title-block').html('<span>00.4 /</span> Ваш відгук про Kent HD');
+				break;
+            case 'collage' :
+				$('.title-block').html('<span>00.5 /</span> Вашi колажи');
 				break;
 			case 'profile' : 
 				$('.title-block').html('<span>00.5 /</span> Профайл');
@@ -796,8 +809,15 @@ $(document).ready(function(){
 		scrollStart : function(){
 			// photo
             if( $('#photo').is( '.now' ) ){
-	            var title = '<span>00.5 / ФОТОЗВІТ /</span>' + ($('.putty').text()).replace(/\//g,'.');
+	            var title = '<span>00.6 / ФОТОЗВІТ /</span>' + ($('.putty').text()).replace(/\//g,'.');
 	            $('.title-block').html(title);
+	            
+	            var liPhoto = $('.nav-photo li');
+				var left = liPhoto.width();
+				$('.nav-photo, .nav-photo_wrapper, .prev_gellery, .next_gellery').hide();
+				liPhoto.css({
+					left : left + 20
+				})
             }
 		},
 
@@ -875,7 +895,7 @@ $(document).ready(function(){
 			var liPhoto
 			if( $('section.now').attr('id') === 'photo' ){
 				$('.nav-photo, .nav-photo_wrapper, .prev_gellery, .next_gellery').show();
-	
+
 				liPhoto = $('.nav-photo li');
 				liPhoto.css({
 					left : 0,
@@ -885,11 +905,16 @@ $(document).ready(function(){
 			else{
 				var liPhoto = $('.nav-photo li');
 				var left = liPhoto.width();
-				$('.nav-photo, .nav-photo_wrapper, .prev_gellery, .next_gellery').fadeOut();
+				$('.nav-photo, .nav-photo_wrapper, .prev_gellery, .next_gellery').hide();
 				liPhoto.css({
 					left : left + 20
 				})
 			}
+			// feedback button
+			if( $('section.now').attr('id') === 'site-hd' )
+				$('.container-feedback').addClass('active');
+			else
+				$('.container-feedback').removeClass('active');
 			// feedback button
 			if( $('section.now').attr('id') === 'site-hd' )
 				$('.container-feedback').addClass('active');
@@ -1035,7 +1060,10 @@ $(document).ready(function(){
 				e.preventDefault();
 
 				$a = $(this).find('a');
+				if( !$a.length  )
+					$a = $(this);
 				var slide = $a.data('slide');
+				if( !slide ) return;
 				container
 					.children('section')
 					.each(function(){
@@ -1056,7 +1084,6 @@ $(document).ready(function(){
 							animation.startanimate(animationName);
 							animation.titlePage();
 							animation.selectBackground();
-
 							return false;
 						}
 
