@@ -528,6 +528,35 @@ var action = function () {
 		}, 0.25);
 	};
 
+	that.hdi2014 = function(){
+
+		var img = 
+			$('#hdi2014 .img')
+				.find('div');
+
+		var text = 
+			$('#hdi2014 .info')
+				.children('*');
+
+		img.css({ 'top' : function(){
+			return ( img.parents('section').height() + img.height() );
+		} });
+		text.css({'left' : function(){
+			return ( text.parents('section').width() + text.width() );
+		} });
+
+
+		TweenMax.staggerTo( img, 0.7, {
+			top : 0,
+			delay : 0.2,
+			ease:Circ.easeOut
+		}, 0.25);		
+		TweenMax.staggerTo( text, 0.7, {
+			left : 0,
+			ease:Circ.easeOut
+		}, 0.25);
+	};
+
 	that.hd2013 = function(){
 		var $divs = $('.img div');
 		var $text = $('.info *');
@@ -683,6 +712,9 @@ var action = function () {
 				break;
 			case 'twentTwo' :
 				this.hdi2013();
+				break;
+			case 'twentFive' :
+				this.hdi2014();
 				break;
 			case 'tweentyThree' :
 				this.historyAll();
